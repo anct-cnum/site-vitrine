@@ -2,7 +2,7 @@ import React from 'react';
 import { menuActions } from '../actions';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import logo from '../assets/brands/logo-rf-conseiller-numerique.svg';
+import logo from '../assets/brands/logo-rf-conseiller-numerique-min.svg';
 import Menu from './Menu';
 
 function Header() {

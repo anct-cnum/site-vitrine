@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { menuActions } from '../actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, Link } from 'react-router-dom';
@@ -8,7 +8,9 @@ function Menu() {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  const burgerMenuHidden = useSelector(state => state.menu.hiddenBurgerMenu);
+  const burgerMenuHidden = useSelector(state => state.menu?.hiddenBurgerMenu);
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [changedMenu, setIsChangedMenu] = useState(false);
 
   const urlCartographie = process.env.REACT_APP_CARTOGRAPHIE_URL;
   const urlBackoffice = process.env.REACT_APP_BACKOFFICE_URL;
@@ -19,12 +21,27 @@ function Menu() {
     dispatch(menuActions.toggleBurgerMenu());
   };
 
-  //Fermeture du burger menu au changement de route
+  //Fermeture du burger menu et fermeture des menus ouverts au changement de route
   useEffect(() => {
     if (burgerMenuHidden === false) {
       dispatch(menuActions.toggleBurgerMenu());
     }
+    setActiveMenu(null);
   }, [location.pathname]);
+
+  //Trick pour contourner la mauvaise gestion du DSFR pour les menus déroulants
+  useEffect(() => {
+    if (changedMenu !== false) {
+      setTimeout(() => {
+        setActiveMenu(changedMenu);
+        setIsChangedMenu(false);
+      }, 60);
+    }
+  }, [changedMenu]);
+
+  const onClickMenu = e => {
+    setIsChangedMenu(e.target?.id);
+  };
 
   return (
     <div className={`fr-header__menu ${burgerMenuHidden ? 'fr-modal' : ''}`} id="modal-870" aria-labelledby="fr-btn-menu-mobile-4">
@@ -34,9 +51,16 @@ function Menu() {
         <nav className="fr-nav fr-display--none-lg" id="navigation-869" role="navigation" aria-label="Menu principal">
           <ul className="fr-nav__list">
             <li className="fr-nav__item">
-              <button className="fr-nav__btn" aria-expanded="false" aria-controls="menu-home"
-                {...(location.pathname.startsWith('/accueil') ? { 'aria-current': true } : {})}>Accueil</button>
-              <div className="fr-collapse fr-menu" id="menu-home">
+              <button
+                id="home"
+                className="fr-nav__btn"
+                aria-expanded={ activeMenu === 'home' }
+                aria-controls="menu-home"
+                onClick={onClickMenu}
+                {...(location.pathname.startsWith('/accueil') ? { 'aria-current': true } : {})}>
+                  Accueil
+              </button>
+              <div className={`fr-collapse fr-menu ${activeMenu === 'home' ? 'fr-collapse--expanded' : ''}`} id="menu-home">
                 <ul className="fr-menu__list">
                   <li>
                     <Link to="/accueil" className="fr-nav__link"
@@ -52,8 +76,15 @@ function Menu() {
               <a className="fr-nav__link" href={urlCartographie} target="_self">Cartographie</a>
             </li>
             <li className="fr-nav__item">
-              <button className="fr-nav__btn" aria-expanded="false" aria-controls="menu-cnfs">Recrutement</button>
-              <div className="fr-collapse fr-menu" id="menu-cnfs">
+              <button
+                id="cnfs"
+                className="fr-nav__btn"
+                aria-expanded={ activeMenu === 'cnfs' }
+                aria-controls="menu-cnfs"
+                onClick={onClickMenu}>
+                  Recrutement
+              </button>
+              <div className={`fr-collapse fr-menu ${activeMenu === 'cnfs' ? 'fr-collapse--expanded' : ''}`} id="menu-cnfs">
                 <ul className="fr-menu__list">
                   <li>
                     <a className="fr-nav__link">&bull;&nbsp;Devenir CnFS</a>
@@ -65,8 +96,14 @@ function Menu() {
               </div>
             </li>
             <li className="fr-nav__item">
-              <button className="fr-nav__btn" aria-expanded="false" aria-controls="menu-pfs">Accès plateformes et gestion</button>
-              <div className="fr-collapse fr-menu" id="menu-pfs">
+              <button
+                id="pfs"
+                className="fr-nav__btn"
+                aria-expanded={ activeMenu === 'pfs' }
+                aria-controls="menu-pfs" onClick={onClickMenu}>
+                  Accès plateformes et gestion
+              </button>
+              <div className={`fr-collapse fr-menu ${activeMenu === 'pfs' ? 'fr-collapse--expanded' : ''}`} id="menu-pfs">
                 <ul className="fr-menu__list">
                   <li>
                     <a className="fr-nav__link" href={urlCoop} target="_blank" rel="noopener noreferrer">&bull;&nbsp;Connexion espace coop</a>

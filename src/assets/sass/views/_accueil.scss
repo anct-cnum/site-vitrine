@@ -1,3 +1,23 @@
 .accueil {
+  display: flex;
   flex-grow: 1;
+
+  .bluePart, .yellowPart {
+    display: flex;
+    flex: 1;
+  }
+
+  .yellowPart {
+    background: linear-gradient(to bottom, #FCC63A, #E2B133 78.47%, #987721 100% );
+  }
+
+  .bluePart {
+    background: linear-gradient(to top, #000091, #0A76F6 100% );
+  }
+
+  .logoFR {
+    position: fixed;
+    left: 48%;
+    margin-top: 2rem;
+  }
 }
