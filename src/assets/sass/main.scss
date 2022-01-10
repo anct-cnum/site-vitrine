@@ -1,0 +1,8 @@
+@use './views/accueil';
+@import '~@gouvfr/dsfr/dist/dsfr/dsfr.min.css';
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
