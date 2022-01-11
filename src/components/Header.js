@@ -21,7 +21,7 @@ function Header() {
             <div className="fr-header__brand fr-enlarge-link">
               <div className="fr-header__brand-top">
                 <div className="fr-header__logo">
-                  <Link to="/accueil" title="Accueil - Conseiller numérique France services">
+                  <Link to="/" title="Accueil - Conseiller numérique France services">
                     <p className="fr-logo">
                         République
                       <br />
