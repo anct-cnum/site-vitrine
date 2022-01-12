@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import './assets/js';
 import './assets/sass/main.scss';
 import Footer from './components/Footer';
-import Accueil from './views/Accueil';
+import Accueil from './views/accueil';
 import KitCommunication from './views/kit-communication';
 
 function App() {

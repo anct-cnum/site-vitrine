@@ -23,14 +23,14 @@ function Footer() {
             <ul className="fr-footer__content-list footerListCustom">
               <li className="fr-footer__content-item">
                 <Link to="/kit-communication" className="fr-footer__content-link">
-                  Kit de communication CnFS
+                  Kit de communication
                 </Link>
               </li>
               <li className="fr-footer__content-item">
                 <a className="fr-footer__content-link"
                   href="https://www.cohesion-territoires.gouv.fr/france-services"
                   target="_blank" rel="noopener noreferrer">
-                    Maison France services
+                    France services
                 </a>
               </li>
             </ul>
@@ -39,18 +39,16 @@ function Footer() {
         <div className="fr-footer__bottom">
           <ul className="fr-footer__bottom-list">
             <li className="fr-footer__bottom-item">
-              <a className="fr-footer__bottom-link" href="https://aide.conseiller-numerique.gouv.fr/fr/">FAQ</a>
+              <a className="fr-footer__bottom-link">Plan du site</a>
             </li>
             <li className="fr-footer__bottom-item">
-              <a className="fr-footer__bottom-link" href="accessibilite">Accessibilit&eacute; : non conforme</a>
+              <a className="fr-footer__bottom-link">Donn&eacute;es personnelles et cookies</a>
             </li>
             <li className="fr-footer__bottom-item">
-              <a className="fr-footer__bottom-link" href="mentions-legales">Mentions l&eacute;gales</a>
+              <a className="fr-footer__bottom-link">Accessibilit&eacute; : non conforme</a>
             </li>
             <li className="fr-footer__bottom-item">
-              <a className="fr-footer__bottom-link" href="https://cdn.conseiller-numerique.gouv.fr/CGU-Donn%C3%A9es_personnellesConseiller_Num%C3%A9rique.pdf">
-                Conditions g&eacute;n&eacute;rales d&rsquo;utilisation
-              </a>
+              <a className="fr-footer__bottom-link">Mentions l&eacute;gales</a>
             </li>
           </ul>
           <div className="fr-footer__bottom-copy">
