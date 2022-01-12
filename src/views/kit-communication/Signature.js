@@ -8,18 +8,19 @@ function Signature() {
       <div className="fr-col-10 fr-col-md-8 fr-mb-7w">
         <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-4.2">4.2&nbsp;&nbsp;Signature mail</h4>
         <p style={{ marginBottom: '24px' }}>
-          Ce fichier permet d&rsquo;enregistrer une signature mail personnalisée avec vos coordonnées,
-          l&rsquo;image doit être exportée au format GIF afin de pouvoir être insérée dans la signature des mails @conseiller-numerique.fr.
+          Ce fichier permet d&rsquo;enregistrer une signature mail personnalis&eacute;e avec vos coordonn&eacute;es,
+          l&rsquo;image doit &ecirc;tre export&eacute;e au format GIF afin de pouvoir &ecirc;tre ins&eacute;r&eacute;e dans la signature des mails
+          @conseiller-numerique.fr.
         </p>
         <p style={{ marginBottom: '0px' }}>
           <a
             href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/signature-mail-cnfs.tif"
-            title="Modèle signature TIF"
+            title="Mod&egrave;le signature TIF"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
             rel="noopener noreferrer">
-              Télécharger le modèle de signature mail au format Gimp et Photoshop (.tif).
+              T&eacute;l&eacute;charger le mod&egrave;le de signature mail au format Gimp et Photoshop (.tif).
           </a>
         </p>
       </div>

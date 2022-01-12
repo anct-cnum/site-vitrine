@@ -30,7 +30,7 @@ function KitCommunication() {
           <div className="fr-col-1"></div>
           <div className="fr-col-10 fr-mb-9w">
             <h2 className="fr-h1 fr-mb-9w" style={{ marginTop: '0', textAlign: 'center' }}>
-              Kit de communication Conseiller numérique France Services
+              Kit de communication Conseiller num&eacute;rique France Services
             </h2>
           </div>
         </div>

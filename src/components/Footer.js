@@ -10,8 +10,12 @@ function Footer() {
       <div className="fr-container">
         <div className="fr-footer__body">
           <div className="fr-footer__brand">
-            <Link to="/" title="République française">
-              <img src={logoRF} width="96px" alt="République Française. Liberté Égalité Fraternité." className="header__logo-rf" />
+            <Link to="/" title="R&eacute;publique française">
+              <img
+                src={logoRF}
+                width="96px"
+                alt="R&eacute;publique Française. Libert&eacute; &eacute;galit&eacute; Fraternit&eacute;."
+                className="header__logo-rf" />
               <img src={logoFR} alt="logo France Relance" className="logoFranceRelance" />
             </Link>
           </div>
@@ -38,14 +42,14 @@ function Footer() {
               <a className="fr-footer__bottom-link" href="https://aide.conseiller-numerique.gouv.fr/fr/">FAQ</a>
             </li>
             <li className="fr-footer__bottom-item">
-              <a className="fr-footer__bottom-link" href="accessibilite">Accessibilité : non conforme</a>
+              <a className="fr-footer__bottom-link" href="accessibilite">Accessibilit&eacute; : non conforme</a>
             </li>
             <li className="fr-footer__bottom-item">
-              <a className="fr-footer__bottom-link" href="mentions-legales">Mentions légales</a>
+              <a className="fr-footer__bottom-link" href="mentions-legales">Mentions l&eacute;gales</a>
             </li>
             <li className="fr-footer__bottom-item">
               <a className="fr-footer__bottom-link" href="https://cdn.conseiller-numerique.gouv.fr/CGU-Donn%C3%A9es_personnellesConseiller_Num%C3%A9rique.pdf">
-                Conditions générales d&rsquo;utilisation
+                Conditions g&eacute;n&eacute;rales d&rsquo;utilisation
               </a>
             </li>
           </ul>

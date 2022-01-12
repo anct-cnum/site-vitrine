@@ -31,7 +31,7 @@ function Menu() {
     setActiveMenu(null);
   }, [location.pathname]);
 
-  //Trick pour contourner la mauvaise gestion du DSFR pour les menus déroulants
+  //Trick pour contourner la mauvaise gestion du DSFR pour les menus d&eacute;roulants
   useEffect(() => {
     if (changedMenu !== false) {
       setTimeout(() => {
@@ -65,7 +65,7 @@ function Menu() {
               <div className={`fr-collapse fr-menu ${activeMenu === 'home' ? 'fr-collapse--expanded' : ''}`} id="menu-home">
                 <ul className="fr-menu__list">
                   <li>
-                    <a className="fr-nav__link">&bull;&nbsp;&Agrave; propos des conseillers numériques</a>
+                    <a className="fr-nav__link">&bull;&nbsp;&Agrave; propos des conseillers num&eacute;riques</a>
                   </li>
                   <li>
                     <a className="fr-nav__link">&bull;&nbsp;Le dispositif en chiffres</a>
@@ -89,12 +89,12 @@ function Menu() {
                 <ul className="fr-menu__list">
                   <li>
                     <a className="fr-nav__link" href={urlFormConseiller} target="_blank" rel="noopener noreferrer">
-                      &bull;&nbsp;Devenir conseiller numérique
+                      &bull;&nbsp;Devenir conseiller num&eacute;rique
                     </a>
                   </li>
                   <li>
                     <a className="fr-nav__link" href={urlFormStructure} target="_blank" rel="noopener noreferrer">
-                      &bull;&nbsp;Recruter un conseiller numérique
+                      &bull;&nbsp;Recruter un conseiller num&eacute;rique
                     </a>
                   </li>
                 </ul>
@@ -122,7 +122,7 @@ function Menu() {
                   </li>
                   <li>
                     <a className="fr-nav__link" href={`${urlBackoffice}?role=prefet`}
-                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace préfecture</a>
+                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace pr&eacute;fecture</a>
                   </li>
                 </ul>
               </div>

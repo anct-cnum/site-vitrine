@@ -21,16 +21,16 @@ function Header() {
             <div className="fr-header__brand fr-enlarge-link">
               <div className="fr-header__brand-top">
                 <div className="fr-header__logo">
-                  <Link to="/" title="Accueil - Conseiller numérique France services">
+                  <Link to="/" title="Accueil - Conseiller num&eacute;rique France services">
                     <p className="fr-logo">
-                        République
+                        R&eacute;publique
                       <br />
                         Française
                     </p>
                   </Link>
                 </div>
                 <div className="fr-header__operator">
-                  <img src={logo} className="fr-responsive-img" alt="Logo Conseiller numérique" />
+                  <img src={logo} className="fr-responsive-img" alt="Logo Conseiller num&eacute;rique" />
                 </div>
                 <div className="fr-header__navbar">
                   <button

@@ -9,26 +9,26 @@ function LogoTypes() {
         <div className="fr-col-10 fr-col-md-8">
           <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-2.2">2.2&nbsp;&nbsp;Logotypes</h4>
           <p style={{ marginBottom: '24px' }}>
-            <span className="boldText">Logo Conseiller numérique France Services&nbsp;:</span>
+            <span className="boldText">Logo Conseiller num&eacute;rique France Services&nbsp;:</span>
             <span style={{ display: 'block', marginTop: '24px' }}>
               <a
                 href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/logos-cnfs.zip"
-                title="logo Conseiller numérique France Services png"
+                title="logo Conseiller num&eacute;rique France Services png"
                 className="bleu-france"
                 style={{ boxShadow: 'none' }}
                 target="_blank"
                 rel="noopener noreferrer">
-                  Télécharger le logo Conseiller numérique France Services aux formats PNG (petit, moyen, grand).
+                  T&eacute;l&eacute;charger le logo Conseiller num&eacute;rique France Services aux formats PNG (petit, moyen, grand).
               </a>
               <br/>
               <a
                 href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/logo-cnfs.eps"
-                title="logo Conseiller numérique France Services eps"
+                title="logo Conseiller num&eacute;rique France Services eps"
                 className="bleu-france"
                 style={{ boxShadow: 'none' }}
                 target="_blank"
                 rel="noopener noreferrer">
-                  Télécharger le logo Conseiller numérique France Services au format EPS (vectoriel).
+                  T&eacute;l&eacute;charger le logo Conseiller num&eacute;rique France Services au format EPS (vectoriel).
               </a>
             </span>
           </p>
@@ -44,25 +44,25 @@ function LogoTypes() {
         <div className="fr-col-1"></div>
         <div className="fr-col-10 fr-col-md-8">
           <p style={{ marginBottom: '24px' }}>
-            <span className="boldText">Logo Incluant le bloc Marianne (réservé aux communications institutionnelles)&nbsp;:</span>
+            <span className="boldText">Logo Incluant le bloc Marianne (r&eacute;serv&eacute; aux communications institutionnelles)&nbsp;:</span>
             <span style={{ display: 'block', marginTop: '24px' }}>
               <a
                 href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/logo-rf-conseiller-numerique-1280px.png"
-                title="logo Conseiller numérique France Services png avec bloc Marianne"
+                title="logo Conseiller num&eacute;rique France Services png avec bloc Marianne"
                 className="bleu-france"
                 style={{ boxShadow: 'none' }}
                 target="_blank" rel="noopener noreferrer">
-                  Télécharger le logo Conseiller numérique France Services incluant le bloc Marianne, format PNG.
+                  T&eacute;l&eacute;charger le logo Conseiller num&eacute;rique France Services incluant le bloc Marianne, format PNG.
               </a>
               <br/>
               <a
                 href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/logo-rf-conseiller-numerique.eps"
-                title="logo Conseiller numérique France Services eps avec bloc Marianne"
+                title="logo Conseiller num&eacute;rique France Services eps avec bloc Marianne"
                 className="bleu-france"
                 style={{ boxShadow: 'none' }}
                 target="_blank"
                 rel="noopener noreferrer">
-                  Télécharger le logo Conseiller numérique France Services incluant le bloc Marianne, format EPS.
+                  T&eacute;l&eacute;charger le logo Conseiller num&eacute;rique France Services incluant le bloc Marianne, format EPS.
               </a>
             </span>
           </p>
@@ -82,12 +82,12 @@ function LogoTypes() {
             <span style={{ display: 'block', marginTop: '24px' }}>
               <a
                 href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/logo-cnfs-blanc-1080px.png"
-                title="logo Conseiller numérique France Services fond transparent eps"
+                title="logo Conseiller num&eacute;rique France Services fond transparent eps"
                 className="bleu-france"
                 style={{ boxShadow: 'none' }}
                 target="_blank"
                 rel="noopener noreferrer">
-                  Télécharger le logo Conseiller numérique France Services blanc au format PNG.
+                  T&eacute;l&eacute;charger le logo Conseiller num&eacute;rique France Services blanc au format PNG.
               </a>
             </span>
           </p>
@@ -112,10 +112,10 @@ function LogoTypes() {
                 style={{ boxShadow: 'none' }}
                 target="_blank"
                 rel="noopener noreferrer">
-                  Télécharger le logo France Relance au format PNG (taille moyenne).
+                  T&eacute;l&eacute;charger le logo France Relance au format PNG (taille moyenne).
               </a>
               <br/>
-              <span>Accéder au kit de communication du Plan de Relance&nbsp;:</span>
+              <span>Acc&eacute;der au kit de communication du Plan de Relance&nbsp;:</span>
               <br/>
               <a
                 href="https://www.economie.gouv.fr/plan-de-relance/kit-de-communication"

@@ -8,28 +8,28 @@ function CartesVisite() {
       <div className="fr-col-10 fr-col-md-8 fr-mb-7w">
         <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-4.1">4.1&nbsp;&nbsp;Cartes de visite imprimables</h4>
         <p style={{ marginBottom: '24px' }}>
-          &Agrave; destination des conseillers débutant leur mission, ou souhaitant mettre à jour leurs informations professionnelles,
-          ce fichier permet de personnaliser et d&rsquo;imprimer dix cartes de visites par planche (format de papier recommandé : bristol &rsaquo; 200g).
+          &Agrave; destination des conseillers d&eacute;butant leur mission, ou souhaitant mettre &agrave; jour leurs informations professionnelles,
+          ce fichier permet de personnaliser et d&rsquo;imprimer dix cartes de visites par planche (format de papier recommand&eacute; : bristol &rsaquo; 200g).
         </p>
         <p style={{ marginBottom: '0px' }}>
           <a
             href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/gabarit-carte-de-visite-cnfs-word.docx"
-            title="Modèle carte visite DOCX"
+            title="Mod&egrave;le carte visite DOCX"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
             rel="noopener noreferrer">
-              Télécharger le modèle de carte de visite Conseiller numérique France Services au format Microsoft Word (.docx).
+              T&eacute;l&eacute;charger le mod&egrave;le de carte de visite Conseiller num&eacute;rique France Services au format Microsoft Word (.docx).
           </a>
           <br/>
           <a
             href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/gabarit-carte-de-visite-openoffice.odt"
-            title="Modèle carte visite ODT"
+            title="Mod&egrave;le carte visite ODT"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
             rel="noopener noreferrer">
-              Télécharger le modèle de carte de visite Conseiller numérique France Services au format Open Office (.odt).
+              T&eacute;l&eacute;charger le mod&egrave;le de carte de visite Conseiller num&eacute;rique France Services au format Open Office (.odt).
           </a>
         </p>
       </div>

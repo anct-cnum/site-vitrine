@@ -8,7 +8,7 @@ function CharteGraphique() {
       <div className="fr-col-10 fr-col-md-8 fr-mb-7w">
         <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-2.1">2.1&nbsp;&nbsp;Charte Graphique</h4>
         <p style={{ marginBottom: '24px' }}>
-          Ce document détaille les consignes d&rsquo;utilisation du logo Conseiller numérique Frances Services et ses cas d&rsquo;usages
+          Ce document d&eacute;taille les consignes d&rsquo;utilisation du logo Conseiller num&eacute;rique Frances Services et ses cas d&rsquo;usages
           pour la production de supports de communication en lien avec le dispositif&nbsp;:
         </p>
         <p style={{ marginBottom: '0' }}>
@@ -19,7 +19,7 @@ function CharteGraphique() {
             style={{ boxShadow: 'none' }}
             target="_blank"
             rel="noopener noreferrer">
-              Télécharger la charte graphique Conseiller numérique France Services au format PDF.
+              T&eacute;l&eacute;charger la charte graphique Conseiller num&eacute;rique France Services au format PDF.
           </a>
         </p>
       </div>
