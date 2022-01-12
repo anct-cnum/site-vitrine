@@ -1,0 +1,28 @@
+.fr-footer {
+  box-shadow: none!important;
+
+  .logoFranceRelance {
+    height: 70px;
+    margin: 0 0 15px 15px;
+  }
+
+  .fr-footer__brand {
+    flex-basis: 50%;
+  }
+
+  .footerContentCustom {
+    display: flex;
+    justify-content: flex-end;
+    flex-basis: 50%;
+  }
+
+  .footerListCustom {
+    flex-direction: column;
+  }
+
+  @media (max-width: 450px) {
+    .fr-footer__brand {
+      flex-basis: 100%;
+    }
+  }
+}

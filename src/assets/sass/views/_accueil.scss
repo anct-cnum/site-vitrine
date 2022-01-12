@@ -1,6 +1,12 @@
 .accueil {
+  min-height: 100vh;
   display: flex;
-  flex-grow: 1;
+  flex-direction: column;
+
+  .presentationPart {
+    display: flex;
+    flex-grow: 1;
+  }
 
   .bluePart, .yellowPart {
     display: flex;
@@ -15,9 +21,13 @@
     background: linear-gradient(to top, #000091, #0A76F6 100% );
   }
 
+  .logoPart {
+    display: flex;
+    justify-content: center;
+  }
+
   .logoFR {
-    position: fixed;
-    left: 48%;
+    position: absolute;
     margin-top: 2rem;
   }
 }

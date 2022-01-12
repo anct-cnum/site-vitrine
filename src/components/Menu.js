@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { menuActions } from '../actions';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function Menu() {
 
@@ -16,6 +16,8 @@ function Menu() {
   const urlBackoffice = process.env.REACT_APP_BACKOFFICE_URL;
   const urlCoop = process.env.REACT_APP_COOP_URL;
   const urlCandidat = process.env.REACT_APP_CANDIDAT_URL;
+  const urlFormStructure = process.env.REACT_APP_FORMS_URL + '/structure/new';
+  const urlFormConseiller = process.env.REACT_APP_FORMS_URL + '/conseiller/new';
 
   const toggleBurgerMenu = () => {
     dispatch(menuActions.toggleBurgerMenu());
@@ -63,17 +65,16 @@ function Menu() {
               <div className={`fr-collapse fr-menu ${activeMenu === 'home' ? 'fr-collapse--expanded' : ''}`} id="menu-home">
                 <ul className="fr-menu__list">
                   <li>
-                    <Link to="/accueil" className="fr-nav__link"
-                      {...(location.pathname.startsWith('/accueil') ? { 'aria-current': 'page' } : {})}>&bull;&nbsp;L&rsquo;offre de services</Link>
+                    <a className="fr-nav__link">&bull;&nbsp;&Agrave; propos des conseillers numériques</a>
                   </li>
                   <li>
-                    <a className="fr-nav__link">&bull;&nbsp;Le dispositif CnFS</a>
+                    <a className="fr-nav__link">&bull;&nbsp;Le dispositif en chiffres</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li className="fr-nav__item">
-              <a className="fr-nav__link" href={urlCartographie} target="_self">Cartographie</a>
+              <a className="fr-nav__link" href={urlCartographie} target="_self">Carte</a>
             </li>
             <li className="fr-nav__item">
               <button
@@ -87,10 +88,14 @@ function Menu() {
               <div className={`fr-collapse fr-menu ${activeMenu === 'cnfs' ? 'fr-collapse--expanded' : ''}`} id="menu-cnfs">
                 <ul className="fr-menu__list">
                   <li>
-                    <a className="fr-nav__link">&bull;&nbsp;Devenir CnFS</a>
+                    <a className="fr-nav__link" href={urlFormConseiller} target="_blank" rel="noopener noreferrer">
+                      &bull;&nbsp;Devenir conseiller numérique
+                    </a>
                   </li>
                   <li>
-                    <a className="fr-nav__link">&bull;&nbsp;Recruter des CnFS</a>
+                    <a className="fr-nav__link" href={urlFormStructure} target="_blank" rel="noopener noreferrer">
+                      &bull;&nbsp;Recruter un conseiller numérique
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -101,30 +106,26 @@ function Menu() {
                 className="fr-nav__btn"
                 aria-expanded={ activeMenu === 'pfs' }
                 aria-controls="menu-pfs" onClick={onClickMenu}>
-                  Accès plateformes et gestion
+                  Mon compte
               </button>
               <div className={`fr-collapse fr-menu ${activeMenu === 'pfs' ? 'fr-collapse--expanded' : ''}`} id="menu-pfs">
                 <ul className="fr-menu__list">
                   <li>
-                    <a className="fr-nav__link" href={urlCoop} target="_blank" rel="noopener noreferrer">&bull;&nbsp;Connexion espace coop</a>
+                    <a className="fr-nav__link" href={urlCoop} target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace coop</a>
                   </li>
                   <li>
-                    <a className="fr-nav__link" href={urlCandidat} target="_blank" rel="noopener noreferrer">&bull;&nbsp;Connexion espace candidat</a>
+                    <a className="fr-nav__link" href={urlCandidat} target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace candidat</a>
                   </li>
                   <li>
                     <a className="fr-nav__link" href={`${urlBackoffice}?role=structure`}
-                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Connexion espace structure</a>
+                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace structure</a>
                   </li>
                   <li>
                     <a className="fr-nav__link" href={`${urlBackoffice}?role=prefet`}
-                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Connexion espace préfet</a>
+                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace préfecture</a>
                   </li>
                 </ul>
               </div>
-            </li>
-            <li className="fr-nav__item">
-              <Link to="/kit-communication" className="fr-nav__link"
-                {...(location.pathname.startsWith('/kit-communication') ? { 'aria-current': 'page' } : {})}>Kit de communication</Link>
             </li>
           </ul>
         </nav>
