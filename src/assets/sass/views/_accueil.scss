@@ -1,3 +1,5 @@
+@import '../colors/colors';
+
 .accueil {
   min-height: 100vh;
   display: flex;
@@ -14,11 +16,11 @@
   }
 
   .yellowPart {
-    background: linear-gradient(to bottom, #FCC63A, #E2B133 78.47%, #987721 100% );
+    background: linear-gradient(to bottom, $yellow-light, $yellow-medium 78.47%, $yellow-dark 100% );
   }
 
   .bluePart {
-    background: linear-gradient(to top, #000091, #0A76F6 100% );
+    background: linear-gradient(to top, $blue-france, $blue-light 100% );
   }
 
   .logoPart {

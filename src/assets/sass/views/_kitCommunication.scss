@@ -1,0 +1,91 @@
+@import '../colors/colors';
+
+.kit-communication  {
+
+  a[target=_blank]::after {
+    display: none; /* suppression du picto target blank */
+  }
+
+  .h4CustomKit {
+    margin-top: 0;
+    margin-bottom: 56px;
+    font-size: 24px;
+  }
+  
+  .h4CustomKit--secondary {
+    font-weight: 600;
+    margin-bottom: 24px;
+    font-size: 20px;
+  }
+
+  .boldText {
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .bleu-france {
+    color: $blue-france;
+  }
+
+  .summary-custom {
+    background-color: unset;
+    padding: 0;
+  }
+  
+  .summary-title-custom, .about-title-custom {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  .summary-list-custom {
+    padding: 0;
+  }
+  .summary-list-custom li {
+    margin: 1rem 0;
+  }
+  
+  .summary-list-custom li:first-child {
+    margin-top: 0;
+    padding: 0;
+  }
+  
+  .summary-link-custom {
+    padding: 0;
+  }
+  
+  .summary-link-custom-bold {
+    font-weight: 700;
+  }
+
+  .about-div {
+    height: 44%;
+    display: flex;
+  }
+  
+  .about-p {
+    align-self: flex-end;
+    border-top: 1px solid #9C9C9C;
+    padding-top: 32px;
+  }
+
+  @media (max-width: 767px) {
+
+    .preview-image {
+      text-align: center;
+    }
+
+    .preview-image-last {
+      margin-top: 48px;
+    }
+
+    .about-part {
+      margin-left: calc(100%/12);
+    }
+
+    .about-div {
+      height: 28%;
+    }
+
+  }
+
+}

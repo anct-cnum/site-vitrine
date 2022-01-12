@@ -59,7 +59,7 @@ function Menu() {
                 aria-expanded={ activeMenu === 'home' }
                 aria-controls="menu-home"
                 onClick={onClickMenu}
-                {...(location.pathname.startsWith('/accueil') ? { 'aria-current': true } : {})}>
+                {...(location.pathname.startsWith('/accueil') || location.pathname === '/' ? { 'aria-current': true } : {})}>
                   Accueil
               </button>
               <div className={`fr-collapse fr-menu ${activeMenu === 'home' ? 'fr-collapse--expanded' : ''}`} id="menu-home">
