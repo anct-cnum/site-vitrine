@@ -1,10 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './assets/js';
 import './assets/sass/main.scss';
 import Footer from './components/Footer';
 import Accueil from './views/Accueil';
-import KitCommunication from './views/KitCommunication';
+import KitCommunication from './views/kit-communication';
 
 function App() {
   return (
@@ -13,9 +13,9 @@ function App() {
         <Routes>
           <Route path="/kit-communication" element={<KitCommunication />}/>
           <Route index element={<Accueil />}/>
-          <Route path="*" element={<Accueil />}/>
+          <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
-        <Footer/>
+        <Footer />
       </Router>
     </div>
   );

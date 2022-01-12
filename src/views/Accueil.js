@@ -6,7 +6,7 @@ function Accueil() {
 
   return (
     <div className="accueil">
-      <Header/>
+      <Header />
       <div className="presentationPart">
         <div className="yellowPart"></div>
         <div className="logoPart">
