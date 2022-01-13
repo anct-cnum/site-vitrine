@@ -8,6 +8,20 @@
   .presentationPart {
     display: flex;
     flex-grow: 1;
+
+    .yellowTitle, .blueTitle {
+      font-weight: 600;
+      font-size: 72px;
+      line-height: 80px;
+      color: $white;
+      display: flex;
+      align-items: center;
+      flex-basis: 38rem;
+      box-shadow: none;
+    }
+    .blueTitle {
+      margin-left: calc(50%/12);
+    }
   }
 
   .bluePart, .yellowPart {
@@ -17,6 +31,7 @@
 
   .yellowPart {
     background: linear-gradient(to bottom, $yellow-light, $yellow-medium 78.47%, $yellow-dark 100% );
+    justify-content: flex-end;
   }
 
   .bluePart {
@@ -31,5 +46,22 @@
   .logoFR {
     position: absolute;
     margin-top: 2rem;
+  }
+}
+
+.themes {
+  .circleBlue {
+    width: 180px;
+    height: 180px;
+    border-radius: calc(180px/2);
+    background: $blue-cumulus;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .pictoEchanger {
+      width: 56px;
+      height: 44px;
+    }
   }
 }
