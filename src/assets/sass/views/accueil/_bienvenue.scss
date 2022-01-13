@@ -1,6 +1,6 @@
-@import '../colors/colors';
+@import '../../colors/colors';
 
-.accueil {
+.bienvenue {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,12 +15,12 @@
       line-height: 80px;
       color: $white;
       display: flex;
-      align-items: center;
+      padding-top: 10rem;
       flex-basis: 38rem;
       box-shadow: none;
     }
     .blueTitle {
-      margin-left: calc(50%/12);
+      padding-left: calc(50%/12);
     }
   }
 
@@ -47,21 +47,24 @@
     position: absolute;
     margin-top: 2rem;
   }
-}
 
-.themes {
-  .circleBlue {
-    width: 180px;
-    height: 180px;
-    border-radius: calc(180px/2);
-    background: $blue-cumulus;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  @media (max-width: 768px) {
+    .yellowTitle {
+      padding-left: calc(50%/12);
+    }
 
-    .pictoEchanger {
-      width: 56px;
-      height: 44px;
+    .presentationPart {
+      .yellowTitle, .blueTitle {
+        font-size: 48px;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .presentationPart {
+      .yellowTitle, .blueTitle {
+        font-size: 28px;
+      }
     }
   }
 }
