@@ -13,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/kit-communication" element={<KitCommunication />}/>
           <Route index element={<Accueil />}/>
+          <Route path="/accueil" element={<Accueil />}/> {/* nécessaire pour les ancres */}
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
         <Footer />
