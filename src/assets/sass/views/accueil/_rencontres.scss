@@ -79,4 +79,10 @@ $-picto: 56px;
       width: unset;
     }
   }
+
+  @media (max-width: 576px) {
+    .responsiveSquare {
+      margin: 7rem auto
+    }
+  }
 }
