@@ -10,13 +10,13 @@ function Footer() {
       <div className="fr-container">
         <div className="fr-footer__body">
           <div className="fr-footer__brand">
-            <Link to="/" title="R&eacute;publique française">
+            <Link to="/" title="R&eacute;publique Fran&ccedil;aise">
               <img
                 src={logoRF}
                 width="96px"
-                alt="R&eacute;publique Française. Libert&eacute; &eacute;galit&eacute; Fraternit&eacute;."
+                alt="R&eacute;publique Fran&ccedil;aise. Libert&eacute; &eacute;galit&eacute; Fraternit&eacute;."
                 className="header__logo-rf" />
-              <img src={logoFR} alt="logo France Relance" className="logoFranceRelance" />
+              <img src={logoFR} alt="Logo France Relance" className="logoFranceRelance" />
             </Link>
           </div>
           <div className="fr-footer__content footerContentCustom">

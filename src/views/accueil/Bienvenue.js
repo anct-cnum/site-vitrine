@@ -17,7 +17,7 @@ function Bienvenue() {
             </a>
           </div>
           <div className="logoPart">
-            <img src={logoFR} width="70px" className="logoFR" />
+            <img src={logoFR} alt="Logo France Relance" width="70px" className="logoFR" />
           </div>
           <div className="bluePart">
             <a className="fr-nav__link blueTitle" href="#ancre-themes">&Agrave; propos des conseillers num&eacute;riques</a>

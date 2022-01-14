@@ -4,9 +4,9 @@ import pictosList from '../../assets/pictos';
 function Themes() {
 
   return (
-    <div className="themes">
-      <div className="fr-container fr-mt-4w fr-mb-12w">
-        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center fr-mb-9w">
+    <div className="themes fr-py-9w">
+      <div className="fr-container">
+        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
           <div className="fr-col-1"></div>
           <div className="fr-col-10">
             <h2 className="fr-h1" style={{ textAlign: 'center' }} id="ancre-themes">
