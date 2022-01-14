@@ -74,8 +74,8 @@ function Themes() {
           <Circle
             className="circlePurple"
             pictoUrl=""
-            altImg="Découvrir les opportunit&eacute;s"
-            title={<Fragment>Découvrir<br />les opportunit&eacute;s<br />de mon territoire</Fragment>} />
+            altImg="D&eacute;couvrir les opportunit&eacute;s"
+            title={<Fragment>D&eacute;couvrir<br />les opportunit&eacute;s<br />de mon territoire</Fragment>} />
           <div className="fr-col-5 hideColumn"></div>
         </div>
       </div>

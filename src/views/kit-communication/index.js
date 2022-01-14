@@ -19,7 +19,7 @@ function KitCommunication() {
 
   //Effet de scroll car cette vue est accessible via le footer
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0 });
   });
 
   return (

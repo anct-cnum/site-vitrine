@@ -39,16 +39,17 @@ function Footer() {
         <div className="fr-footer__bottom">
           <ul className="fr-footer__bottom-list">
             <li className="fr-footer__bottom-item">
-              <a className="fr-footer__bottom-link">Plan du site</a>
+              <a href="https://cdn.conseiller-numerique.gouv.fr/CGU-Donn%C3%A9es_personnellesConseiller_Num%C3%A9rique.pdf"
+                className="fr-footer__bottom-link"
+                target="_blank" rel="noopener noreferrer">
+                  Donn&eacute;es personnelles et cookies
+              </a>
             </li>
             <li className="fr-footer__bottom-item">
-              <a className="fr-footer__bottom-link">Donn&eacute;es personnelles et cookies</a>
+              <Link to="/accessibilite" className="fr-footer__bottom-link">Accessibilit&eacute; : non conforme</Link>
             </li>
             <li className="fr-footer__bottom-item">
-              <a className="fr-footer__bottom-link">Accessibilit&eacute; : non conforme</a>
-            </li>
-            <li className="fr-footer__bottom-item">
-              <a className="fr-footer__bottom-link">Mentions l&eacute;gales</a>
+              <Link to="/mentions-legales" className="fr-footer__bottom-link">Mentions l&eacute;gales</Link>
             </li>
           </ul>
           <div className="fr-footer__bottom-copy">

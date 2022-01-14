@@ -5,6 +5,8 @@ import './assets/sass/main.scss';
 import Footer from './components/Footer';
 import Accueil from './views/accueil';
 import KitCommunication from './views/kit-communication';
+import MentionsLegales from './views/MentionsLegales';
+import Accessibilite from './views/Accessibilite';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/kit-communication" element={<KitCommunication />}/>
+          <Route path="/mentions-legales" element={<MentionsLegales />}/>
+          <Route path="/accessibilite" element={<Accessibilite />}/>
           <Route index element={<Accueil />}/>
           <Route path="/accueil" element={<Accueil />}/> {/* nécessaire pour les ancres */}
           <Route path="*" element={<Navigate to="/" />}/>
