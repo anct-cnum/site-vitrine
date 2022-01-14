@@ -21,7 +21,7 @@ $-picto: 56px;
   }
   
   .squareRed {
-    background: $red;
+    background: $pink-tuile;
   }
 
   .squareYellow {
@@ -77,6 +77,12 @@ $-picto: 56px;
 
     .titleSquare {
       width: unset;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .responsiveSquare {
+      margin: 7rem auto
     }
   }
 }

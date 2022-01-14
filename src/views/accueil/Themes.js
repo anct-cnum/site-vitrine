@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Circle from '../../shapes/Circle';
 import pictosList from '../../assets/pictos';
 
 function Themes() {
@@ -18,84 +19,63 @@ function Themes() {
         {/* CERCLE BLEU FONCE */}
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
           <div className="fr-col-5 hideColumn"></div>
-          <div className="fr-col-sm-12 fr-col-md-2 responsiveCircle">
-            <div className="circle circleBlueDark">
-              <img src={pictosList.pictoEchanger} alt="&Eacute;changer avec mes proches" className="picto" />
-            </div>
-            <div className="titlePart">
-              <span className="titleCircle">&Eacute;changer avec<br />mes proches</span>
-            </div>
-          </div>
+          <Circle
+            className="circleBlueDark"
+            pictoUrl={pictosList.pictoEchanger}
+            altImg="&Eacute;changer avec mes proches"
+            title={<Fragment>&Eacute;changer avec<br />mes proches</Fragment>} />
           <div className="fr-col-5 hideColumn"></div>
         </div>
         {/* CERCLES JAUNE ET ROUGE */}
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineCircle">
           <div className="fr-col-2 hideColumn"></div>
-          <div className="fr-col-sm-12 fr-col-md-2 responsiveCircle">
-            <div className="circle circleYellow">
-              <img src={pictosList.pictoTrouverEmploi} alt="Trouver un emploi" className="picto" />
-            </div>
-            <div className="titlePart">
-              <span className="titleCircle">Trouver un emploi<br />ou une formation</span>
-            </div>
-          </div>
+          <Circle
+            className="circleYellow"
+            pictoUrl={pictosList.pictoTrouverEmploi}
+            altImg="Trouver un emploi"
+            title={<Fragment>Trouver un emploi<br />ou une formation</Fragment>} />
           <div className="fr-col-4 hideColumn"></div>
-          <div className="fr-col-sm-12 fr-col-md-2 responsiveCircle">
-            <div className="circle circleRed">
-              <img src={pictosList.pictoAccompagnerEnfant} alt="Accompagner mon enfant" className="picto" />
-            </div>
-            <div className="titlePart">
-              <span className="titleCircle">Accompagner mon<br />enfant</span>
-            </div>
-          </div>
+          <Circle
+            className="circleRed"
+            pictoUrl={pictosList.pictoAccompagnerEnfant}
+            altImg="Accompagner mon enfant"
+            title={<Fragment>Accompagner mon<br />enfant</Fragment>} />
           <div className="fr-col-2 hideColumn"></div>
         </div>
         {/* CERCLE BLEU CLAIR */}
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineCircle">
           <div className="fr-col-5 hideColumn"></div>
-          <div className="fr-col-sm-12 fr-col-md-2 responsiveCircle">
-            <div className="circle circleBlueLight">
-              <img src={pictosList.pictoDemarcheLigne} alt="D&eacute;marches en ligne" className="picto" />
-            </div>
-            <div className="titlePart">
-              <span className="titleCircle">R&eacute;aliser mes<br />d&eacute;marches en ligne</span>
-            </div>
-          </div>
+          <Circle
+            className="circleBlueLight"
+            pictoUrl={pictosList.pictoDemarcheLigne}
+            altImg="D&eacute;marches en ligne"
+            title={<Fragment>R&eacute;aliser mes<br />d&eacute;marches en ligne</Fragment>} />
           <div className="fr-col-5 hideColumn"></div>
         </div>
         {/* CERCLES MARRON ET VERT */}
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineCircle">
           <div className="fr-col-2 hideColumn"></div>
-          <div className="fr-col-sm-12 fr-col-md-2 responsiveCircle">
-            <div className="circle circleBrown">
-              <img src="" alt="Opportunit&eacute;s du num&eacute;rique" className="picto" />
-            </div>
-            <div className="titlePart">
-              <span className="titleCircle">Utiliser les<br />opportunit&eacute;s<br />du num&eacute;rique</span>
-            </div>
-          </div>
+          <Circle
+            className="circleBrown"
+            pictoUrl=""
+            altImg="Opportunit&eacute;s du num&eacute;rique"
+            title={<Fragment>Utiliser les<br />opportunit&eacute;s<br />du num&eacute;rique</Fragment>} />
           <div className="fr-col-4 hideColumn"></div>
-          <div className="fr-col-sm-12 fr-col-md-2 responsiveCircle">
-            <div className="circle circleGreen">
-              <img src={pictosList.pictoContenuNum} alt="Prendre en main l&rsquo;outil num&eacute;rique" className="picto" />
-            </div>
-            <div className="titlePart">
-              <span className="titleCircle">Prendre en main<br />l&rsquo;outil num&eacute;rique</span>
-            </div>
-          </div>
+          <Circle
+            className="circleGreen"
+            pictoUrl={pictosList.pictoContenuNum}
+            altImg="Prendre en main l&rsquo;outil num&eacute;rique"
+            title={<Fragment>Prendre en main<br />l&rsquo;outil num&eacute;rique</Fragment>} />
           <div className="fr-col-2 hideColumn"></div>
         </div>
         {/* CERCLE VIOLET */}
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineCircle">
           <div className="fr-col-5 hideColumn"></div>
-          <div className="fr-col-sm-12 fr-col-md-2 responsiveCircle">
-            <div className="circle circlePurple">
-              <img src="" alt="Découvrir les opportunit&eacute;s" className="picto" />
-            </div>
-            <div className="titlePart">
-              <span className="titleCircle">Découvrir<br />les opportunit&eacute;s<br />de mon territoire</span>
-            </div>
-          </div>
+          <Circle
+            className="circlePurple"
+            pictoUrl=""
+            altImg="Découvrir les opportunit&eacute;s"
+            title={<Fragment>Découvrir<br />les opportunit&eacute;s<br />de mon territoire</Fragment>} />
           <div className="fr-col-5 hideColumn"></div>
         </div>
       </div>
