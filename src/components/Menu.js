@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { menuActions } from '../actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 function Menu() {
 
@@ -65,7 +66,7 @@ function Menu() {
               <div className={`fr-collapse fr-menu ${activeMenu === 'home' ? 'fr-collapse--expanded' : ''}`} id="menu-home">
                 <ul className="fr-menu__list">
                   <li>
-                    <a href="/accueil/#ancre-themes" className="fr-nav__link">&bull;&nbsp;&Agrave; propos des conseillers num&eacute;riques</a>
+                    <HashLink to="/accueil/#ancre-themes" className="fr-nav__link">&bull;&nbsp;&Agrave; propos des conseillers num&eacute;riques</HashLink>
                   </li>
                   <li>
                     <a className="fr-nav__link">&bull;&nbsp;Le dispositif en chiffres</a>
