@@ -17,7 +17,6 @@ function App() {
           <Route path="/mentions-legales" element={<MentionsLegales />}/>
           <Route path="/accessibilite" element={<Accessibilite />}/>
           <Route index element={<Accueil />}/>
-          <Route path="/accueil" element={<Accueil />}/> {/* nécessaire pour les ancres */}
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
         <Footer />
