@@ -65,6 +65,13 @@ $-picto: 56px;
     padding-top: 12px;
   }
 
+  .tooltip {
+    padding: 18px;
+    border-radius: 10px;
+    line-height: 22px;
+    font-size: 16px;
+  }
+
   @media (max-width: 1200px) {
     .titleCircle {
       padding-left: 50px;
@@ -107,6 +114,10 @@ $-picto: 56px;
     .circle {
       width: 12rem;
       height: 12rem;
+    }
+
+    .tooltip {
+      width: 300px;
     }
   }
 }
