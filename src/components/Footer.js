@@ -5,12 +5,17 @@ import logoFR from '../assets/brands/logo-france-relance-alt-min.svg';
 
 function Footer() {
 
+  const onClickLink = () => {
+    //Effet de scroll
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <footer className="fr-footer" role="contentinfo" id="footer">
       <div className="fr-container">
         <div className="fr-footer__body">
           <div className="fr-footer__brand">
-            <Link to="/" title="R&eacute;publique Fran&ccedil;aise">
+            <Link to="/" title="R&eacute;publique Fran&ccedil;aise" onClick={onClickLink}>
               <img
                 src={logoRF}
                 width="96px"
@@ -22,7 +27,7 @@ function Footer() {
           <div className="fr-footer__content footerContentCustom">
             <ul className="fr-footer__content-list footerListCustom">
               <li className="fr-footer__content-item">
-                <Link to="/kit-communication" className="fr-footer__content-link">
+                <Link to="/kit-communication" className="fr-footer__content-link" onClick={onClickLink}>
                   Kit de communication
                 </Link>
               </li>
@@ -46,10 +51,10 @@ function Footer() {
               </a>
             </li>
             <li className="fr-footer__bottom-item">
-              <Link to="/accessibilite" className="fr-footer__bottom-link">Accessibilit&eacute; : non conforme</Link>
+              <Link to="/accessibilite" className="fr-footer__bottom-link" onClick={onClickLink}>Accessibilit&eacute; : non conforme</Link>
             </li>
             <li className="fr-footer__bottom-item">
-              <Link to="/mentions-legales" className="fr-footer__bottom-link">Mentions l&eacute;gales</Link>
+              <Link to="/mentions-legales" className="fr-footer__bottom-link" onClick={onClickLink}>Mentions l&eacute;gales</Link>
             </li>
           </ul>
           <div className="fr-footer__bottom-copy">

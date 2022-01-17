@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { menuActions } from '../actions';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 function Menu() {
@@ -17,8 +17,6 @@ function Menu() {
   const urlBackoffice = process.env.REACT_APP_BACKOFFICE_URL;
   const urlCoop = process.env.REACT_APP_COOP_URL;
   const urlCandidat = process.env.REACT_APP_CANDIDAT_URL;
-  const urlFormStructure = process.env.REACT_APP_FORMS_URL + '/structure/new';
-  const urlFormConseiller = process.env.REACT_APP_FORMS_URL + '/conseiller/new';
 
   const toggleBurgerMenu = () => {
     dispatch(menuActions.toggleBurgerMenu());
@@ -83,20 +81,27 @@ function Menu() {
                 className="fr-nav__btn"
                 aria-expanded={ activeMenu === 'cnfs' }
                 aria-controls="menu-cnfs"
-                onClick={onClickMenu}>
+                onClick={onClickMenu}
+                {...(location.pathname.startsWith('/aide-candidat') || location.pathname.startsWith('/aide-structure') ? { 'aria-current': true } : {})}>
                   Recrutement
               </button>
               <div className={`fr-collapse fr-menu ${activeMenu === 'cnfs' ? 'fr-collapse--expanded' : ''}`} id="menu-cnfs">
                 <ul className="fr-menu__list">
                   <li>
-                    <a className="fr-nav__link" href={urlFormConseiller} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      to="/aide-candidat"
+                      className="fr-nav__link"
+                      {...(location.pathname.startsWith('/aide-candidat') ? { 'aria-current': 'page' } : {})}>
                       &bull;&nbsp;Devenir conseiller num&eacute;rique
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="fr-nav__link" href={urlFormStructure} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      to="/aide-structure"
+                      className="fr-nav__link"
+                      {...(location.pathname.startsWith('/aide-structure') ? { 'aria-current': 'page' } : {})}>
                       &bull;&nbsp;Recruter un conseiller num&eacute;rique
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

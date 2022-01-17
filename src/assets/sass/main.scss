@@ -1,5 +1,7 @@
 @use './views/accueil';
 @use './views/kitCommunication';
 @use './views/mentionsLegales';
+@use './views/aide';
 @use './components/footer';
+@use './components/menu';
 @import '~@gouvfr/dsfr/dist/dsfr/dsfr.min.css';
