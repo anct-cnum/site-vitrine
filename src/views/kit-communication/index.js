@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from '../../components/Header';
 import Sommaire from './Sommaire';
 import Presentation from './Presentation';
@@ -16,11 +16,6 @@ import Signature from './Signature';
 import Etiquettes from './Etiquettes';
 
 function KitCommunication() {
-
-  //Effet de scroll car cette vue est accessible via le footer
-  useEffect(() => {
-    window.scrollTo({ top: 0 });
-  });
 
   return (
     <div className="kit-communication">

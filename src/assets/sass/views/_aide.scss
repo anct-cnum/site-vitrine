@@ -1,0 +1,51 @@
+@import '../colors/colors';
+
+.aideCandidat, .aideStructure {
+
+  a[target=_blank]::after {
+    display: none; /* suppression du picto target blank */
+  }
+
+  .bleu-secondaire {
+    color: $blue-secondary;
+  }
+
+  .bleu-conseiller {
+    color: $blue-medium;
+  }
+
+  .red-text {
+    color: $red-dark;
+  }
+
+  .buttonCustom {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    min-height: 2.5rem;
+    line-height: 1.25rem;
+    text-align: center;
+    background: $white;
+    display: inline-block;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 50px;
+    width: 70%;
+    box-shadow: none;
+  }
+
+  .blueButtonCustom {
+    color: $blue-medium;
+    border: 1px solid $blue-medium;
+  }
+
+  .greyButtonCustom {
+    color: $grey;
+    border: 1px solid $grey;
+  }
+
+  .redButtonCustom {
+    color: $red-dark;
+    border: 1px solid $red-dark;
+  }
+  
+}

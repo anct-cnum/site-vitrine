@@ -1,12 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 
 function Accessibilite() {
-
-  //Effet de scroll car cette vue est accessible via le footer
-  useEffect(() => {
-    window.scrollTo({ top: 0 });
-  });
 
   return (
     <div className="accessibilite">
