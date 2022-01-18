@@ -1,0 +1,18 @@
+.aide {
+  .rowCustom {
+    align-items: center;
+  }
+
+  .logoFS {
+    height: 96px;
+    width: 78px;
+  }
+
+  @media (max-width: 576px) {
+
+    .rowCustom {
+      flex-direction: column;
+    }
+
+  }
+}

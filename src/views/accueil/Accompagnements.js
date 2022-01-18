@@ -4,7 +4,7 @@ import pictosList from '../../assets/pictos';
 function Accompagnements() {
 
   return (
-    <div className="accompagnements fr-mb-12w">
+    <div className="accompagnements">
       <div className="fr-container">
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center fr-mb-4w">
           <div className="fr-col-1"></div>
