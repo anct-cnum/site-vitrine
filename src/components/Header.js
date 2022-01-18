@@ -51,6 +51,7 @@ function Header() {
                 <ul className="fr-links-group">
                   <li>
                     <a
+                      title="Aide"
                       className="fr-link fr-fi-question-line fr-link--icon-left"
                       href="https://aide.conseiller-numerique.gouv.fr/fr/"
                       target="_blank"
