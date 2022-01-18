@@ -3,6 +3,7 @@ import Bienvenue from './Bienvenue';
 import Themes from './Themes';
 import Rencontres from './Rencontres';
 import Accompagnements from './Accompagnements';
+import Aide from './Aide';
 
 function Accueil() {
 
@@ -12,6 +13,7 @@ function Accueil() {
       <Themes />
       <Rencontres />
       <Accompagnements />
+      <Aide />
     </>
   );
 }
