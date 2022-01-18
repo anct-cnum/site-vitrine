@@ -7,8 +7,7 @@ function Aide() {
     <div className="aide fr-pt-8w">
       <div className="fr-container">
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
-          <div className="fr-col-1"></div>
-          <div className="fr-col-10">
+          <div className="fr-col-offset-1 fr-col-10">
             <h1 className="fr-h1" style={{ textAlign: 'center' }}>
               J&rsquo;ai besoin d&rsquo;aide pour mes d&eacute;marches administratives
             </h1>
