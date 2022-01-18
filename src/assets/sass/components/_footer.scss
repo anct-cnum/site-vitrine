@@ -6,12 +6,12 @@
   }
 
   .fr-footer__brand {
-    flex-basis: 40%;
+    flex-basis: 50%;
   }
 
   .footerContentCustom {
     display: flex;
-    flex-basis: 60%;
+    flex-basis: 50%;
   }
 
   .footerListCustom {
@@ -23,14 +23,14 @@
     margin-top: 0;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
 
     .fr-footer__brand {
-      flex-basis: 50%;
+      flex-basis: 40%;
     }
 
     .footerContentCustom {
-      flex-basis: 50%;
+      flex-basis: 60%;
     }
 
     .footerListCustom {
@@ -40,7 +40,7 @@
 
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 580px) {
     .fr-footer__brand {
       flex-basis: 100%;
     }
