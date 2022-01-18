@@ -15,7 +15,7 @@ function Aide() {
           <div className="fr-col-1"></div>
         </div>
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center rowCustom" >
-          <div className="fr-col-offset-1 fr-col-1 fr-mr-4w">
+          <div className="fr-col-offset-1 fr-col-1 fr-mr-4w" style={{ marginLeft: 0, paddingLeft: 0 }}>
             <img src={logoFS} alt="Logo France Services" className="logoFS" />
           </div>
           <div className="fr-col-9">
