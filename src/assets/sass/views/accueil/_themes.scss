@@ -72,6 +72,10 @@ $-picto: 56px;
     font-size: 16px;
   }
 
+  .hideColumn {
+    z-index: -1; //pour l'affichage des tooltips sur le cercle entier
+  }
+
   @media (max-width: 1200px) {
     .titleCircle {
       padding-left: 50px;
