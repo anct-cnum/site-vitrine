@@ -1,0 +1,83 @@
+@import '../../colors/colors';
+
+.accompagnements {
+
+  .typePart {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .bluePart, .yellowPart {
+    display: flex;
+    flex: 1;
+    height: 256px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .yellowPart {
+    background: $green-tilleul-verveine;
+    justify-content: flex-start;
+  }
+
+  .bluePart {
+    background: $blue-cumulus-sun;
+    justify-content: flex-end;
+  }
+
+  .titleCustom {
+    color: white!important;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .picto {
+    width: 56px;
+    height: 54px;
+  }
+
+  .contentPart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 38rem;
+  }
+
+  .descriptionPart {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .textPart {
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    margin: 11rem auto 0;
+    padding: 0 2rem;
+    color: $white;
+  }
+
+  @media (max-width: 768px) {
+    .bluePart, .yellowPart {
+      height: 300px;
+    }
+
+    .textPart {
+      margin-top: 13rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .bluePart, .yellowPart {
+      height: 320px;
+      align-items: unset;
+      padding-top: 2rem;
+    }
+
+    .textPart {
+      margin-top: 11rem;
+    }
+  }
+}
