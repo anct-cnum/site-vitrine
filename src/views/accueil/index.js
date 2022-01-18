@@ -4,6 +4,7 @@ import Themes from './Themes';
 import Rencontres from './Rencontres';
 import Accompagnements from './Accompagnements';
 import Aide from './Aide';
+import PriseRDV from './PriseRDV';
 
 function Accueil() {
 
@@ -14,6 +15,7 @@ function Accueil() {
       <Rencontres />
       <Accompagnements />
       <Aide />
+      <PriseRDV />
     </>
   );
 }

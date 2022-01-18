@@ -7,8 +7,7 @@ function Accompagnements() {
     <div className="accompagnements">
       <div className="fr-container">
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center fr-mb-4w">
-          <div className="fr-col-1"></div>
-          <div className="fr-col-10">
+          <div className="fr-col-offset-1 fr-col-10">
             <h4 className="fr-h4" style={{ textAlign: 'center' }}>
               De quels types d&rsquo;accompagnement puis-je b&eacute;n&eacute;ficier ?
             </h4>
