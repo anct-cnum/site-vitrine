@@ -6,17 +6,38 @@
   }
 
   .fr-footer__brand {
-    flex-basis: 50%;
+    flex-basis: 40%;
   }
 
   .footerContentCustom {
     display: flex;
-    justify-content: flex-end;
-    flex-basis: 50%;
+    flex-basis: 60%;
   }
 
   .footerListCustom {
-    flex-direction: column;
+    display: block;
+    column-count: 2;
+  }
+
+  .footerListCustom li:first-child {
+    margin-top: 0;
+  }
+
+  @media (max-width: 767px) {
+
+    .fr-footer__brand {
+      flex-basis: 50%;
+    }
+
+    .footerContentCustom {
+      flex-basis: 50%;
+    }
+
+    .footerListCustom {
+      display: flex;
+      flex-direction: column;
+    }
+
   }
 
   @media (max-width: 450px) {

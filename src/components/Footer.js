@@ -44,7 +44,7 @@ function Footer() {
                 <a
                   className="fr-footer__content-link"
                   href="https://agence-cohesion-territoires.gouv.fr"
-                  title="ANCT"
+                  title="Agence Nationale de la Coh&eacute;sion des Territoires"
                   target="_blank" rel="noopener noreferrer">
                     Agence Nationale de la Coh&eacute;sion des Territoires</a>
               </li>
@@ -61,7 +61,7 @@ function Footer() {
                 <a
                   className="fr-footer__content-link"
                   href="https://incubateur.anct.gouv.fr"
-                  title="Incubateur"
+                  title="Incubateur des territoires"
                   target="_blank" rel="noopener noreferrer">
                     Incubateur des territoires
                 </a>
