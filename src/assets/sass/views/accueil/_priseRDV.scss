@@ -1,0 +1,31 @@
+@import '../../colors/colors';
+
+.priseRDV {
+  padding: 3rem 1.5rem 0;
+  background-color: $blue-cumulus-sun;
+  height: 256px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .titleRDV {
+    text-align: center;
+    color: $white;
+  }
+
+  .btnCustom {
+    background-color: transparent;
+    border: 1px solid $white;
+    text-align: center;
+  }
+
+  .btnCustom:hover {
+    background-color: $white;
+    background-image: none;
+    color: $blue-cumulus-sun;
+  }
+
+  @media (max-width: 576px) {
+    height: 320px;
+  }
+}

@@ -5,14 +5,13 @@ import pictosList from '../../assets/pictos';
 function Rencontres() {
 
   return (
-    <div className="rencontres fr-py-12w fr-mb-12w">
+    <div className="rencontres fr-py-md-12w fr-mb-12w">
       <div className="fr-container">
-        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
-          <div className="fr-col-1"></div>
-          <div className="fr-col-10">
-            <h2 className="fr-h4" style={{ textAlign: 'center' }}>
+        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center fr-mb-4w">
+          <div className="fr-col-offset-1 fr-col-10">
+            <h4 className="fr-h4" style={{ textAlign: 'center' }}>
               Je suis une petite, moyenne entreprise (TPE/PME), ou une association, j&rsquo;aimerais rencontrer un conseiller num&eacute;rique pour
-            </h2>
+            </h4>
           </div>
           <div className="fr-col-1"></div>
         </div>

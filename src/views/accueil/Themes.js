@@ -8,11 +8,10 @@ function Themes() {
     <div className="themes fr-py-9w">
       <div className="fr-container">
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
-          <div className="fr-col-1"></div>
-          <div className="fr-col-10">
-            <h2 className="fr-h1" style={{ textAlign: 'center' }} id="ancre-themes">
+          <div className="fr-col-offset-1 fr-col-10">
+            <h1 className="fr-h1" style={{ textAlign: 'center' }} id="ancre-themes">
               En me formant aupr&egrave;s d&rsquo;un conseiller num&eacute;rique, j&rsquo;apprends &agrave; devenir autonome pour&nbsp;:
-            </h2>
+            </h1>
           </div>
           <div className="fr-col-1"></div>
         </div>
