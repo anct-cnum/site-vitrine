@@ -5,8 +5,8 @@ import { statistiquesActions } from '../../actions';
 function Statistiques() {
   const dispatch = useDispatch();
   const date = useSelector(state => state.statistiques?.date);
-  const structures = useSelector(state => state.statistiques?.structures);
-  const cras = useSelector(state => state.statistiques?.cras);
+  const structuresMobilisees = useSelector(state => state.statistiques?.structuresMobilisees);
+  const nbAccompagnements = useSelector(state => state.statistiques?.nbAccompagnements);
   
   useEffect(() => {
     dispatch(statistiquesActions.getStatistiques());
@@ -23,7 +23,7 @@ function Statistiques() {
           </div>
           <div className="fr-col-12 center baseline-maj fr-mt-n2w fr-mb-6w">Donn&eacute;es actualis&eacute;es le {date}</div>
           <div className="fr-col-sm-4 center">
-            <div className="nombre fr-mb-3w">{structures}</div>
+            <div className="nombre fr-mb-3w">{structuresMobilisees.toLocaleString('fr-FR')}</div>
             <div className="texte">
               structures mobilis&eacute;es<br/> pour vous sur l&rsquo;ensemble du <br/>territoire
             </div>
@@ -36,7 +36,7 @@ function Statistiques() {
             </div>
           </div>
           <div className="fr-col-sm-4 center">
-            <div className="nombre fr-mb-3w">{cras}</div>
+            <div className="nombre fr-mb-3w">{nbAccompagnements.toLocaleString('fr-FR')}</div>
             <div className="texte">
               accompagnements ont d&eacute;j&agrave; &eacute;t&eacute; r&eacute;alis&eacute;s<br/>
               dans le cadre de ce dispositif

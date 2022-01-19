@@ -2,8 +2,8 @@ import dayjs from 'dayjs';
 
 const initialState = {
   date: dayjs(new Date()).format('DD/MM/YYYY'),
-  structures: '2 934',
-  cras: '77 609'
+  structuresMobilisees: 0,
+  nbAccompagnements: 0
 };
 
 export default function statistiques(state = initialState, action) {
