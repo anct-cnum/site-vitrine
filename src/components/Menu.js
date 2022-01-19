@@ -67,7 +67,7 @@ function Menu() {
                     <HashLink to="/accueil/#ancre-themes" className="fr-nav__link">&bull;&nbsp;&Agrave; propos des conseillers num&eacute;riques</HashLink>
                   </li>
                   <li>
-                    <a className="fr-nav__link">&bull;&nbsp;Le dispositif en chiffres</a>
+                    <HashLink to="/accueil/#ancre-statistiques" className="fr-nav__link">&bull;&nbsp;Le dispositif en chiffres</HashLink>
                   </li>
                 </ul>
               </div>

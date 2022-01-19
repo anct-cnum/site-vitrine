@@ -1,0 +1,28 @@
+@import '../../colors/colors';
+
+.statistiques {
+  .center {
+      text-align: center;
+    }
+  .baseline-maj {
+    height: 20px;
+    width: 209px;
+    color: $grey-light;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 20px;  
+    letter-spacing: 0;
+  }
+  .nombre {
+    color: $black;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0;
+  }
+  .texte {
+    color: $grey-light;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+  }
+}
