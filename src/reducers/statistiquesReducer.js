@@ -1,4 +1,3 @@
-
 import dayjs from 'dayjs';
 
 const initialState = {
@@ -6,7 +5,7 @@ const initialState = {
   structures: '2 934',
   cras: '77 609'
 };
-  
+
 export default function statistiques(state = initialState, action) {
   switch (action.type) {
     case 'GET_STATISTIQUES':
