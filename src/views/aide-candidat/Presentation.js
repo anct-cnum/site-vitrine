@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageFormation from '../../assets/images/conseiller-numerique-formation-min.svg';
+import ProgrammeChiffresCles from '../ProgrammeChiffresCles';
 
 function Presentation() {
 
@@ -7,13 +8,14 @@ function Presentation() {
     <div className="fr-container fr-mb-10w">
       <div className="fr-grid-row fr-grid-row--gutters">
         <div className="fr-col-12" style={{ textAlign: 'center' }}>
-          <h2 className="fr-h1 fr-mt-10w fr-mb-5w bleu-conseiller">
+          <h1 className="fr-h1 fr-mt-10w fr-mb-5w bleu-conseiller">
             Je veux devenir Conseiller num&eacute;rique France Services
-          </h2>
-          <div className="fr-col-12" style={{ display: 'flex', justifyContent: 'center' }}>
+          </h1>
+          <div className="fr-col-12 partProgram">
             <div className="fr-col-xs-12 fr-col-sm-12 fr-col-md-6 fr-col-lg-5 fr-px-3w fr-grid-row--center">
-              <img className="fr-mb-5w" src={ImageFormation} alt="Conseiller n&eacute;merique en formation" />
+              <img src={ImageFormation} alt="Conseiller n&eacute;merique en formation" />
             </div>
+            <ProgrammeChiffresCles />
           </div>
         </div>
         <h3 className="bleu-secondaire">Pr&eacute;sentation</h3>

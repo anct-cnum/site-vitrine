@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { history } from './helpers';
 import './assets/js';
 import './assets/sass/main.scss';
 import Footer from './components/Footer';
@@ -13,7 +14,7 @@ import AideStructure from './views/aide-structure';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router history={history}>
         <Routes>
           <Route path="/kit-communication" element={<KitCommunication />}/>
           <Route path="/mentions-legales" element={<MentionsLegales />}/>

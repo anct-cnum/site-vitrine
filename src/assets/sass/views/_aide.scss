@@ -18,6 +18,10 @@
     color: $red-dark;
   }
 
+  .white-text {
+    color: $white;
+  }
+
   .buttonCustom {
     font-size: 1rem;
     line-height: 1.25rem;
@@ -47,6 +51,45 @@
     width: 100%;
     color: $red-dark;
     border: 1px solid $red-dark;
+  }
+
+  .texte-centre {
+    text-align: center;
+  }
+
+  .etapes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .etape {
+    height: 150px ;
+  }
+
+  .partProgram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .contenu-centre {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fond-bleu-secondaire {
+    background: $blue-secondary;
+  }
+
+  @media (max-width: 992px) {
+    .partProgram {
+      flex-direction: column;
+    }
+
   }
   
 }
