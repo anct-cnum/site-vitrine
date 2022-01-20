@@ -1,6 +1,14 @@
+@import '../../colors/colors';
+
 .aide {
+  background-color: $blue-cumulus-active;
+  padding: 0 1.5rem;
+
   .rowCustom {
+    display: flex;
     align-items: center;
+    max-width: 76rem;
+    margin: 0 auto;
   }
 
   .logoFS {
@@ -8,10 +16,27 @@
     width: 78px;
   }
 
+  .partLogo {
+    margin-left: calc(100%/12);
+  }
+
+  .partText {
+    padding-left: 3rem;
+  }
+
   @media (max-width: 576px) {
 
     .rowCustom {
       flex-direction: column;
+    }
+
+    .partLogo {
+      margin-left: 0;
+    }
+
+    .partText {
+      padding: 0;
+      padding-top: 1rem;
     }
 
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageStructure from '../../assets/images/conseiller-numerique-et-structure-min.svg';
+import ProgrammeChiffresCles from '../ProgrammeChiffresCles';
 
 function Presentation() {
 
@@ -7,11 +8,12 @@ function Presentation() {
     <div className="fr-container fr-mb-1w">
       <div className="fr-grid-row fr-grid-row--gutter">
         <div className="fr-col-12" style={{ textAlign: 'center' }}>
-          <h2 className="fr-h1 fr-mt-10w fr-mb-5w red-text">Je recrute</h2>
-          <div className="fr-col-12" style={{ display: 'flex', justifyContent: 'center' }}>
+          <h1 className="fr-h1 fr-mt-10w fr-mb-5w red-text">Je recrute</h1>
+          <div className="fr-col-12 partProgram">
             <div className="fr-col-xs-12 fr-col-sm-12 fr-col-md-6 fr-col-lg-5 fr-px-3w fr-grid-row--center">
-              <img className="fr-mb-5w" src={ImageStructure} alt="Conseiller avec sa structure" />
+              <img src={ImageStructure} alt="Conseiller avec sa structure" />
             </div>
+            <ProgrammeChiffresCles />
           </div>
         </div>
         <h3 className="bleu-secondaire">Pr&eacute;sentation</h3>

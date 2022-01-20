@@ -42,6 +42,7 @@
     flex-direction: column;
     align-items: center;
     flex-basis: 38rem;
+    padding-bottom: 50px;
   }
 
   .descriptionPart {
@@ -54,7 +55,7 @@
     position: absolute;
     left: 0%;
     width: 100%;
-    margin: 11rem auto 0;
+    margin: 9rem auto 0;
     padding: 0 2rem;
     color: $white;
   }

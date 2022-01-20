@@ -58,15 +58,13 @@ $-picto: 56px;
 
     .titleSquare {
       padding-top: 130px;
-      font-size: 24px;
+      font-size: 18px;
       line-height: 36px;
     }
-  }
 
-  @media (max-width: 768px) {
     .responsiveSquare {
       flex-basis: 100%;
-      margin: 5rem auto
+      margin: 6rem auto
     }
 
     .responsiveSquare:first-child {
@@ -87,6 +85,11 @@ $-picto: 56px;
   @media (max-width: 576px) {
     .responsiveSquare {
       margin: 7rem auto
+    }
+
+    .titleSquare {
+      line-height: 25px;
+      font-size: 16px;
     }
   }
 }

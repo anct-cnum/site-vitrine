@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoRF from '../assets/brands/logoRF-min.svg';
 import logoFR from '../assets/brands/logo-france-relance-alt-min.svg';
 
 function Footer() {
@@ -13,19 +12,19 @@ function Footer() {
   return (
     <footer className="fr-footer" role="contentinfo" id="footer">
       <div className="fr-container">
-        <div className="fr-footer__body">
-          <div className="fr-footer__brand">
-            <Link to="/" title="R&eacute;publique Fran&ccedil;aise - France Relance" onClick={onClickLink}>
-              <img
-                src={logoRF}
-                width="96px"
-                alt="R&eacute;publique Fran&ccedil;aise. Libert&eacute; &eacute;galit&eacute; Fraternit&eacute;."
-                className="header__logo-rf" />
-              <img src={logoFR} alt="Logo France Relance" className="logoFranceRelance" />
+        <div className="fr-footer__body fr-footer__body--operator">
+          <div className="fr-footer__brand fr-enlarge-link">
+            <p className="fr-logo" title="République Française">
+              r&eacute;publique
+              <br />
+              fran&ccedil;aise
+            </p>
+            <Link classname="fr-footer__brand-link" to="/" title="Retour à l&rsquo;accueil" onClick={onClickLink}>
+              <img src={logoFR} alt="Logo France Relance" className="logoFranceRelance fr-footer__logo" />
             </Link>
           </div>
           <div className="fr-footer__content footerContentCustom">
-            <ul className="fr-footer__content-list footerListCustom">
+            <ul className="fr-footer__content-list footerListCustom fr-mb-2w">
               <li className="fr-footer__content-item">
                 <Link to="/kit-communication" title="kit communication" className="fr-footer__content-link" onClick={onClickLink}>
                   Kit de communication
@@ -76,25 +75,31 @@ function Footer() {
                 </a>
               </li>
             </ul>
+            <ul className="fr-footer__content-list">
+              <li className="fr-footer__content-item">
+                <a className="fr-footer__content-link" href="https://legifrance.gouv.fr" target="_blank" rel="noopener noreferrer">legifrance.gouv.fr</a>
+              </li>
+              <li className="fr-footer__content-item">
+                <a className="fr-footer__content-link" href="https://gouvernement.fr" target="_blank" rel="noopener noreferrer">gouvernement.fr</a>
+              </li>
+              <li className="fr-footer__content-item">
+                <a className="fr-footer__content-link" href="https://service-public.fr" target="_blank" rel="noopener noreferrer">service-public.fr</a>
+              </li>
+              <li className="fr-footer__content-item">
+                <a className="fr-footer__content-link" href="https://data.gouv.fr" target="_blank" rel="noopener noreferrer">data.gouv.fr</a>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="fr-footer__bottom">
           <ul className="fr-footer__bottom-list">
-            <li className="fr-footer__bottom-item">
-              <a href="https://cdn.conseiller-numerique.gouv.fr/CGU-Donn%C3%A9es_personnellesConseiller_Num%C3%A9rique.pdf"
-                className="fr-footer__bottom-link"
-                title="Don&eacute;es personnelles et cookies"
-                target="_blank" rel="noopener noreferrer">
-                  Donn&eacute;es personnelles et cookies
-              </a>
-            </li>
             <li className="fr-footer__bottom-item">
               <Link
                 to="/accessibilite"
                 title="Accessibilit&eacute;"
                 className="fr-footer__bottom-link"
                 onClick={onClickLink}>
-                  Accessibilit&eacute; : non conforme
+                  Accessibilit&eacute;: non conforme
               </Link>
             </li>
             <li className="fr-footer__bottom-item">
@@ -106,10 +111,26 @@ function Footer() {
                   Mentions l&eacute;gales
               </Link>
             </li>
+            <li className="fr-footer__bottom-item">
+              <a href="https://cdn.conseiller-numerique.gouv.fr/CGU-Donn%C3%A9es_personnellesConseiller_Num%C3%A9rique.pdf"
+                className="fr-footer__bottom-link"
+                title="Don&eacute;es personnelles"
+                target="_blank" rel="noopener noreferrer">
+                  Donn&eacute;es personnelles
+              </a>
+            </li>
+            <li className="fr-footer__bottom-item">
+              <a href="https://cdn.conseiller-numerique.gouv.fr/CGU-Donn%C3%A9es_personnellesConseiller_Num%C3%A9rique.pdf"
+                className="fr-footer__bottom-link"
+                title="Gestion des cookies"
+                target="_blank" rel="noopener noreferrer">
+                  Gestion des cookies
+              </a>
+            </li>
           </ul>
           <div className="fr-footer__bottom-copy">
             <p>
-              Sauf mention contraire, tous les textes de ce site sont sous&nbsp;
+              Sauf mention contraire, tous les contenus de ce site sont sous&nbsp;
               <a
                 href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
                 target="_blank" rel="noopener noreferrer"
