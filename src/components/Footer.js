@@ -19,7 +19,7 @@ function Footer() {
               <br />
               fran&ccedil;aise
             </p>
-            <Link classname="fr-footer__brand-link" to="/" title="Retour à l&rsquo;accueil" onClick={onClickLink}>
+            <Link className="fr-footer__brand-link" to="/" title="Retour à l&rsquo;accueil" onClick={onClickLink}>
               <img src={logoFR} alt="Logo France Relance" className="logoFranceRelance fr-footer__logo" />
             </Link>
           </div>

@@ -23,7 +23,7 @@ function Statistiques() {
           </div>
           <div className="fr-col-12 center baseline-maj fr-mt-n2w fr-mb-6w">Donn&eacute;es actualis&eacute;es le {date}</div>
           <div className="fr-col-sm-4 center">
-            <div className="nombre fr-mb-3w">{structuresMobilisees.toLocaleString('fr-FR')}</div>
+            <div className="nombre fr-mb-3w">{structuresMobilisees?.toLocaleString('fr-FR')}</div>
             <div className="texte">
               structures mobilis&eacute;es<br/> pour vous sur l&rsquo;ensemble du <br/>territoire
             </div>
@@ -36,7 +36,7 @@ function Statistiques() {
             </div>
           </div>
           <div className="fr-col-sm-4 center">
-            <div className="nombre fr-mb-3w">{nbAccompagnements.toLocaleString('fr-FR')}</div>
+            <div className="nombre fr-mb-3w">{nbAccompagnements?.toLocaleString('fr-FR')}</div>
             <div className="texte">
               accompagnements ont d&eacute;j&agrave; &eacute;t&eacute; r&eacute;alis&eacute;s<br/>
               dans le cadre de ce dispositif
