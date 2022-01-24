@@ -7,9 +7,9 @@ function Statistiques() {
   const date = useSelector(state => state.statistiques?.date);
   const structuresMobilisees = useSelector(state => state.statistiques?.structuresMobilisees);
   const nbAccompagnements = useSelector(state => state.statistiques?.nbAccompagnements);
-  
+
   useEffect(() => {
-    dispatch(statistiquesActions.getStatistiques());
+    dispatch(statistiquesActions.getHomeStats());
   });
 
   return (
