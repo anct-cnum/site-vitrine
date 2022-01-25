@@ -1,33 +1,8 @@
 @import '../../colors/colors';
 
-$-squareHeight: 132px;
-$-picto: 56px;
+$-picto: 176px;
 
 .rencontres {
-  .square {
-    width: $-squareHeight;
-    height: $-squareHeight;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .squareBlueLight {
-    background: $blue-cumulus-active;
-  }
-
-  .squareBrown {
-    background: $brown;
-  }
-  
-  .squareRed {
-    background: $pink-tuile;
-  }
-
-  .squareYellow {
-    background: $green-tilleul-verveine;
-  }
-
   .picto {
     width: $-picto;
     height: $-picto;
@@ -40,41 +15,29 @@ $-picto: 56px;
 
   .titleSquare {
     display: flex;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 16px;
     line-height: 24px;
     text-align: center;
     position: absolute;
-    padding-top: 82px;
-    padding-right: 50px;
     width: 15%;
+    padding-top: 10px;
   }
 
   @media (max-width: 768px) {
-    .square {
-      width: 17rem;
-      height: 17rem;
-    }
-
     .titleSquare {
-      padding-top: 130px;
-      font-size: 18px;
-      line-height: 36px;
+      padding: 28px 20px;
+      font-size: 20px;
     }
 
     .responsiveSquare {
       flex-basis: 100%;
-      margin: 6rem auto
+      margin: 4rem auto;
+      text-align: center;
     }
 
     .responsiveSquare:first-child {
       margin-top: 0;
-    }
-
-    .square {
-      width: 12rem;
-      height: 12rem;
-      margin: 0 auto;
     }
 
     .titleSquare {
@@ -83,9 +46,6 @@ $-picto: 56px;
   }
 
   @media (max-width: 576px) {
-    .responsiveSquare {
-      margin: 7rem auto
-    }
 
     .titleSquare {
       line-height: 25px;

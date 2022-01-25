@@ -1,27 +1,38 @@
 @import '../../colors/colors';
 
 .aide {
-  background-color: $blue-cumulus-active;
+  background: linear-gradient(to bottom, $green-transparent, $green-pale 100% );
   padding: 0 1.5rem;
+  color: $blue-marine;
+  display: flex;
+  justify-content: center;
+
+  .title {
+    color: $blue-marine;
+  }
 
   .rowCustom {
     display: flex;
     align-items: center;
     max-width: 76rem;
-    margin: 0 auto;
   }
 
   .logoFS {
-    height: 96px;
-    width: 78px;
+    height: 212px;
+    width: 176px;
   }
 
   .partLogo {
-    margin-left: calc(100%/12);
+    flex-basis: calc(300%/12);
+    justify-content: center;
+    display: flex;
   }
 
   .partText {
-    padding-left: 3rem;
+    flex-basis: calc(800%/12);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
 
   @media (max-width: 576px) {

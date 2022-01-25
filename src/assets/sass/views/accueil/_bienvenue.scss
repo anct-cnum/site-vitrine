@@ -1,55 +1,77 @@
 @import '../../colors/colors';
+@font-face {
+  font-family: "Marianne Regular";
+  src: url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff2') format("woff2"),
+    url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff') format("woff");
+ }
 
 .bienvenue {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(to bottom right, $blue-light 50%, $blue-france 100%);
+  
 
   .presentationPart {
     display: flex;
     flex-grow: 1;
-
-    .yellowTitle, .blueTitle {
-      font-weight: 600;
-      font-size: 72px;
-      line-height: 80px;
-      color: $white;
-      display: flex;
-      padding-top: 7rem;
-      flex-basis: 38rem;
-      box-shadow: none;
-    }
-    .blueTitle {
-      padding-left: calc(50%/12);
-    }
-  }
-
-  .bluePart, .yellowPart {
-    display: flex;
-    flex: 1;
-  }
-
-  .yellowPart {
-    background: linear-gradient(to bottom, $yellow-light, $yellow-medium 78.47%, $yellow-dark 100% );
-    justify-content: flex-end;
-  }
-
-  .bluePart {
-    background: linear-gradient(to top, $blue-france, $blue-light 100% );
-  }
-
-  .logoPart {
-    display: flex;
     justify-content: center;
-  }
+    background-image: url(../../../images/confettis-min.svg);
+    background-repeat: no-repeat;
+    background-position: left 0 top -38px;
+    background-size: calc(50% + 387px) 30rem;
 
-  .logoFR {
-    position: absolute;
-    margin-top: 2rem;
+    .contentPart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-basis: 76rem;
+      text-align: center;
+    }
+  
+    .logoFR {
+      width: 64px;
+      height: 64px;
+    }
+  
+    .title {
+      color: $white;
+      margin-bottom: 28px;
+    }
+  
+    .twoParts {
+      display: flex;
+      width: 100%;
+    }
+
+    .leftPart, .rightPart {
+      display: flex;
+      flex: 1;
+      flex-basis: 38rem;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btnCustom {
+      background-color: $white;
+      color: $blue-france;
+      font-family: 'Marianne Regular';
+      border-radius: 40px;
+      font-size: 20px;
+      height: 50px;
+      width: calc(200%/6);
+      display: flex;
+      justify-content: center;
+    }
+  
+    .btnCustom:hover {
+      background-image: none;
+    }
+
   }
 
   @media (max-width: 768px) {
-    .yellowTitle {
+/*     .yellowTitle {
       padding-left: calc(50%/12);
     }
 
@@ -57,23 +79,23 @@
       .yellowTitle, .blueTitle {
         font-size: 48px;
       }
-    }
+    } */
   }
 
   @media (max-width: 576px) {
-    .presentationPart {
+/*     .presentationPart {
       .yellowTitle, .blueTitle {
         font-size: 28px;
       }
-    }
+    } */
   }
 
   @media (max-height: 630px ) and (min-width: 576px) {
-    .presentationPart {
+/*     .presentationPart {
       .yellowTitle, .blueTitle {
         font-size: 60px;
       }
-    }
+    } */
   }
 
 }

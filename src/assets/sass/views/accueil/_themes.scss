@@ -1,53 +1,20 @@
 @import '../../colors/colors';
+@font-face {
+  font-family: "Marianne Regular";
+  src: url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff2') format("woff2"),
+    url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff') format("woff");
+ }
 
-$-circleHeight: 180px;
-$-picto: 56px;
+$-picto: 207px;
 
 .themes {
-  .circle {
-    width: $-circleHeight;
-    height: $-circleHeight;
-    border-radius: calc($-circleHeight/2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .circleBlueDark {
-    background: $blue-cumulus-sun;
-  }
-
-  .circleYellow {
-    background: $green-tilleul-verveine;
-  }
-
-  .circleRed {
-    background: $red-light;
-  }
-
-  .circleBlueLight {
-    background: $blue-cumulus-active;
-  }
-
-  .circleBrown {
-    background: $brown;
-  }
-
-  .circleGreen {
-    background: $green;
-  }
-
-  .circlePurple {
-    background: $purple;
-  }
-
   .picto {
     width: $-picto;
     height: $-picto;
   }
 
-  .spaceLineCircle {
-    margin-top: calc(-#{$-circleHeight}/4);
+  .spaceLineHexagon {
+    margin-top: -55px;
   }
 
   .titlePart {
@@ -55,14 +22,14 @@ $-picto: 56px;
     justify-content: center;
   }
 
-  .titleCircle {
+  .titleHexagon {
     display: flex;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 16px;
     line-height: 24px;
     text-align: center;
     position: absolute;
-    padding-top: 12px;
+    padding-top: 9px;
   }
 
   .tooltip {
@@ -73,17 +40,27 @@ $-picto: 56px;
   }
 
   .hideColumn {
-    z-index: -1; //pour l'affichage des tooltips sur le cercle entier
+    z-index: -1; //pour l'affichage des tooltips sur l'hexagone entier
+  }
+
+  .helpTooltip {
+    font-size: 12px;
+    text-align: center;
+    font-family: 'Marianne Regular';
+  }
+
+  .responsiveHexagon {
+    padding: 0;
   }
 
   @media (max-width: 1200px) {
-    .titleCircle {
+    .titleHexagon {
       padding-left: 50px;
     }
   }
 
   @media (max-width: 768px) {
-    .responsiveCircle {
+    .responsiveHexagon {
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -96,30 +73,18 @@ $-picto: 56px;
       display: none;
     }
 
-    .titleCircle {
+    .titleHexagon {
       padding-left: 0px;
       font-size: 20px;
       line-height: 36px;
     }
 
-    .circle {
-      width: 17rem;
-      height: 17rem;
-      border-radius: calc($-circleHeight);
-    }
-
-    .picto {
-      width: calc($-picto*2);
-      height: calc($-picto*2);
+    .helpTooltip {
+      font-size: 16px;
     }
   }
 
   @media (max-width: 576px) {
-    .circle {
-      width: 12rem;
-      height: 12rem;
-    }
-
     .tooltip {
       width: 300px;
     }
