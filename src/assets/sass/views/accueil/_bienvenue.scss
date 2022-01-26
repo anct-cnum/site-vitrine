@@ -1,79 +1,139 @@
 @import '../../colors/colors';
+@font-face {
+  font-family: "Marianne Regular";
+  src: url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff2') format("woff2"),
+    url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff') format("woff");
+ }
 
 .bienvenue {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(to bottom right, $blue-light 30%, $blue-france 100%);
+  
 
   .presentationPart {
     display: flex;
     flex-grow: 1;
-
-    .yellowTitle, .blueTitle {
-      font-weight: 600;
-      font-size: 72px;
-      line-height: 80px;
-      color: $white;
-      display: flex;
-      padding-top: 7rem;
-      flex-basis: 38rem;
-      box-shadow: none;
-    }
-    .blueTitle {
-      padding-left: calc(50%/12);
-    }
-  }
-
-  .bluePart, .yellowPart {
-    display: flex;
-    flex: 1;
-  }
-
-  .yellowPart {
-    background: linear-gradient(to bottom, $yellow-light, $yellow-medium 78.47%, $yellow-dark 100% );
-    justify-content: flex-end;
-  }
-
-  .bluePart {
-    background: linear-gradient(to top, $blue-france, $blue-light 100% );
-  }
-
-  .logoPart {
-    display: flex;
     justify-content: center;
-  }
+    background-image: url(../../../images/confettis-min.svg);
+    background-repeat: no-repeat;
+    background-position: left 0 top -38px;
+    background-size: calc(50% + 387px) calc(50% + 128px);
 
-  .logoFR {
-    position: absolute;
-    margin-top: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .yellowTitle {
-      padding-left: calc(50%/12);
+    .contentPart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-basis: 76rem;
+      text-align: center;
+    }
+  
+    .logoFR {
+      width: 64px;
+      height: 64px;
+    }
+  
+    .title {
+      color: $white;
+      margin-bottom: 28px;
+    }
+  
+    .twoParts {
+      display: flex;
+      width: 100%;
     }
 
+    .leftPart, .rightPart {
+      display: flex;
+      flex: 1;
+      flex-basis: 38rem;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btnCustom {
+      background-color: $white;
+      color: $blue-france;
+      font-family: 'Marianne Regular';
+      border-radius: 40px;
+      font-size: 20px;
+      height: 50px;
+      width: calc(200%/6);
+      display: flex;
+      justify-content: center;
+    }
+  
+    .btnCustom:hover {
+      background-image: none;
+    }
+
+  }
+
+  @media (max-width: 1200px) {
     .presentationPart {
-      .yellowTitle, .blueTitle {
-        font-size: 48px;
-      }
+      background-image: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .presentationPart::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      z-index: 0;
+      background: url(../../../images/confettis-min.svg) 0;
+      background-repeat: no-repeat;
+      transform: rotate(90deg);
+      background-size: contain;
+    }
+
+    .presentationPart .contentPart {
+      z-index: 1;
+      justify-content: flex-start;
+    }
+
+    .presentationPart .twoParts {
+      flex-direction: column;
+    }
+
+    .presentationPart .btnCustom {
+      width: calc(800%/12);
+      height: 56px;
+    }
+
+    .presentationPart .leftPart, .presentationPart .rightPart {
+      flex-basis: calc(50% + 10px);
+    }
+
+    .presentationPart .leftPart > img, .presentationPart .rightPart > img {
+      width: calc(1000%/12);
+    }
+
+    .presentationPart .title {
+        margin-top: 0px;
     }
   }
 
   @media (max-width: 576px) {
-    .presentationPart {
-      .yellowTitle, .blueTitle {
-        font-size: 28px;
-      }
+    .presentationPart::before {
+      top: -72%;
+    }
+
+    .presentationPart .btnCustom {
+      font-family: 'Marianne';
+      font-weight: 700;
     }
   }
 
-  @media (max-height: 630px ) and (min-width: 576px) {
-    .presentationPart {
-      .yellowTitle, .blueTitle {
-        font-size: 60px;
-      }
-    }
-  }
+}
 
+@media (max-width: 576px) {
+  .bienvenue {
+    background: linear-gradient(to bottom right, $blue-light 0%, $blue-france 100%);
+  }
 }

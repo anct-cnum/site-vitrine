@@ -4,18 +4,16 @@ import InterfaceShapes from '../interfaces/interfaceShapes';
 import PropTypes from 'prop-types';
 import ReactDOMServer from 'react-dom/server';
 
-function Circle({ className, pictoUrl, altImg, title, textTooltip }) {
+function Hexagon({ pictoUrl, altImg, title, textTooltip }) {
 
   return (
     <>
-      <div className="fr-col-sm-12 fr-col-md-2 responsiveCircle">
+      <div className="fr-col-sm-12 fr-col-md-2 responsiveHexagon">
         <span data-tip={ReactDOMServer.renderToString(textTooltip)}>
-          <div className={`circle ${className}`}>
-            <img src={pictoUrl} alt={altImg} className="picto" />
-          </div>
+          <img src={pictoUrl} alt={altImg} className="picto" />
         </span>
         <div className="titlePart">
-          <span className="titleCircle">{title}</span>
+          <span className="titleHexagon">{title}</span>
         </div>
       </div>
       <ReactTooltip html={true} className="tooltip" clickable={true} />
@@ -23,9 +21,9 @@ function Circle({ className, pictoUrl, altImg, title, textTooltip }) {
   );
 }
 
-Circle.propTypes = {
+Hexagon.propTypes = {
   ...InterfaceShapes,
   textTooltip: PropTypes.node
 };
 
-export default Circle;
+export default Hexagon;

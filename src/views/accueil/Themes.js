@@ -1,25 +1,23 @@
 import React, { Fragment } from 'react';
-import Circle from '../../shapes/Circle';
+import Hexagon from '../../shapes/Hexagon';
 import pictosList from '../../assets/pictos';
 
 function Themes() {
 
   return (
-    <div className="themes fr-py-9w">
+    <div className="themes fr-pt-5w fr-pt-md-12w fr-pb-5w fr-pb-md-9w">
       <div className="fr-container">
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
-          <div className="fr-col-offset-1 fr-col-10">
+          <div className="fr-col-12">
             <h1 className="fr-h1" style={{ textAlign: 'center' }} id="ancre-themes">
-              En me formant aupr&egrave;s d&rsquo;un conseiller num&eacute;rique, j&rsquo;apprends &agrave; devenir autonome pour&nbsp;:
+              En me formant aupr&egrave;s d&rsquo;un conseiller num&eacute;rique France Services, j&rsquo;apprends &agrave; devenir autonome pour&nbsp;:
             </h1>
+            <p className="helpTooltip fr-mb-5w"><em>Survolez les éléments avec la souris ou le doigt pour en découvrir les détails.</em></p>
           </div>
-          <div className="fr-col-1"></div>
         </div>
-        {/* CERCLE BLEU FONCE */}
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
           <div className="fr-col-5 hideColumn"></div>
-          <Circle
-            className="circleBlueDark"
+          <Hexagon
             pictoUrl={pictosList.pictoEchanger}
             altImg="&Eacute;changer avec mes proches"
             title={<Fragment>&Eacute;changer avec<br />mes proches</Fragment>}
@@ -35,11 +33,9 @@ function Themes() {
               </Fragment>}/>
           <div className="fr-col-5 hideColumn"></div>
         </div>
-        {/* CERCLES JAUNE ET ROUGE */}
-        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineCircle">
+        <div id="emploiResponsive" className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
           <div className="fr-col-2 hideColumn"></div>
-          <Circle
-            className="circleYellow"
+          <Hexagon
             pictoUrl={pictosList.pictoTrouverEmploi}
             altImg="Trouver un emploi"
             title={<Fragment>Trouver un emploi<br />ou une formation</Fragment>}
@@ -55,8 +51,7 @@ function Themes() {
                 </ul>
               </Fragment>} />
           <div className="fr-col-4 hideColumn"></div>
-          <Circle
-            className="circleRed"
+          <Hexagon
             pictoUrl={pictosList.pictoAccompagnerEnfant}
             altImg="Accompagner mon enfant"
             title={<Fragment>Accompagner mon<br />enfant</Fragment>}
@@ -72,22 +67,18 @@ function Themes() {
               </Fragment>} />
           <div className="fr-col-2 hideColumn"></div>
         </div>
-        {/* CERCLE BLEU CLAIR */}
-        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineCircle">
+        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
           <div className="fr-col-5 hideColumn"></div>
-          <Circle
-            className="circleBlueLight"
-            pictoUrl={pictosList.pictoDemarcheLigne}
+          <Hexagon
+            pictoUrl={pictosList.pictoDemarchesEnLigne}
             altImg="D&eacute;marches en ligne"
             title={<Fragment>R&eacute;aliser mes<br />d&eacute;marches en ligne</Fragment>} />
           <div className="fr-col-5 hideColumn"></div>
         </div>
-        {/* CERCLES MARRON ET VERT */}
-        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineCircle">
+        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
           <div className="fr-col-2 hideColumn"></div>
-          <Circle
-            className="circleBrown"
-            pictoUrl=""
+          <Hexagon
+            pictoUrl={pictosList.pictoOpportunites}
             altImg="Opportunit&eacute;s du num&eacute;rique"
             title={<Fragment>Utiliser les<br />opportunit&eacute;s<br />du num&eacute;rique</Fragment>}
             textTooltip={
@@ -101,9 +92,8 @@ function Themes() {
                 </ul>
               </Fragment>} />
           <div className="fr-col-4 hideColumn"></div>
-          <Circle
-            className="circleGreen"
-            pictoUrl={pictosList.pictoContenuNum}
+          <Hexagon
+            pictoUrl={pictosList.pictoPriseEnMain}
             altImg="Prendre en main l&rsquo;outil num&eacute;rique"
             title={<Fragment>Prendre en main<br />l&rsquo;outil num&eacute;rique</Fragment>}
             textTooltip={
@@ -121,12 +111,10 @@ function Themes() {
               </Fragment>} />
           <div className="fr-col-2 hideColumn"></div>
         </div>
-        {/* CERCLE VIOLET */}
-        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineCircle">
+        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
           <div className="fr-col-5 hideColumn"></div>
-          <Circle
-            className="circlePurple"
-            pictoUrl=""
+          <Hexagon
+            pictoUrl={pictosList.pictoDecouverte}
             altImg="D&eacute;couvrir les opportunit&eacute;s"
             title={<Fragment>D&eacute;couvrir<br />les opportunit&eacute;s<br />de mon territoire</Fragment>}
             textTooltip={

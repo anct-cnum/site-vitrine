@@ -7,78 +7,58 @@
     flex-grow: 1;
   }
 
-  .bluePart, .yellowPart {
+  .greenPart, .yellowPart {
     display: flex;
     flex: 1;
     height: 256px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: row;
   }
 
   .yellowPart {
-    background: $green-tilleul-verveine;
-    justify-content: flex-start;
-  }
-
-  .bluePart {
-    background: $blue-cumulus-sun;
+    background: linear-gradient(to bottom, $yellow-light, $yellow-dark 100% );
     justify-content: flex-end;
   }
 
-  .titleCustom {
-    color: white!important;
-    margin-bottom: 0;
-    text-align: center;
-  }
-
-  .picto {
-    width: 56px;
-    height: 54px;
+  .greenPart {
+    background: linear-gradient(to bottom, $green-light, $green-dark 100% );
+    justify-content: flex-start;
   }
 
   .contentPart {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     flex-basis: 38rem;
-    padding-bottom: 50px;
   }
 
-  .descriptionPart {
-    display: flex;
-    justify-content: center;
+  .greenPart .contentPart {
+    align-items: flex-end;
+  }
+
+  .image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .titlePart {
     text-align: center;
   }
 
-  .textPart {
-    position: absolute;
-    left: 0%;
-    width: 100%;
-    margin: 9rem auto 0;
-    padding: 0 2rem;
-    color: $white;
-  }
-
   @media (max-width: 768px) {
-    .bluePart, .yellowPart {
-      height: 300px;
-    }
-
-    .textPart {
-      margin-top: 13rem;
+    .greenPart, .yellowPart {
+      height: 180px;
     }
   }
 
   @media (max-width: 576px) {
-    .bluePart, .yellowPart {
-      height: 360px;
-      align-items: unset;
-      padding-top: 2rem;
+    .greenPart, .yellowPart {
+      height: 100px;
     }
 
-    .textPart {
-      margin-top: 11rem;
+    .titlePart {
+      font-size: 18px!important;
     }
   }
 }
