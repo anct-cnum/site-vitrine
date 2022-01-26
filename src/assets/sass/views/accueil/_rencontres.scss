@@ -24,6 +24,12 @@ $-picto: 176px;
     padding-top: 10px;
   }
 
+  @media (min-width: 2100px) {
+    .titleSquare {
+      width: 7%;
+    }
+  }
+
   @media (max-width: 768px) {
     .titleSquare {
       padding: 28px 20px;
