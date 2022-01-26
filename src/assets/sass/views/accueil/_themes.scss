@@ -65,8 +65,12 @@ $-picto: 207px;
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 150px;
+      margin-bottom: 180px;
       flex-basis: 100%;
+    }
+
+    #emploiResponsive > div.responsiveHexagon:nth-child(2) {
+      margin-bottom: 130px;
     }
 
     .hideColumn {

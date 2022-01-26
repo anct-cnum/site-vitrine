@@ -5,7 +5,7 @@ import pictosList from '../../assets/pictos';
 function Themes() {
 
   return (
-    <div className="themes fr-pt-12w fr-pb-9w">
+    <div className="themes fr-pt-5w fr-pt-md-12w fr-pb-5w fr-pb-md-9w">
       <div className="fr-container">
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
           <div className="fr-col-12">
@@ -33,7 +33,7 @@ function Themes() {
               </Fragment>}/>
           <div className="fr-col-5 hideColumn"></div>
         </div>
-        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
+        <div id="emploiResponsive" className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
           <div className="fr-col-2 hideColumn"></div>
           <Hexagon
             pictoUrl={pictosList.pictoTrouverEmploi}

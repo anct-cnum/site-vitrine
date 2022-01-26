@@ -5,7 +5,7 @@ import pictosList from '../../assets/pictos';
 function Rencontres() {
 
   return (
-    <div className="rencontres fr-my-9w">
+    <div className="rencontres fr-my-0w fr-my-md-9w">
       <div className="fr-container">
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center fr-mb-6w">
           <div className="fr-col-offset-1 fr-col-10">
