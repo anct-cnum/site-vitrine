@@ -119,14 +119,6 @@ function Footer() {
                   Donn&eacute;es personnelles
               </a>
             </li>
-            <li className="fr-footer__bottom-item">
-              <a href="https://cdn.conseiller-numerique.gouv.fr/CGU-Donn%C3%A9es_personnellesConseiller_Num%C3%A9rique.pdf"
-                className="fr-footer__bottom-link"
-                title="Gestion des cookies"
-                target="_blank" rel="noopener noreferrer">
-                  Gestion des cookies
-              </a>
-            </li>
           </ul>
           <div className="fr-footer__bottom-copy">
             <p>
