@@ -1,4 +1,4 @@
-name: Déploiement sur l'espace de production
+name: Déploiement sur l'espace de recette
 
 on:
   workflow_dispatch:
