@@ -18,21 +18,21 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: 'npm'
       - name: Retrieve cached dependencies
         id: retrieve-dependencies
         uses: actions/cache@v2
         with:
-          key: node_modules-${{ hashFiles('yarn.lock') }}
+          key: node_modules-${{ hashFiles('package-lock.json') }}
           path: node_modules
       - name: Install dependencies
         if: steps.retrieve-dependencies.outputs.cache-hit == false
-        run: yarn --frozen-lockfile
+        run: npm ci
       - name: Cache dependencies if not present
         if: steps.retrieve-dependencies.outputs.cache-hit == false
         uses: actions/cache@v2
         with:
-          key: node_modules.-${{ hashFiles('yarn.lock') }}
+          key: node_modules.-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
   build:
@@ -43,7 +43,7 @@ jobs:
       - name: Retrieve cached dependencies
         uses: actions/cache@v2
         with:
-          key: node_modules-${{ hashFiles('yarn.lock') }}
+          key: node_modules-${{ hashFiles('package-lock.json') }}
           path: node_modules
       - name: Override .env
         uses: SpicyPizza/create-envfile@v1
@@ -56,7 +56,7 @@ jobs:
           envkey_REACT_APP_API_URL: ${{ secrets.REACT_APP_API_RECETTE }}
           file_name: .env
       - name: Build application
-        run: yarn run build
+        run: npm run build
       - name: copy .htaccess
         uses: canastro/copy-file-action@master
         with:
