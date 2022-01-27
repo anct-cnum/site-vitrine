@@ -35,6 +35,17 @@
     flex-direction: column;
   }
 
+  .linkCustom {
+    padding: 0;
+    --a: 0!important;
+  }
+
+  @media (max-width: 768px) {
+    .partLogo {
+      padding-right: 25px;
+    }
+  }
+
   @media (max-width: 576px) {
 
     .rowCustom {
@@ -43,6 +54,7 @@
 
     .partLogo {
       margin-left: 0;
+      padding-right: 0;
     }
 
     .partText {

@@ -75,7 +75,7 @@ function Themes() {
             title={<Fragment>R&eacute;aliser mes<br />d&eacute;marches en ligne</Fragment>} />
           <div className="fr-col-5 hideColumn"></div>
         </div>
-        <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
+        <div id="OpportunitesResponsive" className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
           <div className="fr-col-2 hideColumn"></div>
           <Hexagon
             pictoUrl={pictosList.pictoOpportunites}

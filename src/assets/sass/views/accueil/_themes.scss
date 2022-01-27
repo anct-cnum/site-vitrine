@@ -73,14 +73,16 @@ $-picto: 207px;
       margin-bottom: 130px;
     }
 
+    #OpportunitesResponsive > div.responsiveHexagon:nth-child(2) {
+      margin-bottom: 140px;
+    }
+
     .hideColumn {
       display: none;
     }
 
     .titleHexagon {
       padding-left: 0px;
-      font-size: 20px;
-      line-height: 36px;
     }
 
     .helpTooltip {
