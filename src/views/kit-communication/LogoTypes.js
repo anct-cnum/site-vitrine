@@ -112,7 +112,7 @@ function LogoTypes() {
                 style={{ boxShadow: 'none' }}
                 target="_blank"
                 rel="noopener noreferrer">
-                  T&eacute;l&eacute;charger le logo France Relance au format PNG (taille moyenne).
+                  T&eacute;l&eacute;charger le bloc-marque France Relance au format PNG (taille moyenne).
               </a>
               <br/>
               <span>Acc&eacute;der au kit de communication du Plan de Relance&nbsp;:</span>
@@ -132,7 +132,7 @@ function LogoTypes() {
           <img
             src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/preview-logo-france-relance.png"
             alt="preview logo france relance"
-            style={{ height: '79px' }}/>
+            style={{ width: '177px' }}/>
         </div>
       </div>
     </>
