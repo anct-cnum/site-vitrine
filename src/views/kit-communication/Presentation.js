@@ -13,7 +13,7 @@ function Presentation() {
           <br/><br/>
           <a
             href="https://agence-cohesion-territoires.gouv.fr/conseillers-numeriques-france-services-437"
-            title="agence cohesion territoires"
+            title="Agence coh&eacute;sion territoires"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"

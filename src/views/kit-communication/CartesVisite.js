@@ -9,12 +9,12 @@ function CartesVisite() {
         <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-4.1">4.1&nbsp;&nbsp;Cartes de visite imprimables</h4>
         <p style={{ marginBottom: '24px' }}>
           &Agrave; destination des conseillers d&eacute;butant leur mission, ou souhaitant mettre &agrave; jour leurs informations professionnelles,
-          ce fichier permet de personnaliser et d&rsquo;imprimer dix cartes de visites par planche (format de papier recommand&eacute; : bristol &rsaquo; 200g).
+          ce fichier permet de personnaliser et d&rsquo;imprimer dix cartes de visite par planche (format de papier recommand&eacute; : bristol &rsaquo; 200g).
         </p>
         <p style={{ marginBottom: '0px' }}>
           <a
-            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/gabarit-carte-de-visite-cnfs-word.docx"
-            title="Mod&egrave;le carte visite DOCX"
+            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V3/gabarit-carte-de-visite-cnfs-word.docx"
+            title="Mod&egrave;le carte de visite DOCX"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
@@ -23,8 +23,8 @@ function CartesVisite() {
           </a>
           <br/>
           <a
-            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/gabarit-carte-de-visite-openoffice.odt"
-            title="Mod&egrave;le carte visite ODT"
+            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V3/gabarit-carte-de-visite-openoffice.odt"
+            title="Mod&egrave;le carte de visite ODT"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
@@ -35,7 +35,7 @@ function CartesVisite() {
       </div>
       <div className="fr-col-12 fr-col-md-2 fr-mb-7w fr-mb-md-0w preview-image">
         <img
-          src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/preview-cartes-de-visite.png"
+          src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V3/previews/preview-cartes-de-visite.png"
           alt="preview cartes visite"
           style={{ height: '176px' }}/>
       </div>
