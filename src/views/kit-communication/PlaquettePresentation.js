@@ -37,7 +37,7 @@ function PlaquettePresentation() {
             style={{ boxShadow: 'none' }}
             target="_blank"
             rel="noopener noreferrer">
-             T&eacute;l&eacute;charger le mod&egrave;le de plaquette avec bloc coordonnées pr&eacute;-rempli au format PDF.
+             T&eacute;l&eacute;charger le mod&egrave;le de plaquette avec bloc coordonn&eacute;es pr&eacute;-rempli au format PDF.
           </a>
         </p>
         <p style={{ marginBottom: '0' }}>
