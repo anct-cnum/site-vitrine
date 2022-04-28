@@ -75,7 +75,7 @@ function Sommaire() {
           Des supports sont &eacute;galement adress&eacute;s sp&eacute;cifiquement aux conseillers num&eacute;riques France Services :
           signatures mail, cartes de visite et &eacute;tiquettes.
           <br/><br/><br/>
-          <span style={{ fontWeight: 700, fontSize: '12px' }}><em>Kit de communication version 3.</em></span>
+          <em><span style={{ fontWeight: 700, fontSize: '12px' }}>Kit de communication version 3</span><span className="dateKit"> – mai 2022</span></em>
           <br/><br/>
           <span style={{ fontSize: '12px' }}><em>Liste des nouveaut&eacute;s&nbsp;:<br/>
           – ajout du d&eacute;pliant imprimable de pr&eacute;sentation du dispositif CnFS.<br/>
