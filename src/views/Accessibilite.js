@@ -14,7 +14,7 @@ function Accessibilite() {
           <div className="fr-col-offset-lg-1"></div>
           <p>
             Le handicap est d&eacute;fini comme&nbsp;: toute limitation d&rsquo;activit&eacute; ou restriction de participation &agrave;
-            la vie en soci&eacute;t&eacute;subie dans son environnement par une personne en raison d&rsquo;une alt&eacute;ration substantielle,
+            la vie en soci&eacute;t&eacute; subie dans son environnement par une personne en raison d&rsquo;une alt&eacute;ration substantielle,
             durable ou d&eacute;finitive d&rsquo;une ou plusieurs fonctions physiques, sensorielles, mentales, cognitives ou psychiques,
             d&rsquo;un polyhandicap ou d&rsquo;un trouble de sant&eacute; invalidant (article L. 114 du code de l&rsquo;action sociale et des familles).
           </p>

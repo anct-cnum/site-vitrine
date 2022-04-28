@@ -14,8 +14,8 @@ function Signature() {
         </p>
         <p style={{ marginBottom: '0px' }}>
           <a
-            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/signature-mail-cnfs.tif"
-            title="Mod&egrave;le signature TIF"
+            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V3/modele-signature-mail.tif"
+            title="Mod&egrave;le de signature TIF"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
@@ -25,7 +25,10 @@ function Signature() {
         </p>
       </div>
       <div className="fr-col-12 fr-col-md-2 fr-mb-7w fr-mb-md-0w preview-image">
-        <img src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/preview-signature.png" alt="preview signature" style={{ height: '117px' }}/>
+        <img
+          src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V3/previews/preview-signature.png"
+          alt="preview signature"
+          style={{ height: '117px' }}/>
       </div>
     </div>
   );
