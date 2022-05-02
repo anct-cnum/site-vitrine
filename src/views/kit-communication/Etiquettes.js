@@ -15,8 +15,8 @@ function Etiquettes() {
         </p>
         <p style={{ marginBottom: '0px' }}>
           <a
-            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/gabarit-etiquettes.docx"
-            title="Etiquetes DOCX"
+            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V3/gabarit-etiquettes-conseiller-numerique.docx"
+            title="&Eacute;tiquettes DOCX"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
@@ -25,8 +25,10 @@ function Etiquettes() {
           </a>
         </p>
       </div>
-      <div className="fr-col-12 fr-col-md-2 fr-mb-7w fr-mb-md-0w preview-image preview-image-last">
-        <img src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V2/preview-etiquettes.png" alt="preview etiquettes" style={{ height: '176px' }}/>
+      <div className="fr-col-12 fr-col-md-2 fr-mb-md-0w preview-image preview-image-last">
+        <img
+          src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V3/previews/preview-etiquettes.png"
+          alt="preview etiquettes" style={{ height: '176px' }} />
       </div>
     </div>
   );
