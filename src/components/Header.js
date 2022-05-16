@@ -52,7 +52,7 @@ function Header() {
                   <li>
                     <a
                       title="Aide"
-                      className="fr-link fr-fi-question-line fr-link--icon-left"
+                      className="fr-link fr-icon-question-answer-line"
                       href="https://aide.conseiller-numerique.gouv.fr/fr/"
                       target="_blank"
                       rel="noopener noreferrer">
