@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoFR from '../assets/brands/logo-france-relance-alt-min.svg';
-import logoANCT from '../assets/brands/logo-anct-min.svg';
-import logoSONUM from '../assets/brands/logo-sonum-min.svg';
-import logoBDT from '../assets/brands/logo-banque-des-territoires-min.svg';
 
 function Footer() {
 
@@ -17,7 +14,7 @@ function Footer() {
       <div className="fr-container">
         <div className="fr-footer__body fr-footer__body--operator">
           <div className="fr-footer__brand fr-enlarge-link">
-            <p className="fr-logo" title="R&eacute;publique Française">
+            <p className="fr-logo" title="République Française">
               r&eacute;publique
               <br />
               fran&ccedil;aise
@@ -35,20 +32,46 @@ function Footer() {
               </li>
               <li className="fr-footer__content-item">
                 <a
-                  className="fr-footer__content-link"
-                  title="Statistiques"
-                  href="https://metabase.conseiller-numerique.gouv.fr/public/dashboard/446208c4-cae2-4c0c-be19-44cb14ce7d06"
-                  target="_blank" rel="noopener noreferrer">
-                    Statistiques
-                </a>
-              </li>
-              <li className="fr-footer__content-item">
-                <a
                   title="France services"
                   className="fr-footer__content-link"
                   href="https://www.cohesion-territoires.gouv.fr/france-services"
                   target="_blank" rel="noopener noreferrer">
                     France services
+                </a>
+              </li>
+              <li className="fr-footer__content-item">
+                <a
+                  className="fr-footer__content-link"
+                  href="https://agence-cohesion-territoires.gouv.fr"
+                  title="Agence Nationale de la Coh&eacute;sion des Territoires"
+                  target="_blank" rel="noopener noreferrer">
+                    Agence Nationale de la Coh&eacute;sion des Territoires</a>
+              </li>
+              <li className="fr-footer__content-item">
+                <a
+                  className="fr-footer__content-link"
+                  href="https://societenumerique.gouv.fr"
+                  title="Programme Soci&eacute;t&eacute; Num&eacute;rique"
+                  target="_blank" rel="noopener noreferrer">
+                    Programme Soci&eacute;t&eacute; Num&eacute;rique
+                </a>
+              </li>
+              <li className="fr-footer__content-item">
+                <a
+                  className="fr-footer__content-link"
+                  href="https://incubateur.anct.gouv.fr"
+                  title="Incubateur des territoires"
+                  target="_blank" rel="noopener noreferrer">
+                    Incubateur des territoires
+                </a>
+              </li>
+              <li className="fr-footer__content-item">
+                <a
+                  className="fr-footer__content-link"
+                  title="Statistiques"
+                  href="https://metabase.conseiller-numerique.gouv.fr/public/dashboard/446208c4-cae2-4c0c-be19-44cb14ce7d06"
+                  target="_blank" rel="noopener noreferrer">
+                    Statistiques
                 </a>
               </li>
             </ul>
@@ -66,32 +89,6 @@ function Footer() {
                 <a className="fr-footer__content-link" href="https://data.gouv.fr" target="_blank" rel="noopener noreferrer">data.gouv.fr</a>
               </li>
             </ul>
-          </div>
-        </div>
-        <div className="fr-footer__partners" style={{ boxShadow: 'none' }}>
-          <h4 className="fr-footer__partners-title" style={{ fontWeight: '400', color: '#3A3A3A' }}>
-            Dispositif pilot&eacute; et op&eacute;rationnalis&eacute; par&nbsp;:
-          </h4>
-          <div className="fr-footer__partners-logos">
-            <div className="fr-footer__partners-main">
-              <a className="footer__partners-link" href="https://agence-cohesion-territoires.gouv.fr">
-                <img className="fr-footer__logo" style={{ height: '4.625rem' }} src={logoANCT} alt="Agence Nationale de la Coh&eacute;sion des Territoires" />
-              </a>
-            </div>
-            <div className="fr-footer__partners-sub" style={{ order: 1 }}>
-              <ul style={{ alignItems: 'center' }}>
-                <li style={{ paddingTop: '5px' }}>
-                  <a className="fr-footer__partners-link" href="https://societenumerique.gouv.fr">
-                    <img className="fr-footer__logo" style={{ height: '4rem' }} src={logoSONUM} alt="Soci&eacute;t&eacute; Num&eacute;rique" />
-                  </a>
-                </li>
-                <li style={{ paddingTop: '5px' }}>
-                  <a className="fr-footer__partners-link" href="https://www.banquedesterritoires.fr/">
-                    <img className="fr-footer__logo" style={{ height: '3.5rem' }} src={logoBDT} alt="Banque Des Territoires" />
-                  </a>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
         <div className="fr-footer__bottom">

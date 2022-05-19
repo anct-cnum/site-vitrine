@@ -17,10 +17,6 @@
     display: none; /* suppression du picto target blank */
   }
 
-  a[href] {
-    background-image: none; /* suppression du underline */
-  }
-
   .h4CustomKit {
     margin-top: 0;
     margin-bottom: 56px;
@@ -45,10 +41,6 @@
   .summary-custom {
     background-color: unset;
     padding: 0;
-  }
-
-  .summary-custom li {
-    padding:  0 0 0.25rem 0;
   }
   
   .summary-title-custom, .about-title-custom {
