@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import logoFR from '../assets/brands/logo-france-relance-alt-min.svg';
 import logoANCT from '../assets/brands/logo-anct-min.svg';
 import logoSONUM from '../assets/brands/logo-sonum-min.svg';
-import logoBDT from '../assets/brands/logo-banque-des-territoires-min.svg';
 
 function Footer() {
 
@@ -83,11 +82,6 @@ function Footer() {
                 <li style={{ paddingTop: '5px' }}>
                   <a className="fr-footer__partners-link" href="https://societenumerique.gouv.fr">
                     <img className="fr-footer__logo" style={{ height: '4rem' }} src={logoSONUM} alt="Soci&eacute;t&eacute; Num&eacute;rique" />
-                  </a>
-                </li>
-                <li style={{ paddingTop: '5px' }}>
-                  <a className="fr-footer__partners-link" href="https://www.banquedesterritoires.fr/">
-                    <img className="fr-footer__logo" style={{ height: '3.5rem' }} src={logoBDT} alt="Banque Des Territoires" />
                   </a>
                 </li>
               </ul>
