@@ -6,6 +6,10 @@
     display: none; /* suppression du picto target blank */
   }
 
+  a[target=_blank] {
+    background-image: none; /* suppression du underline */
+  }
+
   .bleu-secondaire {
     color: $blue-secondary;
   }
