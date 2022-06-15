@@ -69,6 +69,11 @@ function Documentation() {
         <p>Fiche avec d&eacute;tails de l&rsquo;offre, des missions et des tâches</p>
       </div>
       <div>
+        <a href="https://cdn.conseiller-numerique.gouv.fr/Aidants_Connect_x_CNFS.pdf" className="fr-link" target="_blank" rel="noreferrer"
+          title="T&eacute;l&eacute;charger la note Aidants Connect &amp; CnFS">T&eacute;l&eacute;charger la note Aidants Connect &amp; CnFS</a>
+        <p></p>
+      </div>
+      <div>
         <a href="https://cdn.conseiller-numerique.gouv.fr/les-conseils-pour-bien-demarrer.pdf" className="fr-link" target="_blank" rel="noreferrer"
           title="Ce document a pour objet de faciliter l&rsquo;entr&eacute;e en poste des Conseillers num&eacute;riques France Services,
           et contient de nombreuses informations en lien avec leur d&eacute;but d&rsquo;activit&eacute; : outils, r&eacute;seaux, parcours, etc.">
