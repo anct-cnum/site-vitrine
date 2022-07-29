@@ -13,6 +13,11 @@ function Documentation() {
         <p>Pr&eacute;sentation des activit&eacute;s du conseiller num&eacute;rique</p>
       </div>
       <div>
+        <a href="https://cdn.conseiller-numerique.gouv.fr/CNFS_x_demarches_administrative.pdf" className="fr-link" target="_blank" rel="noreferrer"
+          title="T&eacute;l&eacute;charger la note d&rsquo;acc&egrave;s aux droits">T&eacute;l&eacute;charger la note d&rsquo;acc&egrave;s aux droits</a>
+        <p></p>
+      </div>
+      <div>
         <a href="https://cdn.conseiller-numerique.gouv.fr/cir_45126.pdf" className="fr-link" target="_blank" rel="noreferrer"
           title="T&eacute;l&eacute;charger la circulaire">T&eacute;l&eacute;charger la circulaire</a>
         <p>Mise en œuvre du volet &laquo;&nbsp;inclusion num&eacute;rique&nbsp;&raquo; du plan de relance</p>
