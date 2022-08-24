@@ -15,8 +15,12 @@ function Documentation() {
       <div>
         <a href="https://cdn.conseiller-numerique.gouv.fr/CNFS_x_demarches_administrative.pdf" className="fr-link" target="_blank" rel="noreferrer"
           // eslint-disable-next-line max-len
-          title="T&eacute;l&eacute;charger la note &laquo;&nbsp; Conseillers num&eacute;riques, structures d&rsquo;accueil : comment accompagner les usagers dans leurs d&eacute;marches administratives en ligne ?&nbsp;&raquo;">T&eacute;l&eacute;charger la note &laquo;&nbsp; Conseillers num&eacute;riques, structures d&rsquo;accueil : comment accompagner les usagers dans leurs d&eacute;marches administratives en ligne ?&nbsp;&raquo;</a>
-        <p>Cette note propose des pistes aux Conseillers num&eacute;riques et à leurs employeurs pour accueillir les demandes
+          title="T&eacute;l&eacute;charger la note &laquo;&nbsp; Conseillers num&eacute;riques, structures d&rsquo;accueil : comment accompagner les usagers dans leurs d&eacute;marches administratives en ligne ?&nbsp;&raquo;">
+          T&eacute;l&eacute;charger la note &laquo;&nbsp; Conseillers num&eacute;riques, structures d&rsquo;accueil&nbsp;: comment accompagner
+          les usagers dans leurs d&eacute;marches administratives en ligne&nbsp;?&nbsp;&raquo;
+        </a>
+        <p>
+          Cette note propose des pistes aux Conseillers num&eacute;riques et &agrave; leurs employeurs pour accueillir les demandes
           d&rsquo;accompagnement des usagers aux d&eacute;marches en ligne, notamment ceux en situation de rupture
           d&rsquo;acc&egrave;s aux droits, dans le respect de l&rsquo;AMI et en compl&eacute;mentarit&eacute; avec le r&eacute;seau des agents France Services.
         </p>
