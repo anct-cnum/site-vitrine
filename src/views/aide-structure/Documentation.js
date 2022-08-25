@@ -14,8 +14,16 @@ function Documentation() {
       </div>
       <div>
         <a href="https://cdn.conseiller-numerique.gouv.fr/CNFS_x_demarches_administrative.pdf" className="fr-link" target="_blank" rel="noreferrer"
-          title="T&eacute;l&eacute;charger la note d&rsquo;acc&egrave;s aux droits">T&eacute;l&eacute;charger la note d&rsquo;acc&egrave;s aux droits</a>
-        <p></p>
+          // eslint-disable-next-line max-len
+          title="T&eacute;l&eacute;charger la note &laquo;&nbsp; Conseillers num&eacute;riques, structures d&rsquo;accueil : comment accompagner les usagers dans leurs d&eacute;marches administratives en ligne ?&nbsp;&raquo;">
+          T&eacute;l&eacute;charger la note &laquo;&nbsp; Conseillers num&eacute;riques, structures d&rsquo;accueil&nbsp;: comment accompagner
+          les usagers dans leurs d&eacute;marches administratives en ligne&nbsp;?&nbsp;&raquo;
+        </a>
+        <p>
+          Cette note propose des pistes aux Conseillers num&eacute;riques et &agrave; leurs employeurs pour accueillir les demandes
+          d&rsquo;accompagnement des usagers aux d&eacute;marches en ligne, notamment ceux en situation de rupture
+          d&rsquo;acc&egrave;s aux droits, dans le respect de l&rsquo;AMI et en compl&eacute;mentarit&eacute; avec le r&eacute;seau des agents France Services.
+        </p>
       </div>
       <div>
         <a href="https://cdn.conseiller-numerique.gouv.fr/cir_45126.pdf" className="fr-link" target="_blank" rel="noreferrer"
@@ -36,14 +44,14 @@ function Documentation() {
       <div>
         <a href="https://cdn.conseiller-numerique.gouv.fr/AMI_Conseiller-Numerique.pdf" className="fr-link" target="_blank" rel="noreferrer"
           title="T&eacute;l&eacute;charger l'Appel &agrave; Manifestation d'Int&eacute;r&ecirc;t Public">
-            T&eacute;l&eacute;charger l&rsquo;Appel &agrave; Manifestation d&rsquo;Int&eacute;r&ecirc;t Public
+          T&eacute;l&eacute;charger l&rsquo;Appel &agrave; Manifestation d&rsquo;Int&eacute;r&ecirc;t Public
         </a>
         <p>Appel &agrave; manifestation d&rsquo;int&eacute;r&ecirc;t pour les collectivit&eacute;s territoriales et leurs groupements</p>
       </div>
       <div>
         <a href="https://cdn.conseiller-numerique.gouv.fr/AMI_Prive.pdf" className="fr-link" target="_blank" rel="noreferrer"
           title="T&eacute;l&eacute;charger l'Appel &agrave; Manifestation d'Int&eacute;r&ecirc;t Priv&eacute;">
-            T&eacute;l&eacute;charger l&rsquo;Appel &agrave; Manifestation d&rsquo;Int&eacute;r&ecirc;t Priv&eacute;
+          T&eacute;l&eacute;charger l&rsquo;Appel &agrave; Manifestation d&rsquo;Int&eacute;r&ecirc;t Priv&eacute;
         </a>
         <p>Appel &agrave; manifestation d&rsquo;int&eacute;r&ecirc;t pour les acteurs &agrave; statut priv&eacute;</p>
       </div>
@@ -54,7 +62,7 @@ function Documentation() {
       <div>
         <a href="https://cdn.conseiller-numerique.gouv.fr/Recommandation_ANCT_CNFS_Pass.pdf" className="fr-link" target="_blank" rel="noreferrer"
           title="T&eacute;l&eacute;charger l&rsquo;articulation Pass num&eacute;rique et CnFS">
-            T&eacute;l&eacute;charger l&rsquo;articulation Pass num&eacute;rique et CnFS
+          T&eacute;l&eacute;charger l&rsquo;articulation Pass num&eacute;rique et CnFS
         </a>
         <p>Ce document pr&eacute;sente l&rsquo;articulation des dispositifs Pass num&eacute;riques et Conseillers num&eacute;riques France Services</p>
       </div>
