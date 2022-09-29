@@ -82,7 +82,7 @@ jobs:
       - name: Deploy on clever cloud
         uses: s0/git-publish-subdir-action@develop
         env:
-          REPO: ${{ secrets.CLEVER_NEW_SITE_VITRINE_RECETTE }}
+          REPO: ${{ secrets.CLEVER_SITE_VITRINE_RECETTE }}
           BRANCH: master
           FOLDER: build
           SSH_PRIVATE_KEY: ${{ secrets.CLEVER_CLOUD_DEPLOY_PRIVATE_KEY }}
