@@ -51,7 +51,7 @@ function Cadrage() {
           l&rsquo;offre de service des Conseillers num&eacute;riques France Services&nbsp;:
           <br/>
           <a
-            href="https://cdn.conseiller-numerique.gouv.fr/Articulation_des_dispositifs_Pass_numeriques_et_Conseillers_numeriques_France_Services.pdf"
+            href="https://cdn.conseiller-numerique.gouv.fr/Recommandation_ANCT_CNFS_Pass.pdf"
             title="T&eacute;l&eacute;charger la note Pass num&eacute;rique x Conseiller num&eacute;rique"
             className="bleu-france"
             style={{ boxShadow: 'none' }}

@@ -11,14 +11,6 @@ function Actions() {
         target="_blank" rel="noopener noreferrer"
         className="buttonCustom blueButtonCustom fr-text--xx-bold"
         title="Devenir conseiller num&eacute;rique">Devenir conseiller num&eacute;rique</a>
-{/*
-      <a
-        href="http://cdn.conseiller-numerique.gouv.fr/presentation-conseiller-numerique.pdf"
-        target="_blank" rel="noopener noreferrer"
-        className="buttonCustom greyButtonCustom fr-text--xx-bold"
-        title="T&eacute;l&eacute;charger la fiche conseiller num&eacute;rique">
-          T&eacute;l&eacute;charger la fiche conseiller num&eacute;rique
-      </a> */}
     </div>
   );
 }
