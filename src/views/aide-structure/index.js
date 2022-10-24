@@ -13,7 +13,7 @@ function AideStructure() {
       <Presentation />
       <Etapes />
       <Questions />
-      <Documentation />
+      {/* <Documentation /> */}
     </div>
   );
 }
