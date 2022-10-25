@@ -106,7 +106,7 @@ function Sommaire() {
               </a>
             </li>
             <li>
-              <a className="summary-link-custom" href="#titre-ancre-5">
+              <a className="summary-link-custom summary-link-custom-bold" href="#titre-ancre-5">
                 5.&nbsp;&nbsp;Kit de communication
               </a>
             </li>
