@@ -53,8 +53,7 @@ function Header() {
                     <Link
                       to="/documentheque"
                       title="Documenth&egrave;que"
-                      className="fr-link fr-icon-file-line"
-                      href="https://aide.conseiller-numerique.gouv.fr/fr/">
+                      className="fr-link fr-icon-file-line">
                         Documenth&egrave;que
                     </Link>
                   </li>
