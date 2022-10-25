@@ -10,6 +10,7 @@ import MentionsLegales from './views/MentionsLegales';
 import Accessibilite from './views/Accessibilite';
 import AideCandidat from './views/aide-candidat';
 import AideStructure from './views/aide-structure';
+import Documentheque from './views/documentheque';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/accessibilite" element={<Accessibilite />}/>
           <Route path="/aide-candidat" element={<AideCandidat />}/>
           <Route path="/aide-structure" element={<AideStructure />}/>
+          <Route path="/documentheque" element={<Documentheque />}/>
           <Route index element={<Accueil />}/>
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>

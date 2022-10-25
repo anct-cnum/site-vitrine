@@ -3,7 +3,6 @@ import Header from '../../components/Header';
 import Presentation from './Presentation';
 import Etapes from './Etapes';
 import Questions from './Questions';
-import Documentation from './Documentation';
 
 function AideStructure() {
 
@@ -13,7 +12,6 @@ function AideStructure() {
       <Presentation />
       <Etapes />
       <Questions />
-      <Documentation />
     </div>
   );
 }
