@@ -80,6 +80,13 @@ function Menu() {
               <a className="fr-nav__link" href={urlCartographie} target="_self">Carte</a>
             </li>
             <li className="fr-nav__item">
+              <a className="fr-nav__link"
+                href="https://metabase.conseiller-numerique.gouv.fr/public/dashboard/446208c4-cae2-4c0c-be19-44cb14ce7d06"
+                target="_blank" rel="noopener noreferrer">
+                  Statistiques
+              </a>
+            </li>
+            <li className="fr-nav__item">
               <button
                 id="cnfs"
                 className="fr-nav__btn"
