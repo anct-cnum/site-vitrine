@@ -13,7 +13,6 @@ function Menu() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [changedMenu, setIsChangedMenu] = useState(false);
 
-  const urlCartographie = process.env.REACT_APP_CARTOGRAPHIE_URL;
   const urlBlog = process.env.REACT_APP_BLOG_URL;
   const urlBackoffice = process.env.REACT_APP_BACKOFFICE_URL;
   const urlCoop = process.env.REACT_APP_COOP_URL;
@@ -77,7 +76,12 @@ function Menu() {
               <a className="fr-nav__link" href={urlBlog} target="_self">M&eacute;dia</a>
             </li>
             <li className="fr-nav__item">
-              <a className="fr-nav__link" href={urlCartographie} target="_self">Carte</a>
+              <Link
+                to="/carte"
+                className="fr-nav__link"
+                {...(location.pathname.startsWith('/carte') ? { 'aria-current': 'page' } : {})}>
+                  Carte
+              </Link>
             </li>
             <li className="fr-nav__item">
               <a className="fr-nav__link"
