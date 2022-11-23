@@ -1,0 +1,20 @@
+.carte {
+
+  margin-Bottom: 175px;
+
+  h1 {
+    color: white;
+  }
+
+  .fr-nav__list > * > .fr-nav__link[aria-current] {
+    z-index: unset;
+  }
+
+  ol > li::marker {
+    content: unset;
+  }
+
+  a {
+    background-image: unset;
+  }
+}

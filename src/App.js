@@ -11,6 +11,7 @@ import Accessibilite from './views/Accessibilite';
 import AideCandidat from './views/aide-candidat';
 import AideStructure from './views/aide-structure';
 import Documentheque from './views/documentheque';
+import Carte from './views/Carte';
 
 function App() {
   return (
@@ -23,6 +24,11 @@ function App() {
           <Route path="/aide-candidat" element={<AideCandidat />}/>
           <Route path="/aide-structure" element={<AideStructure />}/>
           <Route path="/documentheque" element={<Documentheque />}/>
+          <Route path="/carte" element={<Carte />}/>
+          <Route path="/regions" element={<Carte />}/>
+          <Route path="/regions/:region" element={<Carte />}/>
+          <Route path="/regions/:region/:departement" element={<Carte />}/>
+          <Route path="/:permanence/details" element={<Carte />}/>
           <Route index element={<Accueil />}/>
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
