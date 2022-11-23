@@ -53,7 +53,7 @@ jobs:
           envkey_REACT_APP_COOP_URL: "https://coop.conseiller-numerique.gouv.fr/login"
           envkey_REACT_APP_CANDIDAT_URL: "https://candidat.conseiller-numerique.gouv.fr/login"
           envkey_REACT_APP_FORMS_URL: "https://app.conseiller-numerique.gouv.fr/candidature"
-          envkey_REACT_APP_API_URL: ${{ secrets.REACT_APP_API_PRODUCTION }}
+          envkey_REACT_APP_API_URL: ${{ secrets.REACT_APP_API_RECETTE }}
           file_name: .env
       - name: Build application
         run: npm run build
