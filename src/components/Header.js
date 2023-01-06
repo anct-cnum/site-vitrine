@@ -50,6 +50,17 @@ function Header() {
               <div className="fr-header__tools-links">
                 <ul className="fr-links-group">
                   <li>
+                    <a
+                      title="Renouvellement conventions"
+                      className="fr-link fr-icon-star-fill link-renouvellement-conventions"
+                      // eslint-disable-next-line max-len
+                      href="https://aide.conseiller-numerique.gouv.fr/fr/article/renouvellement-quel-est-le-montant-de-la-subvention-quelle-est-la-duree-de-la-subvention-et-du-contrat-1ci8cxv/"
+                      target="_blank"
+                      rel="noopener noreferrer">
+                        Renouvellement conventions
+                    </a>
+                  </li>
+                  <li>
                     <Link
                       to="/documentheque"
                       title="Documenth&egrave;que"
@@ -57,7 +68,7 @@ function Header() {
                         Documenth&egrave;que
                     </Link>
                   </li>
-                  <li style={{ paddingLeft: '5px' }}>
+                  <li>
                     <a
                       title="Aide"
                       className="fr-link fr-icon-question-answer-line"
