@@ -6,7 +6,8 @@ import logo from '../assets/brands/logo-rf-conseiller-numerique-min.svg';
 import Menu from './Menu';
 
 function Header() {
-
+  // eslint-disable-next-line max-len
+  const aideUrl = `${process.env.REACT_APP_AIDE_URL}/article/renouvellement-quel-est-le-montant-de-la-subvention-quelle-est-la-duree-de-la-subvention-et-du-contrat-1ci8cxv/`;
   const dispatch = useDispatch();
 
   const toggleBurgerMenu = () => {
@@ -50,6 +51,16 @@ function Header() {
               <div className="fr-header__tools-links">
                 <ul className="fr-links-group">
                   <li>
+                    <a
+                      title="Renouvellement conventions"
+                      className="fr-link fr-icon-star-fill link-renouvellement-conventions"
+                      href={aideUrl}
+                      target="_blank"
+                      rel="noopener noreferrer">
+                        Renouvellement conventions
+                    </a>
+                  </li>
+                  <li>
                     <Link
                       to="/documentheque"
                       title="Documenth&egrave;que"
@@ -57,7 +68,7 @@ function Header() {
                         Documenth&egrave;que
                     </Link>
                   </li>
-                  <li style={{ paddingLeft: '5px' }}>
+                  <li>
                     <a
                       title="Aide"
                       className="fr-link fr-icon-question-answer-line"
