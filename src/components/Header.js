@@ -54,7 +54,6 @@ function Header() {
                     <a
                       title="Renouvellement conventions"
                       className="fr-link fr-icon-star-fill link-renouvellement-conventions"
-                      // eslint-disable-next-line max-len
                       href={aideUrl}
                       target="_blank"
                       rel="noopener noreferrer">
