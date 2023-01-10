@@ -68,7 +68,7 @@ function Header() {
                         Documenth&egrave;que
                     </Link>
                   </li>
-                  <li>
+                  <li style={{ paddingLeft: '10px' }}>
                     <a
                       title="Aide"
                       className="fr-link fr-icon-question-answer-line"
