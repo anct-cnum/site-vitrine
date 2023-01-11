@@ -2,7 +2,16 @@
 
 .fr-header {
 
-    .link-renouvellement-conventions {
-        color: $red-medium !important;
-    }
+  .link-renouvellement-conventions {
+    color: $red-medium !important;
+  }
+
+  // Pour contrer la classe du DSFR [target=_blank]:after
+  .link-renouvellement-conventions::after {
+    margin-bottom: unset;
+    margin-left: unset;
+    mask-image: none;
+    -webkit-mask-image: unset;
+  }
+
 }
