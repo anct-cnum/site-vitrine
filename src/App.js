@@ -29,6 +29,7 @@ function App() {
           <Route path="/regions/:region" element={<Carte />}/>
           <Route path="/regions/:region/:departement" element={<Carte />}/>
           <Route path="/:permanence/details" element={<Carte />}/>
+          <Route path="/:permanence" element={<Carte />}/>
           <Route index element={<Accueil />}/>
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
