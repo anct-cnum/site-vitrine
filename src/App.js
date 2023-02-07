@@ -18,6 +18,7 @@ function App() {
     <div className="App">
       <Router history={history}>
         <Routes>
+          <Route path="/accueil" element={<Navigate to="/" />}/>
           <Route path="/kit-communication" element={<KitCommunication />}/>
           <Route path="/mentions-legales" element={<MentionsLegales />}/>
           <Route path="/accessibilite" element={<Accessibilite />}/>
@@ -29,7 +30,7 @@ function App() {
           <Route path="/regions/:region" element={<Carte />}/>
           <Route path="/regions/:region/:departement" element={<Carte />}/>
           <Route path="/:permanence/details" element={<Carte />}/>
-          <Route path="/:permanence" element={<Carte />}/>
+          <Route exact path="/:permanence" element={<Carte />}/>
           <Route index element={<Accueil />}/>
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
