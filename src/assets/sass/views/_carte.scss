@@ -23,6 +23,13 @@
   }
 }
 
+// Fix affichage du footer lorsque le menu burger est affiché
+@media (max-width: 992px) {
+  .carte:has(.fr-header__menu:not(.fr-modal)) {
+   height: unset !important;
+  }
+}
+
 @media print {
 
   .carte > header, .carte + footer {
