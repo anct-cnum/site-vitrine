@@ -30,6 +30,11 @@ function Sommaire() {
               </a>
             </li>
             <li>
+              <a className="summary-link-custom" href="#titre-ancre-1.4">
+                1.4&nbsp;&nbsp;Mod&egrave;le de convention de subvention 36 mois
+              </a>
+            </li>
+            <li>
               <a className="summary-link-custom summary-link-custom-bold" href="#titre-ancre-2">
                 2.&nbsp;&nbsp;Notes de cadrage
               </a>
