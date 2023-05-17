@@ -63,7 +63,7 @@ function Mission3() {
             </div>
           </div>
         </div>
-        <div className="fr-grid-row fr-mt-10w fr-mb-2w fr-col-12">
+        <div className="fr-grid-row fr-mt-xl-10w fr-mt-3w fr-mb-xl-2w fr-col-12">
           <div className="fr-col-12">
             <hr style={{ borderWidth: '0.5px', borderColor: '#E5E5E5' }} />
           </div>

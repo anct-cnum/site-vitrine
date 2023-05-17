@@ -5,7 +5,7 @@ function Coordination() {
 
   return (
     <section style={{ backgroundColor: '#F6F6F6' }}>
-      <div className="fr-container fr-pt-14w fr-pb-10w">
+      <div className="fr-container fr-pt-14w fr-pb-xl-10w fr-pb-2w">
         <div className="fr-grid-row fr-grid-row--gutter">
           <div className="fr-col-xl-8 fr-col-12">
             <h1>Coordination territoriale</h1>
@@ -16,10 +16,15 @@ function Coordination() {
               Ce constat a mené à la création de postes de <strong>Conseillers numériques coordinateurs, </strong>
               dont l’action s’est avérée très positive.
             </p>
-            <p style={{ width: '80%' }} className="fr-h4 gris-paragraphe">Les missions des Conseillers numériques coordinateurs sont les suivantes :</p>
+            <p style={{ width: '80%' }} className="fr-h4 gris-paragraphe display-desktop">
+              Les missions des Conseillers numériques coordinateurs sont les suivantes :
+            </p>
           </div>
           <div className="fr-col-xl-3 fr-col-12">
-            <img src={CartographieCoordinateur} alt="Cartographie Coordinateur" className="image" />
+            <img src={CartographieCoordinateur} style={{ width: '90%' }} alt="Cartographie Coordinateur" className="image" />
+            <p style={{ width: '80%' }} className="fr-h4 fr-mt-5w gris-paragraphe display-mobile">
+              Les missions des Conseillers numériques coordinateurs sont les suivantes :
+            </p>
           </div>
         </div>
       </div>

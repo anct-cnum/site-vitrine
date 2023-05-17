@@ -41,4 +41,34 @@
     position: absolute;
     transform: translateY(165%)
   }
+  .display-mobile {
+    display: none;
+  }
+  @media (max-width: 480px) {
+    .display-mobile {
+      display: flex;
+    }
+    .display-desktop {
+      display: none;
+    }
+    .illustration-mission1 {
+      transform: translateY(112%);
+      width: 95%;
+    }
+    .illustration-mission2 {
+      transform: translateY(142%);
+      width: 95%;
+    }
+    .block-mission2 {
+      padding-bottom: 9rem;
+    }
+    .illustration-mission3 {
+      transform: translateY(140%);
+      width: 95%;
+    }
+    .illustration-mission4 {
+      transform: translateY(157%);
+      width: 95%;
+    }
+  }
 }

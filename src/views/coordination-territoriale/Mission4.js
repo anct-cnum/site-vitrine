@@ -8,6 +8,16 @@ function Mission4() {
     <section>
       <div className="fr-container fr-pt-10w">
         <div className="fr-grid-row fr-grid-row--gutters">
+          <div className="fr-col-12 display-mobile fr-ml-auto fr-grid-row--center fr-grid-row fr-pt-16w fr-pb-15w">
+            <img src={PictoMission4} alt="Cartographie Coordinateur" className="picto-mission" />
+            <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w" style={{ backgroundColor: '#EEEEEE' }}>
+              <p className="fr-h6 title-mission">
+                Les Conseillers numériques coordinateurs pourront s’ils le souhaitent exercer les missions suivantes
+                à titre facultatif(liste non-exhaustive) :
+              </p>
+            </div>
+            <img src={CoordinateurMission4} alt="Cartographie Coordinateur" className="illustration-mission4" />
+          </div>
           <div className="fr-col-xl-8 fr-col-12">
             <div className="fr-grid-row">
               <ul className="fr-col-xl-6 fr-col-12 primary-list">
@@ -56,7 +66,7 @@ function Mission4() {
               </ul>
             </div>
           </div>
-          <div className="fr-col-xl-4 fr-col-12 fr-ml-auto fr-grid-row--center fr-grid-row fr-pt-16w fr-pb-15w">
+          <div className="fr-col-4 display-desktop fr-ml-auto fr-grid-row--center fr-grid-row fr-pt-16w fr-pb-15w">
             <img src={PictoMission4} alt="Cartographie Coordinateur" className="picto-mission" />
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">

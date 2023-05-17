@@ -3,10 +3,10 @@ import React from 'react';
 function Informations() {
 
   return (
-    <section style={{ backgroundColor: '#000091' }} className="fr-mt-13w">
+    <section style={{ backgroundColor: '#000091' }} className="fr-mt-xl-13w fr-mt-4w">
       <div className="fr-container fr-pt-10w fr-pb-8w">
         <div className="fr-grid-row fr-grid-row--gutter">
-          <div className="fr-col-7">
+          <div className="fr-col-xl-7 fr-col-12">
             <p style={{ color: 'white', width: '98%' }}>
               <strong>Le nombre de Conseillers numériques coordinateurs</strong> présents sur le territoire sera
               <strong> accru</strong> au cours du second trimestre 2023.
