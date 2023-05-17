@@ -9,14 +9,14 @@ function Mission3() {
       <div className="fr-container fr-pt-10w">
         <div className="fr-grid-row fr-grid-row--gutters">
           <div className="fr-col-xl-4 fr-col-12 fr-grid-row--center fr-grid-row fr-pt-16w block-mission3">
-            <img src={PictoMission3} alt="Cartographie Coordinateur" className="picto-mission" />
+            <img src={PictoMission3} alt="Picto mission 3" className="picto-mission" />
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w block-title-mission" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
                 Imaginer et mettre en place des collaborations sur la base des besoins de
                 la communauté des Conseillers numériques :
               </p>
             </div>
-            <img src={CoordinateurMission3} alt="Cartographie Coordinateur" className="illustration-mission3" />
+            <img src={CoordinateurMission3} alt="Coordinateur mission 3" className="illustration-mission3" />
           </div>
           <div className="fr-col-xl-8 fr-col-12 fr-ml-auto">
             <div className="fr-grid-row">

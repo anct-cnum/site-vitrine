@@ -1,5 +1,5 @@
 import React from 'react';
-import CartographieCoordinateur from '../../assets/images/coordinateur-mission-1.svg';
+import CoordinateurMission1 from '../../assets/images/coordinateur-mission-1.svg';
 import PictoMission1 from '../../assets/pictos/mission-1.svg';
 
 function Mission1() {
@@ -9,11 +9,11 @@ function Mission1() {
       <div className="fr-container fr-pt-14w">
         <div className="fr-grid-row fr-grid-row--gutters">
           <div className="fr-col-xl-4 fr-col-12 fr-grid-row--center fr-grid-row fr-pt-16w block-mission1">
-            <img src={PictoMission1} alt="Cartographie Coordinateur" className="picto-mission" />
+            <img src={PictoMission1} alt="Picto mission 1" className="picto-mission" />
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w block-title-mission" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">Renforcer le maillage et les synergies territoriales</p>
             </div>
-            <img src={CartographieCoordinateur} alt="Cartographie Coordinateur" className="illustration-mission1" />
+            <img src={CoordinateurMission1} alt="Coordinateur mission 1" className="illustration-mission1" />
           </div>
           <div className="fr-col-xl-8 fr-col-12 fr-ml-auto">
             <div className="fr-grid-row">

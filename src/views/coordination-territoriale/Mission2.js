@@ -9,13 +9,13 @@ function Mission2() {
       <div className="fr-container fr-pt-10w">
         <div className="fr-grid-row fr-grid-row--gutters">
           <div className="fr-col-12 display-mobile fr-grid-row--center fr-grid-row fr-pt-16w block-mission2">
-            <img src={PictoMission2} alt="Cartographie Coordinateur" className="picto-mission" />
+            <img src={PictoMission2} alt="Picto mission 2" className="picto-mission" />
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w block-title-mission" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
                 Être le relais principal des employeurs, des Conseillers numériques et de l’équipe d’animation nationale
               </p>
             </div>
-            <img src={CoordinateurMission2} alt="Cartographie Coordinateur" className="illustration-mission2" />
+            <img src={CoordinateurMission2} alt="Coordinateur mission 2" className="illustration-mission2" />
           </div>
           <div className="fr-col-xl-8 fr-col-12">
             <div className="fr-grid-row">
@@ -84,7 +84,7 @@ function Mission2() {
                 Être le relais principal des employeurs, des Conseillers numériques et de l’équipe d’animation nationale
               </p>
             </div>
-            <img src={CoordinateurMission2} alt="Cartographie Coordinateur" className="illustration-mission2" />
+            <img src={CoordinateurMission2} alt="Coordinateur mission 2" className="illustration-mission2" />
           </div>
         </div>
         <div className="fr-grid-row horizontal-line fr-col-12">
