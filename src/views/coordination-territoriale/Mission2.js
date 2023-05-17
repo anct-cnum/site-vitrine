@@ -8,9 +8,9 @@ function Mission2() {
     <section>
       <div className="fr-container fr-pt-10w">
         <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-col-8">
+          <div className="fr-col-xl-8 fr-col-12">
             <div className="fr-grid-row">
-              <ul className="fr-col-6 primary-list">
+              <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p style={{ width: '90%' }}>
                     Être le point de relais entre l’animation nationale et les Conseillers numériques :
@@ -41,7 +41,7 @@ function Mission2() {
                   </p>
                 </li>
               </ul>
-              <ul className="fr-col-6 primary-list">
+              <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p>
                     Animer le réseau des employeurs et gérer les éventuelles difficultés rencontrées par
@@ -68,14 +68,14 @@ function Mission2() {
               </ul>
             </div>
           </div>
-          <div className="fr-col-4 fr-ml-auto fr-grid-row--center fr-grid-row fr-pt-16w fr-pb-15w">
-            <img src={PictoMission2} style={{ position: 'absolute', bottom: '-40.5rem' }} alt="Cartographie Coordinateur" className="image" />
+          <div className="fr-col-xl-4 fr-col-12 fr-ml-auto fr-grid-row--center fr-grid-row fr-pt-16w fr-pb-15w">
+            <img src={PictoMission2} alt="Cartographie Coordinateur" className="picto-mission" />
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
                 Être le relais principal des employeurs, des Conseillers numériques et de l’équipe d’animation nationale
               </p>
             </div>
-            <img style={{ position: 'absolute', bottom: '-63rem' }} src={CoordinateurMission2} alt="Cartographie Coordinateur" className="image" />
+            <img src={CoordinateurMission2} alt="Cartographie Coordinateur" className="illustration-mission2" />
           </div>
         </div>
         <div className="fr-grid-row fr-mt-12w fr-mb-2w fr-col-12">

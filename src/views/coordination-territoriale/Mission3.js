@@ -8,19 +8,19 @@ function Mission3() {
     <section>
       <div className="fr-container fr-pt-10w">
         <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-col-4 fr-grid-row--center fr-grid-row fr-pt-16w fr-pb-15w">
-            <img src={PictoMission3} style={{ position: 'absolute', bottom: '-85rem' }} alt="Cartographie Coordinateur" className="image" />
+          <div className="fr-col-xl-4 fr-col-12 fr-grid-row--center fr-grid-row fr-pt-16w fr-pb-15w">
+            <img src={PictoMission3} alt="Cartographie Coordinateur" className="picto-mission" />
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
                 Imaginer et mettre en place des collaborations sur la base des besoins de
                 la communauté des Conseillers numériques :
               </p>
             </div>
-            <img style={{ position: 'absolute', bottom: '-107.5rem' }} src={CoordinateurMission3} alt="Cartographie Coordinateur" className="image" />
+            <img src={CoordinateurMission3} alt="Cartographie Coordinateur" className="illustration-mission3" />
           </div>
-          <div className="fr-col-8 fr-ml-auto">
+          <div className="fr-col-xl-8 fr-col-12 fr-ml-auto">
             <div className="fr-grid-row">
-              <ul className="fr-col-6 primary-list">
+              <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p>
                     Participer à l’ancrage du dispositif Conseiller numérique dans le cadre des politiques publiques
@@ -36,7 +36,7 @@ function Mission3() {
                   </p>
                 </li>
               </ul>
-              <ul className="fr-col-6 primary-list">
+              <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p>
                     Être force de proposition auprès des élus quant à la mise en œuvre de la stratégie départementale

@@ -8,16 +8,16 @@ function Mission1() {
     <section>
       <div className="fr-container fr-pt-14w">
         <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-col-4 fr-grid-row--center fr-grid-row fr-pt-16w fr-pb-15w">
-            <img src={PictoMission1} style={{ position: 'absolute', bottom: '0.5rem' }} alt="Cartographie Coordinateur" className="image" />
+          <div className="fr-col-xl-4 fr-col-12 fr-grid-row--center fr-grid-row fr-pt-16w fr-pb-15w">
+            <img src={PictoMission1} alt="Cartographie Coordinateur" className="picto-mission" />
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">Renforcer le maillage et les synergies territoriales</p>
             </div>
-            <img style={{ position: 'absolute', bottom: '-18.5rem' }} src={CartographieCoordinateur} alt="Cartographie Coordinateur" className="image" />
+            <img src={CartographieCoordinateur} alt="Cartographie Coordinateur" className="illustration-mission1" />
           </div>
-          <div className="fr-col-8 fr-ml-auto">
+          <div className="fr-col-xl-8 fr-col-12 fr-ml-auto">
             <div className="fr-grid-row">
-              <ul className="fr-col-6 primary-list">
+              <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p>
                     Opérer un diagnostic territorial des besoins de médiation numérique sur son périmètre géographique
@@ -42,7 +42,7 @@ function Mission1() {
                   </p>
                 </li>
               </ul>
-              <ul className="fr-col-6 primary-list">
+              <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p>
                     Effectuer une veille sur le secteur local de l’inclusion numérique
