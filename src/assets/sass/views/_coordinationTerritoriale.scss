@@ -1,0 +1,24 @@
+@import "../colors/colors";
+
+.coordination-territoriale {
+  .bleu-secondaire {
+    color: $blue-secondary;
+  }
+  .gris-paragraphe {
+    color: $light-grey;
+  }
+  .primary-list {
+    list-style-image: url("../../images/icon-fleche.svg");
+  }
+  .secondary-list {
+    list-style: disc;
+  }
+  .secondary-list li::marker {
+    color: $blue-france;
+  }
+  .title-mission {
+    color: $blue-france;
+    text-align: center;
+    margin: 0;
+  }
+}

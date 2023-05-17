@@ -148,6 +148,14 @@ function Menu() {
                 </ul>
               </div>
             </li>
+            <li className="fr-nav__item">
+              <Link
+                to="/coordination-territoriale"
+                className="fr-nav__link"
+                {...(location.pathname.startsWith('/coordination-territoriale') ? { 'aria-current': 'page' } : {})}>
+                  Coordination territoriale
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
