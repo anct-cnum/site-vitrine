@@ -8,9 +8,9 @@ function Mission1() {
     <section>
       <div className="fr-container fr-pt-14w">
         <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-col-xl-4 fr-col-12 fr-grid-row--center fr-grid-row fr-pt-16w fr-pb-15w">
+          <div className="fr-col-xl-4 fr-col-12 fr-grid-row--center fr-grid-row fr-pt-16w block-mission1">
             <img src={PictoMission1} alt="Cartographie Coordinateur" className="picto-mission" />
-            <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w" style={{ backgroundColor: '#EEEEEE' }}>
+            <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w block-title-mission" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">Renforcer le maillage et les synergies territoriales</p>
             </div>
             <img src={CartographieCoordinateur} alt="Cartographie Coordinateur" className="illustration-mission1" />
@@ -66,7 +66,7 @@ function Mission1() {
             </div>
           </div>
         </div>
-        <div className="fr-grid-row fr-mt-xl-12w fr-mt-3w fr-mb-xl-2w fr-col-12">
+        <div className="fr-grid-row horizontal-line fr-col-12">
           <div className="fr-col-12">
             <hr style={{ borderWidth: '0.5px', borderColor: '#E5E5E5' }}/>
           </div>

@@ -8,9 +8,9 @@ function Mission4() {
     <section>
       <div className="fr-container fr-pt-10w">
         <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-col-12 display-mobile fr-ml-auto fr-grid-row--center fr-grid-row fr-pt-16w fr-pb-15w">
+          <div className="fr-col-12 display-mobile fr-ml-auto fr-grid-row--center fr-grid-row fr-pt-16w block-mission4">
             <img src={PictoMission4} alt="Cartographie Coordinateur" className="picto-mission" />
-            <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w" style={{ backgroundColor: '#EEEEEE' }}>
+            <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w block-title-mission" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
                 Les Conseillers numériques coordinateurs pourront s’ils le souhaitent exercer les missions suivantes
                 à titre facultatif(liste non-exhaustive) :

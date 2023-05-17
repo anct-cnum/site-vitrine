@@ -21,7 +21,7 @@ function Coordination() {
             </p>
           </div>
           <div className="fr-col-xl-3 fr-col-12">
-            <img src={CartographieCoordinateur} style={{ width: '90%' }} alt="Cartographie Coordinateur" className="image" />
+            <img src={CartographieCoordinateur} alt="Cartographie Coordinateur" className="image-cartographie-coordinateur" />
             <p style={{ width: '80%' }} className="fr-h4 fr-mt-5w gris-paragraphe display-mobile">
               Les missions des Conseillers numériques coordinateurs sont les suivantes :
             </p>
