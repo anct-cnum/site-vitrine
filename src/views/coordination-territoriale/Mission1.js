@@ -20,24 +20,24 @@ function Mission1() {
               <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p>
-                    Opérer un diagnostic territorial des besoins de médiation numérique sur son périmètre géographique
+                    Op&eacute;rer un diagnostic territorial des besoins de m&eacute;diation num&eacute;rique sur son p&eacute;rim&egrave;tre g&eacute;ographique
                   </p>
                 </li>
                 <li>
                   <p>
-                    Proposer une organisation de l’activité des Conseillers numériques en fonction de leur expertise,
-                    du secteur d’activité de leurs structures et des typologies d’usagers reçus
+                    Proposer une organisation de l&rsquo;activit&eacute; des Conseillers num&eacute;riques en fonction de leur expertise,
+                    du secteur d&rsquo;activit&eacute; de leurs structures et des typologies d&rsquo;usagers re&ccedil;us
                   </p>
                 </li>
                 <li>
                   <p style={{ width: '95%' }}>
-                    Développer des partenariats auprès d’acteurs locaux pour faire connaître le dispositif
+                    D&eacute;velopper des partenariats aupr&egrave;s d&rsquo;acteurs locaux pour faire conna&icirc;tre le dispositif
                     et attirer un public plus large
                   </p>
                 </li>
                 <li>
                   <p style={{ width: '95%' }}>
-                    Penser des parcours usagers et participer à créer une redirection des usagers par besoin
+                    Penser des parcours usagers et participer &agrave; cr&eacute;er une redirection des usagers par besoin
                     sur le territoire
                   </p>
                 </li>
@@ -45,21 +45,21 @@ function Mission1() {
               <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p>
-                    Effectuer une veille sur le secteur local de l’inclusion numérique
+                    Effectuer une veille sur le secteur local de l&rsquo;inclusion num&eacute;rique
                   </p>
                 </li>
                 <li>
                   <p>
-                    Participer à la structuration du maillage territorial des lieux de permanence pour favoriser des
-                    parcours usagers cohérents et garantir une répartition homogène, notamment en facilitant
-                    les réattributions de poste et en proposant des portages de postes permettant de pérenniser
-                    les postes des Conseillers numériques
+                    Participer &agrave; la structuration du maillage territorial des lieux de permanence pour favoriser des
+                    parcours usagers coh&eacute;rents et garantir une r&eacute;partition homog&egrave;ne, notamment en facilitant
+                    les r&eacute;attributions de poste et en proposant des portages de postes permettant de p&eacute;renniser
+                    les postes des Conseillers num&eacute;riques
                   </p>
                 </li>
                 <li>
                   <p>
-                    Organiser des journées de rencontres en lien avec la préfecture et le Hub en conviant
-                    l’ensemble des Conseillers numériques et des partenaires de la médiation numérique
+                    Organiser des journ&eacute;es de rencontres en lien avec la pr&eacute;fecture et le Hub en conviant
+                    l&rsquo;ensemble des Conseillers num&eacute;riques et des partenaires de la m&eacute;diation num&eacute;rique
                   </p>
                 </li>
               </ul>

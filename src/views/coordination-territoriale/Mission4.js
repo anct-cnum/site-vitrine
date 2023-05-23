@@ -12,8 +12,8 @@ function Mission4() {
             <img src={PictoMission4} alt="Picto mission 4" className="picto-mission" />
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w block-title-mission" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
-                Les Conseillers numériques coordinateurs pourront s’ils le souhaitent exercer les missions suivantes
-                à titre facultatif(liste non-exhaustive) :
+                Les Conseillers num&eacute;riques coordinateurs pourront s&rsquo;ils le souhaitent exercer les missions suivantes
+                &agrave; titre facultatif(liste non-exhaustive)&nbsp;:
               </p>
             </div>
             <img src={CoordinateurMission4} alt="Coordinateur mission 4" className="illustration-mission4" />
@@ -23,44 +23,44 @@ function Mission4() {
               <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p style={{ width: '90%' }}>
-                    Faciliter la montée en compétences des Conseillers numériques en les orientant vers des
+                    Faciliter la mont&eacute;e en comp&eacute;tences des Conseillers num&eacute;riques en les orientant vers des
                     offres de formations locales
                   </p>
                 </li>
                 <li>
                   <p style={{ width: '95%' }}>
-                    Faire des accompagnements auprès des usagers si le coordinateur exerce au sein d’un bassin de vie
+                    Faire des accompagnements aupr&egrave;s des usagers si le coordinateur exerce au sein d&rsquo;un bassin de vie
                   </p>
                 </li>
                 <li>
                   <p style={{ width: '95%' }}>
-                    Mettre en place des réunions de suivi avec les Conseillers numériques et les structures
-                    pour avoir un retour sur les formations et les accompagnements proposés
-                    par les Conseillers numériques
+                    Mettre en place des r&eacute;unions de suivi avec les Conseillers num&eacute;riques et les structures
+                    pour avoir un retour sur les formations et les accompagnements propos&eacute;s
+                    par les Conseillers num&eacute;riques
                   </p>
                 </li>
               </ul>
               <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p>
-                    Être le point de relais entre l’animation nationale et les Conseillers numériques :
+                    &Ecirc;tre le point de relais entre l&rsquo;animation nationale et les Conseillers num&eacute;riques&nbsp;:
                   </p>
                 </li>
                 <li>
                   <p>
-                    Déployer un agenda commun via RDV Aide Numérique
+                    D&eacute;ployer un agenda commun via RDV Aide Num&eacute;rique
                   </p>
                 </li>
                 <li>
                   <p>
-                    Mettre en place un suivi RH dans le cadre d’une relation hiérarchique entre le
-                    coordinateur et certains Conseillers numériques coordonnés
+                    Mettre en place un suivi RH dans le cadre d&rsquo;une relation hi&eacute;rarchique entre le
+                    coordinateur et certains Conseillers num&eacute;riques coordonn&eacute;s
                   </p>
                 </li>
                 <li>
                   <p>
-                    Assurer un suivi statistique d’accompagnement des Conseillers numériques coordonnés et appuyer
-                    la Préfecture dans les relances sur la complétion des rapports d’activité
+                    Assurer un suivi statistique d&rsquo;accompagnement des Conseillers num&eacute;riques coordonn&eacute;s et appuyer
+                    la Pr&eacute;fecture dans les relances sur la compl&eacute;tion des rapports d&rsquo;activit&eacute;
                   </p>
                 </li>
               </ul>
@@ -70,8 +70,8 @@ function Mission4() {
             <img src={PictoMission4} alt="Picto mission 4" className="picto-mission" />
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
-                Les Conseillers numériques coordinateurs pourront s’ils le souhaitent exercer les missions suivantes
-                à titre facultatif(liste non-exhaustive) :
+                Les Conseillers num&eacute;riques coordinateurs pourront s&rsquo;ils le souhaitent exercer les missions suivantes
+                &agrave; titre facultatif(liste non-exhaustive)&nbsp;:
               </p>
             </div>
             <img src={CoordinateurMission4} alt="Coordinateur mission 4" className="illustration-mission4" />

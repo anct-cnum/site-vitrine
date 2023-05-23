@@ -12,7 +12,7 @@ function Mission2() {
             <img src={PictoMission2} alt="Picto mission 2" className="picto-mission" />
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w block-title-mission" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
-                Être le relais principal des employeurs, des Conseillers numériques et de l’équipe d’animation nationale
+                &Ecirc;tre le relais principal des employeurs, des Conseillers num&eacute;riques et de l&rsquo;&eacute;quipe d&rsquo;animation nationale
               </p>
             </div>
             <img src={CoordinateurMission2} alt="Coordinateur mission 2" className="illustration-mission2" />
@@ -22,56 +22,56 @@ function Mission2() {
               <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p style={{ width: '90%' }}>
-                    Être le point de relais entre l’animation nationale et les Conseillers numériques :
+                    &Ecirc;tre le point de relais entre l&rsquo;animation nationale et les Conseillers num&eacute;riques&nbsp;:
                   </p>
                   <ul className="secondary-list">
                     <li>
                       <p>
-                        Participer aux ateliers de consultation organisés par l’équipe d’animation nationale ;
+                        Participer aux ateliers de consultation organis&eacute;s par l&rsquo;&eacute;quipe d&rsquo;animation nationale&nbsp;;
                       </p>
                     </li>
                     <li>
                       <p>
-                        Identifier et recenser les initiatives et activités locales et les porter à la connaissance
-                        de l’équipe d’animation nationale ;
+                        Identifier et recenser les initiatives et activit&eacute;s locales et les porter &agrave; la connaissance
+                        de l&rsquo;&eacute;quipe d&rsquo;animation nationale&nbsp;;
                       </p>
                     </li>
                     <li>
                       <p>
-                        Recenser et remonter les questions, les difficultés et les besoins des conseillers
-                        numériques coordonnés.
+                        Recenser et remonter les questions, les difficult&eacute;s et les besoins des conseillers
+                        num&eacute;riques coordonn&eacute;s.
                       </p>
                     </li>
                   </ul>
                 </li>
                 <li>
                   <p>
-                    Être le point de relais du Hub et des Conseillers numériques du territoire
+                    &Ecirc;tre le point de relais du Hub et des Conseillers num&eacute;riques du territoire
                   </p>
                 </li>
               </ul>
               <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p>
-                    Animer le réseau des employeurs et gérer les éventuelles difficultés rencontrées par
-                    les Conseillers numériques avec l’employeur ;
+                    Animer le r&eacute;seau des employeurs et g&eacute;rer les &eacute;ventuelles difficult&eacute;s rencontr&eacute;es par
+                    les Conseillers num&eacute;riques avec l&rsquo;employeur&nbsp;;
                   </p>
                 </li>
                 <li>
                   <p>
-                    Organiser des temps d’échange bilatéraux avec chaque Conseiller numérique coordonné ;
+                    Organiser des temps d&rsquo;&eacute;change bilat&eacute;raux avec chaque Conseiller num&eacute;rique coordonn&eacute;&nbsp;;
                   </p>
                 </li>
                 <li>
                   <p>
-                    Diffuser les informations, outils, ressources et cadres d’action à l’ensemble des Conseillers
-                    numériques coordonnés ;
+                    Diffuser les informations, outils, ressources et cadres d&rsquo;action &agrave; l&rsquo;ensemble des Conseillers
+                    num&eacute;riques coordonn&eacute;s&nbsp;;
                   </p>
                 </li>
                 <li>
                   <p>
-                    Communiquer sur l’offre de service des Conseillers numériques coordonnés et sur les évènements,
-                    et participer à leur organisation.
+                    Communiquer sur l&rsquo;offre de service des Conseillers num&eacute;riques coordonn&eacute;s et sur les &eacute;v&egrave;nements,
+                    et participer &agrave; leur organisation.
                   </p>
                 </li>
               </ul>
@@ -81,7 +81,7 @@ function Mission2() {
             <img src={PictoMission2} alt="Cartographie Coordinateur" className="picto-mission" />
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
-                Être le relais principal des employeurs, des Conseillers numériques et de l’équipe d’animation nationale
+                &Ecirc;tre le relais principal des employeurs, des Conseillers num&eacute;riques et de l&rsquo;&eacute;quipe d&rsquo;animation nationale
               </p>
             </div>
             <img src={CoordinateurMission2} alt="Coordinateur mission 2" className="illustration-mission2" />
