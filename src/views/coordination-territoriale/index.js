@@ -6,6 +6,7 @@ import Mission2 from './Mission2';
 import Mission3 from './Mission3';
 import Mission4 from './Mission4';
 import Informations from './Informations';
+import CarteCoordinateur from './CarteCoordinateur';
 
 function CoordinationTerritorial() {
 
@@ -18,6 +19,7 @@ function CoordinationTerritorial() {
       <Mission3 />
       <Mission4 />
       <Informations />
+      <CarteCoordinateur />
     </div>
   );
 }
