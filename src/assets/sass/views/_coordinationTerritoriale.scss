@@ -58,6 +58,9 @@
     margin-top: 6.5rem;
     background-color: $blue-france;
   }
+  .list-group {
+    display: block !important;
+  }
   @media (max-width: 1300px) {
     .horizontal-line {
       margin-top: 1.5rem;
