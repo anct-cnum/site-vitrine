@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@gouvfr-anct/cartographie-nationale": "^5.8.4",
+    "@gouvfr-anct/cartographie-nationale": "^5.8.5",
     "@gouvfr/dsfr": "^1.5.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
