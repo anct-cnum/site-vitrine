@@ -61,6 +61,14 @@
   .list-group {
     display: block !important;
   }
+  .block-text-informations-1 {
+    color: white;
+    width: 60%;
+  }
+  .block-text-informations-2 {
+    color: white;
+    width: 62%;
+  }
   @media (max-width: 1300px) {
     .horizontal-line {
       margin-top: 1.5rem;
@@ -99,6 +107,9 @@
     }
     .block-mission2, .block-mission4 {
       padding-bottom: 15rem;
+    }
+    .block-text-informations-2, .block-text-informations-1 {
+      width: 100%;
     }
   }
   @media (max-width: 480px) {
