@@ -87,7 +87,7 @@ function Mission2() {
             <img src={CoordinateurMission2} alt="Coordinateur mission 2" className="illustration-mission2" />
           </div>
         </div>
-        <div className="horizontal-line fr-col-12">
+        <div className="horizontal-line">
           <hr />
         </div>
       </div>
