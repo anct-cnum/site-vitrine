@@ -88,9 +88,7 @@ function Mission2() {
           </div>
         </div>
         <div className="fr-grid-row horizontal-line fr-col-12">
-          <div className="fr-col-12">
-            <hr />
-          </div>
+          <hr />
         </div>
       </div>
     </section>
