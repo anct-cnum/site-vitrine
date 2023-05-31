@@ -66,7 +66,7 @@ function Mission1() {
             </div>
           </div>
         </div>
-        <div className="fr-grid-row horizontal-line fr-col-12">
+        <div className="horizontal-line fr-col-12">
           <hr />
         </div>
       </div>
