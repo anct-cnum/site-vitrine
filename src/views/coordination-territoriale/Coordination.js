@@ -1,5 +1,5 @@
 import React from 'react';
-import CartographieCoordinateur from '../../assets/images/cartographie-coordinateur.svg';
+import CartographieCoordinateur from '../../assets/images/cartographie-coordinateur-min.svg';
 
 function Coordination() {
 

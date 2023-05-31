@@ -1,6 +1,6 @@
 import React from 'react';
-import CoordinateurMission2 from '../../assets/images/coordinateur-mission-2.svg';
-import PictoMission2 from '../../assets/pictos/mission-2.svg';
+import CoordinateurMission2 from '../../assets/images/coordinateur-mission-2-min.svg';
+import PictoMission2 from '../../assets/pictos/mission-2-min.svg';
 
 function Mission2() {
 
