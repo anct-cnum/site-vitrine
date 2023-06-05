@@ -1,0 +1,142 @@
+@import "../colors/colors";
+
+.coordination-territoriale {
+  .bleu-secondaire {
+    color: $blue-secondary;
+  }
+  .gris-paragraphe {
+    color: $light-grey;
+  }
+  .primary-list {
+    list-style-image: url("../../images/icon-fleche.svg");
+  }
+  .secondary-list {
+    list-style: disc;
+  }
+  .secondary-list li::marker {
+    color: $blue-france;
+  }
+  .title-mission {
+    color: $blue-france;
+    text-align: center;
+    margin: 0;
+  }
+  .picto-mission {
+    position: absolute;
+    transform: translateY(-75%);
+  }
+  .illustration-mission1 {
+    position: absolute;
+    transform: translateY(113%)
+  }
+  .illustration-mission2 {
+    position: absolute;
+    transform: translateY(147%)
+  }
+  .illustration-mission3 {
+    position: absolute;
+    transform: translateY(148%)
+  }
+  .illustration-mission4 {
+    position: absolute;
+    transform: translateY(165%)
+  }
+  .block-mission1, .block-mission2, .block-mission3, .block-mission4 {
+    padding-bottom: 7.5rem;
+  }
+  .display-mobile {
+    display: none;
+  }
+  .horizontal-line {
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+  }
+  .carte {
+    margin-bottom: 3px;
+  }
+  .section-informations {
+    margin-top: 6.5rem;
+    background-color: $blue-france;
+  }
+  .list-group {
+    display: block !important;
+  }
+  .block-text-informations-1 {
+    color: white;
+    width: 60%;
+  }
+  .block-text-informations-2 {
+    color: white;
+    width: 62%;
+  }
+  @media (max-width: 1300px) {
+    .horizontal-line {
+      margin-top: 1.5rem;
+      margin-bottom: 0;
+    }
+    .section-informations {
+      margin-top: 2rem;
+    }
+    .display-mobile {
+      display: flex;
+    }
+    .display-desktop {
+      display: none;
+    }
+    .illustration-mission1 {
+      width: 700px;
+      transform: translateY(48%);
+    }
+    .illustration-mission2 {
+      width: 650px;
+      transform: translateY(60%);
+    }
+    .illustration-mission3 {
+      width: 700px;
+      transform: translateY(60%);
+    }
+    .illustration-mission4 {
+      width: 700px;
+      transform: translateY(65%);
+    }
+    .block-title-mission {
+      width: 100%;
+    }
+    .block-mission1, .block-mission3 {
+      padding-bottom: 13rem;
+    }
+    .block-mission2, .block-mission4 {
+      padding-bottom: 15rem;
+    }
+    .block-text-informations-2, .block-text-informations-1 {
+      width: 100%;
+    }
+  }
+  @media (max-width: 480px) {
+    .illustration-mission1 {
+      transform: translateY(112%);
+      width: 95%;
+    }
+    .illustration-mission2 {
+      transform: translateY(142%);
+      width: 95%;
+    }
+    .illustration-mission3 {
+      transform: translateY(140%);
+      width: 95%;
+    }
+    .illustration-mission4 {
+      transform: translateY(157%);
+      width: 95%;
+    }
+    .block-mission1, .block-mission3 {
+      padding-bottom: 7.5rem;
+    }
+    .block-mission2, .block-mission4 {
+      padding-bottom: 9rem;
+    }
+    .image-cartographie-coordinateur {
+      width: 90%;
+    }
+  }
+}

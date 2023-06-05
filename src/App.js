@@ -10,8 +10,10 @@ import MentionsLegales from './views/MentionsLegales';
 import Accessibilite from './views/Accessibilite';
 import AideCandidat from './views/aide-candidat';
 import AideStructure from './views/aide-structure';
+import CoordinationTerritoriale from './views/coordination-territoriale';
 import Documentheque from './views/documentheque';
 import Carte from './views/Carte';
+import CarteCoordinateur from './views/coordination-territoriale/CarteCoordinateur';
 
 const RedirectCarto = () => {
   const { permanence } = useParams();
@@ -30,6 +32,9 @@ function App() {
           <Route path="/aide-candidat" element={<AideCandidat />}/>
           <Route path="/aide-structure" element={<AideStructure />}/>
           <Route path="/documentheque" element={<Documentheque />}/>
+          <Route path="/coordination-territoriale" element={<CoordinationTerritoriale />}/>
+          <Route path="/coordination-territoriale/:coordinateur" element={<CarteCoordinateur />}/>
+          <Route path="/coordination-territoriale/:coordinateur/details" element={<CarteCoordinateur />}/>
           <Route path="/carte" element={<Carte />}/>
           <Route path="/regions" element={<Carte />}/>
           <Route path="/regions/:region" element={<Carte />}/>
