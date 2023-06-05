@@ -33,6 +33,7 @@ function App() {
           <Route path="/aide-structure" element={<AideStructure />}/>
           <Route path="/documentheque" element={<Documentheque />}/>
           <Route path="/coordination-territoriale" element={<CoordinationTerritoriale />}/>
+          <Route path="/coordination-territoriale/:coordinateur" element={<CarteCoordinateur />}/>
           <Route path="/coordination-territoriale/:coordinateur/details" element={<CarteCoordinateur />}/>
           <Route path="/carte" element={<Carte />}/>
           <Route path="/regions" element={<Carte />}/>
