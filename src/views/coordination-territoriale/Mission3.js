@@ -13,7 +13,7 @@ function Mission3() {
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w block-title-mission" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
                 Imaginer et mettre en place des collaborations sur la base des besoins de
-                la communaut&eacute; des Conseillers num&eacute;riques&nbsp;:
+                la communaut&eacute; des Conseillers num&eacute;riques
               </p>
             </div>
             <img src={CoordinateurMission3} alt="Coordinateur mission 3" className="illustration-mission3" />
@@ -32,7 +32,7 @@ function Mission3() {
                     Mettre en place des partenariats locaux pour mettre en r&eacute;seau les actions des Conseillers num&eacute;riques
                     avec les autres acteurs du territoire potentiellement prescripteurs (&agrave; titre d&rsquo;exemple, P&ocirc;le Emploi,
                     Missions locales, Cap emploi...) ou b&eacute;n&eacute;ficiaires potentiels de l&rsquo;offre de service
-                    (&agrave; titre d&rsquo;exemple coll&egrave;ge, EPHAD...)&nbsp;;
+                    (&agrave; titre d&rsquo;exemple coll&egrave;ge, EPHAD...)
                   </p>
                 </li>
               </ul>
@@ -40,23 +40,23 @@ function Mission3() {
                 <li>
                   <p>
                     &Ecirc;tre force de proposition aupr&egrave;s des &eacute;lus quant &agrave; la mise en œuvre de la strat&eacute;gie d&eacute;partementale
-                    d&rsquo;inclusion num&eacute;rique&nbsp;;
+                    d&rsquo;inclusion num&eacute;rique
                   </p>
                 </li>
                 <li>
                   <p>
-                    Assurer une coordination avec le r&eacute;seau France services du territoire&nbsp;;
+                    Assurer une coordination avec le r&eacute;seau France services du territoire
                   </p>
                 </li>
                 <li>
                   <p>
-                    &Ecirc;tre un point de contact privil&eacute;gi&eacute; pour le Hub pour un num&eacute;rique inclusif local&nbsp;;
+                    &Ecirc;tre un point de contact privil&eacute;gi&eacute; pour le Hub pour un num&eacute;rique inclusif local
                   </p>
                 </li>
                 <li>
                   <p>
                     Visibiliser l&rsquo;action globale des Conseillers num&eacute;riques, notamment en se d&eacute;plaçant sur le
-                    territoire pour cibler des publics particuliers.
+                    territoire pour cibler des publics particuliers
                   </p>
                 </li>
               </ul>

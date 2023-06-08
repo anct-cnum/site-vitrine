@@ -13,7 +13,7 @@ function Mission4() {
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w block-title-mission" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
                 Les Conseillers num&eacute;riques coordinateurs pourront s&rsquo;ils le souhaitent exercer les missions suivantes
-                &agrave; titre facultatif(liste non-exhaustive)&nbsp;:
+                &agrave; titre facultatif (liste non-exhaustive)
               </p>
             </div>
             <img src={CoordinateurMission4} alt="Coordinateur mission 4" className="illustration-mission4" />
@@ -43,7 +43,7 @@ function Mission4() {
               <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p>
-                    &Ecirc;tre le point de relais entre l&rsquo;animation nationale et les Conseillers num&eacute;riques&nbsp;:
+                    &Ecirc;tre le point de relais entre l&rsquo;animation nationale et les Conseillers num&eacute;riques
                   </p>
                 </li>
                 <li>
@@ -71,7 +71,7 @@ function Mission4() {
             <div className="fr-pt-10w fr-pb-10w fr-pr-5w fr-pl-5w" style={{ backgroundColor: '#EEEEEE' }}>
               <p className="fr-h6 title-mission">
                 Les Conseillers num&eacute;riques coordinateurs pourront s&rsquo;ils le souhaitent exercer les missions suivantes
-                &agrave; titre facultatif(liste non-exhaustive)&nbsp;:
+                &agrave; titre facultatif (liste non-exhaustive)
               </p>
             </div>
             <img src={CoordinateurMission4} alt="Coordinateur mission 4" className="illustration-mission4" />
