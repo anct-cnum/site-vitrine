@@ -22,24 +22,24 @@ function Mission2() {
               <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p style={{ width: '90%' }}>
-                    &Ecirc;tre le point de relais entre l&rsquo;animation nationale et les Conseillers num&eacute;riques&nbsp;:
+                    &Ecirc;tre le point de relais entre l&rsquo;animation nationale et les Conseillers num&eacute;riques
                   </p>
                   <ul className="secondary-list">
                     <li>
                       <p>
-                        Participer aux ateliers de consultation organis&eacute;s par l&rsquo;&eacute;quipe d&rsquo;animation nationale&nbsp;;
+                        Participer aux ateliers de consultation organis&eacute;s par l&rsquo;&eacute;quipe d&rsquo;animation nationale
                       </p>
                     </li>
                     <li>
                       <p>
                         Identifier et recenser les initiatives et activit&eacute;s locales et les porter &agrave; la connaissance
-                        de l&rsquo;&eacute;quipe d&rsquo;animation nationale&nbsp;;
+                        de l&rsquo;&eacute;quipe d&rsquo;animation nationale
                       </p>
                     </li>
                     <li>
                       <p>
                         Recenser et remonter les questions, les difficult&eacute;s et les besoins des conseillers
-                        num&eacute;riques coordonn&eacute;s.
+                        num&eacute;riques coordonn&eacute;s
                       </p>
                     </li>
                   </ul>
@@ -54,24 +54,24 @@ function Mission2() {
                 <li>
                   <p>
                     Animer le r&eacute;seau des employeurs et g&eacute;rer les &eacute;ventuelles difficult&eacute;s rencontr&eacute;es par
-                    les Conseillers num&eacute;riques avec l&rsquo;employeur&nbsp;;
+                    les Conseillers num&eacute;riques avec l&rsquo;employeur
                   </p>
                 </li>
                 <li>
                   <p>
-                    Organiser des temps d&rsquo;&eacute;change bilat&eacute;raux avec chaque Conseiller num&eacute;rique coordonn&eacute;&nbsp;;
+                    Organiser des temps d&rsquo;&eacute;change bilat&eacute;raux avec chaque Conseiller num&eacute;rique coordonn&eacute;
                   </p>
                 </li>
                 <li>
                   <p>
                     Diffuser les informations, outils, ressources et cadres d&rsquo;action &agrave; l&rsquo;ensemble des Conseillers
-                    num&eacute;riques coordonn&eacute;s&nbsp;;
+                    num&eacute;riques coordonn&eacute;s
                   </p>
                 </li>
                 <li>
                   <p>
                     Communiquer sur l&rsquo;offre de service des Conseillers num&eacute;riques coordonn&eacute;s et sur les &eacute;v&egrave;nements,
-                    et participer &agrave; leur organisation.
+                    et participer &agrave; leur organisation
                   </p>
                 </li>
               </ul>
