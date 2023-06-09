@@ -43,11 +43,6 @@ function Mission4() {
               <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p>
-                    &Ecirc;tre le point de relais entre l&rsquo;animation nationale et les Conseillers num&eacute;riques
-                  </p>
-                </li>
-                <li>
-                  <p>
                     D&eacute;ployer un agenda commun via RDV Aide Num&eacute;rique
                   </p>
                 </li>

@@ -22,7 +22,7 @@ function Mission2() {
               <ul className="fr-col-xl-6 fr-col-12 primary-list">
                 <li>
                   <p style={{ width: '90%' }}>
-                    &Ecirc;tre le point de relais entre l&rsquo;animation nationale et les Conseillers num&eacute;riques
+                    &Ecirc;tre le point de relais entre l&rsquo;animation nationale et les Conseillers num&eacute;riques&nbsp;:
                   </p>
                   <ul className="secondary-list">
                     <li>

@@ -7,7 +7,7 @@ function Informations() {
       <div className="fr-container fr-pt-10w fr-pb-8w">
         <p className="block-text-informations-1">
           <strong>Le nombre de Conseillers num&eacute;riques coordinateurs&nbsp;</strong>pr&eacute;sents sur le territoire sera
-          <strong>&nbsp;accru&nbsp;</strong>au cours du second trimestre 2023.
+          <strong>&nbsp;accru&nbsp;</strong>d&rsquo;ici la fin d&rsquo;ann&eacute;e 2023.
         </p>
         <p className="block-text-informations-2">
           La <strong>cartographie</strong> consultable ci-dessous permet de localiser les Conseillers
