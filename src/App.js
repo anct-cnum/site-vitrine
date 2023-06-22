@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
-import { history } from './helpers';
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams, useLocation } from 'react-router-dom';
 import './assets/js';
 import './assets/sass/main.scss';
 import Footer from './components/Footer';
@@ -20,12 +19,22 @@ const RedirectCarto = () => {
   return <Navigate to={`/${permanence}/details`} replace />;
 };
 
+
+const GestionHash = () => {
+  const location = useLocation();
+  const allowedAncres = ['#ancre-themes', '#ancre-statistiques'];
+  if (allowedAncres.includes(location.hash)) {
+    return <Accueil />;
+  }
+  return <Navigate to="/" />;
+};
+
 function App() {
   return (
     <div className="App">
-      <Router history={history}>
+      <Router>
         <Routes>
-          <Route path="/accueil" element={<Navigate to="/" />}/>
+          <Route path="/accueil" element={<GestionHash />}/>
           <Route path="/kit-communication" element={<KitCommunication />}/>
           <Route path="/mentions-legales" element={<MentionsLegales />}/>
           <Route path="/accessibilite" element={<Accessibilite />}/>

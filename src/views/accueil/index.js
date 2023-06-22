@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { history } from '../../helpers';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Bienvenue from './Bienvenue';
 import Themes from './Themes';
 import Rencontres from './Rencontres';
@@ -10,15 +10,17 @@ import PriseRDV from './PriseRDV';
 
 function Accueil() {
 
+  const location = useLocation();
+  const navigate = useNavigate();
   const allowedAncres = ['#ancre-themes', '#ancre-statistiques'];
 
   //Permet de se positionner sur l'ancre avec url+hash provenant hors du router
   useEffect(() => {
-    if (allowedAncres.includes(history.location.hash)) {
-      document.querySelector(history.location.hash).scrollIntoView();
-      history.replace('/accueil'); //suppression hash
+    if (allowedAncres.includes(location.hash)) {
+      document.querySelector(location.hash).scrollIntoView();
+      navigate('/accueil', { replace: true }); //suppression hash
     }
-  }, [history.location.hash]);
+  }, [location.hash]);
 
   return (
     <>
