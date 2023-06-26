@@ -2,6 +2,11 @@
 
   .footerBrandCustom {
     flex-basis: 50%;
+    padding-top: 14px;
+  }
+
+  .footer__partners-link[href] {
+    background-image: none;
   }
 
   .footerBrandCustom:hover, .footerBrandCustom:active, .fr-footer__brand-link:active {

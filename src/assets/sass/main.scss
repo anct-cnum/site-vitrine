@@ -5,7 +5,6 @@
 @use './views/aide';
 @use './views/carte';
 @use './components/footer';
-@use './components/menu';
 @use './components/header';
 
 @import '~@gouvfr-anct/cartographie-nationale/styles.css'; //avant le DSFR pour prioriser les styles du DSFR

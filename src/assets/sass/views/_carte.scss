@@ -27,18 +27,6 @@
     display: none;
   }
 
-  // Fix Markers qui disparaissent au mouvement de la map
-  .maplibregl-marker {
-    z-index: 500;
-  }
-
-}
-
-// Fix affichage du footer lorsque le menu burger est ouvert
-@media (max-width: 992px) {
-  .carte:has(.fr-header__menu:not(.fr-modal)) {
-   height: unset !important;
-  }
 }
 
 @media print {
