@@ -82,12 +82,17 @@ function Sommaire() {
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-3.4">
-                3.4&nbsp;&nbsp;Fiche de poste type
+                3.4&nbsp;&nbsp;Guide de cofinancement pour les structures
               </a>
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-3.5">
-                3.5&nbsp;&nbsp;Guide des d&eacute;marches
+                3.5&nbsp;&nbsp;Fiche de poste type
+              </a>
+            </li>
+            <li>
+              <a className="summary-link-custom" href="#titre-ancre-3.6">
+                3.6&nbsp;&nbsp;Guide des d&eacute;marches
               </a>
             </li>
             <li>
