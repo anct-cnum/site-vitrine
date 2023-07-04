@@ -58,7 +58,24 @@ function Recrutement() {
           </a>
         </p>
         <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-3.4">
-          3.4&nbsp;&nbsp;Fiche de poste
+          3.4&nbsp;&nbsp;Guide de cofinancement pour les structures
+        </h4>
+        <p style={{ marginBottom: '0' }} className="fr-mb-7w">
+          Leviers de financement et conseils d&rsquo;ing&eacute;nierie financi&egrave;re &agrave; destination des structures
+          employeuses de conseillers num&eacute;riques&nbsp;:
+          <br/>
+          <a
+            href="https://cdn.conseiller-numerique.gouv.fr/Guide_de_cofinancement.pdf"
+            title="Guide de cofinancement pour les structures"
+            className="bleu-france"
+            style={{ boxShadow: 'none' }}
+            target="_blank"
+            rel="noopener noreferrer">
+              T&eacute;l&eacute;charger le guide de cofinancement pour les structures (pdf)
+          </a>
+        </p>
+        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-3.5">
+          3.5&nbsp;&nbsp;Fiche de poste
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
           Fiche avec d&eacute;tails de l&rsquo;offre, des missions et des t&acirc;ches du Conseiller num&eacute;rique France Services&nbsp;:
@@ -73,8 +90,8 @@ function Recrutement() {
               T&eacute;l&eacute;charger la fiche de poste (pdf)
           </a>
         </p>
-        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-3.5">
-          3.5&nbsp;&nbsp;Guide des d&eacute;marches
+        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-3.6">
+          3.6&nbsp;&nbsp;Guide des d&eacute;marches
         </h4>
         <p style={{ marginBottom: '0' }}>
           Guide &laquo;&nbsp;pas &agrave; pas&nbsp;&raquo; pour accompagner les structures d&rsquo;accueil dans leurs d&eacute;marches
