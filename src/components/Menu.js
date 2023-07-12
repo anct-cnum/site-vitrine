@@ -15,6 +15,7 @@ function Menu() {
 
   const urlBlog = process.env.REACT_APP_BLOG_URL;
   const urlBackoffice = process.env.REACT_APP_BACKOFFICE_URL;
+  const urlDashboard = process.env.REACT_APP_DASHBOARD_URL;
   const urlCoop = process.env.REACT_APP_COOP_URL;
   const urlCandidat = process.env.REACT_APP_CANDIDAT_URL;
 
@@ -138,7 +139,7 @@ function Menu() {
                     <a className="fr-nav__link" href={urlCandidat} target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace candidat</a>
                   </li>
                   <li>
-                    <a className="fr-nav__link" href={`${urlBackoffice}?role=structure`}
+                    <a className="fr-nav__link" href={urlDashboard}
                       target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace structure</a>
                   </li>
                   <li>
