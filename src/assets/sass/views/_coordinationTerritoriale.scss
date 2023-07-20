@@ -247,5 +247,16 @@
     .display-desktop {
       display: none;
     }
+
+    .marge-image {
+      margin-bottom: 12rem;
+    }
   }
+
+  @media (max-width: 800px) {
+    .marge-image {
+      margin-bottom: 5rem;
+    }
+  }
+
 }

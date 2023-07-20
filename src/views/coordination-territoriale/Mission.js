@@ -37,7 +37,7 @@ function Mission({ image, imageAlt, marge, stepRef, step, changeStep, titre }) {
         </div>
       </div>
       <div className="display-mobile" style={ step === stepRef || step === 4 ? { display: 'none' } : { marginBottom: '7.5rem' }}>&nbsp;</div>
-      <section className="mission-details display-mobile fr-mb-10w">
+      <section className="mission-details display-mobile marge-image">
         <MissionDetails />
       </section>
     </>
