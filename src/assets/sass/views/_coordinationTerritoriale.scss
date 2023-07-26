@@ -1,0 +1,268 @@
+@import "../colors/colors";
+
+.carteCoordo {
+  .h2, #hubModal {
+    color: unset!important;
+  }
+
+  .map-list h2:not(#hubModal) a {
+    background-image: unset;
+  }
+
+  h2#hubModal a {
+    color: $blue-france;
+  }
+
+  .list-group-flush > .list-group-item  {
+    background-image: unset!important;
+  }
+
+  .map-list {
+    overflow: auto;
+  }
+
+  .border-end .bg-primary {
+    z-index: 1!important;
+  }
+}
+
+.coordination-territoriale {
+  @keyframes slideaway {
+    0% {
+      overflow: hidden;
+      max-height: 0;
+    }
+    100% {
+      overflow: hidden;
+      max-height: 100%;
+    }
+  }
+  
+  @keyframes imageOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .bleu-active {
+    color: $blue-active;
+  }
+
+  .bleu-primary {
+    color: $blue-france;
+  }
+
+  .gris-light {
+    color: $light-grey;
+  }
+
+  .primary-list {
+    list-style-image: url("../../images/icon-fleche.svg");
+    text-align: justify;
+  }
+
+  .gris-background {
+    background-color: $grey-background;
+    transition: all 0.2s ease-in;
+  };
+
+  .step {
+    padding: 7.5rem 0 0;
+    justify-content: center;
+    display: flex;
+  }
+
+  .indeterminate-circle {
+    background-image: url("../../images/indeterminate-circle-fill.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .secondary-list {
+    list-style: disc;
+  }
+  .secondary-list li::marker {
+    color: $blue-france;
+  }
+  .title-mission {
+    text-align: center;
+    margin: 0;
+  }
+
+  .title-mission-plus {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 70%;
+  }
+
+  .encart-plus {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .plus-mission {
+    text-align: center;
+    margin: 0;
+    height: 100%;
+  }
+
+  .plus-mission button:hover {
+    background-color: unset;
+  }
+
+  .picto-mission {
+    position: absolute;
+    transform: translateY(-75%);
+  }
+  
+  .section-informations {
+    margin-top: 6.5rem;
+    background-color: $blue-france;
+  }
+
+  .block-text-informations-1 {
+    color: white;
+    width: 60%;
+  }
+
+  .block-text-informations-2 {
+    color: white;
+    width: 62%; 
+  }
+
+  .fr-icon-add-circle-fill {
+    padding-right: 0;
+  }
+
+  .illustration-mission1 {
+    position: absolute;
+    margin-top: -18px;
+    width: 33%;
+  }
+
+  .illustration-mission2 {
+    position: absolute;
+    margin-top: 80px;
+    width: 33%;
+  }
+
+  .illustration-mission3 {
+    position: absolute;
+    margin-top: 56px;
+    width: 33%;
+  }
+
+  .illustration-mission4 {
+    position: absolute;
+    width: 33%;
+  }
+
+  .no-display {
+    display: none;
+  }
+
+  .display {
+    display: flex;
+  }
+
+  .transition {
+    animation: slideaway 0.3s linear;
+  }
+
+  .transition-image {
+    animation: imageOpacity 1s linear;
+  }
+
+  .display-mobile {
+    display: none;
+  }
+
+  @media (max-width: 1247px) {
+    .block-text-informations-1, .block-text-informations-2 {
+      width: 100%;
+    }
+
+    .step .gris-background {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
+    .indeterminate-circle {
+      background-size: 100%;
+      font-size: 6rem;
+    }
+
+    .fr-icon-add-circle-fill, .indeterminate-circle {
+      height: 90px;
+    }
+
+    [class^=fr-icon-]:before {
+      --icon-size: 2.5rem;
+    }
+
+    .plus-mission {
+      display: block;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      height: unset;
+    }
+
+    .image-cartographie-coordinateur {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .illustration-mission1 {
+      width: 80%;
+    }
+
+    .illustration-mission2 {
+      width: 80%;
+      margin-top: -16px;
+    }
+
+    .illustration-mission3 {
+      width: 80%;
+      margin-top: -10px;
+    }
+
+    .illustration-mission4 {
+      width: 80%;
+      margin-top: 50px;
+    }
+
+    .mission-details .display-mobile {
+      margin-bottom: 12rem;
+    }
+
+    .display-mobile {
+      display: flex;
+    }
+    .display-desktop {
+      display: none;
+    }
+
+    .marge-image {
+      margin-bottom: 12rem;
+    }
+
+    .image-cartographie-coordinateur {
+      width: 50%;
+    }
+
+  }
+
+  @media (max-width: 800px) {
+
+    .marge-image {
+      margin-bottom: 5rem;
+    }
+  }
+
+}

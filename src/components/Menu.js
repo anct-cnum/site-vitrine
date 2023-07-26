@@ -46,7 +46,7 @@ function Menu() {
   };
 
   return (
-    <div className={`fr-header__menu ${burgerMenuHidden ? 'fr-modal' : ''}`} id="modal-870" aria-labelledby="fr-btn-menu-mobile-4">
+    <div className={`fr-header__menu ${burgerMenuHidden ? 'fr-modal' : 'fr-modal fr-modal--opened'}`} id="modal-870" aria-labelledby="fr-btn-menu-mobile-4">
       <div className="fr-container">
         <button className="fr-link--close fr-link" aria-controls="modal-870" onClick={toggleBurgerMenu}>Fermer</button>
         <div className="fr-header__menu-links"></div>
@@ -148,6 +148,14 @@ function Menu() {
                   </li>
                 </ul>
               </div>
+            </li>
+            <li className="fr-nav__item">
+              <Link
+                to="/coordination-territoriale"
+                className="fr-nav__link"
+                {...(location.pathname.startsWith('/coordination-territoriale') ? { 'aria-current': 'page' } : {})}>
+                  Coordination territoriale
+              </Link>
             </li>
           </ul>
         </nav>
