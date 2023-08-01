@@ -91,11 +91,6 @@ function Sommaire() {
               </a>
             </li>
             <li>
-              <a className="summary-link-custom" href="#titre-ancre-3.6">
-                3.6&nbsp;&nbsp;Guide des d&eacute;marches
-              </a>
-            </li>
-            <li>
               <a className="summary-link-custom summary-link-custom-bold" href="#titre-ancre-4">
                 4.&nbsp;&nbsp;Ressources pour accompagner les Conseillers num&eacute;riques dans leurs missions
               </a>
