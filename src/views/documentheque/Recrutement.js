@@ -90,23 +90,6 @@ function Recrutement() {
               T&eacute;l&eacute;charger la fiche de poste (pdf)
           </a>
         </p>
-        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-3.6">
-          3.6&nbsp;&nbsp;Guide des d&eacute;marches
-        </h4>
-        <p style={{ marginBottom: '0' }}>
-          Guide &laquo;&nbsp;pas &agrave; pas&nbsp;&raquo; pour accompagner les structures d&rsquo;accueil dans leurs d&eacute;marches
-          sur la plateforme conseiller-numerique.gouv.fr et demarches-simplifiees&nbsp;:
-          <br/>
-          <a
-            href="https://cdn.conseiller-numerique.gouv.fr/Guide_pas_a_pas_vitrine.pdf"
-            title="T&eacute;l&eacute;charger le guide des d&eacute;marches"
-            className="bleu-france"
-            style={{ boxShadow: 'none' }}
-            target="_blank"
-            rel="noopener noreferrer">
-              T&eacute;l&eacute;charger le guide des d&eacute;marches (pdf)
-          </a>
-        </p>
         <br />
         <p style={{ marginBottom: '0' }}>
         Des mod&egrave;les de contrat de travail ainsi qu&rsquo;un guide d&rsquo;appui &agrave; la conduite de l&rsquo;entretien de recrutement
