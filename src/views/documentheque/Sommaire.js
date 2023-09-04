@@ -31,7 +31,12 @@ function Sommaire() {
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-1.4">
-                1.4&nbsp;&nbsp;Mod&egrave;le de convention de subvention 36 mois
+                1.4&nbsp;&nbsp;Appel &agrave; candidatures - Conseiller num&eacute;rique Coordinateur
+              </a>
+            </li>
+            <li>
+              <a className="summary-link-custom" href="#titre-ancre-1.5">
+                1.5&nbsp;&nbsp;Mod&egrave;le de convention de subvention 36 mois
               </a>
             </li>
             <li>

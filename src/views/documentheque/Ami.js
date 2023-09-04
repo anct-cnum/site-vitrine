@@ -56,7 +56,23 @@ function Ami() {
           </a>
         </p>
         <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-1.4">
-          1.4&nbsp;&nbsp;Mod&egrave;le de convention de subvention 36 mois
+          1.4&nbsp;&nbsp;Appel &agrave; candidatures - Conseiller num&eacute;rique Coordinateur
+        </h4>
+        <p style={{ marginBottom: '0' }} className="fr-mb-7w">
+          Appel &agrave; candidatures - Conseiller num&eacute;rique Coordinateur&nbsp;:
+          <br/>
+          <a
+            href="https://cdn.conseiller-numerique.gouv.fr/Appel_a_candidatures_conseiller_numeriques_coordinateurs.pdf"
+            title="T&eacute;l&eacute;charger l&rsquo;appel &agrave; candidature - Conseiller num&eacute;rique Coordinateur"
+            className="bleu-france"
+            style={{ boxShadow: 'none' }}
+            target="_blank"
+            rel="noopener noreferrer">
+              T&eacute;l&eacute;charger l&rsquo;appel &agrave; candidature - Conseiller num&eacute;rique Coordinateur (pdf)
+          </a>
+        </p>
+        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-1.5">
+          1.5&nbsp;&nbsp;Mod&egrave;le de convention de subvention 36 mois
         </h4>
         <p style={{ marginBottom: '0' }}>
           Mod&egrave;le de convention de subvention avec la Banque des Territoires&nbsp;:
