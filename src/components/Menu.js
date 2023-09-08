@@ -140,7 +140,7 @@ function Menu() {
                   </li>
                   <li>
                     <a className="fr-nav__link" href={urlDashboard}
-                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace structure</a>
+                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Tableau de pilotage - structure</a>
                   </li>
                   <li>
                     <a className="fr-nav__link" href={`${urlBackoffice}?role=prefet`}
