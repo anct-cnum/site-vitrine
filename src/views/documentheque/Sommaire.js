@@ -16,27 +16,22 @@ function Sommaire() {
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-1.1">
-                1.1&nbsp;&nbsp;L&rsquo;appel &agrave; manifestation d&rsquo;int&eacute;r&ecirc;t pour les structures publiques
+                1.1&nbsp;&nbsp;L&rsquo;appel &agrave; manifestation d&rsquo;int&eacute;r&ecirc;t &ldquo;France Num&eacute;rique Ensemble&rdquo;
               </a>
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-1.2">
-                1.2&nbsp;&nbsp;L&rsquo;appel &agrave; manifestation d&rsquo;int&eacute;r&ecirc;t de droit priv&eacute;
+                1.2&nbsp;&nbsp;Circulaire &laquo;&nbsp;Mise en &oelig;uvre du volet Inclusion num&eacute;rique du plan Relance&nbsp;&raquo;
               </a>
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-1.3">
-                1.3&nbsp;&nbsp;Circulaire &laquo;&nbsp;Mise en &oelig;uvre du volet Inclusion num&eacute;rique du plan Relance&nbsp;&raquo;
+                1.3&nbsp;&nbsp;Appel &agrave; candidatures - Conseiller num&eacute;rique Coordinateur
               </a>
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-1.4">
-                1.4&nbsp;&nbsp;Appel &agrave; candidatures - Conseiller num&eacute;rique Coordinateur
-              </a>
-            </li>
-            <li>
-              <a className="summary-link-custom" href="#titre-ancre-1.5">
-                1.5&nbsp;&nbsp;Mod&egrave;le de convention de subvention 36 mois
+                1.4&nbsp;&nbsp;Mod&egrave;le de convention de subvention 36 mois
               </a>
             </li>
             <li>
