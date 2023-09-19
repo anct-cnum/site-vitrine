@@ -143,8 +143,8 @@ function Menu() {
                       target="_blank" rel="noopener noreferrer">&bull;&nbsp;Tableau de pilotage - structure</a>
                   </li>
                   <li>
-                    <a className="fr-nav__link" href={`${urlBackoffice}?role=prefet`}
-                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace pr&eacute;fecture</a>
+                    <a className="fr-nav__link" href={urlDashboard}
+                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Tableau de pilotage - pr&eacute;fet</a>
                   </li>
                 </ul>
               </div>
