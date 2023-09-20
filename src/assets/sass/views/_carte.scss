@@ -33,6 +33,10 @@ nav.z-index-over-base {
   z-index: 0 !important;
 } 
 
+app-informations-generales.sticky-top {
+  z-index: 0 !important;
+}
+
 @media print {
 
   .carte > header, .carte + footer {
