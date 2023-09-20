@@ -29,6 +29,10 @@
 
 }
 
+nav.z-index-over-base {
+  z-index: -900 !important;
+} 
+
 @media print {
 
   .carte > header, .carte + footer {
