@@ -30,11 +30,6 @@
   nav.z-index-over-base {
     z-index: 0 !important;
   } 
-
-  app-informations-generales.sticky-top, div.border-end.col-12.map-list {
-    z-index: -1 !important;
-    position: relative;
-  }
 }
 
 @media print {
