@@ -143,7 +143,7 @@ function Menu() {
                   </li>
                   <li>
                     <a className="fr-nav__link" href={urlDashboard}
-                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Tableau de pilotage - pr&eacute;fet</a>
+                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Tableau de pilotage - pr&eacute;fecture</a>
                   </li>
                 </ul>
               </div>
