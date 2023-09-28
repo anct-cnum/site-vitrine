@@ -27,6 +27,9 @@
     display: none;
   }
 
+  nav.z-index-over-base {
+    z-index: 0 !important;
+  } 
 }
 
 @media print {

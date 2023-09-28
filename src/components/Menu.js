@@ -14,7 +14,6 @@ function Menu() {
   const [changedMenu, setIsChangedMenu] = useState(false);
 
   const urlBlog = process.env.REACT_APP_BLOG_URL;
-  const urlBackoffice = process.env.REACT_APP_BACKOFFICE_URL;
   const urlDashboard = process.env.REACT_APP_DASHBOARD_URL;
   const urlCoop = process.env.REACT_APP_COOP_URL;
   const urlCandidat = process.env.REACT_APP_CANDIDAT_URL;
@@ -143,8 +142,8 @@ function Menu() {
                       target="_blank" rel="noopener noreferrer">&bull;&nbsp;Tableau de pilotage - structure</a>
                   </li>
                   <li>
-                    <a className="fr-nav__link" href={`${urlBackoffice}?role=prefet`}
-                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace pr&eacute;fecture</a>
+                    <a className="fr-nav__link" href={urlDashboard}
+                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Tableau de pilotage - pr&eacute;fecture</a>
                   </li>
                 </ul>
               </div>
