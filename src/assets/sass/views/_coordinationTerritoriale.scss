@@ -24,6 +24,9 @@
   .border-end .bg-primary {
     z-index: 1!important;
   }
+  nav.z-index-over-base {
+    z-index: 901 !important; // le z-index défini par le composant carto est 900
+  }
 }
 
 .coordination-territoriale {
@@ -37,7 +40,7 @@
       max-height: 100%;
     }
   }
-  
+
   @keyframes imageOpacity {
     0% {
       opacity: 0;
@@ -120,7 +123,7 @@
     position: absolute;
     transform: translateY(-75%);
   }
-  
+
   .section-informations {
     margin-top: 6.5rem;
     background-color: $blue-france;
@@ -133,7 +136,7 @@
 
   .block-text-informations-2 {
     color: white;
-    width: 62%; 
+    width: 62%;
   }
 
   .fr-icon-add-circle-fill {

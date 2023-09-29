@@ -28,8 +28,11 @@
   }
 
   nav.z-index-over-base {
-    z-index: 0 !important;
-  } 
+    z-index: 10 !important;
+  }
+  app-informations-generales {
+    z-index: 1 !important;
+  }
 }
 
 @media print {
@@ -37,5 +40,5 @@
   .carte > header, .carte + footer {
     display: none !important;
   }
-  
+
 }
