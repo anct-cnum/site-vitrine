@@ -17,6 +17,7 @@ function Menu() {
   const urlDashboard = process.env.REACT_APP_DASHBOARD_URL;
   const urlCoop = process.env.REACT_APP_COOP_URL;
   const urlCandidat = process.env.REACT_APP_CANDIDAT_URL;
+  const urlFormCandidature = process.env.REACT_APP_FORMS_URL;
 
   const toggleBurgerMenu = () => {
     dispatch(menuActions.toggleBurgerMenu());
@@ -55,11 +56,11 @@ function Menu() {
               <button
                 id="home"
                 className="fr-nav__btn"
-                aria-expanded={ activeMenu === 'home' }
+                aria-expanded={activeMenu === 'home'}
                 aria-controls="menu-home"
                 onClick={onClickMenu}
                 {...(location.pathname.startsWith('/accueil') || location.pathname === '/' ? { 'aria-current': true } : {})}>
-                  Accueil
+                Accueil
               </button>
               <div className={`fr-collapse fr-menu ${activeMenu === 'home' ? 'fr-collapse--expanded' : ''}`} id="menu-home">
                 <ul className="fr-menu__list">
@@ -80,25 +81,25 @@ function Menu() {
                 to="/carte"
                 className="fr-nav__link"
                 {...(location.pathname.startsWith('/carte') ? { 'aria-current': 'page' } : {})}>
-                  Carte
+                Carte
               </Link>
             </li>
             <li className="fr-nav__item">
               <a className="fr-nav__link"
                 href="https://metabase.conseiller-numerique.gouv.fr/public/dashboard/446208c4-cae2-4c0c-be19-44cb14ce7d06"
                 target="_blank" rel="noopener noreferrer">
-                  Statistiques
+                Statistiques
               </a>
             </li>
             <li className="fr-nav__item">
               <button
                 id="cnfs"
                 className="fr-nav__btn"
-                aria-expanded={ activeMenu === 'cnfs' }
+                aria-expanded={activeMenu === 'cnfs'}
                 aria-controls="menu-cnfs"
                 onClick={onClickMenu}
                 {...(location.pathname.startsWith('/aide-candidat') || location.pathname.startsWith('/aide-structure') ? { 'aria-current': true } : {})}>
-                  Recrutement
+                Recrutement
               </button>
               <div className={`fr-collapse fr-menu ${activeMenu === 'cnfs' ? 'fr-collapse--expanded' : ''}`} id="menu-cnfs">
                 <ul className="fr-menu__list">
@@ -125,9 +126,9 @@ function Menu() {
               <button
                 id="pfs"
                 className="fr-nav__btn"
-                aria-expanded={ activeMenu === 'pfs' }
+                aria-expanded={activeMenu === 'pfs'}
                 aria-controls="menu-pfs" onClick={onClickMenu}>
-                  Mon compte
+                Mon compte
               </button>
               <div className={`fr-collapse fr-menu ${activeMenu === 'pfs' ? 'fr-collapse--expanded' : ''}`} id="menu-pfs">
                 <ul className="fr-menu__list">
@@ -149,12 +150,32 @@ function Menu() {
               </div>
             </li>
             <li className="fr-nav__item">
-              <Link
-                to="/coordination-territoriale"
-                className="fr-nav__link"
-                {...(location.pathname.startsWith('/coordination-territoriale') ? { 'aria-current': 'page' } : {})}>
-                  Coordination territoriale
-              </Link>
+              <button
+                id="coordinateur"
+                className="fr-nav__btn"
+                aria-expanded={activeMenu === 'coordinateur'}
+                aria-controls="menu-coordinateur"
+                onClick={onClickMenu}
+                {...(location.pathname.startsWith('/coordination-territoriale') ? { 'aria-current': true } : {})}>
+                Coordination territoriale
+              </button>
+              <div className={`fr-collapse fr-menu ${activeMenu === 'coordinateur' ? 'fr-collapse--expanded' : ''}`} id="menu-coordinateur">
+                <ul className="fr-menu__list" style={{ width: '23rem' }}>
+                  <li>
+                    <a href={`${urlFormCandidature}/structure/new`} className="fr-nav__link">
+                      Recrutement d&rsquo;un coordinateur
+                    </a>
+                  </li>
+                  <li>
+                    <Link
+                      to="/coordination-territoriale"
+                      className="fr-nav__link"
+                      {...(location.pathname.startsWith('/coordination-territoriale') ? { 'aria-current': 'page' } : {})}>
+                      Les missions et la cartographie des coordinateurs
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </nav>
