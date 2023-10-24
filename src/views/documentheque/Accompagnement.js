@@ -6,7 +6,7 @@ function Accompagnement() {
     <div className="fr-grid-row fr-grid-row--gutter">
       <div className="fr-col-1"></div>
       <div className="fr-col-10 fr-mb-9w">
-        <h4 className="h4CustomKit" id="titre-ancre-4">5.&nbsp;&nbsp;Ressources pour accompagner les Conseillers num&eacute;riques dans leurs missions</h4>
+        <h4 className="h4CustomKit" id="titre-ancre-5">5.&nbsp;&nbsp;Ressources pour accompagner les Conseillers num&eacute;riques dans leurs missions</h4>
         <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-5.1">
           5.1&nbsp;&nbsp;Kit &laquo;&nbsp;Bien d&eacute;marrer ma mission&nbsp;&raquo; &agrave; remettre au(x) Conseiller(s)
         </h4>
