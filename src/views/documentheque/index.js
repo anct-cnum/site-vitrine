@@ -6,6 +6,7 @@ import Cadrage from './Cadrage';
 import KitCommunication from './kitCommunication';
 import Recrutement from './Recrutement';
 import Sommaire from './Sommaire';
+import Financement from './Financement';
 
 function Documentheque() {
 
@@ -23,6 +24,7 @@ function Documentheque() {
         </div>
         <Sommaire />
         <Ami />
+        <Financement />
         <Cadrage />
         <Recrutement />
         <Accompagnement />

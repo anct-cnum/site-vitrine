@@ -12,7 +12,7 @@ function KitCommunication() {
     <div className="fr-grid-row fr-grid-row--gutter">
       <div className="fr-col-1"></div>
       <div className="fr-col-10">
-        <h4 className="h4CustomKit" id="titre-ancre-5" style={{ marginBottom: '28px' }}>5.&nbsp;&nbsp;Kit de communication</h4>
+        <h4 className="h4CustomKit" id="titre-ancre-6" style={{ marginBottom: '28px' }}>6.&nbsp;&nbsp;Kit de communication</h4>
         <p style={{ marginBottom: '0' }}>
           Logos, charte graphique, gabarits, mod&egrave;le de carte de visite&nbsp;:
           <br/>
