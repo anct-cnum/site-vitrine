@@ -6,11 +6,11 @@ function Recrutement() {
     <div className="fr-grid-row fr-grid-row--gutter">
       <div className="fr-col-1"></div>
       <div className="fr-col-10 fr-mb-9w">
-        <h4 className="h4CustomKit" id="titre-ancre-3">
-          3.&nbsp;&nbsp;Ressources pour pr&eacute;parer le recrutement de votre/vos Conseiller(s) num&eacute;rique(s)
+        <h4 className="h4CustomKit" id="titre-ancre-4">
+          4.&nbsp;&nbsp;Ressources pour pr&eacute;parer le recrutement de votre/vos Conseiller(s) num&eacute;rique(s)
         </h4>
-        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-3.1">
-          3.1&nbsp;&nbsp;Flyer
+        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-4.1">
+          4.1&nbsp;&nbsp;Flyer
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
           Pr&eacute;sentation synth&eacute;tique du dispositif Conseiller num&eacute;rique France Services&nbsp;:
@@ -25,8 +25,8 @@ function Recrutement() {
               T&eacute;l&eacute;charger le flyer (pdf)
           </a>
         </p>
-        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-3.2">
-          3.2&nbsp;&nbsp;Guide employeur pour les structures publiques
+        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-4.2">
+          4.2&nbsp;&nbsp;Guide employeur pour les structures publiques
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
           Collectivit&eacute;s territoriales et leurs groupements&nbsp;:
@@ -41,8 +41,8 @@ function Recrutement() {
               T&eacute;l&eacute;charger le guide employeur pour les structures publiques (pdf)
           </a>
         </p>
-        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-3.3">
-          3.3&nbsp;&nbsp;Guide employeur pour les structures de droit priv&eacute;
+        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-4.3">
+          4.3&nbsp;&nbsp;Guide employeur pour les structures de droit priv&eacute;
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
           Associations et entreprises de l&rsquo;ESS&nbsp;:
@@ -57,8 +57,8 @@ function Recrutement() {
               T&eacute;l&eacute;charger le guide employeur pour les structures de droit priv&eacute; (pdf)
           </a>
         </p>
-        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-3.4">
-          3.4&nbsp;&nbsp;Guide de cofinancement pour les structures
+        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-4.4">
+          4.4&nbsp;&nbsp;Guide de cofinancement pour les structures
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
           Leviers de financement et conseils d&rsquo;ing&eacute;nierie financi&egrave;re &agrave; destination des structures
@@ -74,8 +74,8 @@ function Recrutement() {
               T&eacute;l&eacute;charger le guide de cofinancement pour les structures (pdf)
           </a>
         </p>
-        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-3.5">
-          3.5&nbsp;&nbsp;Fiche de poste
+        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-4.5">
+          4.5&nbsp;&nbsp;Fiche de poste
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
           Fiche avec d&eacute;tails de l&rsquo;offre, des missions et des t&acirc;ches du Conseiller num&eacute;rique France Services&nbsp;:
