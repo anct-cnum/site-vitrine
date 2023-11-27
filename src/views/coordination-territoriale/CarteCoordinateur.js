@@ -9,7 +9,7 @@ class CarteCoordinateur extends Component {
     return (
       <section className="carteCoordo vh-100">
         <fr-mediation-numerique-coordinateurs
-          brand-name={'- Conseiller Numérique coordinateur'}
+          titre={'Conseiller Numérique coordinateur'}
           coordinateurs-source={urlCoordinateurs}
           conseillers-source={urlConseillers}
         />

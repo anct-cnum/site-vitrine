@@ -10,7 +10,7 @@ class Carte extends Component {
     return (
       <div className="carte vh-100">
         <Header/>
-        <fr-mediation-numerique-cartographie source={urlPermanences}/>
+        <fr-mediation-numerique-cartographie source={urlPermanences} titre={'Conseiller Numérique'}/>
       </div>
     );
   }
