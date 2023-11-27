@@ -13,15 +13,15 @@ jobs:
       matrix:
         node-version: [19.7.0]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: Retrieve cached dependencies
         id: retrieve-dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           key: node_modules-${{ hashFiles('package-lock.json') }}
           path: node_modules
@@ -30,7 +30,7 @@ jobs:
         run: npm ci
       - name: Cache dependencies if not present
         if: steps.retrieve-dependencies.outputs.cache-hit == false
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           key: node_modules.-${{ hashFiles('package-lock.json') }}
           path: node_modules
@@ -39,14 +39,14 @@ jobs:
     needs: dependencies
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Retrieve cached dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           key: node_modules-${{ hashFiles('package-lock.json') }}
           path: node_modules
       - name: Override .env
-        uses: SpicyPizza/create-envfile@v1
+        uses: SpicyPizza/create-envfile@v2.0
         with:
           envkey_REACT_APP_BLOG_URL: "https://media.conseiller-numerique.gouv.fr"
           envkey_REACT_APP_DASHBOARD_URL: "https://beta.pilotage.conseiller-numerique.gouv.fr"
@@ -64,7 +64,7 @@ jobs:
           source: ".htaccess"
           target: "build/.htaccess"
       - name: Upload release bundle as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: bundle
           path: build/*
@@ -73,9 +73,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Retrieve bundle React
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: bundle
           path: build
