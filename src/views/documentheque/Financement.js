@@ -11,7 +11,7 @@ function Financement() {
           Panorama de financement du dispositif Conseiller num&eacute;rique&nbsp;:
           <br/>
           <a
-            href="https://cdn.conseiller-numerique.gouv.fr/Panorama_subventions.pdf"
+            href="https://cdn.conseiller-numerique.gouv.fr/Panorama_financements.pdf"
             title="T&eacute;l&eacute;charger le panorama de financement du dispositif Conseiller num&eacute;rique"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
