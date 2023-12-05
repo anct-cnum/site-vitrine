@@ -2,7 +2,7 @@ import React from 'react';
 import { menuActions } from '../actions';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import logo from '../assets/brands/logo-rf-conseiller-numerique-min.svg';
+import logo from '../assets/brands/logo-conseiller-numerique-min.svg';
 import Menu from './Menu';
 
 function Header() {
@@ -30,8 +30,8 @@ function Header() {
                     </p>
                   </Link>
                 </div>
-                <div className="fr-header__operator" style={{ paddingLeft: '0' }}>
-                  <img src={logo} className="fr-responsive-img" alt="Logo Conseiller num&eacute;rique" />
+                <div className="fr-header__operator" style={{ paddingLeft: '24px' }}>
+                  <img src={logo} className="fr-responsive-img" alt="Logo Conseiller num&eacute;rique" style={{ height: '70px' }} />
                 </div>
                 <div className="fr-header__navbar">
                   <button
