@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoFR from '../assets/brands/logo-france-relance-gouv-ue.png';
-import logoANCT from '../assets/brands/logo-anct-min.svg';
-import logoSONUM from '../assets/brands/logo-sonum-min.svg';
+import logoAnctSonum from '../assets/brands/logo-sonum-anct-min.svg';
 
 function Footer() {
 
@@ -68,18 +67,10 @@ function Footer() {
           </h4>
           <div className="fr-footer__partners-logos">
             <div className="fr-footer__partners-main">
-              <a className="footer__partners-link" href="https://agence-cohesion-territoires.gouv.fr">
-                <img className="fr-footer__logo" style={{ height: '4.5rem' }} src={logoANCT} alt="Agence Nationale de la Coh&eacute;sion des Territoires" />
+              <a className="footer__partners-link" href="https://societenumerique.gouv.fr/fr/">
+                <img className="fr-footer__logo" style={{ height: '72px' }} src={logoAnctSonum}
+                  alt="Agence Nationale de la Coh&eacute;sion des Territoires - Soci&eacute;t&eacute; num&eacute;rique" />
               </a>
-            </div>
-            <div className="fr-footer__partners-sub" style={{ order: 1 }}>
-              <ul style={{ alignItems: 'center' }}>
-                <li style={{ paddingTop: '5px' }}>
-                  <a className="fr-footer__partners-link" href="https://societenumerique.gouv.fr">
-                    <img className="fr-footer__logo" style={{ height: '4rem' }} src={logoSONUM} alt="Soci&eacute;t&eacute; Num&eacute;rique" />
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
