@@ -7,6 +7,7 @@ import KitCommunication from './kitCommunication';
 import Recrutement from './Recrutement';
 import Sommaire from './Sommaire';
 import Financement from './Financement';
+import Formation from './Formation';
 
 function Documentheque() {
 
@@ -25,6 +26,7 @@ function Documentheque() {
         <Sommaire />
         <Ami />
         <Financement />
+        <Formation />
         <Cadrage />
         <Recrutement />
         <Accompagnement />

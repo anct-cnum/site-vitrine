@@ -46,83 +46,88 @@ function Sommaire() {
             </li>
             <li>
               <a className="summary-link-custom summary-link-custom-bold" href="#titre-ancre-3">
-                3.&nbsp;&nbsp;Notes de cadrage
-              </a>
-            </li>
-            <li>
-              <a className="summary-link-custom" href="#titre-ancre-3.1">
-                3.1&nbsp;&nbsp;Pr&eacute;sentation des activit&eacute;s du Conseiller num&eacute;rique
-              </a>
-            </li>
-            <li>
-              <a className="summary-link-custom" href="#titre-ancre-3.2">
-                3.2&nbsp;&nbsp;Note Aidants Connect x Conseiller num&eacute;rique
-              </a>
-            </li>
-            <li>
-              <a className="summary-link-custom" href="#titre-ancre-3.3">
-                3.3&nbsp;&nbsp;Note Pass num&eacute;rique x Conseiller num&eacute;rique
-              </a>
-            </li>
-            <li>
-              <a className="summary-link-custom" href="#titre-ancre-3.4">
-                3.4&nbsp;&nbsp;Note &laquo;&nbsp;Conseillers num&eacute;riques, structures d&rsquo;accueil&nbsp;:
-                comment accompagner les usagers dans leurs d&eacute;marches administratives en ligne&nbsp;?&nbsp;&raquo;
+                3.&nbsp;&nbsp;Formation des conseillers num&eacute;riques
               </a>
             </li>
             <li>
               <a className="summary-link-custom summary-link-custom-bold" href="#titre-ancre-4">
-                4.&nbsp;&nbsp;Ressources pour pr&eacute;parer le recrutement de votre/vos Conseiller(s) num&eacute;rique(s)
+                4.&nbsp;&nbsp;Notes de cadrage
               </a>
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-4.1">
-                4.1&nbsp;&nbsp;Flyer
+                4.1&nbsp;&nbsp;Pr&eacute;sentation des activit&eacute;s du Conseiller num&eacute;rique
               </a>
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-4.2">
-                4.2&nbsp;&nbsp;Guide employeur pour les structures publiques
+                4.2&nbsp;&nbsp;Note Aidants Connect x Conseiller num&eacute;rique
               </a>
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-4.3">
-                4.3&nbsp;&nbsp;Guide employeur pour les structures de droit priv&eacute;
+                4.3&nbsp;&nbsp;Note Pass num&eacute;rique x Conseiller num&eacute;rique
               </a>
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-4.4">
-                4.4&nbsp;&nbsp;Guide de cofinancement pour les structures
-              </a>
-            </li>
-            <li>
-              <a className="summary-link-custom" href="#titre-ancre-4.5">
-                4.5&nbsp;&nbsp;Fiche de poste type
+                4.4&nbsp;&nbsp;Note &laquo;&nbsp;Conseillers num&eacute;riques, structures d&rsquo;accueil&nbsp;:
+                comment accompagner les usagers dans leurs d&eacute;marches administratives en ligne&nbsp;?&nbsp;&raquo;
               </a>
             </li>
             <li>
               <a className="summary-link-custom summary-link-custom-bold" href="#titre-ancre-5">
-                5.&nbsp;&nbsp;Ressources pour accompagner les Conseillers num&eacute;riques dans leurs missions
+                5.&nbsp;&nbsp;Ressources pour pr&eacute;parer le recrutement de votre/vos Conseiller(s) num&eacute;rique(s)
               </a>
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-5.1">
-                5.1&nbsp;&nbsp;Kit &laquo;&nbsp;Bien d&eacute;marrer ma mission&nbsp;&raquo; &agrave; remettre au(x) Conseiller(s)
+                5.1&nbsp;&nbsp;Flyer
               </a>
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-5.2">
-                5.2&nbsp;&nbsp;Pr&eacute;sentation des outils des CnFS
+                5.2&nbsp;&nbsp;Guide employeur pour les structures publiques
               </a>
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-5.3">
-                5.3&nbsp;&nbsp;Guide d&rsquo;utilisation de l&rsquo;outil de suivi d&rsquo;activit&eacute; des Conseillers num&eacute;riques France Services
+                5.3&nbsp;&nbsp;Guide employeur pour les structures de droit priv&eacute;
+              </a>
+            </li>
+            <li>
+              <a className="summary-link-custom" href="#titre-ancre-5.4">
+                5.4&nbsp;&nbsp;Guide de cofinancement pour les structures
+              </a>
+            </li>
+            <li>
+              <a className="summary-link-custom" href="#titre-ancre-5.5">
+                5.5&nbsp;&nbsp;Fiche de poste type
               </a>
             </li>
             <li>
               <a className="summary-link-custom summary-link-custom-bold" href="#titre-ancre-6">
-                6.&nbsp;&nbsp;Kit de communication
+                6.&nbsp;&nbsp;Ressources pour accompagner les Conseillers num&eacute;riques dans leurs missions
+              </a>
+            </li>
+            <li>
+              <a className="summary-link-custom" href="#titre-ancre-6.1">
+                6.1&nbsp;&nbsp;Kit &laquo;&nbsp;Bien d&eacute;marrer ma mission&nbsp;&raquo; &agrave; remettre au(x) Conseiller(s)
+              </a>
+            </li>
+            <li>
+              <a className="summary-link-custom" href="#titre-ancre-6.2">
+                6.2&nbsp;&nbsp;Pr&eacute;sentation des outils des CnFS
+              </a>
+            </li>
+            <li>
+              <a className="summary-link-custom" href="#titre-ancre-6.3">
+                6.3&nbsp;&nbsp;Guide d&rsquo;utilisation de l&rsquo;outil de suivi d&rsquo;activit&eacute; des Conseillers num&eacute;riques France Services
+              </a>
+            </li>
+            <li>
+              <a className="summary-link-custom summary-link-custom-bold" href="#titre-ancre-7">
+                7.&nbsp;&nbsp;Kit de communication
               </a>
             </li>
           </ol>
