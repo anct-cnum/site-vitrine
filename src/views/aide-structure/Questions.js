@@ -32,7 +32,8 @@ function Questions() {
       <p>
         *<em>Acc&eacute;dez &agrave; la liste des structures &eacute;ligibles&nbsp;
           <a
-            href="https://www.data.gouv.fr/fr/datasets/conseiller-numerique-france-services-liste-des-structures-validees-par-le-comite-de-selection/"
+            // eslint-disable-next-line max-len
+            href="https://www.data.gouv.fr/fr/datasets/conseiller-numerique-liste-des-structures-validees-par-le-comite-de-selection-conum-et-conum-coordinateur/"
             target="_blank" rel="noopener noreferrer"
             className="bleu-secondaire"
             title="liste des structures">
