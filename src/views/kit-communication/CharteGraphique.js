@@ -13,7 +13,7 @@ function CharteGraphique() {
         </p>
         <p style={{ marginBottom: '0' }}>
           <a
-            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/charte-graphique-conseiller-numérique.pdf"
+            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/charte-graphique-conseiller-numerique.pdf"
             title="Charte graphique"
             className="bleu-france"
             style={{ boxShadow: 'none' }}

@@ -33,7 +33,7 @@ function PlaquettePresentation() {
         <p style={{ marginBottom: '24px' }}>
           <a
             href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/plaquette-conum-pre-remplie.pdf"
-            title="Plaquette avec bloc coordonnées pr&eacute;-rempli au format PDF"
+            title="Plaquette avec bloc coordonn&eacute;es pr&eacute;-rempli au format PDF"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
