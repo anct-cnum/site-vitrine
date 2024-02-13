@@ -9,6 +9,7 @@ import LogoTypes from './LogoTypes';
 import Illustrations from './Illustrations';
 import SupportCommunication from './SupportCommunication';
 import PlaquettePresentation from './PlaquettePresentation';
+import AfficheTrouverConseiller from './AfficheTrouverConseiller';
 import Gabarits from './Gabarits';
 import ModelePresentation from './ModelePresentation';
 import Affiche from './Affiche';
@@ -16,7 +17,6 @@ import Outils from './Outils';
 import CartesVisite from './CartesVisite';
 import Signature from './Signature';
 import Etiquettes from './Etiquettes';
-import AfficheTrouverConseiller from './AfficheTrouverConseiller';
 
 function KitCommunication() {
 
