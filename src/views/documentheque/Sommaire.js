@@ -122,7 +122,7 @@ function Sommaire() {
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-6.3">
-                6.3&nbsp;&nbsp;Guide d&rsquo;utilisation de l&rsquo;outil de suivi d&rsquo;activit&eacute; des Conseillers num&eacute;riques France Services
+                6.3&nbsp;&nbsp;Guide d&rsquo;utilisation de l&rsquo;outil de suivi d&rsquo;activit&eacute; des Conseillers num&eacute;riques
               </a>
             </li>
             <li>

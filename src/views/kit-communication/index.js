@@ -4,12 +4,12 @@ import Sommaire from './Sommaire';
 import Presentation from './Presentation';
 import IdentiteVisuelle from './IdentiteVisuelle';
 import Orthographe from './Orthographe';
-import MentionsRequises from './MentionsRequises';
 import CharteGraphique from './CharteGraphique';
 import LogoTypes from './LogoTypes';
 import Illustrations from './Illustrations';
 import SupportCommunication from './SupportCommunication';
 import PlaquettePresentation from './PlaquettePresentation';
+import AfficheTrouverConseiller from './AfficheTrouverConseiller';
 import Gabarits from './Gabarits';
 import ModelePresentation from './ModelePresentation';
 import Affiche from './Affiche';
@@ -28,7 +28,7 @@ function KitCommunication() {
           <div className="fr-col-1"></div>
           <div className="fr-col-xs-12 fr-col-sm-10 fr-mb-9w">
             <h2 className="fr-h1 fr-mb-3w" style={{ marginTop: '0', textAlign: 'center' }}>
-              Kit de communication Conseiller num&eacute;rique France Services
+              Kit de communication Conseiller num&eacute;rique
             </h2>
           </div>
         </div>
@@ -36,12 +36,12 @@ function KitCommunication() {
         <Presentation />
         <IdentiteVisuelle />
         <Orthographe />
-        <MentionsRequises />
         <CharteGraphique />
         <LogoTypes />
         <Illustrations />
         <SupportCommunication />
         <PlaquettePresentation />
+        <AfficheTrouverConseiller />
         <Gabarits />
         <ModelePresentation />
         <Affiche />

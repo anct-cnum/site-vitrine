@@ -19,7 +19,7 @@ function Bienvenue() {
             </h1>
             <div className="twoParts">
               <div className="leftPart">
-                <h4 className="fr-h4 title fr-mb-4w">Trouver un conseiller numérique pr&egrave;s de chez moi</h4>
+                <h4 className="fr-h4 title fr-mb-4w">Trouver un conseiller num&eacute;rique pr&egrave;s de chez moi</h4>
                 <Link
                   to="/carte"
                   className="fr-btn btnCustom">
