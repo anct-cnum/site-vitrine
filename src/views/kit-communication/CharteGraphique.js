@@ -6,7 +6,7 @@ function CharteGraphique() {
     <div className="fr-grid-row fr-grid-row--gutter">
       <div className="fr-col-1"></div>
       <div className="fr-col-10 fr-col-md-8 fr-mb-7w">
-        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-2.3">2.2&nbsp;&nbsp;Charte Graphique</h4>
+        <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-2.2">2.2&nbsp;&nbsp;Charte Graphique</h4>
         <p style={{ marginBottom: '24px' }}>
           Ce document d&eacute;taille les consignes d&rsquo;utilisation du logo Conseiller num&eacute;rique et ses cas d&rsquo;usages
           pour la production de supports de communication en lien avec le dispositif&nbsp;:
