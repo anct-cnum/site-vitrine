@@ -10,7 +10,7 @@ function Orthographe() {
         <p style={{ marginBottom: '0' }}>
           On &eacute;crit&nbsp;: &laquo;&nbsp;<b>C</b>onseiller <b>n</b>um&eacute;rique&nbsp;&raquo;,
           majuscule au terme &laquo;&nbsp;Conseiller&nbsp;&raquo; uniquement
-          pour d&eacute;signer le dispositif ; on utilise l&rsquo;acronyme &laquo;&nbsp;<b>Conum</b>&nbsp;&raquo;.
+          pour d&eacute;signer le dispositif&nbsp;; on utilise l&rsquo;acronyme &laquo;&nbsp;<b>Conum</b>&nbsp;&raquo;.
           On &eacute;crit &laquo;&nbsp;les conseillers num&eacute;riques&nbsp;&raquo; en minuscule pour d&eacute;signer les personnes.
         </p>
       </div>
