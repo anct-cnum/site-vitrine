@@ -78,7 +78,7 @@ function Sommaire() {
           signatures mail, cartes de visite et &eacute;tiquettes.
           <br/><br/><br/>
           <em><span style={{ fontWeight: 700, fontSize: '12px' }}>
-            Kit de communication version 4</span><span className="dateKit"> – f&eacute;vrier 2024
+            Kit de communication version 4</span><span className="dateKit">&nbsp;– f&eacute;vrier 2024
           </span></em>
           <br/><br/>
           <span style={{ fontSize: '12px' }}><em>Liste des nouveaut&eacute;s&nbsp;:<br/>
