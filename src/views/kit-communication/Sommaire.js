@@ -82,11 +82,11 @@ function Sommaire() {
           </span></em>
           <br/><br/>
           <span style={{ fontSize: '12px' }}><em>Liste des nouveaut&eacute;s&nbsp;:<br/>
-          – mise &agrave; jour du logo Conseiller num&eacute;rique, fichiers sources et supports ;<br/>
-          – ajout du logo en version f&eacute;minine ;<br/>
+          – mise &agrave; jour du logo Conseiller num&eacute;rique, fichiers sources et supports&nbsp;;<br/>
+          – ajout du logo en version f&eacute;minine&nbsp;;<br/>
           – ajout de l&rsquo;affiche &laquo;&nbsp;Trouver un Conseiller num&eacute;rique pr&egrave;s de chez soi&nbsp;&raquo;.<br/>
-          – ajout de nouvelles illustrations ;<br/>
-          – mise &agrave jour des bonnes pratiques r&eacute;dactionnelles et de la charte graphique ;<br/>
+          – ajout de nouvelles illustrations&nbsp;;<br/>
+          – mise &agrave jour des bonnes pratiques r&eacute;dactionnelles et de la charte graphique&nbsp;;<br/>
           – retrait du bloc-marque France Relance</em></span>
         </p>
         <div className="about-div">
