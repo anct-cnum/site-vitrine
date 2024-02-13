@@ -162,7 +162,7 @@ function LogoTypes() {
             <span style={{ display: 'block', marginTop: '24px' }}>
               <a
                 href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/badge-coordinateur.png"
-                title="badge coordinateur Conseiller num&eacute;rique au format PNG"
+                title="Badge coordinateur Conseiller num&eacute;rique au format PNG"
                 className="bleu-france"
                 style={{ boxShadow: 'none' }}
                 target="_blank"
