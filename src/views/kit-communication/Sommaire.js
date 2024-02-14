@@ -86,7 +86,7 @@ function Sommaire() {
           – ajout du logo en version f&eacute;minine&nbsp;;<br/>
           – ajout de l&rsquo;affiche &laquo;&nbsp;Trouver un Conseiller num&eacute;rique pr&egrave;s de chez soi&nbsp;&raquo;.<br/>
           – ajout de nouvelles illustrations&nbsp;;<br/>
-          – mise &agrave jour des bonnes pratiques r&eacute;dactionnelles et de la charte graphique&nbsp;;<br/>
+          – mise &agrave; jour des bonnes pratiques r&eacute;dactionnelles et de la charte graphique&nbsp;;<br/>
           – retrait du bloc-marque France Relance</em></span>
         </p>
         <div className="about-div">
