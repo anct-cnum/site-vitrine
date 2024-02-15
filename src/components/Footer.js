@@ -15,7 +15,7 @@ function Footer() {
       <div className="fr-container">
         <div className="fr-footer__body fr-footer__body--operator">
           <div className="fr-footer__brand fr-enlarge-link footerBrandCustom">
-            <Link className="fr-footer__brand-link" to="/" title="Retour à l&rsquo;accueil" onClick={onClickLink}>
+            <Link className="fr-footer__brand-link" to="/" title="Retour &agrave; l&rsquo;accueil" onClick={onClickLink}>
               <img src={logoFR} alt="Logo France Relance" className="logoFranceRelance fr-footer__logo" />
             </Link>
           </div>

@@ -26,7 +26,7 @@ function Accessibilite() {
             <ul>
               <li>perceptibles&nbsp;: par exemple, faciliter la perception visuelle et auditive du contenu par l&rsquo;utilisateur ;&nbsp;
                 proposer des &eacute;quivalents textuels &agrave; tout contenu non textuel ;&nbsp;
-                cr&eacute;er un contenu qui puisse être pr&eacute;sent&eacute; de diff&eacute;rentes mani&egrave;res
+                cr&eacute;er un contenu qui puisse &ecirc;tre pr&eacute;sent&eacute; de diff&eacute;rentes mani&egrave;res
                 sans perte d&rsquo;information ni de structure (par exemple avec une mise en page simplifi&eacute;e) ;
               </li>
               <li>utilisables&nbsp;: par exemple, fournir &agrave; l&rsquo;utilisateur des &eacute;l&eacute;ments d&rsquo;orientation pour naviguer,
@@ -62,7 +62,7 @@ function Accessibilite() {
             et la structure de l&rsquo;information ou encore la clart&eacute; des formulaires.
           </p>
           <p>
-            D&rsquo;autres am&eacute;liorations vont être apport&eacute;es.
+            D&rsquo;autres am&eacute;liorations vont &ecirc;tre apport&eacute;es.
           </p>
         </div>
         <div className="fr-grid-row fr-grid-row--gutters">

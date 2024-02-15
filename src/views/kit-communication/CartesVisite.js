@@ -13,31 +13,31 @@ function CartesVisite() {
         </p>
         <p style={{ marginBottom: '0px' }}>
           <a
-            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V3/gabarit-carte-de-visite-cnfs-word.docx"
+            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/gabarit-carte-de-visite-conum-word.docx"
             title="Mod&egrave;le carte de visite DOCX"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
             rel="noopener noreferrer">
-              T&eacute;l&eacute;charger le mod&egrave;le de carte de visite Conseiller num&eacute;rique France Services au format Microsoft Word (.docx).
+              T&eacute;l&eacute;charger le mod&egrave;le de carte de visite Conseiller num&eacute;rique au format Microsoft Word (.docx).
           </a>
           <br/>
           <a
-            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V3/gabarit-carte-de-visite-openoffice.odt"
+            href="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/gabarit-carte-de-visite-conum-openoffice.odt"
             title="Mod&egrave;le carte de visite ODT"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
             rel="noopener noreferrer">
-              T&eacute;l&eacute;charger le mod&egrave;le de carte de visite Conseiller num&eacute;rique France Services au format Open Office (.odt).
+              T&eacute;l&eacute;charger le mod&egrave;le de carte de visite Conseiller num&eacute;rique au format Open Office (.odt).
           </a>
         </p>
       </div>
       <div className="fr-col-12 fr-col-md-2 fr-mb-7w fr-mb-md-0w preview-image">
         <img
-          src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V3/previews/preview-cartes-de-visite.png"
+          src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/previews/preview-cartes-de-visite-conseiller-numerique.png"
           alt="preview cartes visite"
-          style={{ height: '176px' }}/>
+          style={{ height: '180px' }}/>
       </div>
     </div>
   );

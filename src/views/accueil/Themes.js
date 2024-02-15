@@ -12,7 +12,9 @@ function Themes() {
             <h1 className="fr-h1" style={{ textAlign: 'center' }} id="ancre-themes">
               En me formant aupr&egrave;s d&rsquo;un conseiller num&eacute;rique France Services, j&rsquo;apprends &agrave; devenir autonome pour&nbsp;:
             </h1>
-            <p className="helpTooltip fr-mb-5w"><em>Survolez les éléments avec la souris ou le doigt pour en découvrir les détails.</em></p>
+            <p className="helpTooltip fr-mb-5w">
+              <em>Survolez les &eacute;l&eacute;ments avec la souris ou le doigt pour en d&eacute;couvrir les d&eacute;tails.</em>
+            </p>
           </div>
         </div>
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
@@ -122,7 +124,7 @@ function Themes() {
                 Apprendre &agrave; :
                 <ul>
                   <li> Trouver un logement sur internet</li>
-                  <li> Acc&eacute;der à l&rsquo;offre locale de soins</li>
+                  <li> Acc&eacute;der &agrave; l&rsquo;offre locale de soins</li>
                   <li> D&eacute;couvrir les transports en commun et autres solutions de mobilit&eacute;</li>
                   <li> Faire mes d&eacute;marches aupr&egrave;s des services locaux</li>
                   <li> M&rsquo;informer sur les activit&eacute;s culturelles et sociales pr&egrave;s de chez moi</li>
