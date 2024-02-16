@@ -1,8 +1,7 @@
 .fr-footer {
-
   .footerBrandCustom {
     flex-basis: 50%;
-    padding-top: 14px;
+    padding-top: 22px;
   }
 
   .footer__partners-link[href] {
@@ -32,7 +31,6 @@
   }
 
   @media (max-width: 992px) {
-
     .fr-footer__brand {
       flex-basis: 100%;
     }
@@ -48,7 +46,6 @@
     .footerListCustom li:first-child {
       margin-top: 0.5rem;
     }
-
   }
 
   @media (max-width: 580px) {
