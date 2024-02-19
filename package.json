@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@gouvfr-anct/cartographie-nationale": "^5.20.0",
+    "@gouvfr-anct/cartographie-nationale": "^5.19.0",
     "@gouvfr/dsfr": "1.11.1",
     "@reduxjs/toolkit": "^2.2.1",
     "dayjs": "^1.11.10",
