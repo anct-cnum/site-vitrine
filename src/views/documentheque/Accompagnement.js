@@ -25,7 +25,7 @@ function Accompagnement() {
           </a>
         </p>
         <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-6.2">
-          6.2&nbsp;&nbsp;Pr&eacute;sentation des outils des CnFS
+          6.2&nbsp;&nbsp;Pr&eacute;sentation des outils des Conum
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
           Ce document pr&eacute;sente l&rsquo;Espace Coop, plateforme d&rsquo;&eacute;change et de suivi d&rsquo;activit&eacute; des Conseillers
@@ -33,12 +33,12 @@ function Accompagnement() {
           <br/>
           <a
             href="https://cdn.conseiller-numerique.gouv.fr/Les_outils_des_CnFS.pdf"
-            title="T&eacute;l&eacute;charger la pr&eacute;sentation des outils des CnFS"
+            title="T&eacute;l&eacute;charger la pr&eacute;sentation des outils des Conum"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
             rel="noopener noreferrer">
-              T&eacute;l&eacute;charger la pr&eacute;sentation des outils des CnFS (pdf)
+              T&eacute;l&eacute;charger la pr&eacute;sentation des outils des Conum (pdf)
           </a>
         </p>
         <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-6.3">
