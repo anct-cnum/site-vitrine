@@ -11,7 +11,7 @@ function Accompagnement() {
           6.1&nbsp;&nbsp;Kit &laquo;&nbsp;Bien d&eacute;marrer ma mission&nbsp;&raquo; &agrave; remettre au(x) Conseiller(s)
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
-          Ce document a pour objet de faciliter l&rsquo;entr&eacute;e en poste des Conseillers num&eacute;riques France Services,
+          Ce document a pour objet de faciliter l&rsquo;entr&eacute;e en poste des Conseillers num&eacute;riques,
           et contient de nombreuses informations en lien avec leur d&eacute;but d&rsquo;activit&eacute;&nbsp;: outils, r&eacute;seaux, parcours...
           <br/>
           <a
@@ -42,23 +42,23 @@ function Accompagnement() {
           </a>
         </p>
         <h4 className="h4CustomKit h4CustomKit--secondary" id="titre-ancre-6.3">
-          6.3&nbsp;&nbsp;Guide d&rsquo;utilisation de l&rsquo;outil de suivi d&rsquo;activit&eacute; des Conseillers num&eacute;riques France Services
+          6.3&nbsp;&nbsp;Guide d&rsquo;utilisation de l&rsquo;outil de suivi d&rsquo;activit&eacute; des Conseillers num&eacute;riques
         </h4>
         <p style={{ marginBottom: '0' }}>
           Ce guide destin&eacute; aux structures d&rsquo;accueil vous accompagne dans l&rsquo;utilisation de l&rsquo;outil de suivi
-          de l&rsquo;activit&eacute; des Conseillers num&eacute;riques France Services afin de les aider &agrave; orienter au mieux leurs
+          de l&rsquo;activit&eacute; des Conseillers num&eacute;riques afin de les aider &agrave; orienter au mieux leurs
           activit&eacute;s en fonction des besoins&nbsp;:
           <br/>
           <a
             href="https://cdn.conseiller-numerique.gouv.fr/guide-d-utilisation-de-l-outil-de-suivi-d-activite.pdf"
             title="T&eacute;l&eacute;charger le guide d&rsquo;utilisation de l&rsquo;outil de suivi d&rsquo;activit&eacute; des
-            Conseillers num&eacute;riques France Services"
+            Conseillers num&eacute;riques"
             className="bleu-france"
             style={{ boxShadow: 'none' }}
             target="_blank"
             rel="noopener noreferrer">
               T&eacute;l&eacute;charger le guide d&rsquo;utilisation de l&rsquo;outil de suivi d&rsquo;activit&eacute; des
-              Conseillers num&eacute;riques France Services (pdf)
+              Conseillers num&eacute;riques (pdf)
           </a>
         </p>
       </div>

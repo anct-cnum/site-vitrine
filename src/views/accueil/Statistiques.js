@@ -18,7 +18,7 @@ function Statistiques() {
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
           <div className="fr-col-12 center">
             <h1 className="fr-h1 fr-mb-3w" id="ancre-statistiques">
-                Les chiffres cl&eacute;s du dispositif<br/> Conseiller num&eacute;rique France Services
+                Les chiffres cl&eacute;s du dispositif<br/> Conseiller num&eacute;rique
             </h1>
           </div>
           <div className="fr-col-12 center baseline-maj fr-mb-5w">Donn&eacute;es actualis&eacute;es le {date}</div>

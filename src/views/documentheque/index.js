@@ -19,7 +19,7 @@ function Documentheque() {
           <div className="fr-col-1"></div>
           <div className="fr-col-xs-12 fr-col-sm-10 fr-mb-9w">
             <h2 className="fr-h1 fr-mb-3w" style={{ marginTop: '0', textAlign: 'center' }}>
-              Documenth&egrave;que Conseiller num&eacute;rique France Services
+              Documenth&egrave;que Conseiller num&eacute;rique
             </h2>
           </div>
         </div>

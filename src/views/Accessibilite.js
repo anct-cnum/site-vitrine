@@ -49,7 +49,7 @@ function Accessibilite() {
           </div>
           <div className="fr-col-offset-lg-1"></div>
           <div>
-            L&rsquo;&eacute;quipe de Conseiller Num&eacute;rique France Services s&rsquo;engage et travaille &agrave; am&eacute;liorer
+            L&rsquo;&eacute;quipe de Conseiller Num&eacute;rique s&rsquo;engage et travaille &agrave; am&eacute;liorer
             le niveau d&rsquo;accessibilit&eacute; du site et sa conformit&eacute; avec les normes en la mati&egrave;re&nbsp;:
             <br /><br />
             <ul className="list-dash">
@@ -71,7 +71,7 @@ function Accessibilite() {
           </div>
           <div className="fr-col-offset-lg-1"></div>
           <p>
-            L&rsquo;&eacute;quipe de Conseiller Num&eacute;rique France Services reste &agrave; votre &eacute;coute et enti&egrave;re disposition,
+            L&rsquo;&eacute;quipe de Conseiller Num&eacute;rique reste &agrave; votre &eacute;coute et enti&egrave;re disposition,
             si vous souhaitez nous signaler un d&eacute;faut de conception. Vous pouvez nous aider &agrave; am&eacute;liorer l&rsquo;accessibilit&eacute;
             du site en nous signalant les probl&egrave;mes &eacute;ventuels que vous rencontrez&nbsp;:&nbsp;
             <a href={process.env.REACT_APP_AIDE_URL}>Contactez-nous</a>.
