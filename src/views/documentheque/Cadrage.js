@@ -14,7 +14,7 @@ function Cadrage() {
           4.1&nbsp;&nbsp;Pr&eacute;sentation des activit&eacute;s du Conseiller num&eacute;rique
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
-          Pr&eacute;sentation de l&rsquo;offre de service des Conseillers num&eacute;riques France Services&nbsp;:
+          Pr&eacute;sentation de l&rsquo;offre de service des Conseillers num&eacute;riques&nbsp;:
           <br/>
           <a
             href="https://cdn.conseiller-numerique.gouv.fr/presentation-conseiller-numerique.pdf"
@@ -30,7 +30,7 @@ function Cadrage() {
           4.2&nbsp;&nbsp;Note Aidants Connect x Conseiller num&eacute;rique
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
-          Cette note pr&eacute;sente comment les Conseillers num&eacute;riques France Services peuvent se former et utiliser
+          Cette note pr&eacute;sente comment les Conseillers num&eacute;riques peuvent se former et utiliser
           l&rsquo;outil Aidants Connect dans leurs accompagnements&nbsp;:
           <br/>
           <a
@@ -48,7 +48,7 @@ function Cadrage() {
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
           Ce document pr&eacute;sente l&rsquo;articulation des dispositifs &laquo;&nbsp;Pass num&eacute;rique&nbsp;&raquo; avec
-          l&rsquo;offre de service des Conseillers num&eacute;riques France Services&nbsp;:
+          l&rsquo;offre de service des Conseillers num&eacute;riques&nbsp;:
           <br/>
           <a
             href="https://cdn.conseiller-numerique.gouv.fr/Recommandation_ANCT_CNFS_Pass.pdf"

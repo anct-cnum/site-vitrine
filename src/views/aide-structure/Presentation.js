@@ -19,10 +19,10 @@ function Presentation() {
         <h3 className="bleu-secondaire">Pr&eacute;sentation</h3>
         <p>
           Vous &ecirc;tes une organisation publique ou priv&eacute;e avec une activit&eacute; qui vise &agrave; former des individus au num&eacute;rique,
-          b&eacute;n&eacute;ficiez de conseillers num&eacute;riques France Services pour accompagner votre public vers l&rsquo;autonomie num&eacute;rique.
+          b&eacute;n&eacute;ficiez de conseillers num&eacute;riques pour accompagner votre public vers l&rsquo;autonomie num&eacute;rique.
         </p>
         <p>
-          L&rsquo;&Eacute;tat finance, forme et outille vos conseillers num&eacute;riques France Services pendant deux ans. Vous les s&eacute;lectionnez.
+          L&rsquo;&Eacute;tat finance, forme et outille vos conseillers num&eacute;riques pendant deux ans. Vous les s&eacute;lectionnez.
         </p>
       </div>
     </div>

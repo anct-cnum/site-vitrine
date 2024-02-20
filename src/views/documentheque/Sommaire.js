@@ -117,7 +117,7 @@ function Sommaire() {
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-6.2">
-                6.2&nbsp;&nbsp;Pr&eacute;sentation des outils des CnFS
+                6.2&nbsp;&nbsp;Pr&eacute;sentation des outils des Conum
               </a>
             </li>
             <li>

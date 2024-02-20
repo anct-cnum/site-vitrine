@@ -15,7 +15,7 @@ function Bienvenue() {
           <div className="contentPart fr-py-3w">
             <img src={logoFR} alt="Logo France Relance" className="logoFR fr-mb-2w" />
             <h1 className="fr-h1 title">
-              Les conseillers num&eacute;riques France Services m&rsquo;accompagnent dans mes d&eacute;marches et vers l&rsquo;autonomie num&eacute;rique
+              Les conseillers num&eacute;riques m&rsquo;accompagnent dans mes d&eacute;marches et vers l&rsquo;autonomie num&eacute;rique
             </h1>
             <div className="twoParts">
               <div className="leftPart">

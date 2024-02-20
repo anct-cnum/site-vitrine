@@ -59,7 +59,7 @@ function PlaquettePresentation() {
       <div className="fr-col-12 fr-col-md-2 fr-mb-7w fr-mb-md-0w preview-image">
         <img
           src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/previews/preview-plaquette-conseiller-numerique.png"
-          alt="preview plaquette cnfs"
+          alt="preview plaquette Conum"
           style={{ height: '180px' }}/>
       </div>
     </div>

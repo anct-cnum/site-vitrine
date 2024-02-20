@@ -29,16 +29,16 @@ function Etapes() {
       </p>
       <p>2. Concertation territoriale&nbsp;: analyse des demandes des structures par vague</p>
       <p>3. En cas d&rsquo;entr&eacute;e dans le dispositif, acc&egrave;s &agrave; la candidath&egrave;que&nbsp;
-        <em>(vivier de conseillers num&eacute;riques France Services)</em>.
+        <em>(vivier de conseillers num&eacute;riques)</em>.
         Acc&egrave;s &agrave; un espace d&eacute;di&eacute;. Vous gardez la maîtrise du recrutement,
         &agrave; vous de choisir le candidat qui convient le mieux au poste,
         &agrave; condition qu&rsquo;il soit signal&eacute; sur la plateforme.</p>
-      <p>4. Recrutement de votre conseiller num&eacute;rique France Services</p>
+      <p>4. Recrutement de votre conseiller num&eacute;rique</p>
       <p>5. Analyse de conformit&eacute; <em>(montage du dossier de subvention)</em></p>
       <p>6. Une fois votre candidat s&eacute;lectionn&eacute;, mise en relation avec l&rsquo;organisme de formation&nbsp;
         <em>(&eacute;valuation du besoin en formation)</em></p>
       <p>7. Signature du contrat de travail et de la convention de subvention</p>
-      <p>8. Prise de poste du conseiller num&eacute;rique France Services</p>
+      <p>8. Prise de poste du conseiller num&eacute;rique</p>
       <p>9. Soutien financier de l&rsquo;Etat pendant 24 mois</p>
       <p>10. Suivis mensuels, trimestriels et semestriels</p>
     </div>

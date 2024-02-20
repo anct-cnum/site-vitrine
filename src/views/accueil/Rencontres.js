@@ -11,7 +11,7 @@ function Rencontres() {
           <div className="fr-col-offset-1 fr-col-10">
             <h4 className="fr-h4" style={{ textAlign: 'center' }}>
               Je suis une petite, moyenne entreprise (TPE/PME), ou une association,
-              j&rsquo;aimerais rencontrer un conseiller num&eacute;rique France Services pour&nbsp;:
+              j&rsquo;aimerais rencontrer un conseiller num&eacute;rique pour&nbsp;:
             </h4>
           </div>
           <div className="fr-col-1"></div>

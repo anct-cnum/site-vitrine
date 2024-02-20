@@ -29,7 +29,7 @@ function Ami() {
           1.2&nbsp;&nbsp;Circulaire &laquo;&nbsp;Mise en &oelig;uvre du volet Inclusion num&eacute;rique du plan Relance&nbsp;&raquo;
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
-          Circulaire interminist&eacute;rielle du 21 janvier 2021 pour la mise en &oelig;uvre du dispositif Conseiller num&eacute;rique France Service&nbsp;:
+          Circulaire interminist&eacute;rielle du 21 janvier 2021 pour la mise en &oelig;uvre du dispositif Conseiller num&eacute;rique&nbsp;:
           <br/>
           <a
             href="https://cdn.conseiller-numerique.gouv.fr/cir_45126.pdf"
