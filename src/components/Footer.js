@@ -20,7 +20,7 @@ function Footer() {
             </Link>
           </div>
           <div className="fr-footer__content footerContentCustom">
-            <ul className="fr-footer__content-list footerListCustom fr-mb-2w">
+            <ul className="fr-footer__content-list footerListCustom fr-mb-1w">
               <li className="fr-footer__content-item">
                 <Link to="/kit-communication" title="kit communication" className="fr-footer__content-link" onClick={onClickLink}>
                   Kit de communication
@@ -32,7 +32,7 @@ function Footer() {
                   title="Statistiques"
                   href="https://metabase.conseiller-numerique.gouv.fr/public/dashboard/446208c4-cae2-4c0c-be19-44cb14ce7d06"
                   target="_blank" rel="noopener noreferrer">
-                    Statistiques
+                  Statistiques
                 </a>
               </li>
               <li className="fr-footer__content-item">
@@ -41,7 +41,7 @@ function Footer() {
                   className="fr-footer__content-link"
                   href="https://www.cohesion-territoires.gouv.fr/france-services"
                   target="_blank" rel="noopener noreferrer">
-                    France services
+                  France services
                 </a>
               </li>
             </ul>
@@ -68,7 +68,7 @@ function Footer() {
           <div className="fr-footer__partners-logos">
             <div className="fr-footer__partners-main">
               <a className="footer__partners-link" href="https://societenumerique.gouv.fr/fr/">
-                <img className="fr-footer__logo" style={{ height: '72px' }} src={logoAnctSonum}
+                <img className="fr-footer__logo" style={{ height: '65px', boxShadow: 'none' }} src={logoAnctSonum}
                   alt="Agence Nationale de la Coh&eacute;sion des Territoires - Soci&eacute;t&eacute; num&eacute;rique" />
               </a>
             </div>
@@ -82,7 +82,7 @@ function Footer() {
                 title="Accessibilit&eacute;"
                 className="fr-footer__bottom-link"
                 onClick={onClickLink}>
-                  Accessibilit&eacute;: non conforme
+                Accessibilit&eacute;: non conforme
               </Link>
             </li>
             <li className="fr-footer__bottom-item">
@@ -91,7 +91,7 @@ function Footer() {
                 title="Mentions L&eacute;gales"
                 className="fr-footer__bottom-link"
                 onClick={onClickLink}>
-                  Mentions l&eacute;gales
+                Mentions l&eacute;gales
               </Link>
             </li>
             <li className="fr-footer__bottom-item">
@@ -99,7 +99,7 @@ function Footer() {
                 className="fr-footer__bottom-link"
                 title="Donn&eacute;es personnelles"
                 target="_blank" rel="noopener noreferrer">
-                  Donn&eacute;es personnelles
+                Donn&eacute;es personnelles
               </a>
             </li>
           </ul>

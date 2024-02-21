@@ -60,7 +60,7 @@ function Header() {
                         Renouvellement conventions
                     </a>
                   </li>
-                  <li style={{ paddingLeft: '5px' }}>
+                  <li>
                     <Link
                       to="/documentheque"
                       title="Documenth&egrave;que"
@@ -68,7 +68,7 @@ function Header() {
                         Documenth&egrave;que
                     </Link>
                   </li>
-                  <li style={{ paddingLeft: '5px' }}>
+                  <li>
                     <a
                       title="Aide"
                       className="fr-link fr-icon-question-answer-line"
