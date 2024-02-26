@@ -1,35 +1,22 @@
 import React from 'react';
 
 function FormationContinue() {
-  const aideUrl = `${process.env.REACT_APP_AIDE_URL}/article/quelles-sont-les-conditions-de-validite-du-ccp1-ctsqjp/`;
-  const fabrikUrl = 'https://fabrikmediationnumerique.org/';
 
   return (
-    <>
-      <div className="fr-col-12" style={{ textAlign: 'center' }}>
-        <h2 className="fr-h1 fr-mt-10w fr-mb-5w">La Formation continue</h2>
+    <div className="fr-col-9 fr-mt-5w cadre">
+      <div className="fr-ml-6w fr-col-10">
+        <h2 className="fr-my-5w">La Formation continue</h2>
       </div>
-      <div>
+      <div className="fr-ml-6w fr-col-10">
         <p>
-          Le nouveau dispositif de formation permet aux conseillers num&eacute;riques ayant valid&eacute; le titre CCP1, et
-          en accord avec leur structure, de pr&eacute;parer et de passer les CCP2 et CCP3 du titre professionnel de Responsable
-          d&rsquo;Espace de M&eacute;diation Num&eacute;rique.
+          Une fois l&rsquo;ann&eacute;e d&rsquo;int&eacute;gration pass&eacute;e, tout conseiller num&eacute;rique suit
+          chaque ann&eacute;e un module de formation compl&eacute;mentaire de 7h ou 14h parmi 15 th&eacute;matiques au choix.
         </p>
         <p>
-          Inscriptions : <a href={fabrikUrl}>fabrikmediationnumerique.org/</a>
-        </p>
-        <p>
-          Une fois inscrit, vous serez ensuite contact&eacute; directement par l&rsquo;organisme de formation pour les parcours
-          de positionnement. Le test dure moins d&rsquo;1h et permet d&rsquo;identifier le parcours le plus adapt&eacute; pour vous.
-        </p>
-        <p>
-          Pour toute question, consultez la&nbsp;
-          <a href={aideUrl}>
-            FAQ Conditions de validit&eacute; CCP1.
-          </a>
+          <b>Les modalit&eacute;s d&rsquo;inscription vous seront prochainement communiqu&eacute;es.</b>
         </p>
       </div>
-    </>
+    </div>
   );
 }
 

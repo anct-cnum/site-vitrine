@@ -23,19 +23,21 @@ function Formation() {
   }, [location.hash]);
 
   return (
-    <div className="formation">
+    <>
       <Header/>
-      <div className="fr-container fr-mb-10w">
-        <div className="fr-grid-row fr-grid-row--gutters">
-          <Introduction />
-          <ParcoursFormation />
-          <FormationInitiale />
-          <FormationContinue />
-          <PassageTitreREMN />
-          <Question />
+      <div className="formation">
+        <div className="fr-container fr-mb-10w">
+          <div className="fr-grid-row fr-grid-row--gutters">
+            <Introduction />
+            <ParcoursFormation />
+            <FormationInitiale />
+            <FormationContinue />
+            <PassageTitreREMN />
+            <Question />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
