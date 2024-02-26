@@ -29,7 +29,7 @@ function FormationInitiale() {
           recontactera pour d&eacute;finir avec vous le parcours le plus adapt&eacute; et vous proposer un calendrier de formation.
         </p>
         <p>
-          <b>Inscriptions métropole :&nbsp;</b>
+          <b>Inscriptions m&eacute;tropole&nbsp;:</b>
           <a href={fabrikUrl} rel="noopener noreferrer" target="_blank">
             fabrikmediationnumerique.org
           </a>
