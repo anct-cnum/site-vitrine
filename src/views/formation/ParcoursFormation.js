@@ -9,7 +9,7 @@ function ParcoursFormation() {
         <h2 className="fr-h2 fr-my-5w">Parcours de formation Conseiller num&eacute;rique</h2>
       </div>
       <div className="fr-col-12">
-        <img src={ImageParcours} className="fresque"
+        <img src={ImageParcours} className="fresque" loading="lazy"
           alt="Parcours de formation depuis la prise de poste, avec une phase de formation initiale, puis une phase de formation continue"/>
       </div>
       <div className="fr-col-offset-2 fr-col-8 description">

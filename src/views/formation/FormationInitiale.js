@@ -57,7 +57,7 @@ function FormationInitiale() {
             </p>
           </div>
           <div className="fr-col-xs-12 fr-col-xl-5 fr-m-3w img-fabrik">
-            <img src={ImageLaFabrik} alt="image pr&eacute;sentant le site de La Fabrik"/>
+            <img src={ImageLaFabrik} alt="image pr&eacute;sentant le site de La Fabrik" loading="lazy"/>
           </div>
         </div>
       </div>
