@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
 import Header from '../../components/Header';
 import Introduction from './Introduction';
 import ParcoursFormation from './ParcoursFormation';
@@ -9,18 +8,6 @@ import PassageTitreREMN from './PassageTitreREMN';
 import Question from './Question';
 
 function Formation() {
-
-  const location = useLocation();
-  const navigate = useNavigate();
-  const allowedAncres = ['#ancre-themes', '#ancre-statistiques'];
-
-  //Permet de se positionner sur l'ancre avec url+hash provenant hors du router
-  useEffect(() => {
-    if (allowedAncres.includes(location.hash)) {
-      document.querySelector(location.hash).scrollIntoView();
-      navigate('/accueil', { replace: true }); //suppression hash
-    }
-  }, [location.hash]);
 
   return (
     <>

@@ -13,7 +13,7 @@ function Introduction() {
       <div className="fr-col-offset-2 fr-col-8 introduction">
           Obligatoire et prise en charge par l&rsquo;&Eacute;tat dans le cadre du dispositif, cette formation<br/>
           vous permet de d&eacute;velopper vos comp&eacute;tences &agrave; chaque &eacute;tape de votre parcours
-          professionnel en tant que conseiller num&eacute;riques.
+          professionnel en tant que conseiller num&eacute;rique.
       </div>
     </>
   );
