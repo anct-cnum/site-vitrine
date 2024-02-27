@@ -51,7 +51,7 @@ function FormationInitiale() {
               </b>
               <ol>
                 <li>Je clique sur &laquo;&nbsp;Inscription&nbsp;&raquo; et je r&eacute;ponds au questionnaire&nbsp;;</li>
-                <li> j&rsquo;effectue le test de positionnement&nbsp;;</li>
+                <li>j&rsquo;effectue le test de positionnement&nbsp;;</li>
                 <li>j&rsquo;entre en formation.</li>
               </ol>
             </p>
