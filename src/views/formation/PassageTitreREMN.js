@@ -16,7 +16,7 @@ function PassageTitreREMN() {
           d&rsquo;Espace de M&eacute;diation Num&eacute;rique.
         </p>
         <p>
-          <b>Inscriptions : </b><a href={fabrikUrl} rel="noopener noreferrer" target="_blank">fabrikmediationnumerique.org</a>
+          <b>Inscriptions&nbsp;: </b><a href={fabrikUrl} rel="noopener noreferrer" target="_blank">fabrikmediationnumerique.org</a>
         </p>
         <p>
           Une fois inscrit, vous serez ensuite contact&eacute; directement par l&rsquo;organisme de formation pour les parcours
