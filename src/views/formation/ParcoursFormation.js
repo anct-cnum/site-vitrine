@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageParcours from '../../assets/images/schema-parcours-formation-Conseiller-numerique.svg';
+import ImageParcours from '../../assets/images/schema-parcours-formation-conseiller-numerique.svg';
 
 function ParcoursFormation() {
 
