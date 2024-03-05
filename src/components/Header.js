@@ -72,7 +72,7 @@ function Header() {
                     <a
                       title="Aide"
                       className="fr-link fr-icon-question-answer-line"
-                      href="https://aide.conseiller-numerique.gouv.fr/fr/"
+                      href={process.env.REACT_APP_AIDE_URL}
                       target="_blank"
                       rel="noopener noreferrer">
                         J&rsquo;ai une question

@@ -19,7 +19,7 @@ function Questions() {
         Vous b&eacute;n&eacute;ficiez d&apos;un financement d&eacute;gressif sur trois ans, que vous soyez une structure publique ou
         priv&eacute;e. Le subventionnement s&apos;adapte &agrave; la typologie de votre structure. Nous vous invitons &agrave; vous
         rendre sur notre <a
-          href="https://aide.conseiller-numerique.gouv.fr/fr/"
+          href={process.env.REACT_APP_AIDE_URL}
           rel="noopener noreferrer"
           target="_blank"
           className="bleu-secondaire"
