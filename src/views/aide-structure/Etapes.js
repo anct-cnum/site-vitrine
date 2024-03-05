@@ -39,7 +39,7 @@ function Etapes() {
         <em>(&eacute;valuation du besoin en formation)</em></p>
       <p>7. Signature du contrat de travail et de la convention de subvention</p>
       <p>8. Prise de poste du conseiller num&eacute;rique</p>
-      <p>9. Soutien financier de l&rsquo;Etat pendant 24 mois</p>
+      <p>9. Soutien financier de l&rsquo;Etat pendant 36 mois</p>
       <p>10. Suivis mensuels, trimestriels et semestriels</p>
     </div>
   );
