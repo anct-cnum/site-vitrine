@@ -15,11 +15,11 @@ function Bienvenue() {
           <div className="contentPart fr-py-3w">
             <img src={logoFR} alt="Logo France Relance" className="logoFR fr-mb-2w" />
             <h1 className="fr-h1 title">
-              Les conseillers num&eacute;riques France Services m&rsquo;accompagnent dans mes d&eacute;marches et vers l&rsquo;autonomie num&eacute;rique
+              Les conseillers num&eacute;riques m&rsquo;accompagnent dans mes d&eacute;marches et vers l&rsquo;autonomie num&eacute;rique
             </h1>
             <div className="twoParts">
               <div className="leftPart">
-                <h4 className="fr-h4 title fr-mb-4w">Trouver un conseiller numérique pr&egrave;s de chez moi</h4>
+                <h4 className="fr-h4 title fr-mb-4w">Trouver un conseiller num&eacute;rique pr&egrave;s de chez moi</h4>
                 <Link
                   to="/carte"
                   className="fr-btn btnCustom">

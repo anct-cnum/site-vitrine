@@ -1,0 +1,54 @@
+@import '../colors/colors';
+@font-face {
+  font-family: "Marianne Regular";
+  src: url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff2') format("woff2"),
+    url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff') format("woff");
+ }
+
+.formation {
+  color: $grey !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  a {
+    color: #000091;
+  }
+
+  .fresque {
+    width: 100%;
+  }
+
+  .introduction {
+    font-size: 18px;
+  }
+
+  .description {
+    color: $light-grey;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+  }
+
+  .cadre {
+    border: 1px solid $lighter-grey;
+    margin: 0 auto;
+  }
+
+  .encart-bleu {
+    background: $blue-lighter;
+    color: $blue-secondary;
+  }
+
+  .cadre-bleu {
+    background: $blue-lighter;
+    text-align: center;
+    margin: 0 auto;    
+    padding: 2% 0;
+  }
+
+  @media (max-width: 1247px) {
+    .img-fabrik {
+      margin: 0 auto !important;
+    }
+  }
+}

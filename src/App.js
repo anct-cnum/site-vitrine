@@ -13,6 +13,7 @@ import CoordinationTerritoriale from './views/coordination-territoriale';
 import Documentheque from './views/documentheque';
 import Carte from './views/Carte';
 import CarteCoordinateur from './views/coordination-territoriale/CarteCoordinateur';
+import Formation from './views/formation';
 
 const RedirectCarto = () => {
   const { permanence } = useParams();
@@ -51,6 +52,7 @@ function App() {
           <Route path="/:permanence/details" element={<Carte />}/>
           <Route path="/carte/:permanence/details" element={<RedirectCarto />}/>
           <Route exact path="/:permanence" element={<Carte />}/>
+          <Route path="/formation" element={<Formation/>}/>
           <Route index element={<Accueil />}/>
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>

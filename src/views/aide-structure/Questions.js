@@ -16,9 +16,16 @@ function Questions() {
       </p>
       <h4 className="fr-mt-2w">&Agrave; combien s&rsquo;&eacute;l&egrave;ve l&rsquo;aide de l&rsquo;Etat ?</h4>
       <p>
-        Vous b&eacute;n&eacute;ficiez d&rsquo;un financement &agrave; hauteur du SMIC du conseiller sur deux ans,
-        que vous soyez une structure publique ou priv&eacute;e.
-        Les structures publiques ont la possibilit&eacute; d&rsquo;&eacute;taler ce montant de subventionnement sur une dur&eacute;e de 3 ans.
+        Vous b&eacute;n&eacute;ficiez d&apos;un financement d&eacute;gressif sur trois ans, que vous soyez une structure publique ou
+        priv&eacute;e. Le subventionnement s&apos;adapte &agrave; la typologie de votre structure. Nous vous invitons &agrave; vous
+        rendre sur notre <a
+          href={process.env.REACT_APP_AIDE_URL}
+          rel="noopener noreferrer"
+          target="_blank"
+          className="bleu-secondaire"
+          title="Foire aux questions sur le dispositif Conseiller num&eacute;rique">
+          FAQ
+        </a>
       </p>
       <h4 className="fr-mt-2w">Quels sont mes engagements ?</h4>
       <p>

@@ -26,7 +26,7 @@ function Accessibilite() {
             <ul>
               <li>perceptibles&nbsp;: par exemple, faciliter la perception visuelle et auditive du contenu par l&rsquo;utilisateur ;&nbsp;
                 proposer des &eacute;quivalents textuels &agrave; tout contenu non textuel ;&nbsp;
-                cr&eacute;er un contenu qui puisse être pr&eacute;sent&eacute; de diff&eacute;rentes mani&egrave;res
+                cr&eacute;er un contenu qui puisse &ecirc;tre pr&eacute;sent&eacute; de diff&eacute;rentes mani&egrave;res
                 sans perte d&rsquo;information ni de structure (par exemple avec une mise en page simplifi&eacute;e) ;
               </li>
               <li>utilisables&nbsp;: par exemple, fournir &agrave; l&rsquo;utilisateur des &eacute;l&eacute;ments d&rsquo;orientation pour naviguer,
@@ -49,7 +49,7 @@ function Accessibilite() {
           </div>
           <div className="fr-col-offset-lg-1"></div>
           <div>
-            L&rsquo;&eacute;quipe de Conseiller Num&eacute;rique France Services s&rsquo;engage et travaille &agrave; am&eacute;liorer
+            L&rsquo;&eacute;quipe de Conseiller Num&eacute;rique s&rsquo;engage et travaille &agrave; am&eacute;liorer
             le niveau d&rsquo;accessibilit&eacute; du site et sa conformit&eacute; avec les normes en la mati&egrave;re&nbsp;:
             <br /><br />
             <ul className="list-dash">
@@ -62,7 +62,7 @@ function Accessibilite() {
             et la structure de l&rsquo;information ou encore la clart&eacute; des formulaires.
           </p>
           <p>
-            D&rsquo;autres am&eacute;liorations vont être apport&eacute;es.
+            D&rsquo;autres am&eacute;liorations vont &ecirc;tre apport&eacute;es.
           </p>
         </div>
         <div className="fr-grid-row fr-grid-row--gutters">
@@ -71,7 +71,7 @@ function Accessibilite() {
           </div>
           <div className="fr-col-offset-lg-1"></div>
           <p>
-            L&rsquo;&eacute;quipe de Conseiller Num&eacute;rique France Services reste &agrave; votre &eacute;coute et enti&egrave;re disposition,
+            L&rsquo;&eacute;quipe de Conseiller Num&eacute;rique reste &agrave; votre &eacute;coute et enti&egrave;re disposition,
             si vous souhaitez nous signaler un d&eacute;faut de conception. Vous pouvez nous aider &agrave; am&eacute;liorer l&rsquo;accessibilit&eacute;
             du site en nous signalant les probl&egrave;mes &eacute;ventuels que vous rencontrez&nbsp;:&nbsp;
             <a href={process.env.REACT_APP_AIDE_URL}>Contactez-nous</a>.

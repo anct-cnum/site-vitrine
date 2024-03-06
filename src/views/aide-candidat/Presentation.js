@@ -9,7 +9,7 @@ function Presentation() {
       <div className="fr-grid-row fr-grid-row--gutters">
         <div className="fr-col-12" style={{ textAlign: 'center' }}>
           <h1 className="fr-h1 fr-mt-10w fr-mb-5w bleu-conseiller">
-            Je veux devenir Conseiller num&eacute;rique France Services
+            Je veux devenir Conseiller num&eacute;rique
           </h1>
           <div className="fr-col-12 partProgram">
             <div className="fr-col-xs-12 fr-col-sm-12 fr-col-md-6 fr-col-lg-5 fr-px-3w fr-grid-row--center">
@@ -21,7 +21,7 @@ function Presentation() {
         <h3 className="bleu-secondaire">Pr&eacute;sentation</h3>
         <p>
           Vous aimez le contact humain, cherchez un m&eacute;tier qui a du sens dans un secteur d&rsquo;avenir ? Rejoignez le
-          mouvement national des conseillers num&eacute;riques France Services.
+          mouvement national des conseillers num&eacute;riques.
         </p>
         <p>
           Form&eacute;(e) puis employ&eacute;(e) par une structure locale pendant 2 ans, vous cr&eacute;ez et animez des ateliers

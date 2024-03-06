@@ -62,7 +62,7 @@ function ProgrammeChiffresCles() {
             <div className="fr-col-xs-12 fr-col-sm-4 fr-col-md-4 fr-col-lg-4 etapes fr-mb-5w">
               <span className="fr-h1 white-text">4&nbsp;000</span>
               <p className="texte-centre white-text">
-                Conseillers num&eacute;riques France Services form&eacute;s par l&rsquo;&Eacute;tat
+                Conseillers num&eacute;riques form&eacute;s par l&rsquo;&Eacute;tat
               </p>
             </div>
           </div>
