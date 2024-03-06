@@ -8,20 +8,20 @@ function FormationInitiale() {
   
   return (
     <div className="fr-col-9 fr-mt-3w cadre">
-      <div className="fr-ml-6w fr-col-10" >
-        <h2 className="fr-my-5w">Formation initiale</h2>
+      <div className="fr-ml-5w fr-col-11" >
+        <h2 className="fr-my-3w">Formation initiale</h2>
       </div>
-      <div className="fr-ml-6w fr-col-10">
+      <div className="fr-ml-5w fr-col-11">
         <p>
           Cette formation obligatoire dans le cadre du dispositif est propos&eacute;e &agrave; tout nouveau conseiller num&eacute;rique entrant dans le
           dispositif. Adapt&eacute;e &agrave; votre profil et votre exp&eacute;rience, elle vous permet d&rsquo;acqu&eacute;rir les comp&eacute;tences
           n&eacute;cessaires &agrave; l&rsquo;exercice de vos fonctions.
         </p>
       </div>
-      <div className="fr-ml-6w fr-col-10">
-        <h2 className="fr-my-5w">Passage CCP1</h2>
+      <div className="fr-ml-5w fr-col-11">
+        <h2 className="fr-mt-6w fr-mb-3w">Passage CCP1</h2>
       </div>
-      <div className="fr-ml-6w fr-col-10">
+      <div className="fr-ml-5w fr-col-11">
         <p>
           Le passage du CCP1 du titre professionnel de Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique est la premi&egrave;re
           &eacute;tape de votre formation initiale. Pour cela, un parcours de formation en 70, 135 ou 315 h vous est propos&eacute; selon votre
@@ -41,30 +41,33 @@ function FormationInitiale() {
           </a>
         </p>
       </div>
-      <div className="fr-container encart-bleu fr-mt-5w">
-        <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-col-xs-12 fr-col-xl-6 fr-ml-3w ">
-            <p>
-              <b>
-                Les inscriptions s&rsquo;effectuent directement sur la plateforme des organismes de formation &laquo;&nbsp;La Fabrik de la
-                m&eacute;diation num&eacute;rique&nbsp;&raquo;&nbsp;:
-              </b>
-              <ol>
-                <li>Je clique sur &laquo;&nbsp;Inscription&nbsp;&raquo; et je r&eacute;ponds au questionnaire&nbsp;;</li>
-                <li>j&rsquo;effectue le test de positionnement&nbsp;;</li>
-                <li>j&rsquo;entre en formation.</li>
-              </ol>
-            </p>
-          </div>
-          <div className="fr-col-xs-12 fr-col-xl-5 fr-m-3w img-fabrik">
-            <img src={ImageLaFabrik} alt="image pr&eacute;sentant le site de La Fabrik" loading="lazy"/>
+      <div className="fr-ml-5w fr-col-11">
+        <div className="fr-container encart-bleu fr-mt-5w">
+          <div className="fr-grid-row fr-grid-row--gutters">
+            <div className="fr-col-xs-12 fr-col-xl-6">
+              <p>
+                <b>
+                  Les inscriptions s&rsquo;effectuent directement sur la plateforme des organismes de formation &laquo;&nbsp;La Fabrik de la
+                  m&eacute;diation num&eacute;rique&nbsp;&raquo;&nbsp;:
+                </b>
+                <ol>
+                  <li>Je clique sur &laquo;&nbsp;Inscription&nbsp;&raquo; et je r&eacute;ponds au questionnaire&nbsp;;</li>
+                  <li>j&rsquo;effectue le test de positionnement&nbsp;;</li>
+                  <li>j&rsquo;entre en formation.</li>
+                </ol>
+              </p>
+            </div>
+            <div className="fr-col-xs-12 fr-col-xl-5 fr-m-3w img-fabrik">
+              <img src={ImageLaFabrik} alt="image pr&eacute;sentant le site de La Fabrik" loading="lazy"/>
+            </div>
           </div>
         </div>
       </div>
-      <div className="fr-ml-6w fr-col-10">
-        <h2 className="fr-my-5w">Les modules compl&eacute;mentaires</h2>
+     
+      <div className="fr-ml-5w fr-col-11">
+        <h2 className="fr-mt-6w fr-mb-3w">Les modules compl&eacute;mentaires</h2>
       </div>
-      <div className="fr-ml-6w fr-col-10">
+      <div className="fr-ml-5w fr-col-11">
         <p>
           Afin de vous permettre de personnaliser votre parcours, deux modules compl&eacute;mentaires de 7h ou 14h sont propos&eacute;s
           au choix parmi 15 th&eacute;matiques.
