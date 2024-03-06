@@ -6,10 +6,10 @@ function PassageTitreREMN() {
 
   return (
     <div className="fr-col-9 fr-mt-5w cadre">
-      <div className="fr-ml-6w fr-col-10">
-        <h2 className="fr-my-5w">Passage du titre REMN</h2>
+      <div className="fr-ml-5w fr-col-11">
+        <h2 className="fr-my-3w">Passage du titre REMN</h2>
       </div>
-      <div className="fr-ml-6w fr-col-10">
+      <div className="fr-ml-5w fr-col-11">
         <p>
           Le nouveau dispositif de formation permet aux conseillers num&eacute;riques <b>ayant valid&eacute; le titre CCP1</b>, et
           en accord avec leur structure, de pr&eacute;parer et de passer les CCP2 et CCP3 du titre professionnel de Responsable
