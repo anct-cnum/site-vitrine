@@ -10,7 +10,7 @@ function Themes() {
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
           <div className="fr-col-12">
             <h1 className="fr-h1" style={{ textAlign: 'center' }} id="ancre-themes">
-              En me formant aupr&egrave;s d&rsquo;un conseiller num&eacute;rique France Services, j&rsquo;apprends &agrave; devenir autonome pour&nbsp;:
+              En me formant aupr&egrave;s d&rsquo;un conseiller num&eacute;rique, j&rsquo;apprends &agrave; devenir autonome pour&nbsp;:
             </h1>
             <p className="helpTooltip fr-mb-5w">
               <em>Survolez les &eacute;l&eacute;ments avec la souris ou le doigt pour en d&eacute;couvrir les d&eacute;tails.</em>

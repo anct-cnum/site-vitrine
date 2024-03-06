@@ -14,7 +14,7 @@ function PriseRDV() {
         </div>
         <div className="contentRow">
           <h4 className="fr-h4 titleRDV fr-mb-4w">
-            Je veux prendre rendez-vous avec un conseiller num&eacute;rique France Services d&egrave;s maintenant
+            Je veux prendre rendez-vous avec un conseiller num&eacute;rique d&egrave;s maintenant
           </h4>
           <Link
             to="/carte"

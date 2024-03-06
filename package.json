@@ -3,20 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@gouvfr-anct/cartographie-nationale": "^5.19.0",
-    "@gouvfr/dsfr": "1.9.3",
-    "@reduxjs/toolkit": "^1.9.5",
-    "dayjs": "^1.11.8",
+    "@gouvfr-anct/cartographie-nationale": "^5.22.0",
+    "@gouvfr/dsfr": "1.11.1",
+    "@reduxjs/toolkit": "^2.2.1",
+    "dayjs": "^1.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.1.0",
-    "react-router-dom": "^6.13.0",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.0",
     "react-router-hash-link": "^2.4.3",
-    "react-scripts": "5.0.0",
-    "react-tooltip": "^5.14.0",
-    "redux": "^4.2.1",
-    "redux-thunk": "^2.4.2",
-    "web-vitals": "^3.3.2"
+    "react-scripts": "5.0.1",
+    "react-tooltip": "^5.26.2",
+    "redux": "^5.0.1",
+    "web-vitals": "^3.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,12 +44,12 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.4.3",
-    "eslint": "^8.6.0",
-    "eslint-plugin-react": "^7.28.0",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@testing-library/user-event": "^14.5.2",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
     "redux-mock-store": "^1.5.4",
-    "sass": "^1.45.2"
+    "sass": "^1.71.0"
   }
 }

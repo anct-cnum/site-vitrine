@@ -13,7 +13,7 @@ function Recrutement() {
           5.1&nbsp;&nbsp;Flyer
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
-          Pr&eacute;sentation synth&eacute;tique du dispositif Conseiller num&eacute;rique France Services&nbsp;:
+          Pr&eacute;sentation synth&eacute;tique du dispositif Conseiller num&eacute;rique&nbsp;:
           <br/>
           <a
             href="https://cdn.conseiller-numerique.gouv.fr/Flyer_CNFS.pdf"
@@ -78,7 +78,7 @@ function Recrutement() {
           5.5&nbsp;&nbsp;Fiche de poste
         </h4>
         <p style={{ marginBottom: '0' }} className="fr-mb-7w">
-          Fiche avec d&eacute;tails de l&rsquo;offre, des missions et des t&acirc;ches du Conseiller num&eacute;rique France Services&nbsp;:
+          Fiche avec d&eacute;tails de l&rsquo;offre, des missions et des t&acirc;ches du Conseiller num&eacute;rique&nbsp;:
           <br/>
           <a
             href="https://cdn.conseiller-numerique.gouv.fr/Fiche%20de%20poste%20type.pdf"

@@ -46,7 +46,7 @@ function LogoTypes() {
         <div className="fr-col-12 fr-col-md-2 fr-mt-7w fr-mb-md-0w preview-image">
           <img
             src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/previews/preview-logo-conum.png"
-            alt="preview logo cnfs"
+            alt="preview logo Conum"
             style={{ width: '180px', border: '1px solid #7B7B7B' }}/>
         </div>
       </div>
@@ -125,7 +125,7 @@ function LogoTypes() {
         <div className="fr-col-12 fr-col-md-2 fr-mb-7w fr-mb-md-0w preview-image">
           <img
             src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/previews/preview-logo-conseiller-numerique-feminin.png"
-            alt="preview logo cnfs nb"
+            alt="preview logo Conum nb"
             style={{ width: '180px', border: '1px solid #7B7B7B' }}/>
         </div>
       </div>
@@ -150,7 +150,7 @@ function LogoTypes() {
         <div className="fr-col-12 fr-col-md-2 fr-mb-7w fr-mb-md-0w preview-image">
           <img
             src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/previews/preview-logo-conseiller-numerique-noir.png"
-            alt="preview logo cnfs nb"
+            alt="preview logo Conum nb"
             style={{ width: '180px', border: '1px solid #7B7B7B' }}/>
         </div>
       </div>
@@ -175,7 +175,7 @@ function LogoTypes() {
         <div className="fr-col-12 fr-col-md-2 fr-mb-7w fr-mb-md-0w preview-image">
           <img
             src="https://cdn.conseiller-numerique.gouv.fr/kit-communication/V4/previews/preview-badge-conseiller-numerique-coordinateur.png"
-            alt="preview logo cnfs nb"
+            alt="preview logo Conum nb"
             style={{ width: '180px', border: '1px solid #7B7B7B' }}/>
         </div>
       </div>

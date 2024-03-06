@@ -177,6 +177,15 @@ function Menu() {
                 </ul>
               </div>
             </li>
+            <li className="fr-nav__item">
+              <Link
+                to="/formation"
+                title="Page de formation des conseillers num&eacute;riques"
+                className="fr-nav__link"
+                {...(location.pathname.startsWith('/formation') ? { 'aria-current': 'page' } : {})}>
+                Formation
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

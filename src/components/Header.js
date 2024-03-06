@@ -22,7 +22,7 @@ function Header() {
             <div className="fr-header__brand fr-enlarge-link">
               <div className="fr-header__brand-top">
                 <div className="fr-header__logo" style={{ paddingRight: '0', marginRight: '0' }}>
-                  <Link to="/" title="Accueil - Conseiller num&eacute;rique France services">
+                  <Link to="/" title="Accueil - Conseiller num&eacute;rique">
                     <p className="fr-logo">
                         R&eacute;publique
                       <br />
@@ -60,7 +60,7 @@ function Header() {
                         Renouvellement conventions
                     </a>
                   </li>
-                  <li style={{ paddingLeft: '5px' }}>
+                  <li>
                     <Link
                       to="/documentheque"
                       title="Documenth&egrave;que"
@@ -68,11 +68,11 @@ function Header() {
                         Documenth&egrave;que
                     </Link>
                   </li>
-                  <li style={{ paddingLeft: '5px' }}>
+                  <li>
                     <a
                       title="Aide"
                       className="fr-link fr-icon-question-answer-line"
-                      href="https://aide.conseiller-numerique.gouv.fr/fr/"
+                      href={process.env.REACT_APP_AIDE_URL}
                       target="_blank"
                       rel="noopener noreferrer">
                         J&rsquo;ai une question
