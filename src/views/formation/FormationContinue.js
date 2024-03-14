@@ -5,7 +5,7 @@ function FormationContinue() {
   return (
     <div className="fr-col-9 fr-mt-5w cadre">
       <div className="fr-ml-5w fr-col-11">
-        <h2 className="fr-my-3w">La Formation continue</h2>
+        <h2 className="fr-my-3w">La formation continue</h2>
       </div>
       <div className="fr-ml-5w fr-col-11">
         <p>
