@@ -24,18 +24,18 @@ function FormationInitiale() {
       <div className="fr-ml-5w fr-col-11">
         <p>
           Le passage du CCP1 du titre professionnel de Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique est la premi&egrave;re
-          &eacute;tape de votre formation initiale. Pour cela, un parcours de formation en 70, 135 ou 315 h vous est propos&eacute; selon votre
+          &eacute;tape de votre formation initiale. Pour cela, un parcours de formation en 70, 175 ou 315 h vous est propos&eacute; selon votre
           profil et votre exp&eacute;rience. Les inscriptions ont lieu directement aupr&egrave;s de votre organisme de formation, qui vous
           recontactera pour d&eacute;finir avec vous le parcours le plus adapt&eacute; et vous proposer un calendrier de formation.
         </p>
         <p>
-          <b>Inscriptions m&eacute;tropole&nbsp;:</b>
+          <b>Inscriptions m&eacute;tropole&nbsp;:&nbsp;</b>
           <a href={fabrikUrl} rel="noopener noreferrer" target="_blank">
             fabrikmediationnumerique.org
           </a>
         </p>
         <p>
-          <b>Inscriptions Outre-mer&nbsp;:</b>
+          <b>Inscriptions Outre-mer&nbsp;:&nbsp;</b>
           <a href={contactOutreMerUrl} rel="noopener noreferrer" target="_blank">
             acc&eacute;der au formulaire
           </a>
