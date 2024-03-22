@@ -4,7 +4,6 @@ import Introduction from './Introduction';
 import ParcoursFormation from './ParcoursFormation';
 import FormationInitiale from './FormationInitiale';
 import FormationContinue from './FormationContinue';
-import PassageTitreREMN from './PassageTitreREMN';
 import Question from './Question';
 
 function Formation() {
@@ -19,7 +18,6 @@ function Formation() {
             <ParcoursFormation />
             <FormationInitiale />
             <FormationContinue />
-            <PassageTitreREMN />
             <Question />
           </div>
         </div>
