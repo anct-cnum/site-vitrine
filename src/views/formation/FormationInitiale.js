@@ -4,7 +4,7 @@ import ImageLaFabrik from '../../assets/images/fabrik-mediation-numerique.svg';
 function FormationInitiale() {
   const contactOutreMerUrl = 'https://framaforms.org/formulaire-de-contact-structure-accueillant-un-cnfs-1699450618';
   const fabrikUrl = 'https://fabrikmediationnumerique.org/';
-  const aideUrl = `${process.env.REACT_APP_AIDE_URL}/category/la-formation-des-conseillers-numeriques-objectifs-et-modalite-dorganisation-1dj9ogr/`;
+  const mednumUrl = 'https://lamednum.coop/formation/';
   
   return (
     <div className="fr-col-9 fr-mt-3w cadre">
@@ -23,13 +23,17 @@ function FormationInitiale() {
       </div>
       <div className="fr-ml-5w fr-col-11">
         <p>
-          Le passage du CCP1 du titre professionnel de Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique est la premi&egrave;re
-          &eacute;tape de votre formation initiale. Pour cela, un parcours de formation en 70, 175 ou 315 h vous est propos&eacute; selon votre
-          profil et votre exp&eacute;rience. Les inscriptions ont lieu directement aupr&egrave;s de votre organisme de formation, qui vous
-          recontactera pour d&eacute;finir avec vous le parcours le plus adapt&eacute; et vous proposer un calendrier de formation.
+          Le passage du CCP1 du titre professionnel de Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique, qui atteste la
+          capacit&eacute; &agrave; accompagner des publics divers vers l&rsquo;autonomie num&eacute;rique, est le point final de votre
+          formation initiale. Pour vous y pr&eacute;parer, un parcours de formation en 70, 175 ou 315h vous est propos&eacute; selon
+          votre profil et votre exp&eacute;rience.
         </p>
         <p>
-          <b>Inscriptions m&eacute;tropole&nbsp;:&nbsp;</b>
+          Les inscriptions ont lieu directement aupr&egrave;s de votre organisme de formation, qui vous recontactera pour d&eacute;finir
+          avec vous le parcours le plus adapt&eacute; et vous proposer un calendrier de formation.
+        </p>
+        <p>
+          <b>Inscriptions M&eacute;tropole&nbsp;:&nbsp;</b>
           <a href={fabrikUrl} rel="noopener noreferrer" target="_blank">
             fabrikmediationnumerique.org
           </a>
@@ -47,8 +51,7 @@ function FormationInitiale() {
             <div className="fr-col-xs-12 fr-col-xl-6">
               <p>
                 <b>
-                  Les inscriptions s&rsquo;effectuent directement sur la plateforme des organismes de formation &laquo;&nbsp;La Fabrik de la
-                  m&eacute;diation num&eacute;rique&nbsp;&raquo;&nbsp;:
+                  Pour suivre une formation en France m&eacute;tropolitaine, rendez-vous sur le site de La Fabrik&nbsp;:
                 </b>
                 <ol>
                   <li>Je clique sur &laquo;&nbsp;Inscription&nbsp;&raquo; et je r&eacute;ponds au questionnaire&nbsp;;</li>
@@ -72,11 +75,9 @@ function FormationInitiale() {
           Afin de vous permettre de personnaliser votre parcours, deux modules compl&eacute;mentaires de 7h ou 14h sont propos&eacute;s
           au choix parmi 15 th&eacute;matiques.
         </p>
-        <p><b>Les modalit&eacute;s d&rsquo;inscription vous seront prochainement communiqu&eacute;es.</b></p>
         <p>
-          <b>Pour toute question sur les modules compl&eacute;mentaires&nbsp;:&nbsp;</b>
-          <a href={aideUrl} rel="noopener noreferrer" target="_blank">
-            je consulte la FAQ Formation
+          <a href={mednumUrl} rel="noopener noreferrer" target="_blank">
+            Inscriptions&nbsp;: lamednum.coop/formation
           </a>
         </p>
       </div>
