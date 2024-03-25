@@ -21,7 +21,7 @@ function FormationContinue() {
             lamednum.coop/formation
           </a>
         </p>
-        <h3 style={{ fontSize: '20px' }}>- Passage du CCP2 et CCP3 du titre REMN</h3>
+        <h3 style={{ fontSize: '20px' }}>-&nbsp;Passage du CCP2 et CCP3 du titre REMN</h3>
         <p>
           Le nouveau dispositif de formation permet aux conseillers num&eacute;riques <b>ayant valid&eacute; le titre CCP1</b>,
           et en accord avec leur structure, de pr&eacute;parer et de passer les &eacute;preuves du CCP2 et CCP3 du titre
