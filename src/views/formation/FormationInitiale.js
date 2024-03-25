@@ -23,7 +23,7 @@ function FormationInitiale() {
       </div>
       <div className="fr-ml-5w fr-col-11">
         <p>
-          Le passage du CCP1 du titre professionnel de Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique, qui atteste la 
+          Le passage du CCP1 du titre professionnel de Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique, qui atteste la
           capacit&eacute; &agrave; accompagner des publics divers vers l&rsquo;autonomie num&eacute;rique, est le point final de votre
           formation initiale. Pour vous y pr&eacute;parer, un parcours de formation en 70, 175 ou 315h vous est propos&eacute; selon
           votre profil et votre exp&eacute;rience.
