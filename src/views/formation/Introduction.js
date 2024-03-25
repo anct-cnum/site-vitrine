@@ -27,9 +27,9 @@ function Introduction() {
           Le d&eacute;ploiement de la formation continue constitue la principale nouveaut&eacute;
         </h3>
         <p className="fr-ml-n1w introduction">
-          &Agrave; partir de 2024, les conseillers num&eacute;riques, une fois form&eacute;s, suivront deux modules th&eacute;matiques
-          chaque ann&eacute;e pour mettre &agrave; jour leurs comp&eacute;tences. Ils se verront parall&egrave;lement proposer des
-          formations pour obtenir le titre professionnel.<br/>
+          &Agrave; partir de 2024, les conseillers num&eacute;riques, une fois form&eacute;s, suivront deux modules
+          th&eacute;matiques la premi&egrave;re ann&eacute;e puis un module chaque ann&eacute;e pour mettre &agrave;
+          jour leurs comp&eacute;tences. Ils se verront parall&egrave;lement proposer des formations pour obtenir le titre professionnel
           Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique (<i>REMN</i>) complet.
         </p>
       </div>
@@ -40,9 +40,9 @@ function Introduction() {
         <p className="fr-ml-n1w introduction">
           Elle permet d&eacute;sormais aux conseillers de personnaliser leur parcours, en choisissant deux modules compl&eacute;mentaires
           du tronc commun. Les programmes ont eux aussi &eacute;t&eacute; actualis&eacute;s pour mieux s&rsquo;adapter aux attentes
-          r&eacute;elles et &agrave; l&rsquo;activit&eacute; des conseillers.&egrave;res num&eacute;riques.<br/>
+          r&eacute;elles et &agrave; l&rsquo;activit&eacute; des conseiller.&egrave;res num&eacute;riques.<br/>
           Afin de faciliter leur entr&eacute;e en poste, le calendrier de la formation initiale a &eacute;galement &eacute;t&eacute;
-          optimis&eacute;&nbsp;: elle dure moins longtemps, et s&rsquo;effectue d&eacute;sormais en alternance.
+          optimis&eacute;&nbsp;: elle dure moins longtemps, et s&rsquo;effectue d&eacute;sormais <b>en alternance</b>.
         </p>
       </div>
 

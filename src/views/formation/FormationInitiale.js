@@ -19,18 +19,18 @@ function FormationInitiale() {
         </p>
       </div>
       <div className="fr-ml-5w fr-col-11">
-        <h2 className="fr-mt-6w fr-mb-3w">Passage CCP1</h2>
+        <h2 className="fr-mt-6w fr-mb-3w">Passage du CCP1</h2>
       </div>
       <div className="fr-ml-5w fr-col-11">
         <p>
-          Le passage du CCP1 du titre professionnel de Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique, qui atteste la
+          Le passage du CCP1 du titre professionnel de Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique, qui atteste la 
           capacit&eacute; &agrave; accompagner des publics divers vers l&rsquo;autonomie num&eacute;rique, est le point final de votre
           formation initiale. Pour vous y pr&eacute;parer, un parcours de formation en 70, 175 ou 315h vous est propos&eacute; selon
           votre profil et votre exp&eacute;rience.
         </p>
         <p>
-          Les inscriptions ont lieu directement aupr&egrave;s de votre organisme de formation, qui vous recontactera pour d&eacute;finir
-          avec vous le parcours le plus adapt&eacute; et vous proposer un calendrier de formation.
+          Les inscriptions ont lieu directement aupr&egrave;s de votre organisme de formation, qui vous contactera pour d&eacute;finir avec
+          vous le parcours le plus adapt&eacute; et vous proposer un calendrier de formation.
         </p>
         <p>
           <b>Inscriptions M&eacute;tropole&nbsp;:&nbsp;</b>
@@ -61,7 +61,9 @@ function FormationInitiale() {
               </p>
             </div>
             <div className="fr-col-xs-12 fr-col-xl-5 fr-m-3w img-fabrik">
-              <img src={ImageLaFabrik} alt="image pr&eacute;sentant le site de La Fabrik" loading="lazy"/>
+              <a href={fabrikUrl} rel="noopener noreferrer" target="_blank" className="lien-image-fabrik">
+                <img src={ImageLaFabrik} alt="image pr&eacute;sentant le site de La Fabrik" loading="lazy"/>
+              </a>
             </div>
           </div>
         </div>

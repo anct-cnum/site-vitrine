@@ -52,6 +52,13 @@
     margin: 0 auto;    
     padding: 2% 0;
   }
+  
+  .lien-image-fabrik {
+    background: none;
+    &::after{
+      display: none;
+    }
+  }
 
   @media (max-width: 1247px) {
     .img-fabrik {
