@@ -22,7 +22,7 @@ function ParcoursFormation() {
       </div>
       <div className="fr-col-offset-2 fr-col-8">
         <p className="fr-ml-n1w description">
-          <b>La Fabrik</b> repr&eacute;sente le consortium La Fabrik de la m&eacute;diation num&eacute;rique port&eacute;par CEFIAC et M2i.<br/>
+          <b>La Fabrik</b> repr&eacute;sente le consortium La Fabrik de la m&eacute;diation num&eacute;rique port&eacute; par CEFIAC et M2i.<br/>
           <b>La Mednum</b> repr&eacute;sente le consortium port&eacute; par la Mednum, les hubs territoriaux pour un num&eacute;rique inclusif et
           organismes de formation impliqu&eacute;s dans la d&eacute;livrance de ces formations.
         </p>
