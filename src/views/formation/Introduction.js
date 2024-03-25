@@ -42,7 +42,7 @@ function Introduction() {
           du tronc commun. Les programmes ont eux aussi &eacute;t&eacute; actualis&eacute;s pour mieux s&rsquo;adapter aux attentes
           r&eacute;elles et &agrave; l&rsquo;activit&eacute; des conseillers.&egrave;res num&eacute;riques.<br/>
           Afin de faciliter leur entr&eacute;e en poste, le calendrier de la formation initiale a &eacute;galement &eacute;t&eacute;
-          optimis&eacute; : elle dure moins longtemps, et s&rsquo;effectue d&eacute;sormais en alternance.
+          optimis&eacute;&nbsp;: elle dure moins longtemps, et s&rsquo;effectue d&eacute;sormais en alternance.
         </p>
       </div>
 
