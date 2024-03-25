@@ -78,8 +78,9 @@ function FormationInitiale() {
           au choix parmi 15 th&eacute;matiques.
         </p>
         <p>
+          <b>Inscriptions&nbsp;:&nbsp;</b>
           <a href={mednumUrl} rel="noopener noreferrer" target="_blank">
-            Inscriptions&nbsp;: lamednum.coop/formation
+           lamednum.coop/formation
           </a>
         </p>
       </div>
