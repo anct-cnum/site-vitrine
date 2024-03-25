@@ -10,7 +10,7 @@ function FormationContinue() {
         <h2 className="fr-my-3w">La formation continue</h2>
       </div>
       <div className="fr-ml-5w fr-col-11">
-        <h3 style={{ fontSize: '20px' }}>- 1 module par an, au choix</h3>
+        <h3 style={{ fontSize: '20px' }}>-&nbsp;1 module par an, au choix</h3>
         <p>
           Une fois la formation initiale termin&eacute;e, vous suivez chaque ann&eacute;e deux modules de formation de 7h ou 14h,
           parmi 15 th&eacute;matiques au choix.
