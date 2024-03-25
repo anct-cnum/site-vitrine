@@ -77,7 +77,7 @@ function FormationInitiale() {
         </p>
         <p>
           <a href={mednumUrl} rel="noopener noreferrer" target="_blank">
-            Inscriptions : lamednum.coop/formation
+            Inscriptions&nbsp;: lamednum.coop/formation
           </a>
         </p>
       </div>
