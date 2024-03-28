@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useParams, useLocation } from 'react-router-dom';
 import './assets/js';
 import './assets/sass/main.scss';
@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Accueil from './views/accueil';
 import KitCommunication from './views/kit-communication';
 import MentionsLegales from './views/MentionsLegales';
+import PolitiqueConfidentialite from './views/PolitiqueConfidentialite';
 import Accessibilite from './views/Accessibilite';
 import AideCandidat from './views/aide-candidat';
 import AideStructure from './views/aide-structure';
@@ -31,6 +32,21 @@ const GestionHash = () => {
 };
 
 function App() {
+
+  // Matomo Tracking
+  useEffect(() => {
+    if (process.env.REACT_APP_MATOMO_URL) {
+      let _mtm = window._mtm = window._mtm || [];
+      _mtm.push({ 'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start' });
+      let d = document;
+      let g = d.createElement('script');
+      let s = d.getElementsByTagName('script')[0];
+      g.async = true;
+      g.src = process.env.REACT_APP_MATOMO_URL;
+      s.parentNode.insertBefore(g, s);
+    }
+  }, []);
+
   return (
     <div className="App">
       <Router>
@@ -38,6 +54,7 @@ function App() {
           <Route path="/accueil" element={<GestionHash />}/>
           <Route path="/kit-communication" element={<KitCommunication />}/>
           <Route path="/mentions-legales" element={<MentionsLegales />}/>
+          <Route path="/confidentialite" element={<PolitiqueConfidentialite />}/>
           <Route path="/accessibilite" element={<Accessibilite />}/>
           <Route path="/aide-candidat" element={<AideCandidat />}/>
           <Route path="/aide-structure" element={<AideStructure />}/>

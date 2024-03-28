@@ -55,6 +55,7 @@ jobs:
           envkey_REACT_APP_FORMS_URL: "https://app.conseiller-numerique.gouv.fr/candidature"
           envkey_REACT_APP_AIDE_URL: "https://aide.conseiller-numerique.gouv.fr/fr"
           envkey_REACT_APP_API_URL: ${{ secrets.REACT_APP_API_PRODUCTION }}
+          envkey_REACT_APP_MATOMO_URL: ${{ secrets.REACT_APP_MATOMO_CONTAINER }}
           file_name: .env
       - name: Build application
         run: npm run build

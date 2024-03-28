@@ -102,6 +102,15 @@ function Footer() {
                 Donn&eacute;es personnelles
               </a>
             </li>
+            <li className="fr-footer__bottom-item">
+              <Link
+                to="/confidentialite"
+                title="Politique de confidentialit&eacute;"
+                className="fr-footer__bottom-link"
+                onClick={onClickLink}>
+                Politique de confidentialit&eacute;
+              </Link>
+            </li>
           </ul>
           <div className="fr-footer__bottom-copy">
             <p>
