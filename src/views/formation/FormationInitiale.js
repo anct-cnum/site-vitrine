@@ -29,7 +29,7 @@ function FormationInitiale() {
         </p>
         <p>
           Pour vous y pr&eacute;parer, trois parcours de formation vous sont propos&eacute;s : 70h (court), 175h (interm&eacute;diaire) ou
-          315h (long). Un test de positionnement, en deux temps, sera organis&eacute; pour identifier le parcours le plus ad&eacute;quat *
+          315h (long). Un test de positionnement, en deux temps, sera organis&eacute; pour identifier le parcours le plus ad&eacute;quat
           &agrave; vos besoins :
         </p>
         <ul>
