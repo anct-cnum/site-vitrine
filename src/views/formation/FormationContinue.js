@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageParcoursPossible from '../../assets/images/schema-parcours-possible.svg';
+import SchemaParcoursPossible from '../../assets/images/schema-parcours-possible.svg';
  
 function FormationContinue() {
   const mednumUrl = 'https://lamednum.coop/formation/';
