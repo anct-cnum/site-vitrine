@@ -24,7 +24,7 @@ function FormationInitiale() {
       <div className="fr-ml-5w fr-col-11">
         <p>
           Le passage du CCP1 du titre professionnel de Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique, qui atteste
-          la capacit&eacute; &agrave; accompagnerdes publics divers vers l&rsquo;autonomie num&eacute;rique, est le point final de
+          la capacit&eacute; &agrave; accompagner des publics divers vers l&rsquo;autonomie num&eacute;rique, est le point final de
           votre formation initiale.
         </p>
         <p>
