@@ -38,7 +38,7 @@ function FormationContinue() {
           <a href={popschoolUrl} rel="noopener noreferrer" target="_blank">
             popschool.fr/inscription-pop-school
           </a>
-          <img src={ImageParcoursPossible} style={{ width: '100%' }}
+          <img src={SchemaParcoursPossible} style={{ width: '100%' }}
             alt="image pr&eacute;sentant le site de La Fabrik" className="fr-my-3w" loading="lazy"/>
         </p>
         <p>
