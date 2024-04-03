@@ -1,5 +1,6 @@
 import React from 'react';
-
+import SchemaParcoursPossible from '../../assets/images/schema-parcours-possible.svg';
+ 
 function FormationContinue() {
   const mednumUrl = 'https://lamednum.coop/formation/';
   const popschoolUrl = 'https://popschool.fr/inscription-pop-school/';
@@ -37,6 +38,8 @@ function FormationContinue() {
           <a href={popschoolUrl} rel="noopener noreferrer" target="_blank">
             popschool.fr/inscription-pop-school
           </a>
+          <img src={SchemaParcoursPossible} style={{ width: '100%' }}
+            alt="image pr&eacute;sentant le site de La Fabrik" className="fr-my-3w" loading="lazy"/>
         </p>
         <p>
           <b>Pour toute question relative au passage du titre REMN</b>, rendez-vous&nbsp;
