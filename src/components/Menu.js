@@ -178,6 +178,12 @@ function Menu() {
                       Les missions et la cartographie des coordinateurs
                     </Link>
                   </li>
+                  <li>
+                    <a className="fr-nav__link"
+                      // eslint-disable-next-line max-len
+                      href="https://www.data.gouv.fr/fr/datasets/conseiller-numerique-liste-des-structures-validees-par-le-comite-de-selection-conum-et-conum-coordinateur/"
+                      target="_blank" rel="noopener noreferrer">Liste des structures laur&eacute;ates</a>
+                  </li>
                 </ul>
               </div>
             </li>
