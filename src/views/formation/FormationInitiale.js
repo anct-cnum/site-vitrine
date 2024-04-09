@@ -5,6 +5,7 @@ function FormationInitiale() {
   const contactOutreMerUrl = 'https://framaforms.org/formulaire-de-contact-structure-accueillant-un-cnfs-1699450618';
   const fabrikUrl = 'https://fabrikmediationnumerique.org/';
   const mednumUrl = 'https://lamednum.coop/formation/';
+  const aidantsconnectUrl = 'https://aidantsconnect.beta.gouv.fr/habilitation';
   
   return (
     <div className="fr-col-9 fr-mt-3w cadre">
@@ -91,12 +92,25 @@ function FormationInitiale() {
       <div className="fr-ml-5w fr-col-11">
         <p>
           Afin de vous permettre de personnaliser votre parcours, deux modules compl&eacute;mentaires de 7h ou 14h sont propos&eacute;s
-          au choix parmi 15 th&eacute;matiques.
+          au choix parmi 15 th&eacute;matiques.&nbsp;<b>Il est n&eacute;cessaire d&rsquo;avoir d&eacute;j&agrave; re&ccedil;u votre convocation
+          pour la pr&eacute;paration au CCP1 avant de proc&eacute;der &agrave; votre inscription sur une session de formation.</b>
         </p>
         <p>
           <b>Inscriptions&nbsp;:&nbsp;</b>
           <a href={mednumUrl} rel="noopener noreferrer" target="_blank">
            lamednum.coop/formation
+          </a>
+        </p>
+        <p>
+          Si vous souhaitez suivre le module Aidants Connect, le calendrier des sessions vous sera partag&eacute; une fois
+          l&rsquo;habilitation de votre structure obtenue. <b>Vous pouvez entamer les d&eacute;marches avant la r&eacute;ception de
+          votre convocation pour la pr&eacute;paration au CCP1, mais devrez attendre cette convocation pour vous inscrire &agrave;
+          une session de formation.</b>
+        </p>
+        <p>
+          <b>Pour obtenir l&rsquo;habilitation Aidants Connect&nbsp;:&nbsp;</b>
+          <a href={aidantsconnectUrl} rel="noopener noreferrer" target="_blank">
+            aidantsconnect.beta.gouv.fr/habilitation
           </a>
         </p>
       </div>
