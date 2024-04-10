@@ -5,6 +5,7 @@ function FormationInitiale() {
   const contactOutreMerUrl = 'https://framaforms.org/formulaire-de-contact-structure-accueillant-un-cnfs-1699450618';
   const fabrikUrl = 'https://fabrikmediationnumerique.org/';
   const mednumUrl = 'https://lamednum.coop/formation/';
+  const aidantsconnectUrl = 'https://aidantsconnect.beta.gouv.fr/habilitation';
   
   return (
     <div className="fr-col-9 fr-mt-3w cadre">
@@ -23,11 +24,27 @@ function FormationInitiale() {
       </div>
       <div className="fr-ml-5w fr-col-11">
         <p>
-          Le passage du CCP1 du titre professionnel de Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique, qui atteste la
-          capacit&eacute; &agrave; accompagner des publics divers vers l&rsquo;autonomie num&eacute;rique, est le point final de votre
-          formation initiale. Pour vous y pr&eacute;parer, un parcours de formation en 70, 175 ou 315h vous est propos&eacute; selon
-          votre profil et votre exp&eacute;rience.
+          Le passage du CCP1 du titre professionnel de Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique, qui atteste
+          la capacit&eacute; &agrave; accompagner des publics divers vers l&rsquo;autonomie num&eacute;rique, est le point final de
+          votre formation initiale.
         </p>
+        <p>
+          Pour vous y pr&eacute;parer, trois parcours de formation vous sont propos&eacute;s : 70h (court), 175h (interm&eacute;diaire) ou
+          315h (long). Un test de positionnement, en deux temps, sera organis&eacute; pour identifier le parcours le plus ad&eacute;quat
+          &agrave; vos besoins&nbsp;:
+        </p>
+        <ul>
+          <li>
+            Un test en ligne et en autonomie (d&rsquo;1h30 maximum) permettra une premi&egrave;re &eacute;valuation de votre culture
+            citoyenne et num&eacute;rique, et de vos comp&eacute;tences informatiques et p&eacute;dagogiques
+          </li>
+          <li>
+            Vous passerez ensuite un entretien avec une &eacute;quipe de l&rsquo;organisme de formation, o&ugrave; vous aurez l&rsquo;occasion
+            de discuter ensemble des r&eacute;sultats du test en ligne, et de revenir sur votre exp&eacute;rience professionnelle et vos
+            motivations. A la fin de l&rsquo;entretien, un petit temps d&rsquo;&eacute;change pourra &ecirc;tre pr&eacute;vu avec votre
+            structure d&rsquo;accueil pour pr&eacute;senter le d&eacute;roul&eacute; de la formation, en fonction du parcours choisi.
+          </li>
+        </ul>
         <p>
           Les inscriptions ont lieu directement aupr&egrave;s de votre organisme de formation, qui vous contactera pour d&eacute;finir avec
           vous le parcours le plus adapt&eacute; et vous proposer un calendrier de formation.
@@ -75,12 +92,25 @@ function FormationInitiale() {
       <div className="fr-ml-5w fr-col-11">
         <p>
           Afin de vous permettre de personnaliser votre parcours, deux modules compl&eacute;mentaires de 7h ou 14h sont propos&eacute;s
-          au choix parmi 15 th&eacute;matiques.
+          au choix parmi 15 th&eacute;matiques.&nbsp;<b>Il est n&eacute;cessaire d&rsquo;avoir d&eacute;j&agrave; re&ccedil;u votre convocation
+          pour la pr&eacute;paration au CCP1 avant de proc&eacute;der &agrave; votre inscription sur une session de formation.</b>
         </p>
         <p>
           <b>Inscriptions&nbsp;:&nbsp;</b>
           <a href={mednumUrl} rel="noopener noreferrer" target="_blank">
            lamednum.coop/formation
+          </a>
+        </p>
+        <p>
+          Si vous souhaitez suivre le module Aidants Connect, le calendrier des sessions vous sera partag&eacute; une fois
+          l&rsquo;habilitation de votre structure obtenue. <b>Vous pouvez entamer les d&eacute;marches avant la r&eacute;ception de
+          votre convocation pour la pr&eacute;paration au CCP1, mais devrez attendre cette convocation pour vous inscrire &agrave;
+          une session de formation.</b>
+        </p>
+        <p>
+          <b>Pour obtenir l&rsquo;habilitation Aidants Connect&nbsp;:&nbsp;</b>
+          <a href={aidantsconnectUrl} rel="noopener noreferrer" target="_blank">
+            aidantsconnect.beta.gouv.fr/habilitation
           </a>
         </p>
       </div>

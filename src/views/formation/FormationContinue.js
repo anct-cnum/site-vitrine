@@ -1,9 +1,11 @@
 import React from 'react';
-
+import SchemaParcoursPossible from '../../assets/images/schema-parcours-possible.svg';
+ 
 function FormationContinue() {
   const mednumUrl = 'https://lamednum.coop/formation/';
   const popschoolUrl = 'https://popschool.fr/inscription-pop-school/';
   const popschoolAideUrl = 'https://popschool.fr/formation-conseiller-numerique/';
+  const aidantsconnectUrl = 'https://aidantsconnect.beta.gouv.fr/habilitation';
   return (
     <div className="fr-col-9 fr-mt-5w cadre">
       <div className="fr-ml-5w fr-col-11">
@@ -19,6 +21,15 @@ function FormationContinue() {
           <b>Inscriptions&nbsp;:</b>&nbsp;
           <a href={mednumUrl} rel="noopener noreferrer" target="_blank">
             lamednum.coop/formation
+          </a>
+        </p>
+        <p>
+          Si vous souhaitez suivre le module Aidants Connect, le calendrier des sessions vous sera partag&eacute; une fois
+          l&rsquo;habilitation de votre structure obtenue.
+        </p>
+        <p>Pour obtenir l&rsquo;habilitation Aidants Connect&nbsp;:&nbsp;
+          <a href={aidantsconnectUrl} rel="noopener noreferrer" target="_blank">
+            aidantsconnect.beta.gouv.fr/habilitation
           </a>
         </p>
         <h3 style={{ fontSize: '20px' }}>-&nbsp;Passage du CCP2 et CCP3 du titre REMN</h3>
@@ -37,6 +48,8 @@ function FormationContinue() {
           <a href={popschoolUrl} rel="noopener noreferrer" target="_blank">
             popschool.fr/inscription-pop-school
           </a>
+          <img src={SchemaParcoursPossible} style={{ width: '100%' }}
+            alt="image pr&eacute;sentant le site de La Fabrik" className="fr-my-3w" loading="lazy"/>
         </p>
         <p>
           <b>Pour toute question relative au passage du titre REMN</b>, rendez-vous&nbsp;
