@@ -52,7 +52,7 @@ jobs:
           envkey_REACT_APP_DASHBOARD_URL: "https://beta.pilotage.conseiller-numerique.gouv.fr"
           envkey_REACT_APP_COOP_URL: "https://beta.coop.conseiller-numerique.gouv.fr/login"
           envkey_REACT_APP_CANDIDAT_URL: "https://beta.candidat.conseiller-numerique.gouv.fr/login"
-          envkey_REACT_APP_FORMS_URL: "https://beta.candidat.conseiller-numerique.gouv.fr/candidature"
+          envkey_REACT_APP_FORMS_URL: "https://beta.www.conseiller-numerique.gouv.fr"
           envkey_REACT_APP_AIDE_URL: "https://aide.conseiller-numerique.gouv.fr/fr"
           envkey_REACT_APP_API_URL: ${{ secrets.REACT_APP_API_RECETTE }}
           file_name: .env
