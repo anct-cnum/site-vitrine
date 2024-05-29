@@ -14,7 +14,6 @@ import Documentheque from './views/documentheque';
 import Carte from './views/Carte';
 import CarteCoordinateur from './views/coordination-territoriale/CarteCoordinateur';
 import Formation from './views/formation';
-import FormulaireIndisponible from './views/FormullaireIndisponible';
 
 const RedirectCarto = () => {
   const { permanence } = useParams();
@@ -54,7 +53,6 @@ function App() {
           <Route path="/carte/:permanence/details" element={<RedirectCarto />}/>
           <Route exact path="/:permanence" element={<Carte />}/>
           <Route path="/formation" element={<Formation/>}/>
-          <Route path="/candidature/formulaire-indisponible" element={<FormulaireIndisponible/>}/>
           <Route index element={<Accueil />}/>
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
