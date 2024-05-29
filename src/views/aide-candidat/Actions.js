@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function Actions() {
 
-  const urlFormConseiller = process.env.REACT_APP_FORMS_URL + '/candidature/formulaire-indisponible';
+  const urlFormConseiller = process.env.REACT_APP_FORMS_URL + '/conseiller/new';
 
   return (
     <div className="fr-container fr-col-lg-5 fr-col-xs-12 fr-mb-10w" style={{ textAlign: 'center' }}>
-      <Link to={urlFormConseiller}
+      <a
+        href={urlFormConseiller}
         target="_blank" rel="noopener noreferrer"
         className="buttonCustom blueButtonCustom fr-text--xx-bold"
-        title="Devenir conseiller num&eacute;rique">Devenir conseiller num&eacute;rique</Link>
+        title="Devenir conseiller num&eacute;rique">Devenir conseiller num&eacute;rique</a>
     </div>
   );
 }
