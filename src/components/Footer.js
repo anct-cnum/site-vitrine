@@ -27,6 +27,15 @@ function Footer() {
                 </Link>
               </li>
               <li className="fr-footer__content-item">
+                <Link
+                  to="/donnees-personnelles"
+                  className="fr-footer__content-link"
+                  onClick={onClickLink}
+                >
+                  Utilisation des données personnelles dans le cadre du dispositif
+                </Link>
+              </li>
+              <li className="fr-footer__content-item">
                 <a
                   className="fr-footer__content-link"
                   title="Statistiques"
