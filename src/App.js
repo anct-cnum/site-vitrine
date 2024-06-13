@@ -14,6 +14,7 @@ import Documentheque from './views/documentheque';
 import Carte from './views/Carte';
 import CarteCoordinateur from './views/coordination-territoriale/CarteCoordinateur';
 import Formation from './views/formation';
+import DonneesPersonnelles from './views/donnees-personnelles';
 
 const RedirectCarto = () => {
   const { permanence } = useParams();
@@ -37,6 +38,7 @@ function App() {
         <Routes>
           <Route path="/accueil" element={<GestionHash />}/>
           <Route path="/kit-communication" element={<KitCommunication />}/>
+          <Route path="/donnees-personnelles" element={<DonneesPersonnelles />}/>
           <Route path="/mentions-legales" element={<MentionsLegales />}/>
           <Route path="/accessibilite" element={<Accessibilite />}/>
           <Route path="/aide-candidat" element={<AideCandidat />}/>
