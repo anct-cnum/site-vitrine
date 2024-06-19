@@ -1,17 +1,13 @@
 name: ESLint
 
-on:
-  push:
-    branches: [main, recette]
-  pull_request:
-    branches: [main, recette]
+on: pull_request
 
 jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
       with:
         cache: npm
         node-version-file: package.json
