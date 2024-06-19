@@ -53,5 +53,8 @@
     "eslint-plugin-react": "^7.33.2",
     "redux-mock-store": "^1.5.4",
     "sass": "^1.71.0"
+  },
+  "engines": {
+    "node": "20.12.2"
   }
 }
