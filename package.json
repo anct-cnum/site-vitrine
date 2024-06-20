@@ -1,8 +1,14 @@
 {
   "name": "site-vitrine",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "AGPL-3.0",
-  "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "dev": "react-scripts start",
+    "eject": "react-scripts eject",
+    "lint": "eslint src --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
+    "start": "serve -s build"
+  },
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@gouvfr-anct/cartographie-nationale": "^5.22.0",
@@ -19,11 +25,10 @@
     "redux": "^5.0.1",
     "web-vitals": "^3.5.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "lint": "eslint src --max-warnings=0 --cache --cache-location node_modules/.cache/eslint"
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "sass": "^1.71.0"
   },
   "eslintConfig": {
     "extends": [
@@ -42,11 +47,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-plugin-react": "^7.33.2",
-    "sass": "^1.71.0"
   },
   "engines": {
     "node": "20.12.2"
