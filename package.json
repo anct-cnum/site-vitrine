@@ -7,7 +7,9 @@
     "dev": "react-scripts start",
     "eject": "react-scripts eject",
     "lint": "eslint src --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
-    "start": "serve -s build"
+    "start": "serve -s build",
+    "test": "vitest --run",
+    "test:coverage": "npm test --coverage"
   },
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -26,14 +28,17 @@
     "web-vitals": "^3.5.2"
   },
   "devDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-plugin-react": "^7.33.2",
-    "sass": "^1.71.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
+    "@testing-library/react": "^16.0.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/coverage-istanbul": "^1.6.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-testing-library": "^6.2.2",
+    "eslint-plugin-vitest": "^0.4.1",
+    "jsdom": "^24.1.0",
+    "sass": "^1.71.0",
+    "vitest": "^1.6.0",
+    "vitest-dom": "^0.1.1"
   },
   "browserslist": {
     "production": [
