@@ -1,0 +1,30 @@
+name: Continuous Integration
+
+on: pull_request
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        cache: npm
+        node-version-file: package.json
+    - name: Install modules
+      run: npm i
+    - name: Lint
+      run: npm run lint
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        cache: npm
+        node-version-file: package.json
+    - name: Install modules
+      run: npm i
+    - name: Lint
+      run: npm run test
