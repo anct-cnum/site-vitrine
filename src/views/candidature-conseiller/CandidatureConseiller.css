@@ -1,0 +1,15 @@
+.cc-section {
+  border: 1px solid var(--grey-900-175);
+}
+
+.cc-titre {
+  color: var(--blue-france-sun-113-625);
+}
+
+.cc-obligatoire {
+  color: var(--error-425-625);
+}
+
+.cc-bold {
+  font-weight: 900;
+}
