@@ -15,6 +15,7 @@ import Carte from './views/Carte';
 import CarteCoordinateur from './views/coordination-territoriale/CarteCoordinateur';
 import Formation from './views/formation';
 import DonneesPersonnelles from './views/donnees-personnelles';
+import PageCandidatureConseiller from './views/candidature-conseiller/PageCandidatureConseiller';
 
 const RedirectCarto = () => {
   const { permanence } = useParams();
@@ -37,6 +38,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/accueil" element={<GestionHash />}/>
+          <Route path="/nouveau-formulaire-conseiller" element={<PageCandidatureConseiller />}/>
           <Route path="/kit-communication" element={<KitCommunication />}/>
           <Route path="/donnees-personnelles" element={<DonneesPersonnelles />}/>
           <Route path="/mentions-legales" element={<MentionsLegales />}/>
