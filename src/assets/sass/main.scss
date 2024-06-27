@@ -7,8 +7,8 @@
 @use './views/carte';
 @use './components/footer';
 @use './components/header';
+@use '../../../public/styles-5.22.0';
 
-@import '~@gouvfr-anct/cartographie-nationale/styles.css'; //avant le DSFR pour prioriser les styles du DSFR
 @import '~@gouvfr/dsfr/dist/dsfr/dsfr.min.css';
 @import '~@gouvfr/dsfr/dist/utility/icons/icons-communication/icons-communication.min.css';
 @import '~@gouvfr/dsfr/dist/utility/icons/icons-document/icons-document.min.css';
