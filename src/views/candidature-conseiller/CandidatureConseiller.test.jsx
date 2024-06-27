@@ -30,7 +30,7 @@ describe('candidature conseiller', () => {
       expect(votreDisponibilite).toHaveAttribute('href', '#votreDisponibilite');
 
       const votreMotivation = within(menuItems[3]).getByRole('link', { name: 'Votre motivation' });
-      expect(votreMotivation).toHaveAttribute('href', '#votreDisponibilite');
+      expect(votreMotivation).toHaveAttribute('href', '#votreMotivation');
     });
   });
 
@@ -111,5 +111,30 @@ describe('candidature conseiller', () => {
     const non = screen.getByRole('radio', { name: 'Non' });
     expect(non).toBeRequired();
     expect(non).toHaveAttribute('name', 'experienceProfessionnelle');
+  });
+
+  it('quand j’affiche le formulaire alors l’étape "Votre disponibilité" est affiché', () => {
+    // WHEN
+    render(<CandidatureConseiller />);
+
+    // THEN
+    const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
+    const votreDisponibilite = within(formulaire).getByRole('group', { name: 'Votre disponibilité' });
+    expect(votreDisponibilite).toHaveAttribute('id', 'votreDisponibilite');
+
+    const champsObligatoires = within(votreDisponibilite).getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
+    expect(champsObligatoires).toBeInTheDocument();
+
+    const questionDisponibilite = within(votreDisponibilite).getByText(
+      textMatcher('À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? *'),
+      { selector: 'p' }
+    );
+    expect(questionDisponibilite).toBeInTheDocument();
+
+    const accompagnement = within(votreDisponibilite).getByText(
+      textMatcher('Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.'),
+      { selector: 'p' }
+    );
+    expect(accompagnement).toBeInTheDocument();
   });
 });

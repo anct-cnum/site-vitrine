@@ -1,5 +1,6 @@
 import React from 'react';
 import Checkbox from './Checkbox';
+import BoutonRadio from './BoutonRadio';
 
 export default function SituationEtExperience() {
   return (
@@ -24,25 +25,15 @@ export default function SituationEtExperience() {
       </Checkbox>
       <hr />
       <p className="fr-mb-3w cc-bold">
-      Avez-vous une expérience professionnelle de médiation numérique ? <span className="cc-obligatoire">*</span>
+        Avez-vous une expérience professionnelle de médiation numérique ? <span className="cc-obligatoire">*</span>
       </p>
       <p className="fr-text--sm fr-hint-text">Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.</p>
-      <div className="fr-fieldset__element">
-        <div className="fr-radio-group">
-          <input type="radio" id="oui" name="experienceProfessionnelle" required />
-          <label className="fr-label" htmlFor="oui">
-            Oui
-          </label>
-        </div>
-      </div>
-      <div className="fr-fieldset__element">
-        <div className="fr-radio-group">
-          <input type="radio" id="non" name="experienceProfessionnelle" required />
-          <label className="fr-label" htmlFor="non">
-            Non
-          </label>
-        </div>
-      </div>
+      <BoutonRadio id="oui" nomGroupe="experienceProfessionnelle">
+        Oui
+      </BoutonRadio>
+      <BoutonRadio id="non" nomGroupe="experienceProfessionnelle">
+        Non
+      </BoutonRadio>
     </fieldset>
   );
 }
