@@ -24,7 +24,7 @@ describe('candidature conseiller', () => {
       expect(informationsDeContact).toHaveAttribute('href', '#informationsDeContact');
 
       const situationEtExperience = within(menuItems[1]).getByRole('link', { name: 'Votre situation et expérience' });
-      expect(situationEtExperience).toHaveAttribute('href', '#situtationEtExperience');
+      expect(situationEtExperience).toHaveAttribute('href', '#situationEtExperience');
 
       const votreDisponibilite = within(menuItems[2]).getByRole('link', { name: 'Votre disponibilité' });
       expect(votreDisponibilite).toHaveAttribute('href', '#votreDisponibilite');
@@ -136,5 +136,68 @@ describe('candidature conseiller', () => {
       { selector: 'p' }
     );
     expect(accompagnement).toBeInTheDocument();
+
+    // TODO : Datepicker
+
+    const questionDeplacement = within(votreDisponibilite).getByText(
+      textMatcher('À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? *'),
+      { selector: 'p' }
+    );
+    expect(questionDeplacement).toBeInTheDocument();
+
+    const distance = within(votreDisponibilite).getByText(
+      textMatcher('Distance à partir de votre lieu d’habitation'),
+      { selector: 'p' }
+    );
+    expect(distance).toBeInTheDocument();
+
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    expect(_5km).toBeRequired();
+    expect(_5km).toHaveAttribute('name', 'distanceDomicile');
+
+    const _10km = screen.getByRole('radio', { name: '10 km' });
+    expect(_10km).toBeRequired();
+    expect(_10km).toHaveAttribute('name', 'distanceDomicile');
+
+    const _15km = screen.getByRole('radio', { name: '15 km' });
+    expect(_15km).toBeRequired();
+    expect(_15km).toHaveAttribute('name', 'distanceDomicile');
+
+    const _20km = screen.getByRole('radio', { name: '20 km' });
+    expect(_20km).toBeRequired();
+    expect(_20km).toHaveAttribute('name', 'distanceDomicile');
+
+    const _40km = screen.getByRole('radio', { name: '40 km' });
+    expect(_40km).toBeRequired();
+    expect(_40km).toHaveAttribute('name', 'distanceDomicile');
+
+    const _100km = screen.getByRole('radio', { name: '100 km' });
+    expect(_100km).toBeRequired();
+    expect(_100km).toHaveAttribute('name', 'distanceDomicile');
+
+    const franceEntiere = screen.getByRole('radio', { name: 'France entière' });
+    expect(franceEntiere).toBeRequired();
+    expect(franceEntiere).toHaveAttribute('name', 'distanceDomicile');
+  });
+
+  it('quand j’affiche le formulaire alors l’étape "Votre motivation" est affiché', () => {
+    // WHEN
+    render(<CandidatureConseiller />);
+
+    // THEN
+    const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
+    const votreMotivation = within(formulaire).getByRole('group', { name: 'Votre motivation *' });
+    expect(votreMotivation).toHaveAttribute('id', 'votreMotivation');
+
+    const aideMotivation = within(votreMotivation).getByText(
+      textMatcher('En quelques lignes, décrivez votre motivation personnelle pour devenir conseiller numérique et aider les personnes à devenir autonomes dans l’utilisation des outils numériques.'),
+      { selector: 'p' }
+    );
+    expect(aideMotivation).toBeInTheDocument();
+
+    const descriptionMotivation = within(votreMotivation).getByText('Votre motivation');
+    console.log('>>>>>>>>>>>>>><', descriptionMotivation);
+    //expect(descriptionMotivation).toHaveAttribute('name', 'descriptionMotivation');
+    //expect(descriptionMotivation).toBeRequired();
   });
 });
