@@ -7,7 +7,7 @@ export default function Sommaire() {
       libelle: 'Vos informations de contact'
     },
     {
-      ancre: '#situtationEtExperience',
+      ancre: '#situationEtExperience',
       libelle: 'Votre situation et expérience'
     },
     {
