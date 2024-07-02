@@ -4,13 +4,12 @@ import { Tooltip } from 'react-tooltip';
 import InterfaceShapes from '../interfaces/interfaceShapes';
 import PropTypes from 'prop-types';
 
-function Hexagon({ pictoUrl, altImg, title, textTooltip }) {
-
+function Hexagon({ pictoUrl, altImg, title, textTooltip, id }) {
   return (
     <>
       <div className="fr-col-sm-12 fr-col-md-2 responsiveHexagon">
         <span
-          data-tooltip-id={title}
+          data-tooltip-id={id}
           data-tooltip-float={true}
           data-tooltip-html={ReactDOMServer.renderToString(textTooltip)}>
           <img src={pictoUrl} alt={altImg} className="picto" />
@@ -19,14 +18,15 @@ function Hexagon({ pictoUrl, altImg, title, textTooltip }) {
           <span className="titleHexagon">{title}</span>
         </div>
       </div>
-      <Tooltip id={title} className="tooltip" clickable={true} />
+      <Tooltip id={id} className="tooltip" clickable={true} />
     </>
   );
 }
 
 Hexagon.propTypes = {
   ...InterfaceShapes,
-  textTooltip: PropTypes.node
+  textTooltip: PropTypes.node,
+  id: PropTypes.string
 };
 
 export default Hexagon;
