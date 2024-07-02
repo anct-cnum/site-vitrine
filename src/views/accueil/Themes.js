@@ -20,6 +20,7 @@ function Themes() {
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
           <div className="fr-col-5 hideColumn"></div>
           <Hexagon
+            id="echanger"
             pictoUrl={pictosList.pictoEchanger}
             altImg="&Eacute;changer avec mes proches"
             title={<Fragment>&Eacute;changer avec<br />mes proches</Fragment>}
@@ -38,6 +39,7 @@ function Themes() {
         <div id="emploiResponsive" className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
           <div className="fr-col-2 hideColumn"></div>
           <Hexagon
+            id="trouver"
             pictoUrl={pictosList.pictoTrouverEmploi}
             altImg="Trouver un emploi"
             title={<Fragment>Trouver un emploi<br />ou une formation</Fragment>}
@@ -54,6 +56,7 @@ function Themes() {
               </Fragment>} />
           <div className="fr-col-4 hideColumn"></div>
           <Hexagon
+            id="accompagner"
             pictoUrl={pictosList.pictoAccompagnerEnfant}
             altImg="Accompagner mon enfant"
             title={<Fragment>Accompagner mon<br />enfant</Fragment>}
@@ -72,6 +75,7 @@ function Themes() {
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
           <div className="fr-col-5 hideColumn"></div>
           <Hexagon
+            id="demarches"
             pictoUrl={pictosList.pictoDemarchesEnLigne}
             altImg="D&eacute;marches en ligne"
             title={<Fragment>R&eacute;aliser mes<br />d&eacute;marches en ligne</Fragment>} />
@@ -80,6 +84,7 @@ function Themes() {
         <div id="OpportunitesResponsive" className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
           <div className="fr-col-2 hideColumn"></div>
           <Hexagon
+            id="opportunites"
             pictoUrl={pictosList.pictoOpportunites}
             altImg="Opportunit&eacute;s du num&eacute;rique"
             title={<Fragment>Utiliser les<br />opportunit&eacute;s<br />du num&eacute;rique</Fragment>}
@@ -95,6 +100,7 @@ function Themes() {
               </Fragment>} />
           <div className="fr-col-4 hideColumn"></div>
           <Hexagon
+            id="prendreEnMain"
             pictoUrl={pictosList.pictoPriseEnMain}
             altImg="Prendre en main l&rsquo;outil num&eacute;rique"
             title={<Fragment>Prendre en main<br />l&rsquo;outil num&eacute;rique</Fragment>}
@@ -116,6 +122,7 @@ function Themes() {
         <div className="fr-grid-row fr-grid-row--gutters fr-grid-row--center spaceLineHexagon">
           <div className="fr-col-5 hideColumn"></div>
           <Hexagon
+            id="decouvrir"
             pictoUrl={pictosList.pictoDecouverte}
             altImg="D&eacute;couvrir les opportunit&eacute;s"
             title={<Fragment>D&eacute;couvrir<br />les opportunit&eacute;s<br />de mon territoire</Fragment>}
