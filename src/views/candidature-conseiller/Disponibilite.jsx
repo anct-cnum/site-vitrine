@@ -1,5 +1,6 @@
 import React from 'react';
 import BoutonRadio from './BoutonRadio';
+import Datepicker from './Datepicker';
 
 export default function Disponibilite() {
   return (
@@ -12,7 +13,9 @@ export default function Disponibilite() {
       <p className="fr-text--sm fr-hint-text">
         Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.
       </p>
-      <input type="date"></input>
+      <Datepicker id="choisir-date">
+        Choisir une date
+      </Datepicker>
       <hr />
       <p className="fr-mb-3w cc-bold">
         Pour un emploi et une formation de conseiller numérique, vous êtes prêt(e) à vous déplacer à : <span className="cc-obligatoire">*</span>

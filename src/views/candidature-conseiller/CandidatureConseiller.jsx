@@ -4,6 +4,7 @@ import InformationsDeContact from './InformationsDeContact';
 import SituationEtExperience from './SituationEtExperience';
 import Disponibilite from './Disponibilite';
 import Motivation from './Motivation';
+import EnResume from './EnResume';
 import './CandidatureConseiller.css';
 
 export default function CandidatureConseiller() {
@@ -21,7 +22,8 @@ export default function CandidatureConseiller() {
             <SituationEtExperience />
             <Disponibilite />
             <Motivation />
-            <button className="fr-btn" type="submit">
+            <EnResume />
+            <button className="fr-btn cc-envoyer" type="submit">
               Envoyer votre candidature
             </button>
           </form>
