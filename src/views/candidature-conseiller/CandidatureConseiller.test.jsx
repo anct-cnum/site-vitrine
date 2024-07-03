@@ -8,7 +8,7 @@ export const textMatcher = wording => (_, element) => {
 
 describe('candidature conseiller', () => {
   describe('étant un candidat', () => {
-    it('quand j’affiche le formulaire alors le titre et le menu s’affiche', () => {
+    it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
       // WHEN
       render(<CandidatureConseiller />);
 
@@ -131,7 +131,9 @@ describe('candidature conseiller', () => {
     );
     expect(accompagnement).toBeInTheDocument();
 
-    // TODO : Datepicker
+    const date = within(votreDisponibilite).getByLabelText('Choisir une date');
+    expect(date).toHaveAttribute('type', 'date');
+    expect(date).toBeRequired();
 
     const questionDeplacement = within(votreDisponibilite).getByText(
       textMatcher('À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? *'),
@@ -193,5 +195,28 @@ describe('candidature conseiller', () => {
     const descriptionMotivation = within(votreMotivation).getByLabelText('Votre message *');
     expect(descriptionMotivation).toHaveAttribute('name', 'descriptionMotivation');
     expect(descriptionMotivation).toBeRequired();
+  });
+
+  it('quand j’affiche le formulaire alors l’encart "En résumé" est affiché', () => {
+    // WHEN
+    render(<CandidatureConseiller />);
+
+    // THEN
+    const enResume = screen.getByText(textMatcher('En résumé'), { selector: 'p' });
+    expect(enResume).toBeInTheDocument();
+
+    const titreResume = screen.getByText(
+      textMatcher('Vous recherchez une certification et un emploi de conseiller numérique à partir du 20/04/2023.'),
+      { selector: 'p' }
+    );
+    expect(titreResume).toBeInTheDocument();
+
+    const descriptionResume = screen.getByText(
+      textMatcher('Votre choix vous engage à transmettre vos coordonnées, répondre aux sollicitations des ' +
+        'structures accueillantes, vous présenter aux entretiens, et accepter de fournir des ' +
+        'éléments administratifs pour finaliser votre dossier de candidature.'),
+      { selector: 'p' }
+    );
+    expect(descriptionResume).toBeInTheDocument();
   });
 });

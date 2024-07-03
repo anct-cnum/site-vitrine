@@ -13,3 +13,16 @@
 .cc-bold {
   font-weight: 900;
 }
+
+.cc-notice {
+  background-color: var(--blue-france-975-75);
+}
+
+.cc-datepicker {
+  width: auto;
+}
+
+.cc-envoyer {
+  width: 100%;
+  text-align: center;
+}
