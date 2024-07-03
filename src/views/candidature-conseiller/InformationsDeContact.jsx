@@ -5,7 +5,6 @@ export default function InformationsDeContact() {
   return (
     <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="informationsDeContact">
       <legend className="fr-h5">Vos informations de contact</legend>
-      <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
       <hr />
       <Input
         id="prenom"
