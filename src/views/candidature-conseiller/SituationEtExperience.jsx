@@ -6,7 +6,6 @@ export default function SituationEtExperience() {
   return (
     <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="situationEtExperience">
       <legend className="fr-h5">Votre situation et expérience</legend>
-      <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
       <hr />
       <p className="fr-mb-3w cc-bold">
         Êtes-vous actuellement dans l’une des situations suivantes ? <span className="cc-obligatoire">*</span>

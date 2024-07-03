@@ -16,6 +16,9 @@ describe('candidature conseiller', () => {
       const titre = screen.getByRole('heading', { level: 1, name: 'Je veux devenir conseiller numérique' });
       expect(titre).toBeInTheDocument();
 
+      const champsObligatoires = screen.getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
+      expect(champsObligatoires).toBeInTheDocument();
+
       const navigation = screen.getByRole('navigation', { name: 'Sommaire' });
       const menu = within(navigation).getByRole('list');
       const menuItems = within(menu).getAllByRole('listitem');
@@ -42,9 +45,6 @@ describe('candidature conseiller', () => {
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
     const etapeInformationsDeContact = within(formulaire).getByRole('group', { name: 'Vos informations de contact' });
     expect(etapeInformationsDeContact).toHaveAttribute('id', 'informationsDeContact');
-
-    const champsObligatoires = within(etapeInformationsDeContact).getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
-    expect(champsObligatoires).toBeInTheDocument();
 
     const prenom = within(etapeInformationsDeContact).getByLabelText('Prénom *');
     expect(prenom).toHaveAttribute('type', 'text');
@@ -73,9 +73,6 @@ describe('candidature conseiller', () => {
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
     const situationEtExperience = within(formulaire).getByRole('group', { name: 'Votre situation et expérience' });
     expect(situationEtExperience).toHaveAttribute('id', 'situationEtExperience');
-
-    const champsObligatoires = within(situationEtExperience).getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
-    expect(champsObligatoires).toBeInTheDocument();
 
     const situation = within(situationEtExperience).getByText(textMatcher('Êtes-vous actuellement dans l’une des situations suivantes ? *'), { selector: 'p' });
     expect(situation).toBeInTheDocument();
@@ -121,9 +118,6 @@ describe('candidature conseiller', () => {
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
     const votreDisponibilite = within(formulaire).getByRole('group', { name: 'Votre disponibilité' });
     expect(votreDisponibilite).toHaveAttribute('id', 'votreDisponibilite');
-
-    const champsObligatoires = within(votreDisponibilite).getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
-    expect(champsObligatoires).toBeInTheDocument();
 
     const questionDisponibilite = within(votreDisponibilite).getByText(
       textMatcher('À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? *'),
@@ -186,18 +180,18 @@ describe('candidature conseiller', () => {
 
     // THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
-    const votreMotivation = within(formulaire).getByRole('group', { name: 'Votre motivation *' });
+    const votreMotivation = within(formulaire).getByRole('group', { name: 'Votre motivation' });
     expect(votreMotivation).toHaveAttribute('id', 'votreMotivation');
 
     const aideMotivation = within(votreMotivation).getByText(
-      textMatcher('En quelques lignes, décrivez votre motivation personnelle pour devenir conseiller numérique et aider les personnes à devenir autonomes dans l’utilisation des outils numériques.'),
+      textMatcher('En quelques lignes, décrivez votre motivation personnelle pour devenir conseiller numérique ' +
+        'et aider les personnes à devenir autonomes dans l’utilisation des outils numériques.'),
       { selector: 'p' }
     );
     expect(aideMotivation).toBeInTheDocument();
 
-    const descriptionMotivation = within(votreMotivation).getByText('Votre motivation');
-    console.log('>>>>>>>>>>>>>><', descriptionMotivation);
-    //expect(descriptionMotivation).toHaveAttribute('name', 'descriptionMotivation');
-    //expect(descriptionMotivation).toBeRequired();
+    const descriptionMotivation = within(votreMotivation).getByLabelText('Votre message *');
+    expect(descriptionMotivation).toHaveAttribute('name', 'descriptionMotivation');
+    expect(descriptionMotivation).toBeRequired();
   });
 });

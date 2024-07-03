@@ -15,6 +15,7 @@ export default function CandidatureConseiller() {
         </div>
         <div className="fr-col-8">
           <h1 className="cc-titre fr-mb-5w">Je veux devenir conseiller numérique</h1>
+          <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
           <form aria-label="Candidature conseiller">
             <InformationsDeContact />
             <SituationEtExperience />
