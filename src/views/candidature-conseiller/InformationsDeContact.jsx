@@ -24,6 +24,8 @@ export default function InformationsDeContact() {
       </Input>
       <Input
         id="telephone"
+        type="tel"
+        pattern="0[1-9]{9}"
         isRequired={false}
       >
         Téléphone <span className="fr-hint-text">Format attendu : 0122334455</span>
