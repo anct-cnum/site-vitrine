@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Checkbox from './Checkbox';
 import BoutonRadio from './BoutonRadio';
+import Input from './Input';
 
 export default function SituationEtExperience() {
+  const [isDiplomeSelected, setIsDiplomeSelected] = useState(false);
+
   const situations = [
     {
       id: 'demandeurEmploi',
@@ -30,10 +33,18 @@ export default function SituationEtExperience() {
         Êtes-vous actuellement dans l’une des situations suivantes ? <span className="cc-obligatoire">*</span>
       </p>
       {situations.map(({ id, libelle }) =>
-        <Checkbox id={id} key={id}>
+        <Checkbox id={id} key={id} onCheck={event => setIsDiplomeSelected(event.target.id === 'diplome' && event.target.checked)}>
           {libelle}
         </Checkbox>
       )}
+      {isDiplomeSelected &&
+        <Input
+          id="detailDiplome"
+          isRequired={false}
+        >
+          Précisez le nom de votre diplôme, formation certifiante, modules de formation de médiation, numérique /accompagnement au numérique des publics.
+        </Input>
+      }
       <hr />
       <p className="fr-mb-3w cc-bold">
         Avez-vous une expérience professionnelle de médiation numérique ? <span className="cc-obligatoire">*</span>

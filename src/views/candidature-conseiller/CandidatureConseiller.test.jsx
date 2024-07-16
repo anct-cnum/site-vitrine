@@ -111,6 +111,20 @@ describe('candidature conseiller', () => {
     expect(non).toHaveAttribute('name', 'experienceProfessionnelle');
   });
 
+  it('quand je coche "diplomé", un champ pour préciser le diplôme s’affiche', () => {
+    // WHEN
+    render(<CandidatureConseiller />);
+    const diplome = screen.getByRole('checkbox', { name: 'Diplômé dans le secteur de la médiation numérique (formation certifiante ou non)' });
+
+    // THEN
+    fireEvent.click(diplome);
+    const nomDiplome = screen.getByLabelText(
+      'Précisez le nom de votre diplôme, formation certifiante, modules de formation de médiation,' +
+      ' numérique /accompagnement au numérique des publics.',
+    );
+    expect(nomDiplome).toBeInTheDocument();
+  });
+
   it('quand j’affiche le formulaire alors l’étape "Votre disponibilité" est affiché', () => {
     // WHEN
     render(<CandidatureConseiller />);
@@ -220,6 +234,7 @@ describe('candidature conseiller', () => {
     );
     expect(descriptionResume).toBeInTheDocument();
   });
+
   it('quand je modifie la date de disponibilité, elle s’affiche dans l’encart "En résumé" est affiché', () => {
     // GIVEN
     const dateDisponibilite = '2024-02-01';
