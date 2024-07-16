@@ -1,8 +1,9 @@
 import React from 'react';
 import BoutonRadio from './BoutonRadio';
 import Datepicker from './Datepicker';
+import PropTypes from 'prop-types';
 
-export default function Disponibilite() {
+export default function Disponibilite({ setDateDisponibilite }) {
   return (
     <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="votreDisponibilite">
       <legend className="fr-h5">Votre disponibilité</legend>
@@ -13,7 +14,7 @@ export default function Disponibilite() {
       <p className="fr-text--sm fr-hint-text">
         Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.
       </p>
-      <Datepicker id="choisir-date">
+      <Datepicker id="choisir-date" onChange={event => setDateDisponibilite(event.target.value)}>
         Choisir une date
       </Datepicker>
       <hr />
@@ -51,3 +52,7 @@ export default function Disponibilite() {
     </fieldset>
   );
 }
+
+Disponibilite.propTypes = {
+  setDateDisponibilite: PropTypes.func,
+};
