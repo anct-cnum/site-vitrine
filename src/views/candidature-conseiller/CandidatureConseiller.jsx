@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sommaire from './Sommaire';
 import InformationsDeContact from './InformationsDeContact';
 import SituationEtExperience from './SituationEtExperience';
@@ -8,6 +8,8 @@ import EnResume from './EnResume';
 import './CandidatureConseiller.css';
 
 export default function CandidatureConseiller() {
+  const [dateDisponibilite, setDateDisponibilite] = useState();
+
   return (
     <div className="fr-container fr-mt-5w fr-mb-5w">
       <div className="fr-grid-row">
@@ -20,9 +22,9 @@ export default function CandidatureConseiller() {
           <form aria-label="Candidature conseiller">
             <InformationsDeContact />
             <SituationEtExperience />
-            <Disponibilite />
+            <Disponibilite setDateDisponibilite={setDateDisponibilite} />
             <Motivation />
-            <EnResume />
+            <EnResume dateDisponibilite={dateDisponibilite} />
             <button className="fr-btn cc-envoyer" type="submit">
               Envoyer votre candidature
             </button>

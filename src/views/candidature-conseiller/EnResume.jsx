@@ -1,14 +1,22 @@
 import React from 'react';
 import Badge from './Badge';
 import Notice from './Notice';
+import PropTypes from 'prop-types';
 
-export default function EnResume() {
+export default function EnResume({ dateDisponibilite }) {
+  const formatDate = () => {
+    if (!dateDisponibilite) {
+      return '[Renseignez votre date de disponibilité]';
+    }
+    return new Date(dateDisponibilite).toLocaleDateString();
+  };
+
   return (
     <div className="fr-mb-3w" id="enResume">
       <Notice>
         <Badge>En résumé</Badge>
         <p>
-          <strong>Vous recherchez une certification et un emploi de conseiller numérique à partir du 20/04/2023.</strong>
+          <strong>Vous recherchez une certification et un emploi de conseiller numérique à partir du {formatDate(dateDisponibilite)}.</strong>
         </p>
         <p className="fr-notice__desc">
           Votre choix vous engage à transmettre vos coordonnées, répondre aux sollicitations des{' '}
@@ -19,3 +27,7 @@ export default function EnResume() {
     </div>
   );
 }
+
+EnResume.propTypes = {
+  dateDisponibilite: PropTypes.string,
+};
