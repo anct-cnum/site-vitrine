@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, within, fireEvent } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
 
@@ -206,7 +206,7 @@ describe('candidature conseiller', () => {
     expect(enResume).toBeInTheDocument();
 
     const titreResume = screen.getByText(
-      textMatcher('Vous recherchez une certification et un emploi de conseiller numérique à partir du 20/04/2023.'),
+      textMatcher('Vous recherchez une certification et un emploi de conseiller numérique à partir du [Renseignez votre date de disponibilité].'),
       { selector: 'p' }
     );
     expect(titreResume).toBeInTheDocument();
@@ -218,5 +218,21 @@ describe('candidature conseiller', () => {
       { selector: 'p' }
     );
     expect(descriptionResume).toBeInTheDocument();
+  });
+  it('quand je modifie la date de disponibilité, elle s’affiche dans l’encart "En résumé" est affiché', () => {
+    // GIVEN
+    const dateDisponibilite = '2024-02-01';
+
+    // WHEN
+    render(<CandidatureConseiller />);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDisponibilite } });
+
+    // THEN
+    const titreResume = screen.getByText(
+      textMatcher('Vous recherchez une certification et un emploi de conseiller numérique à partir du 01/02/2024.'),
+      { selector: 'p' }
+    );
+    expect(titreResume).toBeInTheDocument();
   });
 });
