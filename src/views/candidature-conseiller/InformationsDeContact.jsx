@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from './Input';
+import AddressChooser from './AddressChooser';
 
 export default function InformationsDeContact() {
   return (
@@ -30,12 +31,7 @@ export default function InformationsDeContact() {
       >
         Téléphone <span className="fr-hint-text">Format attendu : 0122334455</span>
       </Input>
-      <Input
-        id="lieuHabitation"
-        isRequired={false}
-      >
-        Votre lieu d’habitation <span className="fr-hint-text">Saississez le nom ou le code postal de votre commune.</span>
-      </Input>
+      <AddressChooser />
     </fieldset>
   );
 }
