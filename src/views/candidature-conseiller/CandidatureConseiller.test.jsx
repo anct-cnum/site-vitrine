@@ -1,10 +1,7 @@
 import { render, screen, within, fireEvent } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
-
-export const textMatcher = wording => (_, element) => {
-  return element?.textContent === wording;
-};
+import { textMatcher } from './test-utils';
 
 describe('candidature conseiller', () => {
   describe('étant un candidat', () => {

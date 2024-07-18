@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Input from './Input';
 import { useGeoApi } from './useGeoApi';
+import { debounce } from './debounce';
 
 export default function AddressChooser() {
   const { fetchVilles } = useGeoApi();
@@ -17,7 +18,7 @@ export default function AddressChooser() {
         id="lieuHabitation"
         list="resultatsRecherche"
         isRequired={false}
-        onChange={onSearch}
+        onChange={debounce(onSearch)}
       >
         Votre lieu d’habitation <span className="fr-hint-text">Saississez le nom ou le code postal de votre commune.</span>
       </Input>
