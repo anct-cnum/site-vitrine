@@ -8,7 +8,7 @@ export default defineConfig({
       exclude: [
       ],
       include: [
-        'src/**/*'
+        'src/views/candidature-conseiller/**/*'
       ],
       provider: 'istanbul',
       skipFull: true,

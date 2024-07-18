@@ -9,7 +9,7 @@
     "lint": "eslint src --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
     "start": "serve -s build",
     "test": "vitest --run",
-    "test:coverage": "npm test --coverage"
+    "test:coverage": "npm test -- --coverage"
   },
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
