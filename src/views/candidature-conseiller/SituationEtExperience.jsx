@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Checkbox from './Checkbox';
-import BoutonRadio from './BoutonRadio';
-import Input from './Input';
+import Checkbox from '../../components/commun/Checkbox';
+import BoutonRadio from '../../components/commun/BoutonRadio';
+import Input from '../../components/commun/Input';
 
 export default function SituationEtExperience() {
   const situations = [

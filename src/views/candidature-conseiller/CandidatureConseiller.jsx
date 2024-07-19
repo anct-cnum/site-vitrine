@@ -13,10 +13,10 @@ export default function CandidatureConseiller() {
   return (
     <div className="fr-container fr-mt-5w fr-mb-5w">
       <div className="fr-grid-row">
-        <div className="fr-col-4">
+        <div className="fr-col-12 fr-col-md-4">
           <Sommaire />
         </div>
-        <div className="fr-col-8">
+        <div className="fr-col-12 fr-col-md-8 fr-py-12v">
           <h1 className="cc-titre fr-mb-5w">Je veux devenir conseiller numérique</h1>
           <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
           <form aria-label="Candidature conseiller">

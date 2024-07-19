@@ -1,6 +1,6 @@
 import React from 'react';
-import BoutonRadio from './BoutonRadio';
-import Datepicker from './Datepicker';
+import BoutonRadio from '../../components/commun/BoutonRadio';
+import Datepicker from '../../components/commun/Datepicker';
 import PropTypes from 'prop-types';
 
 export default function Disponibilite({ setDateDisponibilite }) {
