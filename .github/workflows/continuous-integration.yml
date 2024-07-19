@@ -26,5 +26,5 @@ jobs:
         node-version-file: package.json
     - name: Install modules
       run: npm i
-    - name: Lint
+    - name: Test
       run: npm run test

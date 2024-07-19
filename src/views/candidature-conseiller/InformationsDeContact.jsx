@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './Input';
+import Input from '../../components/commun/Input';
 import AddressChooser from './AddressChooser';
 
 export default function InformationsDeContact() {

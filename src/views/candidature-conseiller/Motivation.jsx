@@ -1,5 +1,5 @@
 import React from 'react';
-import ZoneDeTexte from './ZoneDeTexte';
+import ZoneDeTexte from '../../components/commun/ZoneDeTexte';
 
 export default function Motivation() {
   return (

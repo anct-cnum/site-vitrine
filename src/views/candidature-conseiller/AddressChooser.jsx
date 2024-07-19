@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Input from './Input';
+import Input from '../../components/commun/Input';
 import { useGeoApi } from './useGeoApi';
 import { debounce } from './debounce';
 

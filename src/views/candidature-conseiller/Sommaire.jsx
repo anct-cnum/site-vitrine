@@ -28,7 +28,7 @@ export default function Sommaire() {
   };
 
   return (
-    <nav aria-label="Sommaire" className="fr-sidemenu fr-mt-15w">
+    <nav aria-label="Sommaire" className="fr-sidemenu fr-mt-15w fr-sidemenu--sticky-full-height">
       <ol className="fr-sidemenu__list">
         {partiesSommaire.map(({ ancre, libelle }, index) => (
           <li className="fr-sidemenu__item" key={index} onClick={() => setDernierElementClique(ancre)}>

@@ -1,6 +1,6 @@
 import React from 'react';
-import Badge from './Badge';
-import Notice from './Notice';
+import Badge from '../../components/commun/Badge';
+import Notice from '../../components/commun/Notice';
 import PropTypes from 'prop-types';
 
 export default function EnResume({ dateDisponibilite }) {
