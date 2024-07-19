@@ -237,7 +237,7 @@ describe('candidature conseiller', () => {
   it('quand je modifie la date de disponibilité, elle s’affiche dans l’encart "En résumé" est affiché', () => {
     // GIVEN
     render(<CandidatureConseiller />);
-    const dateDisponibilite = '2024-02-01';
+    const dateDisponibilite = '2023-12-12';
 
     // WHEN
     const date = screen.getByLabelText('Choisir une date');
@@ -245,7 +245,7 @@ describe('candidature conseiller', () => {
 
     // THEN
     const titreResume = screen.getByText(
-      textMatcher('Vous recherchez une certification et un emploi de conseiller numérique à partir du 01/02/2024.'),
+      textMatcher('Vous recherchez une certification et un emploi de conseiller numérique à partir du 12/12/2023.'),
       { selector: 'p' }
     );
     expect(titreResume).toBeInTheDocument();
