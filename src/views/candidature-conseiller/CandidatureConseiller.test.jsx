@@ -234,10 +234,10 @@ describe('candidature conseiller', () => {
 
   it('quand je modifie la date de disponibilité, elle s’affiche dans l’encart "En résumé" est affiché', () => {
     // GIVEN
+    render(<CandidatureConseiller />);
     const dateDisponibilite = '2024-02-01';
 
     // WHEN
-    render(<CandidatureConseiller />);
     const date = screen.getByLabelText('Choisir une date');
     fireEvent.change(date, { target: { value: dateDisponibilite } });
 
@@ -251,10 +251,15 @@ describe('candidature conseiller', () => {
 
   it('quand je renseigne un début de nom de ville qui existe alors plusieurs résultats sont affichés', async () => {
     // GIVEN
+    render(<CandidatureConseiller />);
     const geoApiResponse = [
       {
         code: '75001',
         nom: 'Paris',
+      },
+      {
+        code: '82137',
+        nom: 'Parisot',
       },
     ];
 
@@ -263,12 +268,13 @@ describe('candidature conseiller', () => {
     });
 
     // WHEN
-    render(<CandidatureConseiller />);
     const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: 'par' } });
 
     // THEN
-    const suggestions = await screen.findByText(textMatcher('75001 Paris'), { selector: 'option' });
-    expect(suggestions).toBeInTheDocument();
+    const paris = await screen.findByText(textMatcher('75001 Paris'), { selector: 'option' });
+    const parisot = await screen.findByText(textMatcher('82137 Parisot'), { selector: 'option' });
+    expect(paris).toBeInTheDocument();
+    expect(parisot).toBeInTheDocument();
   });
 });

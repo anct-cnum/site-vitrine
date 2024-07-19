@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Input from '../../components/commun/Input';
 import { useGeoApi } from './useGeoApi';
 import { debounce } from './debounce';
 
 export default function AddressChooser() {
-  const { fetchVilles } = useGeoApi();
-  const [villes, setVilles] = useState([]);
-
-  const onSearch = async event => {
-    const resultat = await fetchVilles(event.target.value);
-    setVilles(resultat);
-  };
+  const { search, villes } = useGeoApi();
 
   return (
     <>
@@ -18,7 +12,7 @@ export default function AddressChooser() {
         id="lieuHabitation"
         list="resultatsRecherche"
         isRequired={false}
-        onChange={debounce(onSearch)}
+        onChange={debounce(event => search(event.target.value))}
       >
         Votre lieu d’habitation <span className="fr-hint-text">Saississez le nom ou le code postal de votre commune.</span>
       </Input>
