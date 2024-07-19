@@ -17,7 +17,7 @@ export default function AddressChooser() {
         Votre lieu d’habitation <span className="fr-hint-text">Saississez le nom ou le code postal de votre commune.</span>
       </Input>
       <datalist id="resultatsRecherche">
-        {(villes || []).map(({ code, nom }) => (
+        {villes.map(({ code, nom }) => (
           <option value={`${code} ${nom}`} key={code}>{code} {nom}</option>
         ))}
       </datalist>
