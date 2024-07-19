@@ -6,9 +6,21 @@ import Disponibilite from './Disponibilite';
 import Motivation from './Motivation';
 import EnResume from './EnResume';
 import './CandidatureConseiller.css';
+import { situations } from './situations';
 
 export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState();
+  const [isSituationValid, setIsSituationValid] = useState(true);
+  const [situationChecks, setSituationChecks] = useState(
+    new Array(situations.length).fill(false)
+  );
+
+  const valider = () => {
+    setIsSituationValid(situationChecks.some(checked => checked));
+    if (!isSituationValid) {
+      document.getElementById('situationEtExperience').scrollIntoView();
+    }
+  };
 
   return (
     <div className="fr-container fr-mt-5w fr-mb-5w">
@@ -21,11 +33,15 @@ export default function CandidatureConseiller() {
           <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
           <form aria-label="Candidature conseiller">
             <InformationsDeContact />
-            <SituationEtExperience />
+            <SituationEtExperience
+              situationChecks={situationChecks}
+              setSituationChecks={setSituationChecks}
+              isSituationValid={isSituationValid}
+            />
             <Disponibilite setDateDisponibilite={setDateDisponibilite} />
             <Motivation />
             <EnResume dateDisponibilite={dateDisponibilite} />
-            <button className="fr-btn cc-envoyer" type="submit">
+            <button className="fr-btn cc-envoyer" type="submit" onClick={valider}>
               Envoyer votre candidature
             </button>
           </form>

@@ -109,8 +109,10 @@ describe('candidature conseiller', () => {
   });
 
   it('quand je coche "diplomé", un champ pour préciser le diplôme s’affiche', () => {
-    // WHEN
+    // GIVEN
     render(<CandidatureConseiller />);
+
+    // WHEN
     const diplome = screen.getByRole('checkbox', { name: 'Diplômé dans le secteur de la médiation numérique (formation certifiante ou non)' });
     fireEvent.click(diplome);
 
@@ -276,5 +278,33 @@ describe('candidature conseiller', () => {
     const parisot = await screen.findByText(textMatcher('82137 Parisot'), { selector: 'option' });
     expect(paris).toBeInTheDocument();
     expect(parisot).toBeInTheDocument();
+  });
+
+  it('quand je coche au moins une case de situation et que je valide le formulaire alors il n’y a pas d’erreur de validation', () => {
+    // GIVEN
+    render(<CandidatureConseiller />);
+    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
+    fireEvent.click(enEmploi);
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { type: 'submit' });
+    fireEvent.click(envoyer);
+
+    // THEN
+    const erreurCheckboxes = screen.queryByText(textMatcher('Vous devez cocher au moins une case'), { selector: 'p' });
+    expect(erreurCheckboxes).not.toBeInTheDocument();
+  });
+
+  it('quand je ne coche pas de case de situation et que je valide le formulaire alors il y a une erreur de validation', () => {
+    // GIVEN
+    render(<CandidatureConseiller />);
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { type: 'submit' });
+    fireEvent.click(envoyer);
+
+    // THEN
+    const erreurCheckboxes = screen.getByText(textMatcher('Vous devez cocher au moins une case'), { selector: 'p' });
+    expect(erreurCheckboxes).toBeInTheDocument();
   });
 });
