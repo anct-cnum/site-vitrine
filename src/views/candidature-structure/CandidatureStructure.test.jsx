@@ -1,12 +1,7 @@
 import { render, screen, within } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import CandidatureStructure from './CandidatureStructure';
 import { textMatcher } from '../../../test/test-utils';
-
-vi.mock('react-router-dom', () => ({
-  useLocation: () => ({ hash: '' }),
-}));
-
 describe('candidature structure', () => {
   describe('étant une structure', () => {
     it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
@@ -14,7 +9,10 @@ describe('candidature structure', () => {
       render(<CandidatureStructure />);
 
       // THEN
-      const titre = screen.getByRole('heading', { level: 1, name: textMatcher('Je souhaite engager un conseiller numérique') });
+      const titre = screen.getByRole('heading', {
+        level: 1,
+        name: textMatcher('Je souhaite engager un conseiller numérique'),
+      });
       expect(titre).toBeInTheDocument();
 
       const champsObligatoires = screen.getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
@@ -32,7 +30,6 @@ describe('candidature structure', () => {
 
       const votreBesoinEnConseillerNumerique = within(menuItems[2]).getByRole('link', { name: 'Votre besoin en conseiller numérique' });
       expect(votreBesoinEnConseillerNumerique).toHaveAttribute('href', '#votre-besoin-en-conseiller-numerique');
-
       const votreMotivation = within(menuItems[3]).getByRole('link', { name: 'Votre motivation' });
       expect(votreMotivation).toHaveAttribute('href', '#votre-motivation');
     });
@@ -212,13 +209,13 @@ describe('candidature structure', () => {
     within(listDetail[5]).getByText('Laisser partir le conseiller numérique France Services en formation initiale ou continue.');
     within(listDetail[6]).getByText('Mettre à sa disposition les moyens et ' +
       'équipements pour réaliser sa mission (ordinateur, téléphone portable, voiture si nécessaire).');
-    
+
     const confirmationEngagement = screen.getByLabelText('Je confirme avoir lu et pris connaissance des conditions d’engagement.*');
     expect(confirmationEngagement).toBeInTheDocument();
     expect(confirmationEngagement).toBeRequired();
-    
+
   });
-  
+
   it('quand j’affiche le formulaire alors le bouton "Envoyer votre candidature" est affiché', () => {
     // WHEN
     render(<CandidatureStructure />);
