@@ -1,7 +1,7 @@
 import { render, screen, within, fireEvent } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
-import { textMatcher } from './test-utils';
+import { textMatcher } from '../../../test/test-utils';
 
 describe('candidature conseiller', () => {
   describe('étant un candidat', () => {
