@@ -12,7 +12,6 @@
     "test:coverage": "npm test --coverage"
   },
   "dependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@gouvfr-anct/cartographie-nationale": "^5.22.0",
     "@gouvfr/dsfr": "1.12.1",
     "@reduxjs/toolkit": "^2.2.6",
@@ -36,7 +35,6 @@
     "eslint-plugin-testing-library": "^6.2.2",
     "eslint-plugin-vitest": "^0.4.1",
     "jsdom": "^24.1.0",
-    "sass": "^1.77.6",
     "vitest": "^2.0.0",
     "vitest-dom": "^0.1.1"
   },
