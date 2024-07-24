@@ -29,60 +29,35 @@ jobs:
           key: node_modules.-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
-  build:
-    needs: dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Retrieve cached dependencies
-        uses: actions/cache@v4
-        with:
-          key: node_modules-${{ hashFiles('package-lock.json') }}
-          path: node_modules
       - name: Override .env
         uses: SpicyPizza/create-envfile@v2.0
         with:
-          envkey_REACT_APP_BLOG_URL: "https://beta.media.conseiller-numerique.gouv.fr"
-          envkey_REACT_APP_DASHBOARD_URL: "https://beta.pilotage.conseiller-numerique.gouv.fr"
-          envkey_REACT_APP_COOP_URL: "https://beta.coop.conseiller-numerique.gouv.fr/login"
-          envkey_REACT_APP_CANDIDAT_URL: "https://beta.candidat.conseiller-numerique.gouv.fr/login"
-          envkey_REACT_APP_FORMS_URL: "https://uat-cnum-front.osc-fr1.scalingo.io/candidature"
-          envkey_REACT_APP_AIDE_URL: "https://aide.conseiller-numerique.gouv.fr/fr"
+          envkey_REACT_APP_BLOG_URL: https://beta.media.conseiller-numerique.gouv.fr
+          envkey_REACT_APP_DASHBOARD_URL: https://beta.pilotage.conseiller-numerique.gouv.fr
+          envkey_REACT_APP_COOP_URL: https://beta.coop.conseiller-numerique.gouv.fr/login
+          envkey_REACT_APP_CANDIDAT_URL: https://beta.candidat.conseiller-numerique.gouv.fr/login
+          envkey_REACT_APP_FORMS_URL: https://uat-cnum-front.osc-fr1.scalingo.io/candidature
+          envkey_REACT_APP_AIDE_URL: https://aide.conseiller-numerique.gouv.fr/fr
           envkey_REACT_APP_API_URL: ${{ secrets.REACT_APP_API_RECETTE }}
           file_name: .env
-      - name: copy robots.txt
+      - name: Copy robots.txt
         uses: canastro/copy-file-action@master
         with:
-          source: "desindexation/robots.txt"
-          target: "public/robots.txt"
-      - name: copy index.html
+          source: desindexation/robots.txt
+          target: public/robots.txt
+      - name: Copy index.html
         uses: canastro/copy-file-action@master
         with:
-          source: "desindexation/index.html"
-          target: "public/index.html"
+          source: desindexation/index.html
+          target: public/index.html
       - name: Build application
         run: npm run build
-      - name: copy .htaccess
+      - name: Copy .htaccess
         uses: canastro/copy-file-action@master
         with:
-          source: ".htaccess"
-          target: "build/.htaccess"
-      - name: Upload release bundle as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: bundle
-          path: build/*
+          source: .htaccess
+          target: build/.htaccess
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Retrieve bundle React
-        uses: actions/download-artifact@v4
-        with:
-          name: bundle
-          path: build
       - name: Deploy on clever cloud
         uses: s0/git-publish-subdir-action@develop
         env:

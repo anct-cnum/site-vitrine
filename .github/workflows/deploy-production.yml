@@ -29,50 +29,25 @@ jobs:
           key: node_modules.-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
-  build:
-    needs: dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Retrieve cached dependencies
-        uses: actions/cache@v4
-        with:
-          key: node_modules-${{ hashFiles('package-lock.json') }}
-          path: node_modules
       - name: Override .env
         uses: SpicyPizza/create-envfile@v2.0
         with:
-          envkey_REACT_APP_BLOG_URL: "https://media.conseiller-numerique.gouv.fr"
-          envkey_REACT_APP_DASHBOARD_URL: "https://pilotage.conseiller-numerique.gouv.fr"
-          envkey_REACT_APP_COOP_URL: "https://coop.conseiller-numerique.gouv.fr/login"
-          envkey_REACT_APP_CANDIDAT_URL: "https://candidat.conseiller-numerique.gouv.fr/login"
-          envkey_REACT_APP_FORMS_URL: "https://app.conseiller-numerique.gouv.fr/candidature"
-          envkey_REACT_APP_AIDE_URL: "https://aide.conseiller-numerique.gouv.fr/fr"
+          envkey_REACT_APP_BLOG_URL: https://media.conseiller-numerique.gouv.fr
+          envkey_REACT_APP_DASHBOARD_URL: https://pilotage.conseiller-numerique.gouv.fr
+          envkey_REACT_APP_COOP_URL: https://coop.conseiller-numerique.gouv.fr/login
+          envkey_REACT_APP_CANDIDAT_URL: https://candidat.conseiller-numerique.gouv.fr/login
+          envkey_REACT_APP_FORMS_URL: https://app.conseiller-numerique.gouv.fr/candidature
+          envkey_REACT_APP_AIDE_URL: https://aide.conseiller-numerique.gouv.fr/fr
           envkey_REACT_APP_API_URL: ${{ secrets.REACT_APP_API_PRODUCTION }}
           file_name: .env
       - name: Build application
         run: npm run build
-      - name: copy .htaccess
+      - name: Copy .htaccess
         uses: canastro/copy-file-action@master
         with:
-          source: ".htaccess"
-          target: "build/.htaccess"
-      - name: Upload release bundle as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: bundle
-          path: build/*
+          source: .htaccess
+          target: build/.htaccess
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Retrieve bundle React
-        uses: actions/download-artifact@v4
-        with:
-          name: bundle
-          path: build
       - name: Deploy on clever cloud
         uses: s0/git-publish-subdir-action@develop
         env:
