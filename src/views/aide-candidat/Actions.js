@@ -2,7 +2,7 @@ import React from 'react';
 
 function Actions() {
 
-  const urlFormConseiller = process.env.REACT_APP_FORMS_URL + '/conseiller/new';
+  const urlFormConseiller = import.meta.env.VITE_APP_FORMS_URL + '/conseiller/new';
 
   return (
     <div className="fr-container fr-col-lg-5 fr-col-xs-12 fr-mb-10w" style={{ textAlign: 'center' }}>

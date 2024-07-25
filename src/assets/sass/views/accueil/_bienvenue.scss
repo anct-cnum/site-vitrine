@@ -1,22 +1,17 @@
 @import '../../colors/colors';
-@font-face {
-  font-family: "Marianne Regular";
-  src: url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff2') format("woff2"),
-    url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff') format("woff");
- }
 
 .bienvenue {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: linear-gradient(to bottom right, $blue-light 30%, $blue-france 100%);
-  
+
 
   .presentationPart {
     display: flex;
     flex-grow: 1;
     justify-content: center;
-    background-image: url(../../../images/confettis-min.svg);
+    background-image: url(/src/assets/images/confettis-min.svg);
     background-repeat: no-repeat;
     background-position: left 0 top -38px;
     background-size: calc(50% + 387px) calc(50% + 128px);
@@ -29,17 +24,17 @@
       flex-basis: 76rem;
       text-align: center;
     }
-  
+
     .logoFR {
       width: 64px;
       height: 64px;
     }
-  
+
     .title {
       color: $white;
       margin-bottom: 28px;
     }
-  
+
     .twoParts {
       display: flex;
       width: 100%;
@@ -82,7 +77,7 @@
       top: -50%;
       left: -50%;
       z-index: 0;
-      background: url(../../../images/confettis-min.svg) 0;
+      background: url(/src/assets/images/confettis-min.svg) 0;
       background-repeat: no-repeat;
       transform: rotate(90deg);
       background-size: contain;

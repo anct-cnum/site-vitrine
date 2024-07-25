@@ -7,7 +7,7 @@ import Menu from './Menu';
 
 function Header() {
   // eslint-disable-next-line max-len
-  const aideUrl = `${process.env.REACT_APP_AIDE_URL}/article/renouvellement-quel-est-le-montant-de-la-subvention-quelle-est-la-duree-de-la-subvention-et-du-contrat-1ci8cxv/`;
+  const aideUrl = `${import.meta.env.VITE_APP_AIDE_URL}/article/renouvellement-quel-est-le-montant-de-la-subvention-quelle-est-la-duree-de-la-subvention-et-du-contrat-1ci8cxv/`;
   const dispatch = useDispatch();
 
   const toggleBurgerMenu = () => {
@@ -72,7 +72,7 @@ function Header() {
                     <a
                       title="Aide"
                       className="fr-link fr-icon-question-answer-line"
-                      href={process.env.REACT_APP_AIDE_URL}
+                      href={import.meta.env.VITE_APP_AIDE_URL}
                       target="_blank"
                       rel="noopener noreferrer">
                         J&rsquo;ai une question

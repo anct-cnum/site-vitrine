@@ -1,9 +1,4 @@
 @import '../colors/colors';
-@font-face {
-  font-family: "Marianne Regular";
-  src: url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff2') format("woff2"),
-    url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff') format("woff");
- }
 
 .formation {
   color: $grey !important;
@@ -22,12 +17,12 @@
   }
 
   .title-h3 {
-    font-size: 1.125rem; 
+    font-size: 1.125rem;
     color: $blue-light;
     margin-bottom: 0;
-    margin-top: 0; 
+    margin-top: 0;
   }
-  
+
   .description {
     color: $light-grey;
     font-size: 0.75rem;
@@ -49,10 +44,10 @@
   .cadre-bleu {
     background: $blue-lighter;
     text-align: center;
-    margin: 0 auto;    
+    margin: 0 auto;
     padding: 2% 0;
   }
-  
+
   .lien-image-fabrik {
     background: none;
     &::after{

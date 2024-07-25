@@ -63,7 +63,7 @@
   }
 
   .primary-list {
-    list-style-image: url("../../images/icon-fleche.svg");
+    list-style-image: url("/src/assets/images/icon-fleche.svg");
     text-align: justify;
   }
 
@@ -79,7 +79,7 @@
   }
 
   .indeterminate-circle {
-    background-image: url("../../images/indeterminate-circle-fill.svg");
+    background-image: url("/src/assets/images/indeterminate-circle-fill.svg");
     background-repeat: no-repeat;
     background-position: center;
     height: 100%;

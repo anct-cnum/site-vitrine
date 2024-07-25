@@ -1,9 +1,4 @@
 @import '../colors/colors';
-@font-face {
-  font-family: "Marianne Regular";
-  src: url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff2') format("woff2"),
-    url('~@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff') format("woff");
- }
 
 .kit-communication  {
   a[target=_blank]::after {

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
+import '@gouvfr-anct/cartographie-nationale/cartographie';
 
-const urlPermanences = process.env.REACT_APP_API_URL + '/permanences';
+const urlPermanences = import.meta.env.VITE_APP_API_URL + '/permanences';
 
 class Carte extends Component {
   render() {
     window.scrollTo({ top: 0 });
-    require('@gouvfr-anct/cartographie-nationale/cartographie');
     return (
       <div className="carte vh-100">
         <Header/>

@@ -2,7 +2,7 @@ export const statistiquesService = {
   getHomeStats
 };
 
-const urlAPI = process.env.REACT_APP_API_URL;
+const urlAPI = import.meta.env.VITE_APP_API_URL;
 
 function getHomeStats() {
   const requestOptions = {

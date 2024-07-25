@@ -2,7 +2,7 @@ import React from 'react';
 
 function Questions() {
 
-  const urlFormStructure = process.env.REACT_APP_FORMS_URL + '/structure/new';
+  const urlFormStructure = import.meta.env.VITE_APP_FORMS_URL + '/structure/new';
 
   return (
     <div className="fr-container fr-mb-5w">
@@ -19,7 +19,7 @@ function Questions() {
         Vous b&eacute;n&eacute;ficiez d&apos;un financement d&eacute;gressif sur trois ans, que vous soyez une structure publique ou
         priv&eacute;e. Le subventionnement s&apos;adapte &agrave; la typologie de votre structure. Nous vous invitons &agrave; vous
         rendre sur notre <a
-          href={process.env.REACT_APP_AIDE_URL}
+          href={import.meta.env.VITE_APP_AIDE_URL}
           rel="noopener noreferrer"
           target="_blank"
           className="bleu-secondaire"

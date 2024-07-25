@@ -74,7 +74,7 @@ function Accessibilite() {
             L&rsquo;&eacute;quipe de Conseiller Num&eacute;rique reste &agrave; votre &eacute;coute et enti&egrave;re disposition,
             si vous souhaitez nous signaler un d&eacute;faut de conception. Vous pouvez nous aider &agrave; am&eacute;liorer l&rsquo;accessibilit&eacute;
             du site en nous signalant les probl&egrave;mes &eacute;ventuels que vous rencontrez&nbsp;:&nbsp;
-            <a href={process.env.REACT_APP_AIDE_URL}>Contactez-nous</a>.
+            <a href={import.meta.env.VITE_APP_AIDE_URL}>Contactez-nous</a>.
           </p>
         </div>
       </div>

@@ -13,11 +13,11 @@ function Menu() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [changedMenu, setIsChangedMenu] = useState(false);
 
-  const urlBlog = process.env.REACT_APP_BLOG_URL;
-  const urlDashboard = process.env.REACT_APP_DASHBOARD_URL;
-  const urlCoop = process.env.REACT_APP_COOP_URL;
-  const urlCandidat = process.env.REACT_APP_CANDIDAT_URL;
-  const urlFormCandidature = process.env.REACT_APP_FORMS_URL;
+  const urlBlog = import.meta.env.VITE_APP_BLOG_URL;
+  const urlDashboard = import.meta.env.VITE_APP_DASHBOARD_URL;
+  const urlCoop = import.meta.env.VITE_APP_COOP_URL;
+  const urlCandidat = import.meta.env.VITE_APP_CANDIDAT_URL;
+  const urlFormCandidature = import.meta.env.VITE_APP_FORMS_URL;
 
   const toggleBurgerMenu = () => {
     dispatch(menuActions.toggleBurgerMenu());
