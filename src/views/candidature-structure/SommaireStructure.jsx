@@ -1,5 +1,8 @@
-export default function Sommaire() {
-  const partiesSommaire = [
+import React from 'react';
+import Sommaire from '../../components/Sommaire';
+
+export default function SommaireStructure() {
+  const parties = [
     {
       ancre: '#informations-de-structure',
       libelle: 'Vos informations de structure'
@@ -17,19 +20,8 @@ export default function Sommaire() {
       libelle: 'Votre motivation'
     }
   ];
+
   return (
-    <nav aria-label="Sommaire">
-      <ul>
-        {
-          partiesSommaire.map(partieSommaire => (
-            <li key={partieSommaire.ancre}>
-              <a href={partieSommaire.ancre}>
-                {partieSommaire.libelle}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
+    <Sommaire parties={parties} />
   );
 }
