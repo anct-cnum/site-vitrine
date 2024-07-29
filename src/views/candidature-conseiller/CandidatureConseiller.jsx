@@ -5,8 +5,16 @@ import SituationEtExperience from './SituationEtExperience';
 import Disponibilite from './Disponibilite';
 import Motivation from './Motivation';
 import EnResume from './EnResume';
-import './CandidatureConseiller.css';
 import { situations } from './situations';
+
+import '@gouvfr/dsfr/dist/component/form/form.min.css';
+import '@gouvfr/dsfr/dist/component/input/input.min.css';
+import '@gouvfr/dsfr/dist/component/checkbox/checkbox.min.css';
+import '@gouvfr/dsfr/dist/component/radio/radio.min.css';
+import '@gouvfr/dsfr/dist/component/badge/badge.min.css';
+import '@gouvfr/dsfr/dist/component/notice/notice.min.css';
+import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
+import './CandidatureConseiller.css';
 
 export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState();

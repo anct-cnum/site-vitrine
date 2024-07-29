@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { menuActions } from '../actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, Link } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
 
 function Menu() {
 
@@ -65,10 +64,10 @@ function Menu() {
               <div className={`fr-collapse fr-menu ${activeMenu === 'home' ? 'fr-collapse--expanded' : ''}`} id="menu-home">
                 <ul className="fr-menu__list">
                   <li>
-                    <HashLink to="/accueil/#ancre-themes" className="fr-nav__link">&bull;&nbsp;&Agrave; propos des conseillers num&eacute;riques</HashLink>
+                    <Link to="/accueil/#ancre-themes" className="fr-nav__link">&Agrave; propos des conseillers num&eacute;riques</Link>
                   </li>
                   <li>
-                    <HashLink to="/accueil/#ancre-statistiques" className="fr-nav__link">&bull;&nbsp;Le dispositif en chiffres</HashLink>
+                    <Link to="/accueil/#ancre-statistiques" className="fr-nav__link">Le dispositif en chiffres</Link>
                   </li>
                 </ul>
               </div>
@@ -108,7 +107,7 @@ function Menu() {
                       to="/aide-candidat"
                       className="fr-nav__link"
                       {...(location.pathname.startsWith('/aide-candidat') ? { 'aria-current': 'page' } : {})}>
-                      &bull;&nbsp;Devenir conseiller num&eacute;rique
+                      Devenir conseiller num&eacute;rique
                     </Link>
                   </li>
                   <li>
@@ -116,7 +115,7 @@ function Menu() {
                       to="/aide-structure"
                       className="fr-nav__link"
                       {...(location.pathname.startsWith('/aide-structure') ? { 'aria-current': 'page' } : {})}>
-                      &bull;&nbsp;Recruter un conseiller num&eacute;rique
+                      Recruter un conseiller num&eacute;rique
                     </Link>
                   </li>
                 </ul>
@@ -133,22 +132,22 @@ function Menu() {
               <div className={`fr-collapse fr-menu ${activeMenu === 'pfs' ? 'fr-collapse--expanded' : ''}`} id="menu-pfs">
                 <ul className="fr-menu__list">
                   <li>
-                    <a className="fr-nav__link" href={urlCoop} target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace coop</a>
+                    <a className="fr-nav__link" href={urlCoop} target="_blank" rel="noopener noreferrer">Espace coop</a>
                   </li>
                   <li>
-                    <a className="fr-nav__link" href={urlCandidat} target="_blank" rel="noopener noreferrer">&bull;&nbsp;Espace candidat</a>
-                  </li>
-                  <li>
-                    <a className="fr-nav__link" href={urlDashboard}
-                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Tableau de pilotage - structure</a>
+                    <a className="fr-nav__link" href={urlCandidat} target="_blank" rel="noopener noreferrer">Espace candidat</a>
                   </li>
                   <li>
                     <a className="fr-nav__link" href={urlDashboard}
-                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Tableau de pilotage - pr&eacute;fecture</a>
+                      target="_blank" rel="noopener noreferrer">Tableau de pilotage - structure</a>
                   </li>
                   <li>
                     <a className="fr-nav__link" href={urlDashboard}
-                      target="_blank" rel="noopener noreferrer">&bull;&nbsp;Tableau de pilotage - coordinateur</a>
+                      target="_blank" rel="noopener noreferrer">Tableau de pilotage - pr&eacute;fecture</a>
+                  </li>
+                  <li>
+                    <a className="fr-nav__link" href={urlDashboard}
+                      target="_blank" rel="noopener noreferrer">Tableau de pilotage - coordinateur</a>
                   </li>
                 </ul>
               </div>

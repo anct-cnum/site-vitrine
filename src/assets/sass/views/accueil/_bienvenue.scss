@@ -1,11 +1,8 @@
-@import '../../colors/colors';
-
 .bienvenue {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom right, $blue-light 30%, $blue-france 100%);
-
+  background: linear-gradient(to bottom right, var(--info-425-625) 30%, var(--blue-france-sun-113-625) 100%);
 
   .presentationPart {
     display: flex;
@@ -31,7 +28,7 @@
     }
 
     .title {
-      color: $white;
+      color: var(--grey-1000-50);
       margin-bottom: 28px;
     }
 
@@ -49,8 +46,8 @@
     }
 
     .btnCustom {
-      background-color: $white;
-      color: $blue-france;
+      background-color: var(--grey-1000-50);
+      color: var(--blue-france-sun-113-625);
       font-family: 'Marianne Regular';
       border-radius: 40px;
       font-size: 20px;
@@ -129,6 +126,6 @@
 
 @media (max-width: 576px) {
   .bienvenue {
-    background: linear-gradient(to bottom right, $blue-light 0%, $blue-france 100%);
+    background: linear-gradient(to bottom right, var(--info-425-625) 0%, var(--blue-france-sun-113-625) 100%);
   }
 }

@@ -2,6 +2,16 @@
   border: 1px solid var(--grey-900-175);
 }
 
+.cc-section legend {
+  float: left;
+  padding: 0;
+  width: 100%;
+}
+
+.cc-section legend + * {
+  clear: left;
+}
+
 .cc-titre {
   color: var(--blue-france-sun-113-625);
 }

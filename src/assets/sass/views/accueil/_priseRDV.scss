@@ -1,8 +1,6 @@
-@import '../../colors/colors';
-
 .priseRDV {
   height: 330px;
-  background: linear-gradient(to bottom, $blue-france, $blue-light 100%);
+  background: linear-gradient(to bottom, var(--blue-france-sun-113-625), var(--info-425-625) 100%);
   display: flex;
   align-items: flex-end;
 
@@ -23,12 +21,12 @@
   .titleRDV {
     padding-top: 16px;
     text-align: center;
-    color: $white;
+    color: var(--grey-1000-50);
   }
 
   .btnCustom {
-    background-color: $white!important;
-    color: $blue-france;
+    background-color: var(--grey-1000-50) !important;
+    color: var(--blue-france-sun-113-625);
     border-radius: 40px;
     font-size: 20px;
     font-family: 'Marianne Regular';
@@ -64,7 +62,6 @@
       height: 80px;
       text-align: center;
     }
-
   }
 
   @media (max-width: 768px) {

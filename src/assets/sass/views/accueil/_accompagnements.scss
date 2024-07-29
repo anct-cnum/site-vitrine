@@ -1,7 +1,6 @@
 @import '../../colors/colors';
 
 .accompagnements {
-
   .typePart {
     display: flex;
     flex-grow: 1;
@@ -22,7 +21,7 @@
   }
 
   .greenPart {
-    background: linear-gradient(to bottom, $green-light, $green-dark 100% );
+    background: linear-gradient(to bottom, $green-light, var(--green-emeraude-sun-425-moon-753) 100% );
     justify-content: flex-start;
   }
 

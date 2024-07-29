@@ -7,9 +7,3 @@
 @use './views/carte';
 @use './components/footer';
 @use './components/header';
-@use '../../../public/styles-5.22.0';
-
-@import '../../../node_modules/@gouvfr/dsfr/dist/dsfr/dsfr.min.css';
-@import '../../../node_modules/@gouvfr/dsfr/dist/utility/icons/icons-communication/icons-communication.min.css';
-@import '../../../node_modules/@gouvfr/dsfr/dist/utility/icons/icons-document/icons-document.min.css';
-@import '../../../node_modules/@gouvfr/dsfr/dist/utility/icons/icons-system/icons-system.min.css';

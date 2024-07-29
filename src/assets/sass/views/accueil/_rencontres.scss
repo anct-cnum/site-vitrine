@@ -1,11 +1,7 @@
-@import '../../colors/colors';
-
-$-picto: 176px;
-
 .rencontres {
   .picto {
-    width: $-picto;
-    height: $-picto;
+    width: 176px;
+    height: 176px;
   }
 
   .titlePart {
@@ -52,7 +48,6 @@ $-picto: 176px;
   }
 
   @media (max-width: 576px) {
-
     .titleSquare {
       line-height: 25px;
       font-size: 16px;

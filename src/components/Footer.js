@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import logoFR from '../assets/brands/logo-france-relance-gouv-ue.png';
 import logoAnctSonum from '../assets/brands/logo-sonum-anct-min.svg';
 
-function Footer() {
+import '@gouvfr/dsfr/dist/component/footer/footer.min.css';
 
+function Footer() {
   const onClickLink = () => {
     //Effet de scroll
     window.scrollTo({ top: 0 });
