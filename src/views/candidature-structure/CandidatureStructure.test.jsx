@@ -151,6 +151,7 @@ describe('candidature structure', () => {
     const oui = screen.getByRole('radio', { name: 'Oui' });
     expect(oui).toBeRequired();
     expect(oui).toHaveAttribute('name', 'identificationCandidat');
+
     const non = screen.getByRole('radio', { name: 'Non' });
     expect(non).toBeRequired();
     expect(non).toHaveAttribute('name', 'identificationCandidat');

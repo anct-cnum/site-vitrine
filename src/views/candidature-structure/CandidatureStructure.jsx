@@ -16,6 +16,15 @@ import '@gouvfr/dsfr/dist/component/notice/notice.min.css';
 import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
 import '../candidature-conseiller/CandidatureConseiller.css';
 
+import '@gouvfr/dsfr/dist/component/form/form.min.css';
+import '@gouvfr/dsfr/dist/component/input/input.min.css';
+import '@gouvfr/dsfr/dist/component/checkbox/checkbox.min.css';
+import '@gouvfr/dsfr/dist/component/radio/radio.min.css';
+import '@gouvfr/dsfr/dist/component/badge/badge.min.css';
+import '@gouvfr/dsfr/dist/component/notice/notice.min.css';
+import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
+import '../candidature-conseiller/CandidatureConseiller.css';
+
 export default function CandidatureStructure() {
   const [dateAccueilConseillerNumerique, setDateAccueilConseillerNumerique] = useState();
 
