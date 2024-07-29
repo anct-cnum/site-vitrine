@@ -6,6 +6,7 @@ import Disponibilite from './Disponibilite';
 import Motivation from './Motivation';
 import EnResume from './EnResume';
 import { situations } from './situations';
+import { useScrollToSection } from '../../hooks/useScrollToSection';
 
 import '@gouvfr/dsfr/dist/component/form/form.min.css';
 import '@gouvfr/dsfr/dist/component/input/input.min.css';
@@ -22,6 +23,8 @@ export default function CandidatureConseiller() {
   const [situationChecks, setSituationChecks] = useState(
     new Array(situations.length).fill(false)
   );
+
+  useScrollToSection();
 
   const valider = () => {
     setIsSituationValid(situationChecks.some(checked => checked));

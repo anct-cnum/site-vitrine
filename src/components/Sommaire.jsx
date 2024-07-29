@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
 export default function Sommaire({ parties }) {
-  const [dernierElementClique, setDernierElementClique] = useState(parties[0].ancre);
+  const { hash } = useLocation();
+
+  const [dernierElementClique, setDernierElementClique] = useState(hash || parties[0].ancre);
 
   const getAriaCurrent = ancre => {
     return ancre === dernierElementClique ? 'page' : false;

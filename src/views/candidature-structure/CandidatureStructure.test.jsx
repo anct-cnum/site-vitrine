@@ -1,7 +1,11 @@
 import { render, screen, within } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import CandidatureStructure from './CandidatureStructure';
 import { textMatcher } from '../../../test/test-utils';
+
+vi.mock('react-router-dom', () => ({
+  useLocation: () => ({ hash: '' }),
+}));
 
 describe('candidature structure', () => {
   describe('étant une structure', () => {

@@ -3,6 +3,10 @@ import { describe, expect, it, vi } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
 import { textMatcher } from '../../../test/test-utils';
 
+vi.mock('react-router-dom', () => ({
+  useLocation: () => ({ hash: '' }),
+}));
+
 describe('candidature conseiller', () => {
   describe('étant un candidat', () => {
     it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
