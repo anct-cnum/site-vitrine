@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SommaireStructure from './SommaireStructure';
 import InformationsDeContact from './InformationsDeContact';
 import BesoinEnConseillerNumerique from './BesoinEnConseillerNumerique';
+import { useScrollToSection } from '../../hooks/useScrollToSection';
 
 import '@gouvfr/dsfr/dist/component/form/form.min.css';
 import '@gouvfr/dsfr/dist/component/input/input.min.css';
@@ -14,6 +15,8 @@ import '../candidature-conseiller/CandidatureConseiller.css';
 
 export default function CandidatureStructure() {
   const [dateAccueilConseillerNumerique, setDateAccueilConseillerNumerique] = useState();
+
+  useScrollToSection();
 
   return (
     <div className="fr-container fr-mt-5w fr-mb-5w">
