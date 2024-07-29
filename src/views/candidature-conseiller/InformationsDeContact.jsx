@@ -4,7 +4,7 @@ import AddressChooser from './AddressChooser';
 
 export default function InformationsDeContact() {
   return (
-    <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="informationsDeContact">
+    <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="informations-de-contact">
       <legend className="fr-h5">Vos informations de contact</legend>
       <hr />
       <Input

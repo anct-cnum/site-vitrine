@@ -21,16 +21,16 @@ describe('candidature conseiller', () => {
       const menuItems = within(menu).getAllByRole('listitem');
 
       const informationsDeContact = within(menuItems[0]).getByRole('link', { name: 'Vos informations de contact' });
-      expect(informationsDeContact).toHaveAttribute('href', '#informationsDeContact');
+      expect(informationsDeContact).toHaveAttribute('href', '#informations-de-contact');
 
       const situationEtExperience = within(menuItems[1]).getByRole('link', { name: 'Votre situation et expérience' });
-      expect(situationEtExperience).toHaveAttribute('href', '#situationEtExperience');
+      expect(situationEtExperience).toHaveAttribute('href', '#situation-et-experience');
 
       const votreDisponibilite = within(menuItems[2]).getByRole('link', { name: 'Votre disponibilité' });
-      expect(votreDisponibilite).toHaveAttribute('href', '#votreDisponibilite');
+      expect(votreDisponibilite).toHaveAttribute('href', '#votre-disponibilite');
 
       const votreMotivation = within(menuItems[3]).getByRole('link', { name: 'Votre motivation' });
-      expect(votreMotivation).toHaveAttribute('href', '#votreMotivation');
+      expect(votreMotivation).toHaveAttribute('href', '#votre-motivation');
     });
   });
 
@@ -41,7 +41,7 @@ describe('candidature conseiller', () => {
     // THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
     const etapeInformationsDeContact = within(formulaire).getByRole('group', { name: 'Vos informations de contact' });
-    expect(etapeInformationsDeContact).toHaveAttribute('id', 'informationsDeContact');
+    expect(etapeInformationsDeContact).toHaveAttribute('id', 'informations-de-contact');
 
     const prenom = within(etapeInformationsDeContact).getByLabelText('Prénom *');
     expect(prenom).toHaveAttribute('type', 'text');
@@ -70,7 +70,7 @@ describe('candidature conseiller', () => {
     // THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
     const situationEtExperience = within(formulaire).getByRole('group', { name: 'Votre situation et expérience' });
-    expect(situationEtExperience).toHaveAttribute('id', 'situationEtExperience');
+    expect(situationEtExperience).toHaveAttribute('id', 'situation-et-experience');
 
     const situation = within(situationEtExperience).getByText(textMatcher('Êtes-vous actuellement dans l’une des situations suivantes ? *'), { selector: 'p' });
     expect(situation).toBeInTheDocument();
@@ -131,7 +131,7 @@ describe('candidature conseiller', () => {
     // THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
     const votreDisponibilite = within(formulaire).getByRole('group', { name: 'Votre disponibilité' });
-    expect(votreDisponibilite).toHaveAttribute('id', 'votreDisponibilite');
+    expect(votreDisponibilite).toHaveAttribute('id', 'votre-disponibilite');
 
     const questionDisponibilite = within(votreDisponibilite).getByText(
       textMatcher('À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? *'),
@@ -197,7 +197,7 @@ describe('candidature conseiller', () => {
     // THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
     const votreMotivation = within(formulaire).getByRole('group', { name: 'Votre motivation' });
-    expect(votreMotivation).toHaveAttribute('id', 'votreMotivation');
+    expect(votreMotivation).toHaveAttribute('id', 'votre-motivation');
 
     const aideMotivation = within(votreMotivation).getByText(
       textMatcher('En quelques lignes, décrivez votre motivation personnelle pour devenir conseiller numérique ' +
@@ -234,7 +234,7 @@ describe('candidature conseiller', () => {
     expect(descriptionResume).toBeInTheDocument();
   });
 
-  it('quand je modifie la date de disponibilité, elle s’affiche dans l’encart "En résumé" est affiché', () => {
+  it('quand je modifie la date de disponibilité, alors elle s’affiche dans l’encart "En résumé"', () => {
     // GIVEN
     render(<CandidatureConseiller />);
     const dateDisponibilite = '2023-12-12';
