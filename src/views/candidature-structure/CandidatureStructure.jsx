@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import SommaireStructure from './SommaireStructure';
 import InformationsDeContact from './InformationsDeContact';
 import BesoinEnConseillerNumerique from './BesoinEnConseillerNumerique';
+import Motivation from './Motivation';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
+import ZoneDeTexte from '../../components/commun/ZoneDeTexte';
 
 import '@gouvfr/dsfr/dist/component/form/form.min.css';
 import '@gouvfr/dsfr/dist/component/input/input.min.css';
@@ -31,6 +33,8 @@ export default function CandidatureStructure() {
             {/* TODO : Vos informations de structure  */}
             <InformationsDeContact />
             <BesoinEnConseillerNumerique setDateAccueilConseillerNumerique={setDateAccueilConseillerNumerique} />
+            <Motivation />
+            {/* TODO : Engagement  */}
           </form>
         </div>
       </div>
