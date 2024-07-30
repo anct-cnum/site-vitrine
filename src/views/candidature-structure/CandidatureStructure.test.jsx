@@ -9,15 +9,12 @@ vi.mock('react-router-dom', () => ({
 
 describe('candidature structure', () => {
   describe('étant une structure', () => {
-    it.todo('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
+    it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
       // WHEN
       render(<CandidatureStructure />);
 
       // THEN
-      const titre = screen.getByRole('heading', {
-        level: 1,
-        name: textMatcher('Je souhaite engager un conseiller numérique'),
-      });
+      const titre = screen.getByRole('heading', { level: 1, name: textMatcher('Je souhaite engager un conseiller numérique') });
       expect(titre).toBeInTheDocument();
 
       const champsObligatoires = screen.getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
@@ -41,7 +38,58 @@ describe('candidature structure', () => {
     });
   });
 
-  it.todo('quand j’affiche le formulaire alors l’étape "Vos informations de structure" est affiché');
+  it.skip('quand j’affiche le formulaire alors l’étape "Vos informations de structure" est affiché', () => {
+    // WHEN
+    render(<CandidatureStructure />);
+
+    // THEN
+    const formulaire = screen.getByRole('form', { name: 'Candidature structure' });
+    const etapeInformationsDeStructure = within(formulaire).getByRole('group', { name: 'Vos informations de structure' });
+    expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
+
+    const siretOuRidet = within(etapeInformationsDeStructure).getByPlaceholderText('N° SIRET / RIDET');
+    expect(siretOuRidet).toHaveAttribute('id', 'siretEntreprise');
+    expect(siretOuRidet).toBeRequired();
+
+    const denomination = within(etapeInformationsDeStructure).getByLabelText('Dénomination *');
+    expect(denomination).toHaveAttribute('type', 'text');
+    expect(denomination).toBeRequired();
+
+    const adresse = within(etapeInformationsDeStructure).getByLabelText('Adresse *');
+    expect(adresse).toHaveAttribute('type', 'text');
+    expect(adresse).toBeRequired();
+
+    const questionTypeDeStructure = within(etapeInformationsDeStructure).getByText(textMatcher('Votre structure est *'), { selector: 'p' });
+    expect(questionTypeDeStructure).toBeInTheDocument();
+
+    const _uneCommune = screen.getByRole('radio', { name: 'Une commune' });
+    expect(_uneCommune).toBeRequired();
+    expect(_uneCommune).toHaveAttribute('name', 'typeStructure');
+
+    const _unDepartement = screen.getByRole('radio', { name: 'Un département' });
+    expect(_unDepartement).toBeRequired();
+    expect(_unDepartement).toHaveAttribute('name', 'typeStructure');
+
+    const _uneRegion = screen.getByRole('radio', { name: 'Une région' });
+    expect(_uneRegion).toBeRequired();
+    expect(_uneRegion).toHaveAttribute('name', 'typeStructure');
+
+    const _unEtablissemntPublic = screen.getByRole('radio', { name: 'Un établissement public de coopération intercommunale' });
+    expect(_unEtablissemntPublic).toBeRequired();
+    expect(_unEtablissemntPublic).toHaveAttribute('name', 'typeStructure');
+
+    const _uneCollectivite = screen.getByRole('radio', { name: 'Une collectivité à statut particulier' });
+    expect(_uneCollectivite).toBeRequired();
+    expect(_uneCollectivite).toHaveAttribute('name', 'typeStructure');
+
+    const _unGIP = screen.getByRole('radio', { name: 'Un GIP' });
+    expect(_unGIP).toBeRequired();
+    expect(_unGIP).toHaveAttribute('name', 'typeStructure');
+
+    // const _uneStructurePrivee = screen.getByRole('radio', { name: 'Une structure privée (association, entreprise de l’ESS, fondations)' });
+    // expect(_uneStructurePrivee).toBeRequired();
+    // expect(_uneStructurePrivee).toHaveAttribute('name', 'typeStructure');
+  });
 
   it('quand j’affiche le formulaire alors l’étape "Vos informations de contact" est affiché', () => {
     // WHEN
@@ -139,4 +187,6 @@ describe('candidature structure', () => {
     expect(votreMessage).toBeRequired();
   });
   it.todo('quand j’affiche le formulaire alors l’encart des engagements est affiché');
+  it.todo('quand j’affiche le formulaire alors le bouton "Envoyer votre candidature" est affiché');
 });
+
