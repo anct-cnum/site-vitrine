@@ -14,10 +14,7 @@ describe('candidature structure', () => {
       render(<CandidatureStructure />);
 
       // THEN
-      const titre = screen.getByRole('heading', {
-        level: 1,
-        name: textMatcher('Je souhaite engager un conseiller numérique'),
-      });
+      const titre = screen.getByRole('heading', { level: 1, name: textMatcher('Je souhaite engager un conseiller numérique') });
       expect(titre).toBeInTheDocument();
 
       const champsObligatoires = screen.getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
@@ -46,6 +43,7 @@ describe('candidature structure', () => {
 
     // THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature structure' });
+<<<<<<< HEAD
     const etapeInformationsDeStructure = within(formulaire).getByRole('group', { name: 'Vos informations de structure' });
     expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
 
@@ -92,6 +90,53 @@ describe('candidature structure', () => {
     const uneStructurePrivee = screen.getByRole('radio', { name: 'Une structure privée (association, entreprise de l’ESS, fondations)' });
     expect(uneStructurePrivee).toBeRequired();
     expect(uneStructurePrivee).toHaveAttribute('name', 'typeStructure');
+=======
+    const etapeInformationsDeContact = within(formulaire).getByRole('group', { name: 'Vos informations de structure' });
+    expect(etapeInformationsDeContact).toHaveAttribute('id', 'informationsDeContact');
+
+    const siretOuRidet = within(etapeInformationsDeContact).getByPlaceholderText('N° SIRET / RIDET');
+    expect(siretOuRidet).toHaveAttribute('id', 'siretEntreprise');
+    expect(siretOuRidet).toBeRequired();
+
+    const denomination = within(etapeInformationsDeContact).getByLabelText('Dénomination *');
+    expect(denomination).toHaveAttribute('type', 'text');
+    expect(denomination).toBeRequired();
+
+    const adresse = within(etapeInformationsDeContact).getByLabelText('Adresse *');
+    expect(adresse).toHaveAttribute('type', 'text');
+    expect(adresse).toBeRequired();
+
+    const questionTypeDeStructure = within(etapeInformationsDeContact).getByText(textMatcher('Votre structure est *'), { selector: 'p' });
+    expect(questionTypeDeStructure).toBeInTheDocument();
+
+    const _uneCommune = screen.getByRole('radio', { name: 'Une commune' });
+    expect(_uneCommune).toBeRequired();
+    expect(_uneCommune).toHaveAttribute('name', 'typeStructure');
+
+    const _unDepartement = screen.getByRole('radio', { name: 'Un département' });
+    expect(_unDepartement).toBeRequired();
+    expect(_unDepartement).toHaveAttribute('name', 'typeStructure');
+
+    const _uneRegion = screen.getByRole('radio', { name: 'Une région' });
+    expect(_uneRegion).toBeRequired();
+    expect(_uneRegion).toHaveAttribute('name', 'typeStructure');
+
+    const _unEtablissemntPublic = screen.getByRole('radio', { name: 'Un établissement public de coopération intercommunale' });
+    expect(_unEtablissemntPublic).toBeRequired();
+    expect(_unEtablissemntPublic).toHaveAttribute('name', 'typeStructure');
+
+    const _uneCollectivite = screen.getByRole('radio', { name: 'Une collectivité à statut particulier' });
+    expect(_uneCollectivite).toBeRequired();
+    expect(_uneCollectivite).toHaveAttribute('name', 'typeStructure');
+
+    const _unGIP = screen.getByRole('radio', { name: 'Un GIP' });
+    expect(_unGIP).toBeRequired();
+    expect(_unGIP).toHaveAttribute('name', 'typeStructure');
+
+    // const _uneStructurePrivee = screen.getByRole('radio', { name: 'Une structure privée (association, entreprise de l’ESS, fondations)' });
+    // expect(_uneStructurePrivee).toBeRequired();
+    // expect(_uneStructurePrivee).toHaveAttribute('name', 'typeStructure');
+>>>>>>> 17cd1c2 (:feat ajout premier bloc formulaire informations contact structure)
   });
 
   it('quand j’affiche le formulaire alors l’étape "Vos informations de contact" est affiché', () => {
