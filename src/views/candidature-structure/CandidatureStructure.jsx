@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SommaireStructure from './SommaireStructure';
 import InformationsDeContact from './InformationsDeContact';
+import InformationsDeStructure from './InformationsDeStructure';
 import BesoinEnConseillerNumerique from './BesoinEnConseillerNumerique';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
 
@@ -28,7 +29,7 @@ export default function CandidatureStructure() {
           <h1 className="cc-titre fr-mb-5w">Je souhaite engager un conseiller numérique</h1>
           <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
           <form aria-label="Candidature structure" >
-            {/* TODO : Vos informations de structure  */}
+            <InformationsDeStructure />
             <InformationsDeContact />
             <BesoinEnConseillerNumerique setDateAccueilConseillerNumerique={setDateAccueilConseillerNumerique} />
           </form>

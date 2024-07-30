@@ -1,23 +1,23 @@
-import React from "react";
-import Input from "../../components/commun/Input";
-import CompanyFinder from "./CompanyFinder";
-import BoutonRadio from "../../components/commun/BoutonRadio";
+import React from 'react';
+import Input from '../../components/commun/Input';
+import CompanyFinder from './CompanyFinder';
+import BoutonRadio from '../../components/commun/BoutonRadio';
 
 export default function InformationsDeContact() {
   return (
     <fieldset
       className="fr-border cc-section fr-p-3w fr-mb-3w"
-      id="informationsDeContact"
+      id="informations-de-structure"
     >
       <legend className="fr-h5">Vos informations de structure</legend>
       <hr />
       <CompanyFinder />
-      <Input 
+      <Input
         id="denomination"
       >
         Dénomination <span className="cc-obligatoire">*</span>
       </Input>
-      <Input 
+      <Input
         id="adresse"
       >
         Adresse <span className="cc-obligatoire">*</span>
@@ -45,7 +45,7 @@ export default function InformationsDeContact() {
           Un GIP
         </BoutonRadio>
         <BoutonRadio id="structurePrivee" nomGroupe="typeStructure">
-          Une structure privée (association, entreprise de l'ESS, fondations)
+          Une structure privée (association, entreprise de l’ESS, fondations)
         </BoutonRadio>
       </div>
     </fieldset>
