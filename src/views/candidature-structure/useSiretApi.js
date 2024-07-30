@@ -1,20 +1,15 @@
 import { useState } from 'react';
 
 const getUrlEntrepriseApiV3 = (sirenOuSiret, type) => {
-  let params = '?context=cnum&object=checkSiret&recipient=13002603200016';
-  let url = 'https://entreprise.api.gouv.fr/v3/';
+  const params = '?context=cnum&object=checkSiret&recipient=13002603200016';
+  const url = 'https://entreprise.api.gouv.fr/v3/';
   let service = '';
-  switch (type) {
-    case 'siret':
-      service = 'insee/sirene/etablissements/' + sirenOuSiret;
-      break;
-    case 'siren':
-      service = 'insee/sirene/unites_legales/' + sirenOuSiret + '/siege_social/';
-      break;
-    default:
-      break;
+  if (type === 'siret') {
+    service = `insee/sirene/etablissements/'${sirenOuSiret}`;
+  } else if (type === 'siren') {
+    service = `insee/sirene/unites_legales/${sirenOuSiret}/siege_social/`;
   }
-  return url + service + params;
+  return `${url}${service}${params}`;
 };
 
 export const useSiretApi = () => {
