@@ -118,5 +118,25 @@ describe('candidature structure', () => {
     expect(date).toBeRequired();
   });
 
-  it.todo('quand j’affiche le formulaire alors l’étape "Votre motivation" est affiché');
+  it('quand j’affiche le formulaire alors l’étape "Votre motivation" est affiché', () => {
+    // WHEN
+    render(<CandidatureStructure />);
+
+    // THEN
+    const formulaire = screen.getByRole('form', { name: 'Candidature structure' });
+    const etapeMotivation = within(formulaire).getByRole('group', { name: 'Votre motivation' });
+    expect(etapeMotivation).toHaveAttribute('id', 'votre-motivation');
+      
+    const sousTitreVotreMotvation =
+      within(etapeMotivation).getByText('En quelques lignes, décrivez le motif de ' +
+          'votre besoin en recrutement. Indiquez les actions prévues, la justification du poste, ainsi que le public ciblé.',
+      { selector: 'p' }
+      );
+    expect(sousTitreVotreMotvation).toBeInTheDocument();
+    
+    const votreMessage = within(etapeMotivation).getByLabelText('Votre message *');
+    expect(votreMessage).toHaveAttribute('id', 'votreMessage');
+    expect(votreMessage).toBeRequired();
+  });
+  it.todo('quand j’affiche le formulaire alors l’encart des engagements est affiché');
 });
