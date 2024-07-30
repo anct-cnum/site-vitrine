@@ -60,6 +60,8 @@ describe('candidature structure', () => {
     expect(adresse).toBeRequired();
 
     const questionTypeDeStructure = within(etapeInformationsDeContact).getByText(textMatcher('Votre structure est *'), { selector: 'p' });
+    const etapeInformationsDeStructure = within(formulaire).getByRole('group', { name: 'Vos informations de structure' });
+    expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
     expect(questionTypeDeStructure).toBeInTheDocument();
 
     const _uneCommune = screen.getByRole('radio', { name: 'Une commune' });
