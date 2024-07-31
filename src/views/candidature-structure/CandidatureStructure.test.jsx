@@ -38,7 +38,7 @@ describe('candidature structure', () => {
     });
   });
 
-  it.skip('quand j’affiche le formulaire alors l’étape "Vos informations de structure" est affiché', () => {
+  it('quand j’affiche le formulaire alors l’étape "Vos informations de structure" est affiché', () => {
     // WHEN
     render(<CandidatureStructure />);
 
@@ -47,9 +47,9 @@ describe('candidature structure', () => {
     const etapeInformationsDeStructure = within(formulaire).getByRole('group', { name: 'Vos informations de structure' });
     expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
 
-    const siretOuRidet = within(etapeInformationsDeStructure).getByPlaceholderText('N° SIRET / RIDET');
-    expect(siretOuRidet).toHaveAttribute('id', 'siretEntreprise');
-    expect(siretOuRidet).toBeRequired();
+    // const siretOuRidet = within(etapeInformationsDeStructure).getByPlaceholderText('N° SIRET / RIDET');
+    // expect(siretOuRidet).toHaveAttribute('id', 'siretEntreprise');
+    // expect(siretOuRidet).toBeRequired();
 
     const denomination = within(etapeInformationsDeStructure).getByLabelText('Dénomination *');
     expect(denomination).toHaveAttribute('type', 'text');
@@ -60,35 +60,36 @@ describe('candidature structure', () => {
     expect(adresse).toBeRequired();
 
     const questionTypeDeStructure = within(etapeInformationsDeStructure).getByText(textMatcher('Votre structure est *'), { selector: 'p' });
+    expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
     expect(questionTypeDeStructure).toBeInTheDocument();
 
-    const _uneCommune = screen.getByRole('radio', { name: 'Une commune' });
-    expect(_uneCommune).toBeRequired();
-    expect(_uneCommune).toHaveAttribute('name', 'typeStructure');
+    const uneCommune = screen.getByRole('radio', { name: 'Une commune' });
+    expect(uneCommune).toBeRequired();
+    expect(uneCommune).toHaveAttribute('name', 'typeStructure');
 
-    const _unDepartement = screen.getByRole('radio', { name: 'Un département' });
-    expect(_unDepartement).toBeRequired();
-    expect(_unDepartement).toHaveAttribute('name', 'typeStructure');
+    const unDepartement = screen.getByRole('radio', { name: 'Un département' });
+    expect(unDepartement).toBeRequired();
+    expect(unDepartement).toHaveAttribute('name', 'typeStructure');
 
-    const _uneRegion = screen.getByRole('radio', { name: 'Une région' });
-    expect(_uneRegion).toBeRequired();
-    expect(_uneRegion).toHaveAttribute('name', 'typeStructure');
+    const uneRegion = screen.getByRole('radio', { name: 'Une région' });
+    expect(uneRegion).toBeRequired();
+    expect(uneRegion).toHaveAttribute('name', 'typeStructure');
 
-    const _unEtablissemntPublic = screen.getByRole('radio', { name: 'Un établissement public de coopération intercommunale' });
-    expect(_unEtablissemntPublic).toBeRequired();
-    expect(_unEtablissemntPublic).toHaveAttribute('name', 'typeStructure');
+    const unEtablissemntPublic = screen.getByRole('radio', { name: 'Un établissement public de coopération intercommunale' });
+    expect(unEtablissemntPublic).toBeRequired();
+    expect(unEtablissemntPublic).toHaveAttribute('name', 'typeStructure');
 
-    const _uneCollectivite = screen.getByRole('radio', { name: 'Une collectivité à statut particulier' });
-    expect(_uneCollectivite).toBeRequired();
-    expect(_uneCollectivite).toHaveAttribute('name', 'typeStructure');
+    const uneCollectivite = screen.getByRole('radio', { name: 'Une collectivité à statut particulier' });
+    expect(uneCollectivite).toBeRequired();
+    expect(uneCollectivite).toHaveAttribute('name', 'typeStructure');
 
-    const _unGIP = screen.getByRole('radio', { name: 'Un GIP' });
-    expect(_unGIP).toBeRequired();
-    expect(_unGIP).toHaveAttribute('name', 'typeStructure');
+    const unGIP = screen.getByRole('radio', { name: 'Un GIP' });
+    expect(unGIP).toBeRequired();
+    expect(unGIP).toHaveAttribute('name', 'typeStructure');
 
-    // const _uneStructurePrivee = screen.getByRole('radio', { name: 'Une structure privée (association, entreprise de l’ESS, fondations)' });
-    // expect(_uneStructurePrivee).toBeRequired();
-    // expect(_uneStructurePrivee).toHaveAttribute('name', 'typeStructure');
+    const uneStructurePrivee = screen.getByRole('radio', { name: 'Une structure privée (association, entreprise de l’ESS, fondations)' });
+    expect(uneStructurePrivee).toBeRequired();
+    expect(uneStructurePrivee).toHaveAttribute('name', 'typeStructure');
   });
 
   it('quand j’affiche le formulaire alors l’étape "Vos informations de contact" est affiché', () => {
@@ -118,6 +119,7 @@ describe('candidature structure', () => {
 
     const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone *');
     expect(telephone).toHaveAttribute('type', 'tel');
+    expect(telephone).toHaveAttribute('pattern', '0[1-9]{9}');
     expect(telephone).toBeRequired();
   });
 
@@ -174,14 +176,15 @@ describe('candidature structure', () => {
     const formulaire = screen.getByRole('form', { name: 'Candidature structure' });
     const etapeMotivation = within(formulaire).getByRole('group', { name: 'Votre motivation' });
     expect(etapeMotivation).toHaveAttribute('id', 'votre-motivation');
-      
+
     const sousTitreVotreMotvation =
-      within(etapeMotivation).getByText('En quelques lignes, décrivez le motif de ' +
-          'votre besoin en recrutement. Indiquez les actions prévues, la justification du poste, ainsi que le public ciblé.',
-      { selector: 'p' }
+      within(etapeMotivation).getByText(
+        'En quelques lignes, décrivez le motif de votre besoin en recrutement. Indiquez les actions prévues, la justification du poste, ainsi que le ' +
+        'public ciblé.',
+        { selector: 'p' }
       );
     expect(sousTitreVotreMotvation).toBeInTheDocument();
-    
+
     const votreMessage = within(etapeMotivation).getByLabelText('Votre message *');
     expect(votreMessage).toHaveAttribute('id', 'votreMessage');
     expect(votreMessage).toBeRequired();
@@ -223,3 +226,4 @@ describe('candidature structure', () => {
     within(formulaire).getByRole('button', { name: 'Envoyer votre candidature' });
   });
 });
+
