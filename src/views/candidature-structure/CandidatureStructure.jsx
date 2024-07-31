@@ -36,6 +36,9 @@ export default function CandidatureStructure() {
             <BesoinEnConseillerNumerique setDateAccueilConseillerNumerique={setDateAccueilConseillerNumerique} />
             <Motivation />
             <Engagement/>
+            <button className="fr-btn cc-envoyer" type="submit">
+              Envoyer votre candidature
+            </button>
           </form>
         </div>
       </div>

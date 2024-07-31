@@ -198,18 +198,28 @@ describe('candidature structure', () => {
     const engagements = screen.getByTestId('votre-engagement');
 
     const listDetail = within(engagements).getAllByRole('listitem');
-    within(listDetail[0]).getByText('Assurer que le conseiller réalise des activités de montée en compétences du public (ateliers numériques, initiations au numérique), gratuites.');
-    within(listDetail[1]).getByText('Qu’il consacre une partie de son temps aux rencontres locales et nationales organisées pour la communauté et la formation continue, etc.');
+    within(listDetail[0]).getByText('Assurer que le conseiller réalise des activités de ' +
+      'montée en compétences du public (ateliers numériques, initiations au numérique), gratuites.');
+    within(listDetail[1]).getByText('Qu’il consacre une partie de son temps aux rencontres locales et ' +
+      'nationales organisées pour la communauté et la formation continue, etc.');
     within(listDetail[2]).getByText('Qu’il revête une tenue vestimentaire dédiée fournie par l’Etat.');
     within(listDetail[3]).getByText('Tout mettre en oeuvre pour sélectionner le candidat dans un délai maximum d’un mois sur la plateforme.');
     within(listDetail[4]).getByText('Signer dans les 15 jours suivants un contrat avec ce candidat.');
     within(listDetail[5]).getByText('Laisser partir le conseiller numérique France Services en formation initiale ou continue.');
-    within(listDetail[6]).getByText('Mettre à sa disposition les moyens et équipements pour réaliser sa mission (ordinateur, téléphone portable, voiture si nécessaire).');
+    within(listDetail[6]).getByText('Mettre à sa disposition les moyens et ' +
+      'équipements pour réaliser sa mission (ordinateur, téléphone portable, voiture si nécessaire).');
     
     const confirmationEngagement = screen.getByLabelText('Je confirme avoir lu et pris connaissance des conditions d’engagement.*');
     expect(confirmationEngagement).toBeInTheDocument();
     
   });
   
-  it.todo('quand j’affiche le formulaire alors le bouton "Envoyer votre candidature" est affiché');
+  it('quand j’affiche le formulaire alors le bouton "Envoyer votre candidature" est affiché', () => {
+    // WHEN
+    render(<CandidatureStructure />);
+
+    //THEN
+    const formulaire = screen.getByRole('form', { name: 'Candidature structure' });
+    within(formulaire).getByRole('button', { name: 'Envoyer votre candidature' });
+  });
 });
