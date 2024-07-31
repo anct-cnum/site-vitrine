@@ -4,8 +4,8 @@ import InformationsDeContact from './InformationsDeContact';
 import InformationsDeStructure from './InformationsDeStructure';
 import BesoinEnConseillerNumerique from './BesoinEnConseillerNumerique';
 import Motivation from './Motivation';
+import Engagement from './Engagement';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
-import ZoneDeTexte from '../../components/commun/ZoneDeTexte';
 
 import '@gouvfr/dsfr/dist/component/form/form.min.css';
 import '@gouvfr/dsfr/dist/component/input/input.min.css';
@@ -35,7 +35,7 @@ export default function CandidatureStructure() {
             <InformationsDeContact />
             <BesoinEnConseillerNumerique setDateAccueilConseillerNumerique={setDateAccueilConseillerNumerique} />
             <Motivation />
-            {/* TODO : Engagement  */}
+            <Engagement/>
           </form>
         </div>
       </div>
