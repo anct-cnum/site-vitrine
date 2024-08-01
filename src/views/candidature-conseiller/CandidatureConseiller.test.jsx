@@ -81,6 +81,7 @@ describe('candidature conseiller', () => {
 
     const demandeurEmploi = screen.getByRole('checkbox', { name: 'Demandeur d’emploi' });
     expect(demandeurEmploi).toBeInTheDocument();
+    expect(demandeurEmploi).not.toBeRequired();
 
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     expect(enEmploi).toBeInTheDocument();

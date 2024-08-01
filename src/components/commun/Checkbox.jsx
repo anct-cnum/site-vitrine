@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Checkbox({ children, id, onCheck, checked, required }) {
+export default function Checkbox({ children, id, onCheck, checked, required = true }) {
   return (
     <div className="fr-fieldset__element">
       <div className="fr-checkbox-group">
