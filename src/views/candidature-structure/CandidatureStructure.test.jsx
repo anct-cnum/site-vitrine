@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureStructure from './CandidatureStructure';
 import { textMatcher } from '../../../test/test-utils';
@@ -134,6 +134,7 @@ describe('candidature structure', () => {
 
     const combienConseillerNumerique = within(etapeBesoinConseillerNumerique).getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ?*');
     expect(combienConseillerNumerique).toHaveAttribute('type', 'number');
+    expect(combienConseillerNumerique).toHaveAttribute('min', '1');
     expect(combienConseillerNumerique).toBeRequired();
 
     const identificationCandidat = within(etapeBesoinConseillerNumerique).getByText(
@@ -144,7 +145,7 @@ describe('candidature structure', () => {
 
     const sousTitreIdentificationCandidat =
       within(etapeBesoinConseillerNumerique).getByText(
-        textMatcher('Si oui, merci d’inviter ce candidat à s’inscrire sur la plateforme Conseiller numérique'),
+        textMatcher('Si oui, merci d’inviter ce candidat à s’inscrire sur la plateforme Conseiller numérique.'),
         { selector: 'p' }
       );
     expect(sousTitreIdentificationCandidat).toBeInTheDocument();
@@ -196,7 +197,7 @@ describe('candidature structure', () => {
 
     // THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature structure' });
-    const titreEngagement = within(formulaire).getByText(textMatcher('En tant que structure accueillante, vous vous engagez à'),{ selector: 'p' });
+    const titreEngagement = within(formulaire).getByText(textMatcher('En tant que structure accueillante, vous vous engagez à'), { selector: 'p' });
     expect(titreEngagement).toBeInTheDocument();
     const engagements = screen.getByTestId('votre-engagement');
 
@@ -214,6 +215,7 @@ describe('candidature structure', () => {
     
     const confirmationEngagement = screen.getByLabelText('Je confirme avoir lu et pris connaissance des conditions d’engagement.*');
     expect(confirmationEngagement).toBeInTheDocument();
+    expect(confirmationEngagement).toBeRequired();
     
   });
   
