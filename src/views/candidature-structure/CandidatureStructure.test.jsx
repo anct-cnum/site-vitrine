@@ -9,7 +9,7 @@ vi.mock('react-router-dom', () => ({
 
 describe('candidature structure', () => {
   describe('étant une structure', () => {
-    it.todo('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
+    it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
       // WHEN
       render(<CandidatureStructure />);
 
@@ -168,7 +168,6 @@ describe('candidature structure', () => {
     expect(date).toBeRequired();
   });
 
-  it.todo('quand j’affiche le formulaire alors l’étape "Votre motivation" est affiché');
   it('quand j’affiche le formulaire alors l’étape "Votre motivation" est affiché', () => {
     // WHEN
     render(<CandidatureStructure />);
@@ -226,7 +225,5 @@ describe('candidature structure', () => {
     const formulaire = screen.getByRole('form', { name: 'Candidature structure' });
     within(formulaire).getByRole('button', { name: 'Envoyer votre candidature' });
   });
-  it.todo('quand j’affiche le formulaire alors l’encart des engagements est affiché');
-  it.todo('quand j’affiche le formulaire alors l’étape "Votre motivation" est affiché');
 });
 
