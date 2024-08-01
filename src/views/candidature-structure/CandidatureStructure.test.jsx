@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureStructure from './CandidatureStructure';
 import { textMatcher } from '../../../test/test-utils';
