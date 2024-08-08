@@ -1,11 +1,14 @@
-import { useState, useCallback } from 'react';
-import { debounce } from '../views/candidature-conseiller/debounce';
+import { useState } from 'react';
 
 const API_URL_NC = 'https://data.gouv.nc/api/explore/v2.1/catalog/datasets/entreprises-actives-au-ridet/records';
 const API_URL_FR = 'https://entreprise.api.gouv.fr/v3/';
 
+const TAILLE_SIRET = 14;
+const TAILLE_RIDET = [6, 7];
+const TAILLES_POSSIBLES = [...TAILLE_RIDET, TAILLE_SIRET];
+
 const getUrlBySiret = siret => {
-  const params = '?context=cnum&object=checkSiret&recipient=13002603200016';
+  const params = '?context=cnum&object=checkSiret&recipient=123456789';
   return `${API_URL_FR}insee/sirene/etablissements/${siret}${params}`;
 };
 
@@ -23,26 +26,26 @@ async function fetchRidetData(ridet) {
   return data.results[0] ?? null;
 }
 
-export const useCompanyFinder = token => {
+export const useEntrepriseFinder = token => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [companyData, setCompanyData] = useState(null);
+  const [entrepriseData, setEntrepriseData] = useState(null);
 
   const search = (async searchValue => {
-    if (![6, 7, 14].includes(searchValue.length)) {
+    if (!TAILLES_POSSIBLES.includes(searchValue.length)) {
       setError('Veuillez entrer un RIDET (6 ou 7 chiffres) ou un SIRET (14 chiffres) valide.');
       return;
     }
     setLoading(true);
     setError(null);
-    setCompanyData(null);
+    setEntrepriseData(null);
 
     try {
       let data;
-      if (searchValue.length === 6 || searchValue.length === 7) {
+      if (searchValue.length === TAILLE_RIDET[0] || searchValue.length === TAILLE_RIDET[1]) {
         data = await fetchRidetData(searchValue);
         if (data) {
-          setCompanyData({
+          setEntrepriseData({
             name: data.denomination,
             address: `${data.libelle_commune}, ${data.province}`,
             activity: data.libelle_naf
@@ -58,7 +61,7 @@ export const useCompanyFinder = token => {
           }
         });
         data = await response.json();
-        setCompanyData({
+        setEntrepriseData({
           name: data.unite_legale.personne_morale_attributs?.raison_sociale || data.unite_legale.personne_physique_attributs?.nom_complet,
           address: `${data.adresse.numero_voie} ${data.adresse.type_voie} ${data.adresse.libelle_voie}, 
           ${data.adresse.code_postal} ${data.adresse.libelle_commune}`,
@@ -71,7 +74,6 @@ export const useCompanyFinder = token => {
       setLoading(false);
     }
   });
-  const debouncedSearch = useCallback(debounce(search, 300), [search]);
 
-  return { search: debouncedSearch, loading, error, companyData };
+  return { search, loading, error, entrepriseData };
 };
