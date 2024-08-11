@@ -4,34 +4,32 @@ import CandidatureConseiller from './CandidatureConseiller';
 import { textMatcher } from './test-utils';
 
 describe('candidature conseiller', () => {
-  describe('étant un candidat', () => {
-    it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
-      // WHEN
-      render(<CandidatureConseiller />);
+  it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
+    // WHEN
+    render(<CandidatureConseiller />);
 
-      // THEN
-      const titre = screen.getByRole('heading', { level: 1, name: 'Je veux devenir conseiller numérique' });
-      expect(titre).toBeInTheDocument();
+    // THEN
+    const titre = screen.getByRole('heading', { level: 1, name: 'Je veux devenir conseiller numérique' });
+    expect(titre).toBeInTheDocument();
 
-      const champsObligatoires = screen.getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
-      expect(champsObligatoires).toBeInTheDocument();
+    const champsObligatoires = screen.getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
+    expect(champsObligatoires).toBeInTheDocument();
 
-      const navigation = screen.getByRole('navigation', { name: 'Sommaire' });
-      const menu = within(navigation).getByRole('list');
-      const menuItems = within(menu).getAllByRole('listitem');
+    const navigation = screen.getByRole('navigation', { name: 'Sommaire' });
+    const menu = within(navigation).getByRole('list');
+    const menuItems = within(menu).getAllByRole('listitem');
 
-      const informationsDeContact = within(menuItems[0]).getByRole('link', { name: 'Vos informations de contact' });
-      expect(informationsDeContact).toHaveAttribute('href', '#informationsDeContact');
+    const informationsDeContact = within(menuItems[0]).getByRole('link', { name: 'Vos informations de contact' });
+    expect(informationsDeContact).toHaveAttribute('href', '#informationsDeContact');
 
-      const situationEtExperience = within(menuItems[1]).getByRole('link', { name: 'Votre situation et expérience' });
-      expect(situationEtExperience).toHaveAttribute('href', '#situationEtExperience');
+    const situationEtExperience = within(menuItems[1]).getByRole('link', { name: 'Votre situation et expérience' });
+    expect(situationEtExperience).toHaveAttribute('href', '#situationEtExperience');
 
-      const votreDisponibilite = within(menuItems[2]).getByRole('link', { name: 'Votre disponibilité' });
-      expect(votreDisponibilite).toHaveAttribute('href', '#votreDisponibilite');
+    const votreDisponibilite = within(menuItems[2]).getByRole('link', { name: 'Votre disponibilité' });
+    expect(votreDisponibilite).toHaveAttribute('href', '#votreDisponibilite');
 
-      const votreMotivation = within(menuItems[3]).getByRole('link', { name: 'Votre motivation' });
-      expect(votreMotivation).toHaveAttribute('href', '#votreMotivation');
-    });
+    const votreMotivation = within(menuItems[3]).getByRole('link', { name: 'Votre motivation' });
+    expect(votreMotivation).toHaveAttribute('href', '#votreMotivation');
   });
 
   it('quand j’affiche le formulaire alors l’étape "Vos informations de contact" est affiché', () => {
@@ -283,11 +281,25 @@ describe('candidature conseiller', () => {
   it('quand je coche au moins une case de situation et que je valide le formulaire alors il n’y a pas d’erreur de validation', () => {
     // GIVEN
     render(<CandidatureConseiller />);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: '2023-12-12' } });
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
-    const envoyer = screen.getByRole('button', { type: 'submit' });
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
     fireEvent.click(envoyer);
 
     // THEN
@@ -298,9 +310,23 @@ describe('candidature conseiller', () => {
   it('quand je ne coche pas de case de situation et que je valide le formulaire alors il y a une erreur de validation', () => {
     // GIVEN
     render(<CandidatureConseiller />);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: '2023-12-12' } });
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
-    const envoyer = screen.getByRole('button', { type: 'submit' });
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
     fireEvent.click(envoyer);
 
     // THEN

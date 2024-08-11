@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Checkbox({ children, id, onCheck, checked }) {
+export default function Checkbox({ children, id, name, onCheck, checked }) {
   return (
     <div className="fr-fieldset__element">
       <div className="fr-checkbox-group">
-        <input id={id} type="checkbox" onChange={onCheck} checked={checked} />
+        <input id={id} type="checkbox" name={name} onChange={onCheck} checked={checked} />
         <label className="fr-label" htmlFor={id}>
           {children}
         </label>
@@ -17,6 +17,7 @@ export default function Checkbox({ children, id, onCheck, checked }) {
 Checkbox.propTypes = {
   children: PropTypes.node,
   id: PropTypes.string,
+  name: PropTypes.string,
   onCheck: PropTypes.func,
   checked: PropTypes.bool,
 };

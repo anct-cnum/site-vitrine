@@ -23,10 +23,17 @@ export default function CandidatureConseiller() {
     new Array(situations.length).fill(false)
   );
 
-  const valider = () => {
-    setIsSituationValid(situationChecks.some(checked => checked));
-    if (!isSituationValid) {
+  const validerLaCandidature = event => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const situations = formData.get('situations');
+
+    if (situations === null) {
+      setIsSituationValid(false);
       document.getElementById('situationEtExperience').scrollIntoView();
+    } else {
+      event.currentTarget.submit();
     }
   };
 
@@ -39,7 +46,7 @@ export default function CandidatureConseiller() {
         <div className="fr-col-12 fr-col-md-8 fr-py-12v">
           <h1 className="cc-titre fr-mb-5w">Je veux devenir conseiller numérique</h1>
           <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
-          <form aria-label="Candidature conseiller">
+          <form aria-label="Candidature conseiller" onSubmit={validerLaCandidature}>
             <InformationsDeContact />
             <SituationEtExperience
               situationChecks={situationChecks}
@@ -49,7 +56,7 @@ export default function CandidatureConseiller() {
             <Disponibilite setDateDisponibilite={setDateDisponibilite} />
             <Motivation />
             <EnResume dateDisponibilite={dateDisponibilite} />
-            <button className="fr-btn cc-envoyer" type="submit" onClick={valider}>
+            <button className="fr-btn cc-envoyer" type="submit">
               Envoyer votre candidature
             </button>
           </form>
