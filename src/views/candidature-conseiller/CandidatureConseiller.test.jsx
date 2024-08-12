@@ -106,7 +106,7 @@ describe('candidature conseiller', () => {
     expect(non).toHaveAttribute('name', 'experienceProfessionnelle');
   });
 
-  it('quand je coche "diplomé", un champ pour préciser le diplôme s’affiche', () => {
+  it('quand je coche "diplomé" alors un champ pour préciser le diplôme s’affiche', () => {
     // GIVEN
     render(<CandidatureConseiller />);
 
@@ -214,7 +214,7 @@ describe('candidature conseiller', () => {
     render(<CandidatureConseiller />);
 
     // THEN
-    const enResume = screen.getByText(textMatcher('En résumé'), { selector: 'p' });
+    const enResume = screen.getByText('En résumé', { selector: 'p' });
     expect(enResume).toBeInTheDocument();
 
     const titreResume = screen.getByText(
@@ -232,14 +232,13 @@ describe('candidature conseiller', () => {
     expect(descriptionResume).toBeInTheDocument();
   });
 
-  it('quand je modifie la date de disponibilité, elle s’affiche dans l’encart "En résumé" est affiché', () => {
+  it('quand je modifie la date de disponibilité alors elle s’affiche dans l’encart "En résumé" est affiché', () => {
     // GIVEN
     render(<CandidatureConseiller />);
-    const dateDisponibilite = '2023-12-12';
 
     // WHEN
-    const date = screen.getByLabelText('Choisir une date');
-    fireEvent.change(date, { target: { value: dateDisponibilite } });
+    const dateDisponibilite = screen.getByLabelText('Choisir une date');
+    fireEvent.change(dateDisponibilite, { target: { value: '2023-12-12' } });
 
     // THEN
     const titreResume = screen.getByText(
@@ -263,8 +262,8 @@ describe('candidature conseiller', () => {
       },
     ];
 
-    vi.spyOn(global, 'fetch').mockResolvedValue({
-      json: () => Promise.resolve(geoApiResponse)
+    vi.spyOn(global, 'fetch').mockResolvedValueOnce({
+      json: async () => Promise.resolve(geoApiResponse)
     });
 
     // WHEN
@@ -272,8 +271,8 @@ describe('candidature conseiller', () => {
     fireEvent.change(adresse, { target: { value: 'par' } });
 
     // THEN
-    const paris = await screen.findByText(textMatcher('75001 Paris'), { selector: 'option' });
-    const parisot = await screen.findByText(textMatcher('82137 Parisot'), { selector: 'option' });
+    const paris = await screen.findByRole('option', { name: '75001 Paris', hidden: true });
+    const parisot = await screen.findByRole('option', { name: '82137 Parisot', hidden: true });
     expect(paris).toBeInTheDocument();
     expect(parisot).toBeInTheDocument();
   });
@@ -303,7 +302,7 @@ describe('candidature conseiller', () => {
     fireEvent.click(envoyer);
 
     // THEN
-    const erreurCheckboxes = screen.queryByText(textMatcher('Vous devez cocher au moins une case'), { selector: 'p' });
+    const erreurCheckboxes = screen.queryByText('Vous devez cocher au moins une case', { selector: 'p' });
     expect(erreurCheckboxes).not.toBeInTheDocument();
   });
 
@@ -330,7 +329,7 @@ describe('candidature conseiller', () => {
     fireEvent.click(envoyer);
 
     // THEN
-    const erreurCheckboxes = screen.getByText(textMatcher('Vous devez cocher au moins une case'), { selector: 'p' });
+    const erreurCheckboxes = screen.getByText('Vous devez cocher au moins une case', { selector: 'p' });
     expect(erreurCheckboxes).toBeInTheDocument();
   });
 });

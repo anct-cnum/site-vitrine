@@ -5,7 +5,6 @@ import SituationEtExperience from './SituationEtExperience';
 import Disponibilite from './Disponibilite';
 import Motivation from './Motivation';
 import EnResume from './EnResume';
-import { situations } from './situations';
 
 import '@gouvfr/dsfr/dist/component/form/form.min.css';
 import '@gouvfr/dsfr/dist/component/input/input.min.css';
@@ -17,11 +16,8 @@ import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
 import './CandidatureConseiller.css';
 
 export default function CandidatureConseiller() {
-  const [dateDisponibilite, setDateDisponibilite] = useState();
+  const [dateDisponibilite, setDateDisponibilite] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
-  const [situationChecks, setSituationChecks] = useState(
-    new Array(situations.length).fill(false)
-  );
 
   const validerLaCandidature = event => {
     event.preventDefault();
@@ -48,11 +44,7 @@ export default function CandidatureConseiller() {
           <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
           <form aria-label="Candidature conseiller" onSubmit={validerLaCandidature}>
             <InformationsDeContact />
-            <SituationEtExperience
-              situationChecks={situationChecks}
-              setSituationChecks={setSituationChecks}
-              isSituationValid={isSituationValid}
-            />
+            <SituationEtExperience isSituationValid={isSituationValid} />
             <Disponibilite setDateDisponibilite={setDateDisponibilite} />
             <Motivation />
             <EnResume dateDisponibilite={dateDisponibilite} />
