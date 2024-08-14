@@ -3,7 +3,7 @@ import BoutonRadio from '../../components/commun/BoutonRadio';
 import Datepicker from '../../components/commun/Datepicker';
 import PropTypes from 'prop-types';
 
-export default function Disponibilite({ setDateDisponibilite }) {
+export default function Disponibilite({ setDateDisponibilite, minDateDuJour }) {
   return (
     <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="votreDisponibilite">
       <legend className="fr-h5">Votre disponibilité</legend>
@@ -14,7 +14,7 @@ export default function Disponibilite({ setDateDisponibilite }) {
       <p className="fr-text--sm fr-hint-text">
         Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.
       </p>
-      <Datepicker id="choisir-date" onChange={event => setDateDisponibilite(event.target.value)}>
+      <Datepicker id="choisir-date" onChange={event => setDateDisponibilite(event.target.value)} min={minDateDuJour}>
         Choisir une date
       </Datepicker>
       <hr />
@@ -55,4 +55,5 @@ export default function Disponibilite({ setDateDisponibilite }) {
 
 Disponibilite.propTypes = {
   setDateDisponibilite: PropTypes.func,
+  minDateDuJour: PropTypes.string,
 };

@@ -14,10 +14,12 @@ import '@gouvfr/dsfr/dist/component/badge/badge.min.css';
 import '@gouvfr/dsfr/dist/component/notice/notice.min.css';
 import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
 import './CandidatureConseiller.css';
+import dayjs from 'dayjs';
 
 export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
+  const minDateDuJour = dayjs().format('YYYY-MM-DD');
 
   const validerLaCandidature = event => {
     event.preventDefault();
@@ -45,7 +47,7 @@ export default function CandidatureConseiller() {
           <form aria-label="Candidature conseiller" onSubmit={validerLaCandidature}>
             <InformationsDeContact />
             <SituationEtExperience isSituationValid={isSituationValid} />
-            <Disponibilite setDateDisponibilite={setDateDisponibilite} />
+            <Disponibilite setDateDisponibilite={setDateDisponibilite} minDateDuJour={minDateDuJour}/>
             <Motivation />
             <EnResume dateDisponibilite={dateDisponibilite} />
             <button className="fr-btn cc-envoyer" type="submit">
