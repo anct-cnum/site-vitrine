@@ -1,6 +1,5 @@
 import React from 'react';
 import Input from '../../components/commun/Input';
-import AddressChooser from './AddressChooser';
 
 export default function InformationsDeContact() {
   return (
@@ -18,20 +17,23 @@ export default function InformationsDeContact() {
         Nom <span className="cc-obligatoire">*</span>
       </Input>
       <Input
+        id="fonction"
+      >
+        Fonction <span className="cc-obligatoire">*</span>
+      </Input>
+      <Input
         id="email"
         type="email"
       >
-        Adresse e-mail <span className="cc-obligatoire">*</span> <span className="fr-hint-text">Format attendu : nom@domaine.fr</span>
+        Adresse e-mail <span className="cc-obligatoire">*</span>
       </Input>
       <Input
         id="telephone"
         type="tel"
         pattern="0[1-9]{9}"
-        isRequired={false}
       >
-        Téléphone <span className="fr-hint-text">Format attendu : 0122334455</span>
+        Téléphone <span className="cc-obligatoire">*</span>
       </Input>
-      <AddressChooser />
     </fieldset>
   );
 }

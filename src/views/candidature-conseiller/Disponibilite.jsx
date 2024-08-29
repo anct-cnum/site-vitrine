@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 export default function Disponibilite({ setDateDisponibilite, minDateDuJour }) {
   return (
-    <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="votreDisponibilite">
+    <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="votre-disponibilite">
       <legend className="fr-h5">Votre disponibilité</legend>
       <hr />
       <p className="fr-mb-3w cc-bold">
