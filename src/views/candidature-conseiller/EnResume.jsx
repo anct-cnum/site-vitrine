@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 export default function EnResume({ dateDisponibilite }) {
   const formatDate = () => {
-    if (!dateDisponibilite) {
+    if (dateDisponibilite === '') {
       return '[Renseignez votre date de disponibilité]';
     }
     return new Date(dateDisponibilite).toLocaleDateString();

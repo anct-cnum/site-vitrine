@@ -18,18 +18,17 @@ import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
 import './CandidatureConseiller.css';
 
 export default function CandidatureConseiller() {
-  const [dateDisponibilite, setDateDisponibilite] = useState();
+  const [dateDisponibilite, setDateDisponibilite] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
-  const [situationChecks, setSituationChecks] = useState(
-    new Array(situations.length).fill(false)
-  );
 
   useScrollToSection();
 
-  const valider = () => {
-    setIsSituationValid(situationChecks.some(checked => checked));
+  const validerLaCandidature = event => {
+    setIsSituationValid(situations.some(checked => checked));
     if (!isSituationValid) {
       document.getElementById('situationEtExperience').scrollIntoView();
+    } else {
+      event.currentTarget.submit();
     }
   };
 
@@ -42,17 +41,13 @@ export default function CandidatureConseiller() {
         <div className="fr-col-12 fr-col-md-8 fr-py-12v">
           <h1 className="cc-titre fr-mb-5w">Je veux devenir conseiller numérique</h1>
           <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
-          <form aria-label="Candidature conseiller">
+          <form aria-label="Candidature conseiller" onSubmit={validerLaCandidature}>
             <InformationsDeContact />
-            <SituationEtExperience
-              situationChecks={situationChecks}
-              setSituationChecks={setSituationChecks}
-              isSituationValid={isSituationValid}
-            />
+            <SituationEtExperience isSituationValid={isSituationValid} />
             <Disponibilite setDateDisponibilite={setDateDisponibilite} />
             <Motivation />
             <EnResume dateDisponibilite={dateDisponibilite} />
-            <button className="fr-btn cc-envoyer" type="submit" onClick={valider}>
+            <button className="fr-btn cc-envoyer" type="submit">
               Envoyer votre candidature
             </button>
           </form>

@@ -5,16 +5,10 @@ import Input from '../../components/commun/Input';
 import { situations } from './situations';
 import PropTypes from 'prop-types';
 
-export default function SituationEtExperience({ situationChecks, setSituationChecks, isSituationValid }) {
+export default function SituationEtExperience({ isSituationValid }) {
   const [isDiplomeSelected, setIsDiplomeSelected] = useState(false);
 
   const handleCheck = event => {
-    const indexCaseCochee = situations.findIndex(situation => situation.id === event.target.id);
-    const updatedCheckedState = situationChecks.map((item, index) =>
-      index === indexCaseCochee ? !item : item
-    );
-    setSituationChecks(updatedCheckedState);
-
     setIsDiplomeSelected(event.target.id === 'diplome' && event.target.checked);
   };
 
@@ -26,7 +20,7 @@ export default function SituationEtExperience({ situationChecks, setSituationChe
         Êtes-vous actuellement dans l’une des situations suivantes ? <span className="cc-obligatoire">*</span>
       </p>
       {situations.map(({ id, libelle }, index) =>
-        <Checkbox id={id} key={id} onCheck={handleCheck} checked={situationChecks[index]} required={false}>
+        <Checkbox id={id} key={id} onCheck={handleCheck} checked={situations[index]} required={false}>
           {libelle}
         </Checkbox>
       )}
@@ -58,7 +52,5 @@ export default function SituationEtExperience({ situationChecks, setSituationChe
 }
 
 SituationEtExperience.propTypes = {
-  situationChecks: PropTypes.array,
-  setSituationChecks: PropTypes.func,
   isSituationValid: PropTypes.bool
 };
