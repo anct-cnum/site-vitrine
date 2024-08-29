@@ -38,6 +38,7 @@ function App() {
   const CarteCoordinateur = lazy(() => import('./views/coordination-territoriale/CarteCoordinateur'));
   const PageCandidatureConseiller = lazy(() => import('./views/candidature-conseiller/PageCandidatureConseiller'));
   const PageCandidatureStructure = lazy(() => import('./views/candidature-structure/PageCandidatureStructure'));
+  const PageCandidatureCoordinateur = lazy(() => import('./views/candidature-coordinateur/PageCandidatureCoordinateur'));
 
   return (
     <div className="App">
@@ -47,6 +48,7 @@ function App() {
             <Route path="/accueil" element={<GestionHash />}/>
             <Route path="/nouveau-formulaire-conseiller" element={<PageCandidatureConseiller />}/>
             <Route path="/nouveau-formulaire-structure" element={<PageCandidatureStructure />}/>
+            <Route path="/nouveau-formulaire-coordinateur" element={<PageCandidatureCoordinateur />}/>
             <Route path="/kit-communication" element={<KitCommunication />}/>
             <Route path="/donnees-personnelles" element={<DonneesPersonnelles />}/>
             <Route path="/mentions-legales" element={<MentionsLegales />}/>
