@@ -1,7 +1,7 @@
 import { render, screen, within, fireEvent } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
-import { textMatcher } from '../../../test/test-utils';
+import { textMatcher, dateDujour, dateFormatFR } from '../../../test/test-utils';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
@@ -240,14 +240,15 @@ describe('candidature conseiller', () => {
   it('quand je modifie la date de disponibilité, alors elle s’affiche dans l’encart "En résumé"', () => {
     // GIVEN
     render(<CandidatureConseiller />);
+    const date = dateDujour();
 
     // WHEN
     const dateDisponibilite = screen.getByLabelText('Choisir une date');
-    fireEvent.change(dateDisponibilite, { target: { value: '2023-12-12' } });
+    fireEvent.change(dateDisponibilite, { target: { value: date } });
 
     // THEN
     const titreResume = screen.getByText(
-      textMatcher('Vous recherchez une certification et un emploi de conseiller numérique à partir du 12/12/2023.'),
+      textMatcher(`Vous recherchez une certification et un emploi de conseiller numérique à partir du ${dateFormatFR(date)}.`),
       { selector: 'p' }
     );
     expect(titreResume).toBeInTheDocument();
@@ -296,7 +297,7 @@ describe('candidature conseiller', () => {
     const oui = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(oui);
     const date = screen.getByLabelText('Choisir une date');
-    fireEvent.change(date, { target: { value: '2023-12-12' } });
+    fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
     const descriptionMotivation = screen.getByLabelText('Votre message *');
@@ -323,7 +324,7 @@ describe('candidature conseiller', () => {
     const oui = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(oui);
     const date = screen.getByLabelText('Choisir une date');
-    fireEvent.change(date, { target: { value: '2023-12-12' } });
+    fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
     const descriptionMotivation = screen.getByLabelText('Votre message *');

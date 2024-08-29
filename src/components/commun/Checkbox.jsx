@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 export default function Checkbox({ children, id, name, onCheck, required = true }) {
   return (
     <div className="fr-fieldset__element">
@@ -21,5 +20,4 @@ Checkbox.propTypes = {
   name: PropTypes.string,
   onCheck: PropTypes.func,
   required: PropTypes.bool
-
 };
