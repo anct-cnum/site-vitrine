@@ -24,9 +24,14 @@ export default function CandidatureConseiller() {
   useScrollToSection();
 
   const validerLaCandidature = event => {
-    setIsSituationValid(situations.some(checked => checked));
-    if (!isSituationValid) {
-      document.getElementById('situationEtExperience').scrollIntoView();
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const situations = formData.get('situations');
+
+    if (situations === null) {
+      setIsSituationValid(false);
+      document.getElementById('situation-et-experience').scrollIntoView();
     } else {
       event.currentTarget.submit();
     }
