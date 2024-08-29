@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import Sommaire from './Sommaire';
+import SommaireConseiller from './SommaireConseiller';
 import InformationsDeContact from './InformationsDeContact';
 import SituationEtExperience from './SituationEtExperience';
 import Disponibilite from './Disponibilite';
 import Motivation from './Motivation';
 import EnResume from './EnResume';
 import { situations } from './situations';
+import { useScrollToSection } from '../../hooks/useScrollToSection';
 
 import '@gouvfr/dsfr/dist/component/form/form.min.css';
 import '@gouvfr/dsfr/dist/component/input/input.min.css';
@@ -23,6 +24,8 @@ export default function CandidatureConseiller() {
     new Array(situations.length).fill(false)
   );
 
+  useScrollToSection();
+
   const valider = () => {
     setIsSituationValid(situationChecks.some(checked => checked));
     if (!isSituationValid) {
@@ -34,7 +37,7 @@ export default function CandidatureConseiller() {
     <div className="fr-container fr-mt-5w fr-mb-5w">
       <div className="fr-grid-row">
         <div className="fr-col-12 fr-col-md-4">
-          <Sommaire />
+          <SommaireConseiller />
         </div>
         <div className="fr-col-12 fr-col-md-8 fr-py-12v">
           <h1 className="cc-titre fr-mb-5w">Je veux devenir conseiller numérique</h1>

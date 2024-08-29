@@ -19,14 +19,14 @@ export default function SituationEtExperience({ situationChecks, setSituationChe
   };
 
   return (
-    <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="situationEtExperience">
+    <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="situation-et-experience">
       <legend className="fr-h5">Votre situation et expérience</legend>
       <hr />
       <p className="fr-mb-3w cc-bold">
         Êtes-vous actuellement dans l’une des situations suivantes ? <span className="cc-obligatoire">*</span>
       </p>
       {situations.map(({ id, libelle }, index) =>
-        <Checkbox id={id} key={id} onCheck={handleCheck} checked={situationChecks[index]}>
+        <Checkbox id={id} key={id} onCheck={handleCheck} checked={situationChecks[index]} required={false}>
           {libelle}
         </Checkbox>
       )}
