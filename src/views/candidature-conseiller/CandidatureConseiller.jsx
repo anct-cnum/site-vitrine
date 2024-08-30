@@ -5,7 +5,6 @@ import SituationEtExperience from './SituationEtExperience';
 import Disponibilite from './Disponibilite';
 import Motivation from './Motivation';
 import EnResume from './EnResume';
-import { situations } from './situations';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
 
 import '@gouvfr/dsfr/dist/component/form/form.min.css';

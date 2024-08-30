@@ -8,7 +8,7 @@ export default function EnResume({ dateDisponibilite }) {
     if (dateDisponibilite === '') {
       return '[Renseignez votre date de disponibilité]';
     }
-    return new Date(dateDisponibilite).toLocaleDateString();
+    return new Date(dateDisponibilite).toLocaleDateString('fr-FR');
   };
 
   return (
