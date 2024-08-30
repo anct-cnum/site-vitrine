@@ -1,7 +1,7 @@
 import { render, screen, within, fireEvent } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
-import { textMatcher, dateDujour, dateFormatFR } from '../../../test/test-utils';
+import { textMatcher, dateDujour } from '../../../test/test-utils';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
@@ -239,6 +239,8 @@ describe('candidature conseiller', () => {
 
   it('quand je modifie la date de disponibilité, alors elle s’affiche dans l’encart "En résumé"', () => {
     // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
     render(<CandidatureConseiller />);
     const date = dateDujour();
 
@@ -248,10 +250,11 @@ describe('candidature conseiller', () => {
 
     // THEN
     const titreResume = screen.getByText(
-      textMatcher(`Vous recherchez une certification et un emploi de conseiller numérique à partir du ${dateFormatFR(date)}.`),
+      textMatcher('Vous recherchez une certification et un emploi de conseiller numérique à partir du 12/12/2023.'),
       { selector: 'p' }
     );
     expect(titreResume).toBeInTheDocument();
+    vi.useRealTimers();
   });
 
   it('quand je renseigne un début de nom de ville qui existe alors plusieurs résultats sont affichés', async () => {
@@ -285,6 +288,8 @@ describe('candidature conseiller', () => {
 
   it('quand je coche au moins une case de situation et que je valide le formulaire alors il n’y a pas d’erreur de validation', () => {
     // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
     render(<CandidatureConseiller />);
     const prenom = screen.getByLabelText('Prénom *');
     fireEvent.change(prenom, { target: { value: 'Jean' } });
@@ -310,10 +315,13 @@ describe('candidature conseiller', () => {
     // THEN
     const erreurCheckboxes = screen.queryByText('Vous devez cocher au moins une case', { selector: 'p' });
     expect(erreurCheckboxes).not.toBeInTheDocument();
+    vi.useRealTimers();
   });
 
   it('quand je ne coche pas de case de situation et que je valide le formulaire alors il y a une erreur de validation', () => {
     // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
     render(<CandidatureConseiller />);
     const prenom = screen.getByLabelText('Prénom *');
     fireEvent.change(prenom, { target: { value: 'Jean' } });
@@ -337,5 +345,6 @@ describe('candidature conseiller', () => {
     // THEN
     const erreurCheckboxes = screen.getByText('Vous devez cocher au moins une case', { selector: 'p' });
     expect(erreurCheckboxes).toBeInTheDocument();
+    vi.useRealTimers();
   });
 });

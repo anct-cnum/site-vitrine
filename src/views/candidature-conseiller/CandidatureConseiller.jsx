@@ -7,7 +7,6 @@ import Motivation from './Motivation';
 import EnResume from './EnResume';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
 
-
 import '@gouvfr/dsfr/dist/component/form/form.min.css';
 import '@gouvfr/dsfr/dist/component/input/input.min.css';
 import '@gouvfr/dsfr/dist/component/checkbox/checkbox.min.css';
@@ -16,12 +15,10 @@ import '@gouvfr/dsfr/dist/component/badge/badge.min.css';
 import '@gouvfr/dsfr/dist/component/notice/notice.min.css';
 import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
 import './CandidatureConseiller.css';
-import dayjs from 'dayjs';
 
 export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
-  const minDateDuJour = dayjs().format('YYYY-MM-DD');
 
   useScrollToSection();
 
@@ -51,7 +48,7 @@ export default function CandidatureConseiller() {
           <form aria-label="Candidature conseiller" onSubmit={validerLaCandidature}>
             <InformationsDeContact />
             <SituationEtExperience isSituationValid={isSituationValid} />
-            <Disponibilite setDateDisponibilite={setDateDisponibilite} minDateDuJour={minDateDuJour}/>
+            <Disponibilite setDateDisponibilite={setDateDisponibilite} />
             <Motivation />
             <EnResume dateDisponibilite={dateDisponibilite} />
             <button className="fr-btn cc-envoyer" type="submit">
