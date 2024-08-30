@@ -15,11 +15,12 @@ import '@gouvfr/dsfr/dist/component/badge/badge.min.css';
 import '@gouvfr/dsfr/dist/component/notice/notice.min.css';
 import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
 import './CandidatureConseiller.css';
+import { useApiAdmin } from './useApiAdmin';
 
 export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
-
+  const { creerCandidatureConseiller } = useApiAdmin();
   useScrollToSection();
 
   const validerLaCandidature = event => {
@@ -33,6 +34,7 @@ export default function CandidatureConseiller() {
       document.getElementById('situation-et-experience').scrollIntoView();
     } else {
       event.currentTarget.submit();
+      creerCandidatureConseiller();
     }
   };
 
@@ -45,7 +47,10 @@ export default function CandidatureConseiller() {
         <div className="fr-col-12 fr-col-md-8 fr-py-12v">
           <h1 className="cc-titre fr-mb-5w">Je veux devenir conseiller numérique</h1>
           <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
-          <form aria-label="Candidature conseiller" onSubmit={validerLaCandidature}>
+          <form
+            aria-label="Candidature conseiller"
+            onSubmit={validerLaCandidature}
+          >
             <InformationsDeContact />
             <SituationEtExperience isSituationValid={isSituationValid} />
             <Disponibilite setDateDisponibilite={setDateDisponibilite} />
