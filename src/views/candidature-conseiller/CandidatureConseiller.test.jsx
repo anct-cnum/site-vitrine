@@ -5,6 +5,7 @@ import { textMatcher, dateDujour } from '../../../test/test-utils';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
+  useNavigate: () => { }
 }));
 
 describe('candidature conseiller', () => {

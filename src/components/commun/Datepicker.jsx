@@ -7,7 +7,7 @@ export default function Datepicker({ children, id, isRequired = true, onChange, 
       <label className="fr-label" htmlFor={id}>
         {children}
       </label>
-      <input className="fr-input cc-datepicker" id={id} type="date" required={isRequired} onChange={onChange} min={min} />
+      <input className="fr-input cc-datepicker" id={id} type="date" required={isRequired} onChange={onChange} min={min} name={id} />
     </div>
   );
 }

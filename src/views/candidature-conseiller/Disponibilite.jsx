@@ -16,7 +16,7 @@ export default function Disponibilite({ setDateDisponibilite }) {
       <p className="fr-text--sm fr-hint-text">
         Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.
       </p>
-      <Datepicker id="choisir-date" onChange={event => setDateDisponibilite(event.target.value)} min={dateDuJour}>
+      <Datepicker id="dateDisponibilite" onChange={event => setDateDisponibilite(event.target.value)} min={dateDuJour}>
         Choisir une date
       </Datepicker>
       <hr />

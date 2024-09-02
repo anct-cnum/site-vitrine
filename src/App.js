@@ -39,6 +39,7 @@ function App() {
   const PageCandidatureConseiller = lazy(() => import('./views/candidature-conseiller/PageCandidatureConseiller'));
   const PageCandidatureStructure = lazy(() => import('./views/candidature-structure/PageCandidatureStructure'));
   const PageCandidatureCoordinateur = lazy(() => import('./views/candidature-coordinateur/PageCandidatureCoordinateur'));
+  const PageCandidatureValidee = lazy(() => import('./views/candidature-validee/PageCandidatureValidee'));
 
   return (
     <div className="App">
@@ -49,6 +50,7 @@ function App() {
             <Route path="/nouveau-formulaire-conseiller" element={<PageCandidatureConseiller />}/>
             <Route path="/nouveau-formulaire-structure" element={<PageCandidatureStructure />}/>
             <Route path="/nouveau-formulaire-coordinateur" element={<PageCandidatureCoordinateur />}/>
+            <Route path="/candidature-validee" element={<PageCandidatureValidee />}/>
             <Route path="/kit-communication" element={<KitCommunication />}/>
             <Route path="/donnees-personnelles" element={<DonneesPersonnelles />}/>
             <Route path="/mentions-legales" element={<MentionsLegales />}/>

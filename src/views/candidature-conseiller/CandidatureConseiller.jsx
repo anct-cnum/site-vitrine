@@ -6,6 +6,7 @@ import Disponibilite from './Disponibilite';
 import Motivation from './Motivation';
 import EnResume from './EnResume';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
+import { useNavigate } from 'react-router-dom';
 
 import '@gouvfr/dsfr/dist/component/form/form.min.css';
 import '@gouvfr/dsfr/dist/component/input/input.min.css';
@@ -14,27 +15,45 @@ import '@gouvfr/dsfr/dist/component/radio/radio.min.css';
 import '@gouvfr/dsfr/dist/component/badge/badge.min.css';
 import '@gouvfr/dsfr/dist/component/notice/notice.min.css';
 import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
+import '@gouvfr/dsfr/dist/component/alert/alert.min.css';
 import './CandidatureConseiller.css';
 import { useApiAdmin } from './useApiAdmin';
+import Alert from '../../components/commun/Alert';
 
 export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
-  const { creerCandidatureConseiller } = useApiAdmin();
+  const [validationError, setValidationError] = useState();
+  const { buildConseillerData, creerCandidatureConseiller } = useApiAdmin();
+  const navigate = useNavigate();
   useScrollToSection();
 
-  const validerLaCandidature = event => {
+  const estSituationRemplie = formData => {
+    const demandeurEmploi = formData.get('demandeurEmploi');
+    const enEmploi = formData.get('enEmploi');
+    const enFormation = formData.get('enFormation');
+    const diplome = formData.get('diplome');
+
+    return demandeurEmploi || enEmploi || enFormation || diplome;
+  };
+
+  const validerLaCandidature = async event => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const situations = formData.get('situations');
 
-    if (situations === null) {
+    if (!estSituationRemplie(formData)) {
       setIsSituationValid(false);
       document.getElementById('situation-et-experience').scrollIntoView();
     } else {
-      event.currentTarget.submit();
-      creerCandidatureConseiller();
+      const conseillerData = buildConseillerData(formData);
+      const resultatCreation = await creerCandidatureConseiller(conseillerData);
+      if (resultatCreation.status >= 400) {
+        const error = await resultatCreation.json();
+        setValidationError(error.message);
+      } else {
+        navigate('/candidature-validee');
+      }
     }
   };
 
@@ -47,6 +66,9 @@ export default function CandidatureConseiller() {
         <div className="fr-col-12 fr-col-md-8 fr-py-12v">
           <h1 className="cc-titre fr-mb-5w">Je veux devenir conseiller numérique</h1>
           <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
+          {validationError && <Alert titre="Erreur de validation">
+            {validationError}
+          </Alert>}
           <form
             aria-label="Candidature conseiller"
             onSubmit={validerLaCandidature}

@@ -1,0 +1,10 @@
+.cv-contenu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cv-titre {
+  color: var(--blue-france-sun-113-625);
+}

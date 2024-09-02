@@ -6,7 +6,17 @@ export default function Input({ children, id, isRequired = true, type = 'text', 
     <div className="fr-fieldset__element">
       <div className="fr-input-group">
         <label className="fr-label" htmlFor={id}>{children}</label>
-        <input className="fr-input" type={type} id={id} required={isRequired} pattern={pattern} onChange={onChange} list={list} min={min} />
+        <input
+          className="fr-input"
+          type={type}
+          id={id}
+          required={isRequired}
+          pattern={pattern}
+          onChange={onChange}
+          list={list}
+          min={min}
+          name={id}
+        />
       </div>
     </div>
   );
