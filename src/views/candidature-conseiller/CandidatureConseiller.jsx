@@ -29,10 +29,10 @@ export default function CandidatureConseiller() {
   useScrollToSection();
 
   const estSituationRemplie = formData => {
-    const demandeurEmploi = formData.get('demandeurEmploi');
-    const enEmploi = formData.get('enEmploi');
-    const enFormation = formData.get('enFormation');
-    const diplome = formData.get('diplome');
+    const demandeurEmploi = formData.get('estDemandeurEmploi');
+    const enEmploi = formData.get('estEnEmploi');
+    const enFormation = formData.get('estEnFormation');
+    const diplome = formData.get('estDiplomeMedNum');
 
     return demandeurEmploi || enEmploi || enFormation || diplome;
   };
@@ -46,11 +46,12 @@ export default function CandidatureConseiller() {
       setIsSituationValid(false);
       document.getElementById('situation-et-experience').scrollIntoView();
     } else {
-      const conseillerData = buildConseillerData(formData);
+      const conseillerData = await buildConseillerData(formData);
       const resultatCreation = await creerCandidatureConseiller(conseillerData);
       if (resultatCreation.status >= 400) {
         const error = await resultatCreation.json();
         setValidationError(error.message);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         navigate('/candidature-validee');
       }

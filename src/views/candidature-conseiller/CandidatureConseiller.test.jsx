@@ -58,9 +58,9 @@ describe('candidature conseiller', () => {
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
-    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone Format attendu : 0122334455');
+    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone Format attendu : +33122334455');
     expect(telephone).toHaveAttribute('type', 'tel');
-    expect(telephone).toHaveAttribute('pattern', '0[1-9]{9}');
+    expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[1-9]{9}');
 
     const habitation = within(etapeInformationsDeContact).getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
     expect(habitation).toHaveAttribute('type', 'text');
@@ -105,11 +105,11 @@ describe('candidature conseiller', () => {
 
     const oui = screen.getByRole('radio', { name: 'Oui' });
     expect(oui).toBeRequired();
-    expect(oui).toHaveAttribute('name', 'experienceProfessionnelle');
+    expect(oui).toHaveAttribute('name', 'aUneExperienceMedNum');
 
     const non = screen.getByRole('radio', { name: 'Non' });
     expect(non).toBeRequired();
-    expect(non).toHaveAttribute('name', 'experienceProfessionnelle');
+    expect(non).toHaveAttribute('name', 'aUneExperienceMedNum');
   });
 
   it('quand je coche "diplomé" alors un champ pour préciser le diplôme s’affiche', () => {
@@ -167,31 +167,31 @@ describe('candidature conseiller', () => {
 
     const _5km = screen.getByRole('radio', { name: '5 km' });
     expect(_5km).toBeRequired();
-    expect(_5km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_5km).toHaveAttribute('name', 'distanceMax');
 
     const _10km = screen.getByRole('radio', { name: '10 km' });
     expect(_10km).toBeRequired();
-    expect(_10km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_10km).toHaveAttribute('name', 'distanceMax');
 
     const _15km = screen.getByRole('radio', { name: '15 km' });
     expect(_15km).toBeRequired();
-    expect(_15km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_15km).toHaveAttribute('name', 'distanceMax');
 
     const _20km = screen.getByRole('radio', { name: '20 km' });
     expect(_20km).toBeRequired();
-    expect(_20km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_20km).toHaveAttribute('name', 'distanceMax');
 
     const _40km = screen.getByRole('radio', { name: '40 km' });
     expect(_40km).toBeRequired();
-    expect(_40km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_40km).toHaveAttribute('name', 'distanceMax');
 
     const _100km = screen.getByRole('radio', { name: '100 km' });
     expect(_100km).toBeRequired();
-    expect(_100km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_100km).toHaveAttribute('name', 'distanceMax');
 
     const franceEntiere = screen.getByRole('radio', { name: 'France entière' });
     expect(franceEntiere).toBeRequired();
-    expect(franceEntiere).toHaveAttribute('name', 'distanceDomicile');
+    expect(franceEntiere).toHaveAttribute('name', 'distanceMax');
   });
 
   it('quand j’affiche le formulaire alors l’étape "Votre motivation" est affiché', () => {
