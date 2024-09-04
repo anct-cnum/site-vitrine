@@ -67,9 +67,13 @@ export default function CandidatureConseiller() {
         <div className="fr-col-12 fr-col-md-8 fr-py-12v">
           <h1 className="cc-titre fr-mb-5w">Je veux devenir conseiller numérique</h1>
           <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
-          {validationError && <Alert titre="Erreur de validation">
-            {validationError}
-          </Alert>}
+          {validationError &&
+            <div className="fr-pb-2w">
+              <Alert titre="Erreur de validation">
+                {validationError}
+              </Alert>
+            </div>
+          }
           <form
             aria-label="Candidature conseiller"
             onSubmit={validerLaCandidature}

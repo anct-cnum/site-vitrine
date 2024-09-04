@@ -19,9 +19,7 @@ export const useApiAdmin = () => {
   };
 
   const convertStringToBoolean = (conseillerData, key) => {
-    if (conseillerData[key] === 'on') {
-      conseillerData[key] = true;
-    }
+    conseillerData[key] = conseillerData[key] === 'on';
   };
 
   const getInformationsVille = async lieuHabitation => {
@@ -42,14 +40,14 @@ export const useApiAdmin = () => {
     convertStringToBoolean(conseillerData, 'estEnFormation');
     convertStringToBoolean(conseillerData, 'estDiplomeMedNum');
     handleExperienceMedNum(conseillerData);
-    const informationsVille = (await getInformationsVille(formData.get('lieuHabitation')))[0];
-    conseillerData.nomCommune = informationsVille.nom;
-    conseillerData.codePostal = informationsVille.code;
-    conseillerData.codeCommune = informationsVille.code;
-    conseillerData.location = informationsVille.centre;
-    conseillerData.codeDepartement = informationsVille.codeDepartement;
-    conseillerData.codeRegion = informationsVille.codeRegion;
-    conseillerData.codeCom = informationsVille.code;
+    const informationsVille = (await getInformationsVille(formData.get('lieuHabitation')))?.[0];
+    conseillerData.nomCommune = informationsVille?.nom;
+    conseillerData.codePostal = informationsVille?.code;
+    conseillerData.codeCommune = informationsVille?.code;
+    conseillerData.location = informationsVille?.centre;
+    conseillerData.codeDepartement = informationsVille?.codeDepartement;
+    conseillerData.codeRegion = informationsVille?.codeRegion;
+    conseillerData.codeCom = informationsVille?.code;
     delete conseillerData.lieuHabitation;
 
     return JSON.stringify(conseillerData);

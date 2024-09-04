@@ -211,7 +211,7 @@ describe('candidature conseiller', () => {
     expect(aideMotivation).toBeInTheDocument();
 
     const descriptionMotivation = within(votreMotivation).getByLabelText('Votre message *');
-    expect(descriptionMotivation).toHaveAttribute('name', 'descriptionMotivation');
+    expect(descriptionMotivation).toHaveAttribute('name', 'motivation');
     expect(descriptionMotivation).toBeRequired();
   });
 

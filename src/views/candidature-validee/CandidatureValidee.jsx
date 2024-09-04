@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './CandidatureValidee.css';
@@ -10,6 +10,10 @@ export default function CandidatureValidee() {
   const goToHome = () => {
     navigate('/');
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <div className="fr-container fr-p-10w cv-contenu">
