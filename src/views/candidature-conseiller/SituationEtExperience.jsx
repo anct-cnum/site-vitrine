@@ -31,7 +31,7 @@ export default function SituationEtExperience({ isSituationValid }) {
         isDiplomeSelected &&
         <Input
           id="nomDiplomeMedNum"
-          isRequired={false}
+          isRequired={isDiplomeSelected}
         >
           Précisez le nom de votre diplôme, formation certifiante, modules de formation de médiation, numérique /accompagnement au numérique des publics.
         </Input>

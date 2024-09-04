@@ -18,7 +18,7 @@ export const useApiAdmin = () => {
     }
   };
 
-  const convertStringToBoolean = (conseillerData, key) => {
+  const handleSituations = (conseillerData, key) => {
     conseillerData[key] = conseillerData[key] === 'on';
   };
 
@@ -35,10 +35,10 @@ export const useApiAdmin = () => {
 
   const buildConseillerData = async formData => {
     const conseillerData = Object.fromEntries(formData);
-    convertStringToBoolean(conseillerData, 'estDemandeurEmploi');
-    convertStringToBoolean(conseillerData, 'estEnEmploi');
-    convertStringToBoolean(conseillerData, 'estEnFormation');
-    convertStringToBoolean(conseillerData, 'estDiplomeMedNum');
+    handleSituations(conseillerData, 'estDemandeurEmploi');
+    handleSituations(conseillerData, 'estEnEmploi');
+    handleSituations(conseillerData, 'estEnFormation');
+    handleSituations(conseillerData, 'estDiplomeMedNum');
     handleExperienceMedNum(conseillerData);
     const informationsVille = (await getInformationsVille(formData.get('lieuHabitation')))?.[0];
     conseillerData.nomCommune = informationsVille?.nom;
