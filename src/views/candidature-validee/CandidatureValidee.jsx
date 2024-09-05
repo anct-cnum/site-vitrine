@@ -5,6 +5,7 @@ import './CandidatureValidee.css';
 export default function CandidatureValidee() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.title = 'Conseiller numérique - Candidature validée';
   }, []);
 
   return (

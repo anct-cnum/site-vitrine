@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import SommaireStructure from './SommaireStructure';
 import InformationsDeContact from './InformationsDeContact';
 import InformationsDeStructure from './InformationsDeStructure';
@@ -17,7 +17,9 @@ import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
 import '../candidature-conseiller/CandidatureConseiller.css';
 
 export default function CandidatureStructure() {
-  const [dateAccueilConseillerNumerique, setDateAccueilConseillerNumerique] = useState();
+  useEffect(() => {
+    document.title = 'Conseiller numérique - Engager un conseiller numérique';
+  }, []);
 
   useScrollToSection();
 
@@ -33,7 +35,7 @@ export default function CandidatureStructure() {
           <form aria-label="Candidature structure" >
             <InformationsDeStructure />
             <InformationsDeContact />
-            <BesoinEnConseillerNumerique setDateAccueilConseillerNumerique={setDateAccueilConseillerNumerique} />
+            <BesoinEnConseillerNumerique />
             <Motivation />
             <Engagement />
             <button className="fr-btn cc-envoyer" type="submit">

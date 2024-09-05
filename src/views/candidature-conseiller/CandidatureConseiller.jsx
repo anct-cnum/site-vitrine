@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SommaireConseiller from './SommaireConseiller';
 import InformationsDeContact from './InformationsDeContact';
 import SituationEtExperience from './SituationEtExperience';
@@ -27,6 +27,10 @@ export default function CandidatureConseiller() {
   const { buildConseillerData, creerCandidatureConseiller } = useApiAdmin();
   const navigate = useNavigate();
   useScrollToSection();
+
+  useEffect(() => {
+    document.title = 'Conseiller numérique - Devenir conseiller numérique';
+  }, []);
 
   const estSituationRemplie = formData => {
     const demandeurEmploi = formData.get('estDemandeurEmploi');
