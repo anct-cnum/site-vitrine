@@ -1,10 +1,10 @@
 import React from 'react';
 import Input from '../../components/commun/Input';
-import { useSiretApi } from './useSiretApi';
+import { useEntrepriseFinder } from './useEntrepriseFinder';
 import { debounce } from '../candidature-conseiller/debounce';
 
 export default function CompanyFinder() {
-  const { search, entreprise } = useSiretApi();
+  const { search, entreprise } = useEntrepriseFinder();
 
   return (
     <>

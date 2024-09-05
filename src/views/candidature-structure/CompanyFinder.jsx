@@ -1,20 +1,24 @@
 import React from 'react';
 import Input from '../../components/commun/Input';
-import { useSiretApi } from './useSiretApi';
 import { debounce } from '../candidature-conseiller/debounce';
+import PropTypes from 'prop-types';
 
-export default function CompanyFinder() {
-  const { search, entreprise } = useSiretApi();
+export default function CompanyFinder({ onSearch }) {
+  const handleSearch = debounce(value => {
+    onSearch(value);
+  }, 300);
 
   return (
-    <>
-      <Input
-        id="siretEntreprise"
-        isRequired={false}
-        onChange={debounce(event => search(event.target.value))}
-        placeholder="N° SIRET / RIDET"
-      />
-      {entreprise}
-    </>
+    <Input
+      id="siretEntreprise"
+      isRequired
+      onChange={event => handleSearch(event.target.value)}
+    >
+      SIRET / RIDET <span className="cc-obligatoire">*</span>
+    </Input>
   );
 }
+
+CompanyFinder.propTypes = {
+  onSearch: PropTypes.func
+};

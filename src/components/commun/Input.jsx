@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Input({ children, id, isRequired = true, type = 'text', pattern, onChange, list, min }) {
+export default function Input({ children, id, isRequired = true, type = 'text', pattern, onChange, list, min, readOnly }) {
   return (
     <div className="fr-fieldset__element">
       <div className="fr-input-group">
         <label className="fr-label" htmlFor={id}>{children}</label>
-        <input className="fr-input" type={type} id={id} required={isRequired} pattern={pattern} onChange={onChange} list={list} min={min} />
+        <input className="fr-input" type={type} id={id} required={isRequired} pattern={pattern} onChange={onChange} list={list} min={min} readOnly={readOnly}/>
       </div>
     </div>
   );
@@ -20,5 +20,6 @@ Input.propTypes = {
   pattern: PropTypes.string,
   onChange: PropTypes.func,
   list: PropTypes.string,
-  min: PropTypes.string
+  min: PropTypes.string,
+  readOnly: PropTypes.bool
 };

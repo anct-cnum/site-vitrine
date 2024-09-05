@@ -46,9 +46,9 @@ describe('candidature structure', () => {
     const etapeInformationsDeStructure = within(formulaire).getByRole('group', { name: 'Vos informations de structure' });
     expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
 
-    // const siretOuRidet = within(etapeInformationsDeStructure).getByPlaceholderText('N° SIRET / RIDET');
-    // expect(siretOuRidet).toHaveAttribute('id', 'siretEntreprise');
-    // expect(siretOuRidet).toBeRequired();
+    const siretOuRidet = within(etapeInformationsDeStructure).getByLabelText('SIRET / RIDET *');
+    expect(siretOuRidet).toHaveAttribute('id', 'siretEntreprise');
+    expect(siretOuRidet).toBeRequired();
 
     const denomination = within(etapeInformationsDeStructure).getByLabelText('Dénomination *');
     expect(denomination).toHaveAttribute('type', 'text');
