@@ -1,12 +1,16 @@
-import { render, screen, within, fireEvent } from '@testing-library/react';
+import { render, screen, within, fireEvent, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
 import { textMatcher, dateDujour } from '../../../test/test-utils';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
-  useNavigate: () => ({ navigate: () => { } })
+  useNavigate: () => () => { }
 }));
+
+function createFetchResponse(status, data) {
+  return { status, json: () => new Promise(resolve => resolve(data)) };
+}
 
 describe('candidature conseiller', () => {
   it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
@@ -346,6 +350,87 @@ describe('candidature conseiller', () => {
     // THEN
     const erreurCheckboxes = screen.getByText('Vous devez cocher au moins une case', { selector: 'p' });
     expect(erreurCheckboxes).toBeInTheDocument();
+    vi.useRealTimers();
+  });
+
+  it.only('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page', async () => {
+    // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+    //fetch.mockResolvedValue(createFetchResponse({ error: 'Cette adresse mail est déjà utilisée' }));
+    //window.fetch = createFetchResponse(createFetchResponse({ error: 'Cette adresse mail est déjà utilisée' }));
+
+    /*vi.stubGlobal('fetch',
+      () => createFetchResponse(400, { message: 'Cette adresse mail est déjà utilisée' })
+    );*/
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 400, json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }) }))
+    );
+
+    /*vi.spyOn(global, 'fetch').mockResolvedValue({
+      json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }),
+    });*/
+
+    render(<CandidatureConseiller />);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
+    fireEvent.click(enEmploi);
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+    fireEvent.click(envoyer);
+
+    // THEN
+    const titreErreurValidation = screen.getByRole('heading', { level: 3, name: 'Erreur de validation' });
+    //const titreErreurValidation = await screen.findByRole('heading', { level: 3, name: 'Erreur de validation' });
+    //const titreErreurValidation = await screen.findByText(textMatcher('Erreur de validation'));
+    expect(titreErreurValidation).toBeInTheDocument();
+    // const contenuErreurValidation = screen.getByText('Cette adresse mail est déjà utilisée', { selector: 'p' });
+    // expect(contenuErreurValidation).toBeInTheDocument();
+    vi.useRealTimers();
+  });
+
+  it('quand je remplis le formulaire avec toutes les informations valides, alors je suis redirigé vers la page de candidature validée', () => {
+    // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+    render(<CandidatureConseiller />);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
+    fireEvent.click(enEmploi);
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+    fireEvent.click(envoyer);
+
+    // THEN
     vi.useRealTimers();
   });
 });

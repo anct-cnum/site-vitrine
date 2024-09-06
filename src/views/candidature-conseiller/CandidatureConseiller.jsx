@@ -23,7 +23,7 @@ import './CandidatureConseiller.css';
 export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
-  const [validationError, setValidationError] = useState();
+  const [validationError, setValidationError] = useState('');
   const { buildConseillerData, creerCandidatureConseiller } = useApiAdmin();
   const navigate = useNavigate();
   useScrollToSection();
@@ -51,11 +51,13 @@ export default function CandidatureConseiller() {
       document.getElementById('situation-et-experience').scrollIntoView();
     } else {
       const conseillerData = await buildConseillerData(formData);
+      setValidationError('toto');
       const resultatCreation = await creerCandidatureConseiller(conseillerData);
       if (resultatCreation.status >= 400) {
         const error = await resultatCreation.json();
-        setValidationError(error.message);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        //setValidationError(error.message);
+        console.log('>>>>>>>>>>>>>>', error.message);
+        //window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         navigate('/candidature-validee');
       }
