@@ -51,13 +51,11 @@ export default function CandidatureConseiller() {
       document.getElementById('situation-et-experience').scrollIntoView();
     } else {
       const conseillerData = await buildConseillerData(formData);
-      setValidationError('toto');
       const resultatCreation = await creerCandidatureConseiller(conseillerData);
       if (resultatCreation.status >= 400) {
         const error = await resultatCreation.json();
-        //setValidationError(error.message);
-        console.log('>>>>>>>>>>>>>>', error.message);
-        //window.scrollTo({ top: 0, behavior: 'smooth' });
+        setValidationError(error.message);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         navigate('/candidature-validee');
       }

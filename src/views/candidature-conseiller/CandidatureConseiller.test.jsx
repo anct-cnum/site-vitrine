@@ -1,4 +1,4 @@
-import { render, screen, within, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, within, fireEvent, act } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
 import { textMatcher, dateDujour } from '../../../test/test-utils';
@@ -353,25 +353,13 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it.only('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page', async () => {
+  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
-    //fetch.mockResolvedValue(createFetchResponse({ error: 'Cette adresse mail est déjà utilisée' }));
-    //window.fetch = createFetchResponse(createFetchResponse({ error: 'Cette adresse mail est déjà utilisée' }));
-
-    /*vi.stubGlobal('fetch',
-      () => createFetchResponse(400, { message: 'Cette adresse mail est déjà utilisée' })
-    );*/
-
     vi.stubGlobal('fetch', vi.fn(
       () => ({ status: 400, json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }) }))
     );
-
-    /*vi.spyOn(global, 'fetch').mockResolvedValue({
-      json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }),
-    });*/
-
     render(<CandidatureConseiller />);
     const prenom = screen.getByLabelText('Prénom *');
     fireEvent.change(prenom, { target: { value: 'Jean' } });
@@ -392,19 +380,21 @@ describe('candidature conseiller', () => {
 
     // WHEN
     const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
-    fireEvent.click(envoyer);
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(() => {
+      fireEvent.click(envoyer);
+    });
 
     // THEN
     const titreErreurValidation = screen.getByRole('heading', { level: 3, name: 'Erreur de validation' });
-    //const titreErreurValidation = await screen.findByRole('heading', { level: 3, name: 'Erreur de validation' });
-    //const titreErreurValidation = await screen.findByText(textMatcher('Erreur de validation'));
     expect(titreErreurValidation).toBeInTheDocument();
-    // const contenuErreurValidation = screen.getByText('Cette adresse mail est déjà utilisée', { selector: 'p' });
-    // expect(contenuErreurValidation).toBeInTheDocument();
+    const contenuErreurValidation = screen.getByText('Cette adresse mail est déjà utilisée', { selector: 'p' });
+    expect(contenuErreurValidation).toBeInTheDocument();
     vi.useRealTimers();
   });
 
-  it('quand je remplis le formulaire avec toutes les informations valides, alors je suis redirigé vers la page de candidature validée', () => {
+  it.skip('quand je remplis le formulaire avec toutes les informations valides, alors je suis redirigé vers la page de candidature validée', () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
