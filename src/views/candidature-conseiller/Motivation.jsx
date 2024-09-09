@@ -9,7 +9,7 @@ export default function Motivation() {
         En quelques lignes, décrivez votre motivation personnelle pour devenir conseiller numérique et{' '}
         aider les personnes à devenir autonomes dans l’utilisation des outils numériques.
       </p>
-      <ZoneDeTexte id="descriptionMotivation">
+      <ZoneDeTexte id="motivation">
         Votre message <span className="cc-obligatoire">*</span>
       </ZoneDeTexte>
     </fieldset>

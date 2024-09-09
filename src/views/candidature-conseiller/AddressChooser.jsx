@@ -4,7 +4,7 @@ import { useGeoApi } from './useGeoApi';
 import { debounce } from './debounce';
 
 export default function AddressChooser() {
-  const { search, villes } = useGeoApi();
+  const { searchByName, villes } = useGeoApi();
 
   return (
     <>
@@ -12,13 +12,15 @@ export default function AddressChooser() {
         id="lieuHabitation"
         list="resultatsRecherche"
         isRequired={false}
-        onChange={debounce(event => search(event.target.value))}
+        onChange={debounce(event => searchByName(event.target.value))}
       >
         Votre lieu d’habitation <span className="fr-hint-text">Saississez le nom ou le code postal de votre commune.</span>
       </Input>
       <datalist id="resultatsRecherche">
         {villes.map(({ code, nom }) => (
-          <option value={`${code} ${nom}`} key={code}>{code} {nom}</option>
+          <option value={`${code} ${nom}`} key={code}>
+            {code} {nom}
+          </option>
         ))}
       </datalist>
     </>
