@@ -33,10 +33,10 @@ export default function CandidatureConseiller() {
   }, []);
 
   const estSituationRemplie = formData => {
-    const demandeurEmploi = formData.get('estDemandeurEmploi');
-    const enEmploi = formData.get('estEnEmploi');
-    const enFormation = formData.get('estEnFormation');
-    const diplome = formData.get('estDiplomeMedNum');
+    const demandeurEmploi = formData.get('estDemandeurEmploi') === 'on';
+    const enEmploi = formData.get('estEnEmploi') === 'on';
+    const enFormation = formData.get('estEnFormation') === 'on';
+    const diplome = formData.get('estDiplomeMedNum') === 'on';
 
     return demandeurEmploi || enEmploi || enFormation || diplome;
   };

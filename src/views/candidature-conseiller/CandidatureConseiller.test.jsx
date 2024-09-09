@@ -2,15 +2,12 @@ import { render, screen, within, fireEvent, act } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
 import { textMatcher, dateDujour } from '../../../test/test-utils';
+import * as ReactRouterDom from 'react-router-dom';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
-  useNavigate: () => () => { }
+  useNavigate: vi.fn()
 }));
-
-function createFetchResponse(status, data) {
-  return { status, json: () => new Promise(resolve => resolve(data)) };
-}
 
 describe('candidature conseiller', () => {
   it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
@@ -295,6 +292,14 @@ describe('candidature conseiller', () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 200, json: async () => Promise.resolve({}) }))
+    );
+
+    const mockNavigate = vi.fn().mockReturnValue(() => { });
+    vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
+
     render(<CandidatureConseiller />);
     const prenom = screen.getByLabelText('Prénom *');
     fireEvent.change(prenom, { target: { value: 'Jean' } });
@@ -327,6 +332,11 @@ describe('candidature conseiller', () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 200, json: async () => Promise.resolve({}) }))
+    );
+
     render(<CandidatureConseiller />);
     const prenom = screen.getByLabelText('Prénom *');
     fireEvent.change(prenom, { target: { value: 'Jean' } });
@@ -357,9 +367,11 @@ describe('candidature conseiller', () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
+
     vi.stubGlobal('fetch', vi.fn(
       () => ({ status: 400, json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }) }))
     );
+
     render(<CandidatureConseiller />);
     const prenom = screen.getByLabelText('Prénom *');
     fireEvent.change(prenom, { target: { value: 'Jean' } });
@@ -394,10 +406,18 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it.skip('quand je remplis le formulaire avec toutes les informations valides, alors je suis redirigé vers la page de candidature validée', () => {
+  it('quand je remplis le formulaire avec toutes les informations valides, alors je suis redirigé vers la page de candidature validée', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 200, json: async () => Promise.resolve({}) }))
+    );
+
+    const mockNavigate = vi.fn().mockReturnValue(() => { });
+    vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
+
     render(<CandidatureConseiller />);
     const prenom = screen.getByLabelText('Prénom *');
     fireEvent.change(prenom, { target: { value: 'Jean' } });
@@ -418,9 +438,15 @@ describe('candidature conseiller', () => {
 
     // WHEN
     const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
-    fireEvent.click(envoyer);
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(() => {
+      fireEvent.click(envoyer);
+    });
 
     // THEN
+    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee');
+
     vi.useRealTimers();
   });
 });
