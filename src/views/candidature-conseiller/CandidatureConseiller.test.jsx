@@ -107,10 +107,12 @@ describe('candidature conseiller', () => {
     const oui = screen.getByRole('radio', { name: 'Oui' });
     expect(oui).toBeRequired();
     expect(oui).toHaveAttribute('name', 'aUneExperienceMedNum');
+    expect(oui).toHaveAttribute('value', 'oui');
 
     const non = screen.getByRole('radio', { name: 'Non' });
     expect(non).toBeRequired();
     expect(non).toHaveAttribute('name', 'aUneExperienceMedNum');
+    expect(non).toHaveAttribute('value', 'non');
   });
 
   it('quand je coche "diplomé" alors un champ pour préciser le diplôme s’affiche', () => {
@@ -152,6 +154,7 @@ describe('candidature conseiller', () => {
 
     const date = within(votreDisponibilite).getByLabelText('Choisir une date');
     expect(date).toHaveAttribute('type', 'date');
+    expect(date).toHaveAttribute('id', 'dateDisponibilite');
     expect(date).toBeRequired();
 
     const questionDeplacement = within(votreDisponibilite).getByText(
@@ -169,30 +172,37 @@ describe('candidature conseiller', () => {
     const _5km = screen.getByRole('radio', { name: '5 km' });
     expect(_5km).toBeRequired();
     expect(_5km).toHaveAttribute('name', 'distanceMax');
+    expect(_5km).toHaveAttribute('id', '5');
 
     const _10km = screen.getByRole('radio', { name: '10 km' });
     expect(_10km).toBeRequired();
     expect(_10km).toHaveAttribute('name', 'distanceMax');
+    expect(_10km).toHaveAttribute('id', '10');
 
     const _15km = screen.getByRole('radio', { name: '15 km' });
     expect(_15km).toBeRequired();
     expect(_15km).toHaveAttribute('name', 'distanceMax');
+    expect(_15km).toHaveAttribute('id', '15');
 
     const _20km = screen.getByRole('radio', { name: '20 km' });
     expect(_20km).toBeRequired();
     expect(_20km).toHaveAttribute('name', 'distanceMax');
+    expect(_20km).toHaveAttribute('id', '20');
 
     const _40km = screen.getByRole('radio', { name: '40 km' });
     expect(_40km).toBeRequired();
     expect(_40km).toHaveAttribute('name', 'distanceMax');
+    expect(_40km).toHaveAttribute('id', '40');
 
     const _100km = screen.getByRole('radio', { name: '100 km' });
     expect(_100km).toBeRequired();
     expect(_100km).toHaveAttribute('name', 'distanceMax');
+    expect(_100km).toHaveAttribute('id', '100');
 
     const franceEntiere = screen.getByRole('radio', { name: 'France entière' });
     expect(franceEntiere).toBeRequired();
     expect(franceEntiere).toHaveAttribute('name', 'distanceMax');
+    expect(franceEntiere).toHaveAttribute('id', '2000');
   });
 
   it('quand j’affiche le formulaire alors l’étape "Votre motivation" est affiché', () => {

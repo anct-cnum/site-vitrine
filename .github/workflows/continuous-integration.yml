@@ -12,7 +12,7 @@ jobs:
         cache: npm
         node-version-file: package.json
     - name: Install modules
-      run: npm i
+      run: npm i --no-audit --prefer-offline
     - name: Lint
       run: npm run lint
 
