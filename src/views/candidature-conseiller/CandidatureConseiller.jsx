@@ -6,6 +6,7 @@ import Disponibilite from './Disponibilite';
 import Motivation from './Motivation';
 import EnResume from './EnResume';
 import Alert from '../../components/commun/Alert';
+import Captcha from '../../components/commun/Captcha';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
 import { useNavigate } from 'react-router-dom';
 import { useApiAdmin } from './useApiAdmin';
@@ -25,6 +26,7 @@ export default function CandidatureConseiller() {
   const [isSituationValid, setIsSituationValid] = useState(true);
   const [validationError, setValidationError] = useState('');
   const { buildConseillerData, creerCandidatureConseiller } = useApiAdmin();
+
   const navigate = useNavigate();
   useScrollToSection();
 
@@ -87,6 +89,7 @@ export default function CandidatureConseiller() {
             <Disponibilite setDateDisponibilite={setDateDisponibilite} />
             <Motivation />
             <EnResume dateDisponibilite={dateDisponibilite} />
+            <Captcha />
             <button className="fr-btn cc-envoyer" type="submit">
               Envoyer votre candidature
             </button>

@@ -49,6 +49,7 @@ export const useApiAdmin = () => {
     conseillerData.codeRegion = informationsVille?.codeRegion;
     conseillerData.codeCom = informationsVille?.code;
     delete conseillerData.lieuHabitation;
+    delete conseillerData['g-recaptcha-response'];
 
     return JSON.stringify(conseillerData);
   };
