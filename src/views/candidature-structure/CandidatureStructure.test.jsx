@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, within, waitFor, fireEvent } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureStructure from './CandidatureStructure';
 import { textMatcher } from '../../../test/test-utils';
@@ -225,6 +225,78 @@ describe('candidature structure', () => {
     //THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature structure' });
     within(formulaire).getByRole('button', { name: 'Envoyer votre candidature' });
+  });
+  it('quand je renseigne un siret valide la dénomination et l’adresse de la structure sont affichées', async () => {
+    // GIVEN
+    vi.spyOn(global, 'fetch').mockImplementation();
+    const mockApiResponse = {
+      nomStructure: 'AGENCE NATIONALE DE LA COHESION DES TERRITOIRES',
+      adressStructure: '20 AVENUE DE SEGUR, 75007 PARIS',
+      isRidet: false,
+    };
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockApiResponse,
+    });
+
+    render(<CandidatureStructure />);
+    
+    // WHEN
+    const siretInput = screen.getByLabelText('SIRET / RIDET *');
+    fireEvent.change(siretInput, { target: { value: '13002603200016' } });
+
+    // THEN
+    const denominationInput = screen.getByLabelText('Dénomination *');
+    const adresseInput = screen.getByLabelText('Adresse *');
+    await waitFor(() => {
+      expect(denominationInput).toHaveValue('AGENCE NATIONALE DE LA COHESION DES TERRITOIRES');
+    });
+    await waitFor(() => {
+      expect(adresseInput).toHaveValue('20 AVENUE DE SEGUR, 75007 PARIS');
+    });
+  });
+  
+  it('quand je renseigne un ridet valide la dénomination de la structure est affichée', async () => {
+    // GIVEN
+    vi.spyOn(global, 'fetch').mockImplementation();
+    const mockApiResponse = {
+      nomStructure: 'SELARL LUNA',
+      isRidet: true,
+    };
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockApiResponse,
+    });
+    
+    render(<CandidatureStructure />);
+    
+    // WHEN
+    const ridetInput = screen.getByLabelText('SIRET / RIDET *');
+    fireEvent.change(ridetInput, { target: { value: '1071539' } });
+
+    // THEN
+    const denominationInput = screen.getByLabelText('Dénomination *');
+    await waitFor(() => {
+      expect(denominationInput).toHaveValue('SELARL LUNA');
+    });
+  });
+  it('quand je renseigne ni un siret (14 chiffres) ni un ridet (6 ou 7 chiffres) alors les champs sont vidés', async () => {
+    // GIVEN
+    render(<CandidatureStructure />);
+    
+    // WHEN
+    const siretInput = screen.getByLabelText('SIRET / RIDET *');
+    fireEvent.change(siretInput, { target: { value: '1300260320001' } });
+    
+    // THEN
+    const denominationInput = screen.getByLabelText('Dénomination *');
+    const adresseInput = screen.getByLabelText('Adresse *');
+    await waitFor(() => {
+      expect(denominationInput).toHaveValue('');
+    });
+    await waitFor(() => {
+      expect(adresseInput).toHaveValue('');
+    });
   });
 });
 
