@@ -6,6 +6,7 @@ import BesoinEnCoordinateur from './BesoinEnCoordinateur';
 import Motivation from './Motivation';
 import Engagement from './Engagement';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
+import Captcha from '../../components/commun/Captcha';
 
 import '@gouvfr/dsfr/dist/component/form/form.min.css';
 import '@gouvfr/dsfr/dist/component/input/input.min.css';
@@ -38,7 +39,10 @@ export default function CandidatureCoordinateur() {
             <BesoinEnCoordinateur />
             <Motivation />
             <Engagement />
-            <button className="fr-btn cc-envoyer fr-mt-3w" type="submit">
+            <div className="fr-mt-2w fr-mb-2w">
+              <Captcha />
+            </div>
+            <button className="fr-btn cc-envoyer" type="submit">
               Envoyer votre candidature
             </button>
           </form>

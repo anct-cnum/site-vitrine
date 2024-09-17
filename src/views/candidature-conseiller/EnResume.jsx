@@ -12,7 +12,7 @@ export default function EnResume({ dateDisponibilite }) {
   };
 
   return (
-    <div className="fr-mb-3w" id="enResume">
+    <div id="enResume">
       <Notice>
         <Badge>En résumé</Badge>
         <p className="fr-mb-2w">
