@@ -3,7 +3,6 @@ import React from 'react';
 import BoutonRadio from '../../components/commun/BoutonRadio';
 import Datepicker from '../../components/commun/Datepicker';
 import Input from '../../components/commun/Input';
-import PropTypes from 'prop-types';
 
 export default function BesoinEnConseillerNumerique() {
   return (
@@ -24,13 +23,9 @@ export default function BesoinEnConseillerNumerique() {
       </BoutonRadio>
       <hr />
       <p className="fr-mb-3w cc-bold">À partir de quand êtes vous prêt à accueillir votre conseiller numerique ?<span className="cc-obligatoire">*</span></p>
-      <Datepicker id="choisir-date" name="dateAccueilConseillerNumerique">
+      <Datepicker id="dateAccueilConseillerNumerique">
         Choisir une date
       </Datepicker>
     </fieldset >
   );
 }
-
-BesoinEnConseillerNumerique.propTypes = {
-  setDateAccueilConseillerNumerique: PropTypes.func,
-};

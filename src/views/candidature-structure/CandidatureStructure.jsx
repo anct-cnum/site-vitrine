@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import SommaireStructure from './SommaireStructure';
 import InformationsDeContact from './InformationsDeContact';
 import InformationsDeStructure from './InformationsDeStructure';
@@ -14,10 +15,12 @@ import '@gouvfr/dsfr/dist/component/badge/badge.min.css';
 import '@gouvfr/dsfr/dist/component/notice/notice.min.css';
 import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
 import '../candidature-conseiller/CandidatureConseiller.css';
-import { useState } from 'react';
 
 export default function CandidatureStructure() {
   const [geoLocation, setGeoLocation] = useState(null);
+  useEffect(() => {
+    document.title = 'Conseiller numérique - Engager un conseiller numérique';
+  }, []);
 
   useScrollToSection();
 
@@ -30,7 +33,6 @@ export default function CandidatureStructure() {
       const date = new Date(structureData.dateAccueilConseillerNumerique);
       structureData.dateAccueilConseillerNumerique = date.toISOString();
     }
-    console.log('structureData', structureData);
     // creerCandidatureStructure(structureData);
   };
 

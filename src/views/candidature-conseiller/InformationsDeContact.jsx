@@ -26,10 +26,10 @@ export default function InformationsDeContact() {
       <Input
         id="telephone"
         type="tel"
-        pattern="0[1-9]{9}"
+        pattern="[+](33|590|596|594|262|269|687)[1-9]{9}"
         isRequired={false}
       >
-        Téléphone <span className="fr-hint-text">Format attendu : 0122334455</span>
+        Téléphone <span className="fr-hint-text">Format attendu : +33122334455</span>
       </Input>
       <AddressChooser />
     </fieldset>

@@ -1,10 +1,12 @@
-import { render, screen, within, fireEvent } from '@testing-library/react';
+import { render, screen, within, fireEvent, act } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
 import { textMatcher, dateDujour } from '../../../test/test-utils';
+import * as ReactRouterDom from 'react-router-dom';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
+  useNavigate: vi.fn()
 }));
 
 describe('candidature conseiller', () => {
@@ -57,9 +59,9 @@ describe('candidature conseiller', () => {
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
-    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone Format attendu : 0122334455');
+    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone Format attendu : +33122334455');
     expect(telephone).toHaveAttribute('type', 'tel');
-    expect(telephone).toHaveAttribute('pattern', '0[1-9]{9}');
+    expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[1-9]{9}');
 
     const habitation = within(etapeInformationsDeContact).getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
     expect(habitation).toHaveAttribute('type', 'text');
@@ -104,11 +106,13 @@ describe('candidature conseiller', () => {
 
     const oui = screen.getByRole('radio', { name: 'Oui' });
     expect(oui).toBeRequired();
-    expect(oui).toHaveAttribute('name', 'experienceProfessionnelle');
+    expect(oui).toHaveAttribute('name', 'aUneExperienceMedNum');
+    expect(oui).toHaveAttribute('value', 'oui');
 
     const non = screen.getByRole('radio', { name: 'Non' });
     expect(non).toBeRequired();
-    expect(non).toHaveAttribute('name', 'experienceProfessionnelle');
+    expect(non).toHaveAttribute('name', 'aUneExperienceMedNum');
+    expect(non).toHaveAttribute('value', 'non');
   });
 
   it('quand je coche "diplomé" alors un champ pour préciser le diplôme s’affiche', () => {
@@ -150,6 +154,7 @@ describe('candidature conseiller', () => {
 
     const date = within(votreDisponibilite).getByLabelText('Choisir une date');
     expect(date).toHaveAttribute('type', 'date');
+    expect(date).toHaveAttribute('id', 'dateDisponibilite');
     expect(date).toBeRequired();
 
     const questionDeplacement = within(votreDisponibilite).getByText(
@@ -166,31 +171,38 @@ describe('candidature conseiller', () => {
 
     const _5km = screen.getByRole('radio', { name: '5 km' });
     expect(_5km).toBeRequired();
-    expect(_5km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_5km).toHaveAttribute('name', 'distanceMax');
+    expect(_5km).toHaveAttribute('id', '5');
 
     const _10km = screen.getByRole('radio', { name: '10 km' });
     expect(_10km).toBeRequired();
-    expect(_10km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_10km).toHaveAttribute('name', 'distanceMax');
+    expect(_10km).toHaveAttribute('id', '10');
 
     const _15km = screen.getByRole('radio', { name: '15 km' });
     expect(_15km).toBeRequired();
-    expect(_15km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_15km).toHaveAttribute('name', 'distanceMax');
+    expect(_15km).toHaveAttribute('id', '15');
 
     const _20km = screen.getByRole('radio', { name: '20 km' });
     expect(_20km).toBeRequired();
-    expect(_20km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_20km).toHaveAttribute('name', 'distanceMax');
+    expect(_20km).toHaveAttribute('id', '20');
 
     const _40km = screen.getByRole('radio', { name: '40 km' });
     expect(_40km).toBeRequired();
-    expect(_40km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_40km).toHaveAttribute('name', 'distanceMax');
+    expect(_40km).toHaveAttribute('id', '40');
 
     const _100km = screen.getByRole('radio', { name: '100 km' });
     expect(_100km).toBeRequired();
-    expect(_100km).toHaveAttribute('name', 'distanceDomicile');
+    expect(_100km).toHaveAttribute('name', 'distanceMax');
+    expect(_100km).toHaveAttribute('id', '100');
 
     const franceEntiere = screen.getByRole('radio', { name: 'France entière' });
     expect(franceEntiere).toBeRequired();
-    expect(franceEntiere).toHaveAttribute('name', 'distanceDomicile');
+    expect(franceEntiere).toHaveAttribute('name', 'distanceMax');
+    expect(franceEntiere).toHaveAttribute('id', '2000');
   });
 
   it('quand j’affiche le formulaire alors l’étape "Votre motivation" est affiché', () => {
@@ -210,7 +222,7 @@ describe('candidature conseiller', () => {
     expect(aideMotivation).toBeInTheDocument();
 
     const descriptionMotivation = within(votreMotivation).getByLabelText('Votre message *');
-    expect(descriptionMotivation).toHaveAttribute('name', 'descriptionMotivation');
+    expect(descriptionMotivation).toHaveAttribute('name', 'motivation');
     expect(descriptionMotivation).toBeRequired();
   });
 
@@ -290,6 +302,14 @@ describe('candidature conseiller', () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 200, json: async () => Promise.resolve({}) }))
+    );
+
+    const mockNavigate = vi.fn().mockReturnValue(() => { });
+    vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
+
     render(<CandidatureConseiller />);
     const prenom = screen.getByLabelText('Prénom *');
     fireEvent.change(prenom, { target: { value: 'Jean' } });
@@ -322,6 +342,11 @@ describe('candidature conseiller', () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 200, json: async () => Promise.resolve({}) }))
+    );
+
     render(<CandidatureConseiller />);
     const prenom = screen.getByLabelText('Prénom *');
     fireEvent.change(prenom, { target: { value: 'Jean' } });
@@ -345,6 +370,93 @@ describe('candidature conseiller', () => {
     // THEN
     const erreurCheckboxes = screen.getByText('Vous devez cocher au moins une case', { selector: 'p' });
     expect(erreurCheckboxes).toBeInTheDocument();
+    vi.useRealTimers();
+  });
+
+  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page', async () => {
+    // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 400, json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }) }))
+    );
+
+    render(<CandidatureConseiller />);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
+    fireEvent.click(enEmploi);
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(() => {
+      fireEvent.click(envoyer);
+    });
+
+    // THEN
+    const titreErreurValidation = screen.getByRole('heading', { level: 3, name: 'Erreur de validation' });
+    expect(titreErreurValidation).toBeInTheDocument();
+    const contenuErreurValidation = screen.getByText('Cette adresse mail est déjà utilisée', { selector: 'p' });
+    expect(contenuErreurValidation).toBeInTheDocument();
+    vi.useRealTimers();
+  });
+
+  it('quand je remplis le formulaire avec toutes les informations valides, alors je suis redirigé vers la page de candidature validée', async () => {
+    // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 200, json: async () => Promise.resolve({}) }))
+    );
+
+    const mockNavigate = vi.fn().mockReturnValue(() => { });
+    vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
+
+    render(<CandidatureConseiller />);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
+    fireEvent.click(enEmploi);
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(() => {
+      fireEvent.click(envoyer);
+    });
+
+    // THEN
+    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee');
+
     vi.useRealTimers();
   });
 });

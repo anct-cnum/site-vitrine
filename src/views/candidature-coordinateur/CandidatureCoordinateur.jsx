@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SommaireCoordinateur from './SommaireCoordinateur';
 import InformationsDeContact from '../candidature-structure/InformationsDeContact';
 import InformationsDeStructure from '../candidature-structure/InformationsDeStructure';
@@ -18,6 +18,10 @@ import '../candidature-conseiller/CandidatureConseiller.css';
 
 export default function CandidatureCoordinateur() {
   useScrollToSection();
+
+  useEffect(() => {
+    document.title = 'Conseiller numérique - Devenir coordinateur de conseillers numériques';
+  }, []);
 
   return (
     <div className="fr-container fr-mt-5w fr-mb-5w">
