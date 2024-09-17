@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 export default function CompanyFinder({ onSearch }) {
   const handleSearch = debounce(value => {
     onSearch(value);
-  }, 300);
+  });
 
   return (
     <Input

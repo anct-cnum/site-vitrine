@@ -11,6 +11,9 @@ export const useEntrepriseFinder = setGeoLocation => {
   const [addressSuggestions, setAddressSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [addressLoading, setAddressLoading] = useState(false);
+  const [denomination, setDenomination] = useState('');
+  const [adresse, setAdresse] = useState('');
+
 
   const isValidSiretOrRidet = value => {
     const numericValue = value.replace(/\D/g, '');
@@ -21,8 +24,8 @@ export const useEntrepriseFinder = setGeoLocation => {
     setEntreprise(null);
     setError(null);
     setGeoLocation(null);
-    document.getElementById('denomination').value = '';
-    document.getElementById('adresse').value = '';
+    setDenomination('');
+    setAdresse('');
   };
 
   const getGeoLocationFromAddress = async address => {
@@ -56,7 +59,9 @@ export const useEntrepriseFinder = setGeoLocation => {
       }
       const result = await response.json();
       setEntreprise(result);
+      setDenomination(result.nomStructure || '');
       if (siretOrRidet.length === TAILLE_SIRET && result.adressStructure) {
+        setAdresse(result.adressStructure);
         const geoLocation = await getGeoLocationFromAddress(result.adressStructure);
         if (geoLocation) {
           setGeoLocation(geoLocation);
@@ -92,5 +97,18 @@ export const useEntrepriseFinder = setGeoLocation => {
     }
   };
 
-  return { search, entreprise, error, getAddressSuggestions, addressSuggestions, loading, addressLoading, clearEntrepriseData };
+  return {
+    search,
+    entreprise,
+    error,
+    getAddressSuggestions,
+    addressSuggestions,
+    loading,
+    addressLoading,
+    clearEntrepriseData,
+    setDenomination,
+    setAdresse,
+    denomination,
+    adresse
+  };
 };

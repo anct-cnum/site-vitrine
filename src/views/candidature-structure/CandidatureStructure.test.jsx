@@ -280,6 +280,7 @@ describe('candidature structure', () => {
       expect(denominationInput).toHaveValue('SELARL LUNA');
     });
   });
+  
   it('quand je renseigne ni un siret (14 chiffres) ni un ridet (6 ou 7 chiffres) alors les champs sont vidés', async () => {
     // GIVEN
     render(<CandidatureStructure />);

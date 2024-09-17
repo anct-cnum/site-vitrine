@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Input from '../../components/commun/Input';
 import CompanyFinder from './CompanyFinder';
 import BoutonRadio from '../../components/commun/BoutonRadio';
 import { useEntrepriseFinder } from './useEntrepriseFinder';
 import PropTypes from 'prop-types';
+import './CandidatureStructure.css';
+
 const TAILLE_SIRET = 14;
 const TAILLE_RIDET = [6, 7];
 const TAILLES_POSSIBLES = [...TAILLE_RIDET, TAILLE_SIRET];
@@ -16,19 +18,12 @@ export default function InformationsDeContact({ setGeoLocation }) {
     addressSuggestions,
     loading,
     addressLoading,
-    clearEntrepriseData
+    clearEntrepriseData,
+    denomination,
+    setDenomination,
+    adresse,
+    setAdresse
   } = useEntrepriseFinder(setGeoLocation);
-
-  useEffect(() => {
-    if (entreprise) {
-      document.getElementById('denomination').value = entreprise.nomStructure || '';
-      if (!entreprise.isRidet) {
-        document.getElementById('adresse').value = entreprise.adressStructure || '';
-      } else {
-        document.getElementById('adresse').value = '';
-      }
-    }
-  }, [entreprise]);
 
   const handleSearch = value => {
     const numericValue = value.replace(/\D/g, '');
@@ -40,16 +35,18 @@ export default function InformationsDeContact({ setGeoLocation }) {
   };
   
   const handleAdresseChange = event => {
+    setAdresse(event.target.value);
     if (entreprise?.isRidet) {
       getAddressSuggestions(event.target.value);
     }
   };
 
   const handleSuggestionClick = suggestion => {
-    document.getElementById('adresse').value = suggestion.label;
+    setAdresse(suggestion.label);
     setGeoLocation(suggestion.geometry);
     getAddressSuggestions('');
   };
+
   return (
     <fieldset
       className="fr-border cc-section fr-p-3w fr-mb-3w"
@@ -61,8 +58,10 @@ export default function InformationsDeContact({ setGeoLocation }) {
       <Input
         id="denomination"
         name="denomination"
+        value={denomination}
         isLoading={loading}
         ariaBusy={loading}
+        onChange={e => setDenomination(e.target.value)}
       >
         Dénomination <span className="cc-obligatoire">*</span>
       </Input>
@@ -70,6 +69,7 @@ export default function InformationsDeContact({ setGeoLocation }) {
         <Input
           id="adresse"
           name="adresse"
+          value={adresse}
           onChange={handleAdresseChange}
           readOnly={!entreprise?.isRidet}
           list="adresseSuggestions"
@@ -78,8 +78,8 @@ export default function InformationsDeContact({ setGeoLocation }) {
         >
         Adresse <span className="cc-obligatoire">*</span>
         </Input>
-        <div className="listeAdresses">
-          <div className="adressesTrouvees">
+        <div className="liste-adresses">
+          <div className="adresses-trouvees">
             {addressSuggestions.map((suggestion, index) => (
               <div key={index} className="adresse" value={suggestion.label} onClick={() => handleSuggestionClick(suggestion)}>
                 {suggestion.label}
