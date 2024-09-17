@@ -298,5 +298,42 @@ describe('candidature structure', () => {
       expect(adresseInput).toHaveValue('');
     });
   });
+  it('quand je fais une recherche par siret il y a un état de chargement', async () => {
+    // GIVEN
+    vi.spyOn(global, 'fetch').mockImplementation();
+    let resolvePromise;
+    const promise = new Promise(resolve => {
+      resolvePromise = resolve;
+    });
+    global.fetch.mockReturnValueOnce(promise);
+  
+    render(<CandidatureStructure />);
+    
+    // WHEN
+    const siretInput = screen.getByLabelText('SIRET / RIDET *');
+    fireEvent.change(siretInput, { target: { value: '13002603200016' } });
+    
+    // THEN
+    await waitFor(() => {
+      const denominationInput = screen.getByLabelText('Dénomination *');
+      expect(denominationInput).toHaveAttribute('aria-busy', 'true');
+    });
+    resolvePromise({
+      ok: true,
+      json: async () => ({
+        nomStructure: 'AGENCE NATIONALE DE LA COHESION DES TERRITOIRES',
+        adressStructure: '20 AVENUE DE SEGUR, 75007 PARIS',
+        isRidet: false
+      })
+    });
+    await waitFor(() => {
+      const denominationInput = screen.getByLabelText('Dénomination *');
+      expect(denominationInput).toHaveAttribute('aria-busy', 'false');
+    });
+    await waitFor(() => {
+      const adresseInput = screen.getByLabelText('Adresse *');
+      expect(adresseInput).toHaveValue('20 AVENUE DE SEGUR, 75007 PARIS');
+    });
+  });
 });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Input({ children, id, isRequired = true, type = 'text', pattern, onChange, list, min, readOnly, isLoading, name, value }) {
+export default function Input({ children, id, isRequired = true, type = 'text', pattern, onChange, list, min, readOnly, isLoading, name, value, ariaBusy }) {
   return (
     <div className="fr-fieldset__element">
       <div className="fr-input-group">
@@ -18,6 +18,7 @@ export default function Input({ children, id, isRequired = true, type = 'text', 
           readOnly={readOnly}
           name={name}
           value={value}
+          aria-busy={ariaBusy}
         />
         {isLoading && (
           <div className="fr-input-spinner" aria-hidden="true">
@@ -42,4 +43,5 @@ Input.propTypes = {
   isLoading: PropTypes.bool,
   name: PropTypes.string,
   value: PropTypes.string,
+  ariaBusy: PropTypes.bool,
 };

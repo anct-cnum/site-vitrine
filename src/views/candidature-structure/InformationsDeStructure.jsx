@@ -3,12 +3,12 @@ import Input from '../../components/commun/Input';
 import CompanyFinder from './CompanyFinder';
 import BoutonRadio from '../../components/commun/BoutonRadio';
 import { useEntrepriseFinder } from './useEntrepriseFinder';
-import proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 const TAILLE_SIRET = 14;
 const TAILLE_RIDET = [6, 7];
 const TAILLES_POSSIBLES = [...TAILLE_RIDET, TAILLE_SIRET];
 
-export default function InformationsDeContact({ setGeoLocation, geoLocation }) {
+export default function InformationsDeContact({ setGeoLocation }) {
   const {
     entreprise,
     search,
@@ -17,7 +17,7 @@ export default function InformationsDeContact({ setGeoLocation, geoLocation }) {
     loading,
     addressLoading,
     clearEntrepriseData
-  } = useEntrepriseFinder(geoLocation, setGeoLocation);
+  } = useEntrepriseFinder(setGeoLocation);
 
   useEffect(() => {
     if (entreprise) {
@@ -62,6 +62,7 @@ export default function InformationsDeContact({ setGeoLocation, geoLocation }) {
         id="denomination"
         name="denomination"
         isLoading={loading}
+        ariaBusy={loading}
       >
         Dénomination <span className="cc-obligatoire">*</span>
       </Input>
@@ -73,6 +74,7 @@ export default function InformationsDeContact({ setGeoLocation, geoLocation }) {
           readOnly={!entreprise?.isRidet}
           list="adresseSuggestions"
           isLoading={(entreprise && loading && !entreprise?.isRidet) || addressLoading}
+          ariaBusy={(entreprise && loading && !entreprise?.isRidet) || addressLoading}
         >
         Adresse <span className="cc-obligatoire">*</span>
         </Input>
@@ -109,7 +111,7 @@ export default function InformationsDeContact({ setGeoLocation, geoLocation }) {
           Un GIP
         </BoutonRadio>
         <BoutonRadio id="structurePrivee" nomGroupe="typeStructure" value="structurePrivee">
-          Une structure privée (association, entreprise de l&apos;ESS, fondations)
+          Une structure privée (association, entreprise de l’ESS, fondations)
         </BoutonRadio>
       </div>
     </fieldset>
@@ -117,6 +119,6 @@ export default function InformationsDeContact({ setGeoLocation, geoLocation }) {
 }
 
 InformationsDeContact.propTypes = {
-  setGeoLocation: proptypes.func.isRequired,
-  geoLocation: proptypes.object,
+  setGeoLocation: PropTypes.func.isRequired,
+  geoLocation: PropTypes.object,
 };

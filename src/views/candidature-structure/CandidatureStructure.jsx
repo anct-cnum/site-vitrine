@@ -30,6 +30,7 @@ export default function CandidatureStructure() {
       const date = new Date(structureData.dateAccueilConseillerNumerique);
       structureData.dateAccueilConseillerNumerique = date.toISOString();
     }
+    console.log('structureData', structureData);
     // creerCandidatureStructure(structureData);
   };
 
