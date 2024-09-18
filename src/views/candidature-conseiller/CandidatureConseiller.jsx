@@ -89,7 +89,9 @@ export default function CandidatureConseiller() {
             <Disponibilite setDateDisponibilite={setDateDisponibilite} />
             <Motivation />
             <EnResume dateDisponibilite={dateDisponibilite} />
-            <Captcha />
+            <div className="fr-mt-2w fr-mb-2w">
+              <Captcha />
+            </div>
             <button className="fr-btn cc-envoyer" type="submit">
               Envoyer votre candidature
             </button>
