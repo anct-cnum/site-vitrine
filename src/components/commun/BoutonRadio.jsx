@@ -18,4 +18,5 @@ BoutonRadio.propTypes = {
   children: PropTypes.node,
   id: PropTypes.string,
   nomGroupe: PropTypes.string,
+  value: PropTypes.string,
 };

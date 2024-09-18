@@ -8,27 +8,32 @@ export default function InformationsDeContact() {
       <hr />
       <Input
         id="prenom"
+        name="prenom"
       >
         Prénom <span className="cc-obligatoire">*</span>
       </Input>
       <Input
         id="nom"
+        name="nom"
       >
         Nom <span className="cc-obligatoire">*</span>
       </Input>
       <Input
         id="fonction"
+        name="fonction"
       >
         Fonction <span className="cc-obligatoire">*</span>
       </Input>
       <Input
         id="email"
+        name="email"
         type="email"
       >
         Adresse e-mail <span className="cc-obligatoire">*</span>
       </Input>
       <Input
         id="telephone"
+        name="telephone"
         type="tel"
         pattern="0[1-9]{9}"
       >

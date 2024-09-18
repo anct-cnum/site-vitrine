@@ -17,5 +17,6 @@ Datepicker.propTypes = {
   id: PropTypes.string,
   isRequired: PropTypes.bool,
   onChange: PropTypes.func,
-  min: PropTypes.string
+  min: PropTypes.string,
+  name: PropTypes.string,
 };
