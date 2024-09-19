@@ -15,7 +15,7 @@ export default function Engagement() {
         <li>Laisser partir le conseiller numérique France Services en formation initiale ou continue.</li>
         <li>Mettre à sa disposition les moyens et équipements pour réaliser sa mission (ordinateur, téléphone portable, voiture si nécessaire).</li>
       </ul>
-      <Checkbox id="engagement" name="engagement">
+      <Checkbox id="confirmationEngagement">
         Je confirme avoir lu et pris connaissance des conditions d’engagement.<span className="cc-obligatoire">*</span>
       </Checkbox>
     </Notice>

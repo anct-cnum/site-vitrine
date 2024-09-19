@@ -9,7 +9,7 @@ export default function CompanyFinder() {
   return (
     <>
       <Input
-        id="siretEntreprise"
+        id="siret"
         isRequired={false}
         onChange={debounce(event => search(event.target.value))}
         placeholder="N° SIRET / RIDET"

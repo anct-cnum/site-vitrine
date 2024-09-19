@@ -9,7 +9,7 @@ export default function Motivation() {
         En quelques lignes, décrivez le motif de votre besoin en recrutement.{' '}
         Indiquez les actions prévues, la justification du poste, ainsi que le public ciblé.
       </p>
-      <ZoneDeTexte id="votreMessage">
+      <ZoneDeTexte id="motivation">
         Votre message <span className="cc-obligatoire">*</span>
       </ZoneDeTexte>
     </fieldset>

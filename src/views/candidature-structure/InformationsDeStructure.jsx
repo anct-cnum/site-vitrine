@@ -33,7 +33,7 @@ export default function InformationsDeContact({ setGeoLocation }) {
       clearEntrepriseData();
     }
   };
-  
+
   const handleAdresseChange = event => {
     setAdresse(event.target.value);
     if (entreprise?.isRidet) {
@@ -54,21 +54,19 @@ export default function InformationsDeContact({ setGeoLocation }) {
     >
       <legend className="fr-h5">Vos informations de structure</legend>
       <hr />
-      <CompanyFinder onSearch={handleSearch}/>
+      <CompanyFinder onSearch={handleSearch} />
       <Input
         id="denomination"
-        name="denomination"
         value={denomination}
         isLoading={loading}
         ariaBusy={loading}
-        onChange={e => setDenomination(e.target.value)}
+        onChange={event => setDenomination(event.target.value)}
       >
         Dénomination <span className="cc-obligatoire">*</span>
       </Input>
       <div className="adresse-container">
         <Input
           id="adresse"
-          name="adresse"
           value={adresse}
           onChange={handleAdresseChange}
           readOnly={!entreprise?.isRidet}
@@ -76,7 +74,7 @@ export default function InformationsDeContact({ setGeoLocation }) {
           isLoading={(entreprise && loading && !entreprise?.isRidet) || addressLoading}
           ariaBusy={(entreprise && loading && !entreprise?.isRidet) || addressLoading}
         >
-        Adresse <span className="cc-obligatoire">*</span>
+          Adresse <span className="cc-obligatoire">*</span>
         </Input>
         <div className="liste-adresses">
           <div className="adresses-trouvees">
@@ -92,25 +90,25 @@ export default function InformationsDeContact({ setGeoLocation }) {
         Votre structure est <span className="cc-obligatoire">*</span>
       </p>
       <div className="fr-grid-row">
-        <BoutonRadio id="commune" nomGroupe="typeStructure" value="commune">
+        <BoutonRadio id="COMMUNE" nomGroupe="type">
           Une commune
         </BoutonRadio>
-        <BoutonRadio id="intercommunalite" nomGroupe="typeStructure" value="intercommunalite">
+        <BoutonRadio id="DEPARTEMENT" nomGroupe="type">
           Un département
         </BoutonRadio>
-        <BoutonRadio id="region" nomGroupe="typeStructure" value="region">
+        <BoutonRadio id="REGION" nomGroupe="type">
           Une région
         </BoutonRadio>
-        <BoutonRadio id="etablissement" nomGroupe="typeStructure" value="etablissement">
+        <BoutonRadio id="EPCI" nomGroupe="type">
           Un établissement public de coopération intercommunale
         </BoutonRadio>
-        <BoutonRadio id="collectivite" nomGroupe="typeStructure" value="collectivite">
+        <BoutonRadio id="COLLECTIVITE" nomGroupe="type">
           Une collectivité à statut particulier
         </BoutonRadio>
-        <BoutonRadio id="gip" nomGroupe="typeStructure" value="gip">
+        <BoutonRadio id="GIP" nomGroupe="type">
           Un GIP
         </BoutonRadio>
-        <BoutonRadio id="structurePrivee" nomGroupe="typeStructure" value="structurePrivee">
+        <BoutonRadio id="PRIVATE" nomGroupe="type">
           Une structure privée (association, entreprise de l’ESS, fondations)
         </BoutonRadio>
       </div>

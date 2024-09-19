@@ -10,7 +10,7 @@ export default function CompanyFinder({ onSearch }) {
 
   return (
     <Input
-      id="siretEntreprise"
+      id="siret"
       isRequired
       onChange={event => handleSearch(event.target.value)}
     >
