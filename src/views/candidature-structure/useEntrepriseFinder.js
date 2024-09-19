@@ -14,7 +14,6 @@ export const useEntrepriseFinder = setGeoLocation => {
   const [denomination, setDenomination] = useState('');
   const [adresse, setAdresse] = useState('');
 
-
   const isValidSiretOrRidet = value => {
     const numericValue = value.replace(/\D/g, '');
     return TAILLES_POSSIBLES.includes(numericValue.length);
@@ -29,6 +28,7 @@ export const useEntrepriseFinder = setGeoLocation => {
   };
 
   const getGeoLocationFromAddress = async address => {
+    console.log('>>>>>>>>>>>>');
     try {
       const urlAPI = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(address)}`;
       const response = await axios.get(urlAPI);
@@ -54,6 +54,7 @@ export const useEntrepriseFinder = setGeoLocation => {
     setLoading(true);
     try {
       const response = await fetch(`http://localhost:8080/structure/verify-siret-or-ridet/${siretOrRidet}`);
+      console.log('===========');
       if (!response.ok) {
         throw new Error(`Error fetching data: ${response.statusText}`);
       }

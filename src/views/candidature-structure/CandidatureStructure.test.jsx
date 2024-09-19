@@ -5,6 +5,7 @@ import { textMatcher } from '../../../test/test-utils';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
+  useNavigate: vi.fn()
 }));
 
 describe('candidature structure', () => {
@@ -47,7 +48,7 @@ describe('candidature structure', () => {
     expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
 
     const siretOuRidet = within(etapeInformationsDeStructure).getByLabelText('SIRET / RIDET *');
-    expect(siretOuRidet).toHaveAttribute('id', 'siretEntreprise');
+    expect(siretOuRidet).toHaveAttribute('id', 'siret');
     expect(siretOuRidet).toBeRequired();
 
     const denomination = within(etapeInformationsDeStructure).getByLabelText('Dénomination *');
@@ -64,31 +65,31 @@ describe('candidature structure', () => {
 
     const uneCommune = screen.getByRole('radio', { name: 'Une commune' });
     expect(uneCommune).toBeRequired();
-    expect(uneCommune).toHaveAttribute('name', 'typeStructure');
+    expect(uneCommune).toHaveAttribute('name', 'type');
 
     const unDepartement = screen.getByRole('radio', { name: 'Un département' });
     expect(unDepartement).toBeRequired();
-    expect(unDepartement).toHaveAttribute('name', 'typeStructure');
+    expect(unDepartement).toHaveAttribute('name', 'type');
 
     const uneRegion = screen.getByRole('radio', { name: 'Une région' });
     expect(uneRegion).toBeRequired();
-    expect(uneRegion).toHaveAttribute('name', 'typeStructure');
+    expect(uneRegion).toHaveAttribute('name', 'type');
 
     const unEtablissemntPublic = screen.getByRole('radio', { name: 'Un établissement public de coopération intercommunale' });
     expect(unEtablissemntPublic).toBeRequired();
-    expect(unEtablissemntPublic).toHaveAttribute('name', 'typeStructure');
+    expect(unEtablissemntPublic).toHaveAttribute('name', 'type');
 
     const uneCollectivite = screen.getByRole('radio', { name: 'Une collectivité à statut particulier' });
     expect(uneCollectivite).toBeRequired();
-    expect(uneCollectivite).toHaveAttribute('name', 'typeStructure');
+    expect(uneCollectivite).toHaveAttribute('name', 'type');
 
     const unGIP = screen.getByRole('radio', { name: 'Un GIP' });
     expect(unGIP).toBeRequired();
-    expect(unGIP).toHaveAttribute('name', 'typeStructure');
+    expect(unGIP).toHaveAttribute('name', 'type');
 
     const uneStructurePrivee = screen.getByRole('radio', { name: 'Une structure privée (association, entreprise de l’ESS, fondations)' });
     expect(uneStructurePrivee).toBeRequired();
-    expect(uneStructurePrivee).toHaveAttribute('name', 'typeStructure');
+    expect(uneStructurePrivee).toHaveAttribute('name', 'type');
   });
 
   it('quand j’affiche le formulaire alors l’étape "Vos informations de contact" est affiché', () => {
@@ -118,7 +119,7 @@ describe('candidature structure', () => {
 
     const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone *');
     expect(telephone).toHaveAttribute('type', 'tel');
-    expect(telephone).toHaveAttribute('pattern', '0[1-9]{9}');
+    expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[1-9]{9}');
     expect(telephone).toBeRequired();
   });
 
@@ -151,17 +152,17 @@ describe('candidature structure', () => {
 
     const oui = screen.getByRole('radio', { name: 'Oui' });
     expect(oui).toBeRequired();
-    expect(oui).toHaveAttribute('name', 'identificationCandidat');
+    expect(oui).toHaveAttribute('name', 'aIdentifieCandidat');
 
     const non = screen.getByRole('radio', { name: 'Non' });
     expect(non).toBeRequired();
-    expect(non).toHaveAttribute('name', 'identificationCandidat');
+    expect(non).toHaveAttribute('name', 'aIdentifieCandidat');
 
-    const dateAccueilConseillerNumerique = within(etapeBesoinConseillerNumerique).getByText(
+    const dateDebutMission = within(etapeBesoinConseillerNumerique).getByText(
       textMatcher('À partir de quand êtes vous prêt à accueillir votre conseiller numerique ?*'),
       { selector: 'p' }
     );
-    expect(dateAccueilConseillerNumerique).toBeInTheDocument();
+    expect(dateDebutMission).toBeInTheDocument();
 
     const date = within(etapeBesoinConseillerNumerique).getByLabelText('Choisir une date');
     expect(date).toHaveAttribute('type', 'date');
@@ -240,7 +241,7 @@ describe('candidature structure', () => {
     });
 
     render(<CandidatureStructure />);
-    
+
     // WHEN
     const siretInput = screen.getByLabelText('SIRET / RIDET *');
     fireEvent.change(siretInput, { target: { value: '13002603200016' } });
@@ -255,7 +256,7 @@ describe('candidature structure', () => {
       expect(adresseInput).toHaveValue('20 AVENUE DE SEGUR, 75007 PARIS');
     });
   });
-  
+
   it('quand je renseigne un ridet valide la dénomination de la structure est affichée', async () => {
     // GIVEN
     vi.spyOn(global, 'fetch').mockImplementation();
@@ -267,9 +268,9 @@ describe('candidature structure', () => {
       ok: true,
       json: async () => mockApiResponse,
     });
-    
+
     render(<CandidatureStructure />);
-    
+
     // WHEN
     const ridetInput = screen.getByLabelText('SIRET / RIDET *');
     fireEvent.change(ridetInput, { target: { value: '1071539' } });
@@ -280,15 +281,15 @@ describe('candidature structure', () => {
       expect(denominationInput).toHaveValue('SELARL LUNA');
     });
   });
-  
+
   it('quand je renseigne ni un siret (14 chiffres) ni un ridet (6 ou 7 chiffres) alors les champs sont vidés', async () => {
     // GIVEN
     render(<CandidatureStructure />);
-    
+
     // WHEN
     const siretInput = screen.getByLabelText('SIRET / RIDET *');
     fireEvent.change(siretInput, { target: { value: '1300260320001' } });
-    
+
     // THEN
     const denominationInput = screen.getByLabelText('Dénomination *');
     const adresseInput = screen.getByLabelText('Adresse *');
@@ -307,13 +308,13 @@ describe('candidature structure', () => {
       resolvePromise = resolve;
     });
     global.fetch.mockReturnValueOnce(promise);
-  
+
     render(<CandidatureStructure />);
-    
+
     // WHEN
     const siretInput = screen.getByLabelText('SIRET / RIDET *');
     fireEvent.change(siretInput, { target: { value: '13002603200016' } });
-    
+
     // THEN
     await waitFor(() => {
       const denominationInput = screen.getByLabelText('Dénomination *');

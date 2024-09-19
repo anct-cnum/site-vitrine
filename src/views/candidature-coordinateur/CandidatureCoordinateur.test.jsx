@@ -5,37 +5,36 @@ import { textMatcher } from '../../../test/test-utils';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
+  useNavigate: vi.fn()
 }));
 
 describe('candidature coordinateur', () => {
-  describe('étant un coordinateur', () => {
-    it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
-      // WHEN
-      render(<CandidatureCoordinateur />);
+  it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
+    // WHEN
+    render(<CandidatureCoordinateur />);
 
-      // THEN
-      const titre = screen.getByRole('heading', { level: 1, name: textMatcher('Je souhaite engager un coordinateur pour mes conseillers numériques') });
-      expect(titre).toBeInTheDocument();
+    // THEN
+    const titre = screen.getByRole('heading', { level: 1, name: textMatcher('Je souhaite engager un coordinateur pour mes conseillers numériques') });
+    expect(titre).toBeInTheDocument();
 
-      const champsObligatoires = screen.getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
-      expect(champsObligatoires).toBeInTheDocument();
+    const champsObligatoires = screen.getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
+    expect(champsObligatoires).toBeInTheDocument();
 
-      const navigation = screen.getByRole('navigation', { name: 'Sommaire' });
-      const menu = within(navigation).getByRole('list');
-      const menuItems = within(menu).getAllByRole('listitem');
+    const navigation = screen.getByRole('navigation', { name: 'Sommaire' });
+    const menu = within(navigation).getByRole('list');
+    const menuItems = within(menu).getAllByRole('listitem');
 
-      const informationsDeStructure = within(menuItems[0]).getByRole('link', { name: 'Vos informations de structure' });
-      expect(informationsDeStructure).toHaveAttribute('href', '#informations-de-structure');
+    const informationsDeStructure = within(menuItems[0]).getByRole('link', { name: 'Vos informations de structure' });
+    expect(informationsDeStructure).toHaveAttribute('href', '#informations-de-structure');
 
-      const informationsDeContact = within(menuItems[1]).getByRole('link', { name: 'Vos informations de contact' });
-      expect(informationsDeContact).toHaveAttribute('href', '#informations-de-contact');
+    const informationsDeContact = within(menuItems[1]).getByRole('link', { name: 'Vos informations de contact' });
+    expect(informationsDeContact).toHaveAttribute('href', '#informations-de-contact');
 
-      const votreBesoinEnCoordinateur = within(menuItems[2]).getByRole('link', { name: 'Votre besoin en coordinateur' });
-      expect(votreBesoinEnCoordinateur).toHaveAttribute('href', '#votre-besoin-en-coordinateur');
+    const votreBesoinEnCoordinateur = within(menuItems[2]).getByRole('link', { name: 'Votre besoin en coordinateur' });
+    expect(votreBesoinEnCoordinateur).toHaveAttribute('href', '#votre-besoin-en-coordinateur');
 
-      const votreMotivation = within(menuItems[3]).getByRole('link', { name: 'Votre motivation' });
-      expect(votreMotivation).toHaveAttribute('href', '#votre-motivation');
-    });
+    const votreMotivation = within(menuItems[3]).getByRole('link', { name: 'Votre motivation' });
+    expect(votreMotivation).toHaveAttribute('href', '#votre-motivation');
   });
 
   it('quand j’affiche le formulaire alors l’étape "Vos informations de structure" est affichée', () => {
@@ -46,10 +45,6 @@ describe('candidature coordinateur', () => {
     const formulaire = screen.getByRole('form', { name: 'Candidature coordinateur' });
     const etapeInformationsDeStructure = within(formulaire).getByRole('group', { name: 'Vos informations de structure' });
     expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
-
-    // const siretOuRidet = within(etapeInformationsDeStructure).getByPlaceholderText('N° SIRET / RIDET');
-    // expect(siretOuRidet).toHaveAttribute('id', 'siretEntreprise');
-    // expect(siretOuRidet).toBeRequired();
 
     const denomination = within(etapeInformationsDeStructure).getByLabelText('Dénomination *');
     expect(denomination).toHaveAttribute('type', 'text');
@@ -65,31 +60,31 @@ describe('candidature coordinateur', () => {
 
     const uneCommune = screen.getByRole('radio', { name: 'Une commune' });
     expect(uneCommune).toBeRequired();
-    expect(uneCommune).toHaveAttribute('name', 'typeStructure');
+    expect(uneCommune).toHaveAttribute('name', 'type');
 
     const unDepartement = screen.getByRole('radio', { name: 'Un département' });
     expect(unDepartement).toBeRequired();
-    expect(unDepartement).toHaveAttribute('name', 'typeStructure');
+    expect(unDepartement).toHaveAttribute('name', 'type');
 
     const uneRegion = screen.getByRole('radio', { name: 'Une région' });
     expect(uneRegion).toBeRequired();
-    expect(uneRegion).toHaveAttribute('name', 'typeStructure');
+    expect(uneRegion).toHaveAttribute('name', 'type');
 
     const unEtablissemntPublic = screen.getByRole('radio', { name: 'Un établissement public de coopération intercommunale' });
     expect(unEtablissemntPublic).toBeRequired();
-    expect(unEtablissemntPublic).toHaveAttribute('name', 'typeStructure');
+    expect(unEtablissemntPublic).toHaveAttribute('name', 'type');
 
     const uneCollectivite = screen.getByRole('radio', { name: 'Une collectivité à statut particulier' });
     expect(uneCollectivite).toBeRequired();
-    expect(uneCollectivite).toHaveAttribute('name', 'typeStructure');
+    expect(uneCollectivite).toHaveAttribute('name', 'type');
 
     const unGIP = screen.getByRole('radio', { name: 'Un GIP' });
     expect(unGIP).toBeRequired();
-    expect(unGIP).toHaveAttribute('name', 'typeStructure');
+    expect(unGIP).toHaveAttribute('name', 'type');
 
     const uneStructurePrivee = screen.getByRole('radio', { name: 'Une structure privée (association, entreprise de l’ESS, fondations)' });
     expect(uneStructurePrivee).toBeRequired();
-    expect(uneStructurePrivee).toHaveAttribute('name', 'typeStructure');
+    expect(uneStructurePrivee).toHaveAttribute('name', 'type');
   });
 
   it('quand j’affiche le formulaire alors l’étape "Vos informations de contact" est affichée', () => {
@@ -119,7 +114,7 @@ describe('candidature coordinateur', () => {
 
     const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone *');
     expect(telephone).toHaveAttribute('type', 'tel');
-    expect(telephone).toHaveAttribute('pattern', '0[1-9]{9}');
+    expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[1-9]{9}');
     expect(telephone).toBeRequired();
   });
 
@@ -147,11 +142,11 @@ describe('candidature coordinateur', () => {
 
     const oui = screen.getByRole('radio', { name: 'Oui' });
     expect(oui).toBeRequired();
-    expect(oui).toHaveAttribute('name', 'identificationCandidat');
+    expect(oui).toHaveAttribute('name', 'aIdentifieCandidat');
 
     const non = screen.getByRole('radio', { name: 'Non' });
     expect(non).toBeRequired();
-    expect(non).toHaveAttribute('name', 'identificationCandidat');
+    expect(non).toHaveAttribute('name', 'aIdentifieCandidat');
 
     const leCoordinateur = within(etapeBesoinCoordinateur).getByText(textMatcher('Le coordinateur*'), { selector: 'p' });
     expect(leCoordinateur).toBeInTheDocument();
