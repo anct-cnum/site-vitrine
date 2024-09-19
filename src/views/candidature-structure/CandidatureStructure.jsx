@@ -37,7 +37,7 @@ export default function CandidatureStructure() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const structureData = buildStructureData(formData, geoLocation);
+    const structureData = await buildStructureData(formData, geoLocation);
     const resultatCreation = await creerCandidatureStructure(structureData);
     if (resultatCreation.status >= 400) {
       const error = await resultatCreation.json();

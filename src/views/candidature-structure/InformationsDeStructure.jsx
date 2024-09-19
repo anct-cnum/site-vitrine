@@ -60,14 +60,13 @@ export default function InformationsDeContact({ setGeoLocation }) {
         value={denomination}
         isLoading={loading}
         ariaBusy={loading}
-        onChange={e => setDenomination(e.target.value)}
+        onChange={event => setDenomination(event.target.value)}
       >
         Dénomination <span className="cc-obligatoire">*</span>
       </Input>
       <div className="adresse-container">
         <Input
           id="adresse"
-          name="adresse"
           value={adresse}
           onChange={handleAdresseChange}
           readOnly={!entreprise?.isRidet}

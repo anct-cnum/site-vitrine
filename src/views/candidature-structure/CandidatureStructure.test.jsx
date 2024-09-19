@@ -187,7 +187,7 @@ describe('candidature structure', () => {
     expect(sousTitreVotreMotvation).toBeInTheDocument();
 
     const votreMessage = within(etapeMotivation).getByLabelText('Votre message *');
-    expect(votreMessage).toHaveAttribute('id', 'votreMessage');
+    expect(votreMessage).toHaveAttribute('id', 'motivation');
     expect(votreMessage).toBeRequired();
   });
 
@@ -232,7 +232,7 @@ describe('candidature structure', () => {
     vi.spyOn(global, 'fetch').mockImplementation();
     const mockApiResponse = {
       nomStructure: 'AGENCE NATIONALE DE LA COHESION DES TERRITOIRES',
-      adressStructure: '20 AVENUE DE SEGUR, 75007 PARIS',
+      adresseStructure: '20 AVENUE DE SEGUR, 75007 PARIS',
       isRidet: false,
     };
     global.fetch.mockResolvedValueOnce({
@@ -324,7 +324,7 @@ describe('candidature structure', () => {
       ok: true,
       json: async () => ({
         nomStructure: 'AGENCE NATIONALE DE LA COHESION DES TERRITOIRES',
-        adressStructure: '20 AVENUE DE SEGUR, 75007 PARIS',
+        adresseStructure: '20 AVENUE DE SEGUR, 75007 PARIS',
         isRidet: false
       })
     });

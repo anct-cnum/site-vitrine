@@ -20,7 +20,7 @@ export default function SituationEtExperience({ isSituationValid }) {
         Êtes-vous actuellement dans l’une des situations suivantes ? <span className="cc-obligatoire">*</span>
       </p>
       {situations.map(({ id, libelle }) =>
-        <Checkbox id={id} key={id} name={id} onCheck={handleCheck} required={false}>
+        <Checkbox id={id} key={id} onCheck={handleCheck} required={false}>
           {libelle}
         </Checkbox>
       )}

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 
 const TAILLE_SIRET = 14;
 const TAILLE_RIDET = [6, 7];
@@ -28,13 +27,12 @@ export const useEntrepriseFinder = setGeoLocation => {
   };
 
   const getGeoLocationFromAddress = async address => {
-    console.log('>>>>>>>>>>>>');
     try {
       const urlAPI = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(address)}`;
-      const response = await axios.get(urlAPI);
-      if (response.data.features && response.data.features.length > 0) {
-        const geoLocation = response.data.features[0].geometry;
-        return geoLocation;
+      const response = await fetch(urlAPI);
+      const result = await response.json();
+      if (result.features && result.features.length > 0) {
+        return result.features[0].geometry;
       }
     } catch (error) {
       setError('Impossible de trouver la localisation de l\'adresse.');
@@ -54,16 +52,15 @@ export const useEntrepriseFinder = setGeoLocation => {
     setLoading(true);
     try {
       const response = await fetch(`http://localhost:8080/structure/verify-siret-or-ridet/${siretOrRidet}`);
-      console.log('===========');
       if (!response.ok) {
         throw new Error(`Error fetching data: ${response.statusText}`);
       }
       const result = await response.json();
       setEntreprise(result);
       setDenomination(result.nomStructure || '');
-      if (siretOrRidet.length === TAILLE_SIRET && result.adressStructure) {
-        setAdresse(result.adressStructure);
-        const geoLocation = await getGeoLocationFromAddress(result.adressStructure);
+      if (siretOrRidet.length === TAILLE_SIRET && result.adresseStructure) {
+        setAdresse(result.adresseStructure);
+        const geoLocation = await getGeoLocationFromAddress(result.adresseStructure);
         if (geoLocation) {
           setGeoLocation(geoLocation);
         }
@@ -85,10 +82,11 @@ export const useEntrepriseFinder = setGeoLocation => {
     try {
       setAddressLoading(true);
       const urlAPI = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(adressePostale)}`;
-      const response = await axios.get(urlAPI);
-      const suggestions = response.data.features.map(feature => ({
-        label: feature.properties.label,
-        geometry: feature.geometry
+      const response = await fetch(urlAPI);
+      const result = await response.json();
+      const suggestions = result.features.map(feature => ({
+        label: `${feature.properties.citycode} ${feature.properties.city}`,
+        geometry: feature.geometry,
       }));
       setAddressSuggestions(suggestions);
     } catch (error) {

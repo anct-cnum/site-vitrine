@@ -188,7 +188,7 @@ describe('candidature coordinateur', () => {
     expect(sousTitreVotreMotvation).toBeInTheDocument();
 
     const votreMessage = within(etapeMotivation).getByLabelText('Votre message *');
-    expect(votreMessage).toHaveAttribute('id', 'votreMessage');
+    expect(votreMessage).toHaveAttribute('id', 'motivation');
     expect(votreMessage).toBeRequired();
 
     const questionsMotivation = within(etapeMotivation).getByRole('list');
