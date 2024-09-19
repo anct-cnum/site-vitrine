@@ -17,6 +17,7 @@ import '@gouvfr/dsfr/dist/component/modal/modal.module.min.js';
 import '@gouvfr/dsfr/dist/component/header/header.module.min.js';
 import './assets/sass/main.scss';
 import '@gouvfr/dsfr/dist/core/core.min.css';
+import PageConfirmationEmailCandidatureStructure from './views/confirmation-email-candidature-structure/PageConfirmationEmailCandidatureStructure';
 
 const RedirectCarto = () => {
   const { permanence } = useParams();
@@ -52,7 +53,8 @@ function App() {
             <Route path="/nouveau-formulaire-structure" element={<PageCandidatureStructure />}/>
             <Route path="/nouveau-formulaire-coordinateur" element={<PageCandidatureCoordinateur />}/>
             <Route path="/candidature-validee" element={<PageCandidatureValidee />}/>
-            <Route path="/candidature-confirmer/:token" element={<PageConfirmationEmailCandidature />}/>
+            <Route path="/candidature-confirmer-conseiller/:token" element={<PageConfirmationEmailCandidature />}/>
+            <Route path="/candidature-confirmer-structure/:token" element={<PageConfirmationEmailCandidatureStructure />}/>
             <Route path="/kit-communication" element={<KitCommunication />}/>
             <Route path="/donnees-personnelles" element={<DonneesPersonnelles />}/>
             <Route path="/mentions-legales" element={<MentionsLegales />}/>
