@@ -1,6 +1,6 @@
 import { render, act, screen, fireEvent } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import ConfirmationEmailCandidature from './ConfirmationEmailCandidature';
+import ConfirmationEmailCandidature from './ConfirmationEmailCandidatureConseiller';
 
 vi.mock('react-router-dom', () => ({
   useParams: () => ({ token: '1' }),
