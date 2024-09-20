@@ -142,22 +142,22 @@ describe('candidature coordinateur', () => {
 
     const oui = screen.getByRole('radio', { name: 'Oui' });
     expect(oui).toBeRequired();
-    expect(oui).toHaveAttribute('name', 'aIdentifieCandidat');
+    expect(oui).toHaveAttribute('name', 'aIdentifieCoordinateur');
 
     const non = screen.getByRole('radio', { name: 'Non' });
     expect(non).toBeRequired();
-    expect(non).toHaveAttribute('name', 'aIdentifieCandidat');
+    expect(non).toHaveAttribute('name', 'aIdentifieCoordinateur');
 
     const leCoordinateur = within(etapeBesoinCoordinateur).getByText(textMatcher('Le coordinateur*'), { selector: 'p' });
     expect(leCoordinateur).toBeInTheDocument();
 
     const coordination = screen.getByRole('radio', { name: 'Effectuera uniquement des missions de coordination' });
     expect(coordination).toBeRequired();
-    expect(coordination).toHaveAttribute('name', 'coordinateur');
+    expect(coordination).toHaveAttribute('name', 'coordinateurTypeContrat');
 
     const publics = screen.getByRole('radio', { name: 'Accompagnera également des publics' });
     expect(publics).toBeRequired();
-    expect(publics).toHaveAttribute('name', 'coordinateur');
+    expect(publics).toHaveAttribute('name', 'coordinateurTypeContrat');
 
     const dateAccueilCoordinateur = within(etapeBesoinCoordinateur).getByText(
       textMatcher('À partir de quand êtes vous prêt à accueillir votre coordinateur ?*'),
