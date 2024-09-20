@@ -15,7 +15,7 @@ export const useGeoApi = () => {
   };
 
   const getVilleParCode = async codePostal => {
-    const url = `${baseUrl.toString()}&code=${codePostal}`;
+    const url = `${baseUrl.toString()}&codePostal=${codePostal}`;
     const ville = await fetch(url);
     return await ville.json();
   };

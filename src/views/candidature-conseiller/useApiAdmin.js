@@ -76,7 +76,7 @@ export const useApiAdmin = () => {
     convertValueToBoolean(conseillerData, 'estEnFormation');
     convertValueToBoolean(conseillerData, 'estDiplomeMedNum');
     convertValueToBoolean(conseillerData, 'aUneExperienceMedNum');
-    const codePostal = conseillerData.lieuHabitation.split(' ')?.[0];
+    const codePostal = conseillerData.lieuHabitation.match(/\d{5}/)?.[0];
     await handleInformationsVille(conseillerData, codePostal);
     delete conseillerData.lieuHabitation;
     delete conseillerData['g-recaptcha-response'];
