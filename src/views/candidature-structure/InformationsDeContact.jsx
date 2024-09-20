@@ -35,7 +35,7 @@ export default function InformationsDeContact() {
         id="telephone"
         name="telephone"
         type="tel"
-        pattern="[+](33|590|596|594|262|269|687)[1-9]{9}"
+        pattern="[+](33|590|596|594|262|269|687)[0-9]{9}"
       >
         Téléphone <span className="cc-obligatoire">*</span>
       </Input>

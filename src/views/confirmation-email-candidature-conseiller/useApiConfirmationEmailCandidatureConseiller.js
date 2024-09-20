@@ -9,7 +9,7 @@ export const useApiConfirmationEmailCandidatureConseiller = () => {
       headers: { 'Content-Type': 'application/json' },
     };
     try {
-      return await fetch(`${baseUrl}/confirmation-email-inscription/${token}`, requestOptions);
+      return await fetch(`${baseUrl}/confirmation-email-inscription-conseiller/${token}`, requestOptions);
     } catch (error) {
       return error;
     }

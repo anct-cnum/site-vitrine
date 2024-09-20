@@ -10,7 +10,7 @@ const TAILLE_SIRET = 14;
 const TAILLE_RIDET = [6, 7];
 const TAILLES_POSSIBLES = [...TAILLE_RIDET, TAILLE_SIRET];
 
-export default function InformationsDeContact({ setGeoLocation }) {
+export default function InformationsDeStructure({ setGeoLocation }) {
   const {
     entreprise,
     search,
@@ -116,7 +116,7 @@ export default function InformationsDeContact({ setGeoLocation }) {
   );
 }
 
-InformationsDeContact.propTypes = {
+InformationsDeStructure.propTypes = {
   setGeoLocation: PropTypes.func.isRequired,
   geoLocation: PropTypes.object,
 };
