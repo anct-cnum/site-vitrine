@@ -10,7 +10,6 @@ describe('confirmation Email', () => {
   it('quand j’affiche la page de confirmation de l’email validée alors le titre et les informations de la page s’affichent', () => {
     // WHEN
     render(<ConfirmationEmailCandidatureStructure />);
-    vi.spyOn(window, 'scrollTo').mockImplementation();
 
     // THEN
     const titre = screen.getByRole('heading', { level: 1, name: 'Confirmation de l’enregistrement de votre candidature' });
@@ -25,13 +24,12 @@ describe('confirmation Email', () => {
     expect(envoyer).toBeInTheDocument();
   });
 
-  it('quand l’utilisateur clique sur le bouton et que le lien est valide alors un message success s’affiche', async () => {
+  it('quand l’utilisateur clique sur le bouton et que le lien est valide alors un message de succès s’affiche', async () => {
     // WHEN
-    vi.spyOn(window, 'scrollTo').mockImplementation();
-    render(<ConfirmationEmailCandidatureStructure />);
     vi.stubGlobal('fetch', vi.fn(
       () => ({ status: 200, json: async () => Promise.resolve({}) }))
     );
+    render(<ConfirmationEmailCandidatureStructure />);
   
     const envoyer = screen.getByRole('button', { name: 'Confirmer' });
     expect(envoyer).toBeInTheDocument();
@@ -53,14 +51,13 @@ describe('confirmation Email', () => {
     const messageError403 = screen.queryByText('Impossible de valider l’email, le lien a expiré ou est invalide.', { selector: 'p' });
     expect(messageError403).not.toBeInTheDocument();
 
-    const messageErrorGenerale = screen.queryByText('Une erreur s’est produite veuillez réessayer plus tard.', { selector: 'p' });
-    expect(messageErrorGenerale).not.toBeInTheDocument();
+    const messageErreurGenerale = screen.queryByText('Une erreur s’est produite veuillez réessayer plus tard.', { selector: 'p' });
+    expect(messageErreurGenerale).not.toBeInTheDocument();
   });
 
   it('quand l’utilisateur clique sur le bouton et que le lien est invalide alors un message d’erreur s’affiche', async () => {
    
     // GIVEN
-    vi.spyOn(window, 'scrollTo').mockImplementation();
     vi.stubGlobal('fetch', vi.fn(
       () => ({ status: 403, json: async () => Promise.resolve({}) }))
     );
@@ -87,12 +84,12 @@ describe('confirmation Email', () => {
     const messageSuccess = screen.queryByText('Votre email a été confirmé et votre inscription est maintenant active.' +
     ' Vous recevrez un mail d’activation de votre espace structure lorsque votre candidature aura été validée.', { selector: 'p' });
     expect(messageSuccess).not.toBeInTheDocument();
-    const messageErrorGenerale = screen.queryByText('Une erreur s’est produite veuillez réessayer plus tard.', { selector: 'p' });
-    expect(messageErrorGenerale).not.toBeInTheDocument();
+    const messageErreurGenerale = screen.queryByText('Une erreur s’est produite veuillez réessayer plus tard.', { selector: 'p' });
+    expect(messageErreurGenerale).not.toBeInTheDocument();
   });
 
   
-  it('quand l’utilisateur clique sur le bouton et qu’une erreur innatendu se produit alors un message d’erreur s’affiche', async () => {
+  it('quand l’utilisateur clique sur le bouton et qu’une erreur innatendue se produit alors un message d’erreur s’affiche', async () => {
     // GIVEN
     vi.stubGlobal('fetch', vi.fn(
       () => ({ status: 500, json: async () => Promise.resolve({}) }))

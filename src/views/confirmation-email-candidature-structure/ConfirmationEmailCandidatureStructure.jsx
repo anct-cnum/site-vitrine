@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useApiConfirmationEmailCandidatureStructure } from './useApiConfirmationEmailCandidatureStructure';
 
-
 export default function ConfirmationEmailCandidatureStructure() {
   const [reponseStatusConfirmation, setReponseStatusConfirmation] = useState(null);
   const { actionConfirmationEmailCandidatureStructure } = useApiConfirmationEmailCandidatureStructure();
@@ -11,7 +10,7 @@ export default function ConfirmationEmailCandidatureStructure() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
-  const ClickBoutonConfirmer = async () => {
+  const confirmerEmailCandidatureStructure = async () => {
     const response = await actionConfirmationEmailCandidatureStructure(token);
     setReponseStatusConfirmation(response.status);
   };
@@ -32,7 +31,7 @@ export default function ConfirmationEmailCandidatureStructure() {
         <p>
           Appuyez sur le bouton pour confirmer votre email
         </p>
-        <button onClick={ClickBoutonConfirmer} className="fr-btn fr-btn--secondary">
+        <button onClick={confirmerEmailCandidatureStructure} className="fr-btn fr-btn--secondary">
           Confirmer
         </button>
       </>}

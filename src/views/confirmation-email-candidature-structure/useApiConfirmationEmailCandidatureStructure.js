@@ -1,6 +1,4 @@
-
 export const useApiConfirmationEmailCandidatureStructure = () => {
-
 
   const actionConfirmationEmailCandidatureStructure = async token => {
     const baseUrl = import.meta.env.VITE_APP_API_URL;
