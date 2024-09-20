@@ -26,7 +26,6 @@ export default function CandidatureCoordinateur() {
   const [validationError, setValidationError] = useState('');
   const navigate = useNavigate();
   const { buildCoordinateurData, creerCandidatureCoordinateur } = useApiAdmin();
-
   useScrollToSection();
 
   useEffect(() => {

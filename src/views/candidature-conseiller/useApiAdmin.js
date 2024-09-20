@@ -67,6 +67,7 @@ export const useApiAdmin = () => {
     formulaireData.codeDepartement = informationsVille?.codeDepartement;
     formulaireData.codeRegion = informationsVille?.codeRegion;
     formulaireData.codeCom = informationsVille?.code;
+    return formulaireData;
   };
 
   const buildConseillerData = async formData => {

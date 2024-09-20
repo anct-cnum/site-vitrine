@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useApiConfirmationEmailCandidature } from './useApiConfirmationEmailCandidature';
+import { useApiConfirmationEmailCandidatureConseiller } from './useApiConfirmationEmailCandidatureConseiller';
 
 
-export default function CandidatureValidee() {
+export default function ConfirmationEmailCandidatureConseiller() {
   const [reponseStatusConfirmation, setReponseStatusConfirmation] = useState(null);
-  const { actionConfirmationEmailCandidature } = useApiConfirmationEmailCandidature();
+  const { actionConfirmationEmailCandidatureConseiller } = useApiConfirmationEmailCandidatureConseiller();
   const { token } = useParams();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
   const ClickBoutonConfirmer = async () => {
-    const response = await actionConfirmationEmailCandidature(token);
+    const response = await actionConfirmationEmailCandidatureConseiller(token);
     setReponseStatusConfirmation(response.status);
   };
   return (
