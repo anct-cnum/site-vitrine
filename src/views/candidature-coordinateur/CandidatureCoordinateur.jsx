@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SommaireCoordinateur from './SommaireCoordinateur';
 import InformationsDeContact from '../candidature-structure/InformationsDeContact';
 import InformationsDeStructure from '../candidature-structure/InformationsDeStructure';
@@ -18,6 +18,7 @@ import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
 import '../candidature-conseiller/CandidatureConseiller.css';
 
 export default function CandidatureCoordinateur() {
+  const [geoLocation, setGeoLocation] = useState(null);
   useScrollToSection();
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function CandidatureCoordinateur() {
           <h1 className="cc-titre fr-mb-5w">Je souhaite engager un coordinateur pour mes conseillers numériques</h1>
           <p className="fr-text--sm fr-hint-text">Les champs avec <span className="cc-obligatoire">*</span> sont obligatoires.</p>
           <form aria-label="Candidature coordinateur" >
-            <InformationsDeStructure />
+            <InformationsDeStructure setGeoLocation={setGeoLocation} geoLocation={geoLocation} />
             <InformationsDeContact />
             <BesoinEnCoordinateur />
             <Motivation />

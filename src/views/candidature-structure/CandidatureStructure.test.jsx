@@ -119,7 +119,7 @@ describe('candidature structure', () => {
 
     const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone *');
     expect(telephone).toHaveAttribute('type', 'tel');
-    expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[1-9]{9}');
+    expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[0-9]{9}');
     expect(telephone).toBeRequired();
   });
 
