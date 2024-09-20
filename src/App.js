@@ -40,8 +40,10 @@ function App() {
   const PageCandidatureStructure = lazy(() => import('./views/candidature-structure/PageCandidatureStructure'));
   const PageCandidatureCoordinateur = lazy(() => import('./views/candidature-coordinateur/PageCandidatureCoordinateur'));
   const PageCandidatureValidee = lazy(() => import('./views/candidature-validee/PageCandidatureValidee'));
-  const PageConfirmationEmailCandidatureConseiller = lazy(() => import('./views/confirmation-email-candidature-conseiller/PageConfirmationEmailCandidatureConseiller'));
-  const PageConfirmationEmailCandidatureStructure = lazy(() => import('./views/confirmation-email-candidature-structure/PageConfirmationEmailCandidatureStructure'));
+  const PageConfirmationEmailCandidatureConseiller =
+  lazy(() => import('./views/confirmation-email-candidature-conseiller/PageConfirmationEmailCandidatureConseiller'));
+  const PageConfirmationEmailCandidatureStructure =
+  lazy(() => import('./views/confirmation-email-candidature-structure/PageConfirmationEmailCandidatureStructure'));
 
   return (
     <div className="App">
