@@ -1,8 +1,8 @@
 
-export const useApiConfirmationEmailCandidature = () => {
+export const useApiConfirmationEmailCandidatureConseiller = () => {
 
 
-  const actionConfirmationEmailCandidature = async token => {
+  const actionConfirmationEmailCandidatureConseiller = async token => {
     const baseUrl = import.meta.env.VITE_APP_API_URL;
     const requestOptions = {
       method: 'PATCH',
@@ -15,5 +15,5 @@ export const useApiConfirmationEmailCandidature = () => {
     }
   };
 
-  return { actionConfirmationEmailCandidature };
+  return { actionConfirmationEmailCandidatureConseiller };
 };
