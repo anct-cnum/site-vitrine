@@ -8,7 +8,7 @@
   width: 100%;
 }
 
-.cc-section legend + * {
+.cc-section legend+* {
   clear: left;
 }
 
@@ -36,4 +36,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+html {
+  scroll-behavior: smooth;
 }

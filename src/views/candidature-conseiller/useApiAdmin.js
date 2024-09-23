@@ -33,6 +33,21 @@ export const useApiAdmin = () => {
     }
   };
 
+  const creerCandidatureCoordinateur = async structureData => {
+    const baseUrl = import.meta.env.VITE_APP_API_URL;
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: structureData
+    };
+
+    try {
+      return await fetch(`${baseUrl}/candidature-structure-coordinateur`, requestOptions);
+    } catch (error) {
+      return error;
+    }
+  };
+
   const convertValueToBoolean = (conseillerData, key) => {
     conseillerData[key] = conseillerData[key] === 'on' || conseillerData[key] === 'oui';
   };
@@ -62,7 +77,7 @@ export const useApiAdmin = () => {
     convertValueToBoolean(conseillerData, 'estEnFormation');
     convertValueToBoolean(conseillerData, 'estDiplomeMedNum');
     convertValueToBoolean(conseillerData, 'aUneExperienceMedNum');
-    const codePostal = conseillerData.lieuHabitation.split(' ')?.[0];
+    const codePostal = conseillerData.lieuHabitation.match(/\d{5}/)?.[0];
     await handleInformationsVille(conseillerData, codePostal);
     delete conseillerData.lieuHabitation;
     delete conseillerData['g-recaptcha-response'];
@@ -108,9 +123,23 @@ export const useApiAdmin = () => {
     return JSON.stringify(structureData);
   };
 
+  const buildCoordinateurData = async formData => {
+    const coordinateurData = Object.fromEntries(formData);
+    handleContact(coordinateurData);
+    handleInformationsStructure(coordinateurData);
+    await handleAdresse(coordinateurData);
+    convertValueToBoolean(coordinateurData, 'aIdentifieCoordinateur');
+    convertValueToBoolean(coordinateurData, 'confirmationEngagement');
+    delete coordinateurData['g-recaptcha-response'];
+    return JSON.stringify(coordinateurData);
+  };
+
   return {
     buildConseillerData,
     buildStructureData,
+    buildCoordinateurData,
     creerCandidatureConseiller,
-    creerCandidatureStructure };
+    creerCandidatureStructure,
+    creerCandidatureCoordinateur,
+  };
 };

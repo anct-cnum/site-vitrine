@@ -1,7 +1,8 @@
-import { render, screen, within, waitFor, fireEvent } from '@testing-library/react';
+import { render, screen, within, waitFor, fireEvent, act } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureStructure from './CandidatureStructure';
-import { textMatcher } from '../../../test/test-utils';
+import { textMatcher, dateDujour } from '../../../test/test-utils';
+import * as ReactRouterDom from 'react-router-dom';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
@@ -9,33 +10,31 @@ vi.mock('react-router-dom', () => ({
 }));
 
 describe('candidature structure', () => {
-  describe('étant une structure', () => {
-    it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
-      // WHEN
-      render(<CandidatureStructure />);
+  it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
+    // WHEN
+    render(<CandidatureStructure />);
 
-      // THEN
-      const titre = screen.getByRole('heading', { level: 1, name: textMatcher('Je souhaite engager un conseiller numérique') });
-      expect(titre).toBeInTheDocument();
+    // THEN
+    const titre = screen.getByRole('heading', { level: 1, name: textMatcher('Je souhaite engager un conseiller numérique') });
+    expect(titre).toBeInTheDocument();
 
-      const champsObligatoires = screen.getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
-      expect(champsObligatoires).toBeInTheDocument();
+    const champsObligatoires = screen.getByText(textMatcher('Les champs avec * sont obligatoires.'), { selector: 'p' });
+    expect(champsObligatoires).toBeInTheDocument();
 
-      const navigation = screen.getByRole('navigation', { name: 'Sommaire' });
-      const menu = within(navigation).getByRole('list');
-      const menuItems = within(menu).getAllByRole('listitem');
+    const navigation = screen.getByRole('navigation', { name: 'Sommaire' });
+    const menu = within(navigation).getByRole('list');
+    const menuItems = within(menu).getAllByRole('listitem');
 
-      const informationsDeStructure = within(menuItems[0]).getByRole('link', { name: 'Vos informations de structure' });
-      expect(informationsDeStructure).toHaveAttribute('href', '#informations-de-structure');
+    const informationsDeStructure = within(menuItems[0]).getByRole('link', { name: 'Vos informations de structure' });
+    expect(informationsDeStructure).toHaveAttribute('href', '#informations-de-structure');
 
-      const informationsDeContact = within(menuItems[1]).getByRole('link', { name: 'Vos informations de contact' });
-      expect(informationsDeContact).toHaveAttribute('href', '#informations-de-contact');
+    const informationsDeContact = within(menuItems[1]).getByRole('link', { name: 'Vos informations de contact' });
+    expect(informationsDeContact).toHaveAttribute('href', '#informations-de-contact');
 
-      const votreBesoinEnConseillerNumerique = within(menuItems[2]).getByRole('link', { name: 'Votre besoin en conseiller numérique' });
-      expect(votreBesoinEnConseillerNumerique).toHaveAttribute('href', '#votre-besoin-en-conseiller-numerique');
-      const votreMotivation = within(menuItems[3]).getByRole('link', { name: 'Votre motivation' });
-      expect(votreMotivation).toHaveAttribute('href', '#votre-motivation');
-    });
+    const votreBesoinEnConseillerNumerique = within(menuItems[2]).getByRole('link', { name: 'Votre besoin en conseiller numérique' });
+    expect(votreBesoinEnConseillerNumerique).toHaveAttribute('href', '#votre-besoin-en-conseiller-numerique');
+    const votreMotivation = within(menuItems[3]).getByRole('link', { name: 'Votre motivation' });
+    expect(votreMotivation).toHaveAttribute('href', '#votre-motivation');
   });
 
   it('quand j’affiche le formulaire alors l’étape "Vos informations de structure" est affiché', () => {
@@ -336,6 +335,117 @@ describe('candidature structure', () => {
       const adresseInput = screen.getByLabelText('Adresse *');
       expect(adresseInput).toHaveValue('20 AVENUE DE SEGUR, 75007 PARIS');
     });
+  });
+
+  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page', async () => {
+    // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 400, json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }) }))
+    );
+
+    render(<CandidatureStructure />);
+    const siret = screen.getByLabelText('SIRET / RIDET *');
+    fireEvent.change(siret, { target: { value: '1234567890123' } });
+    const denomination = screen.getByLabelText('Dénomination *');
+    fireEvent.change(denomination, { target: { value: 'Entreprise' } });
+    const adresse = screen.getByLabelText('Adresse *');
+    fireEvent.change(adresse, { target: { value: '75056 Paris' } });
+    const typeStructure = screen.getByRole('radio', { name: 'Une commune' });
+    fireEvent.click(typeStructure);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const fonction = screen.getByLabelText('Fonction *');
+    fireEvent.change(fonction, { target: { value: 'Test' } });
+    const email = screen.getByLabelText('Adresse e-mail *');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const telephone = screen.getByLabelText('Téléphone *');
+    fireEvent.change(telephone, { target: { value: '+33123456789' } });
+    const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ?*');
+    fireEvent.change(nombre, { target: { value: 1 } });
+    const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(identificationCandidat);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+    const confirmation = screen.getByRole('checkbox', { name: 'Je confirme avoir lu et pris connaissance des conditions d’engagement. *' });
+    fireEvent.click(confirmation);
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(() => {
+      fireEvent.click(envoyer);
+    });
+
+    // THEN
+    const titreErreurValidation = screen.getByRole('heading', { level: 3, name: 'Erreur de validation' });
+    expect(titreErreurValidation).toBeInTheDocument();
+    const contenuErreurValidation = screen.getByText('Cette adresse mail est déjà utilisée', { selector: 'p' });
+    expect(contenuErreurValidation).toBeInTheDocument();
+    vi.useRealTimers();
+  });
+
+  it('quand je remplis le formulaire avec toutes les informations valides, alors je suis redirigé vers la page de candidature validée', async () => {
+    // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 200, json: async () => Promise.resolve({}) }))
+    );
+
+    const mockNavigate = vi.fn().mockReturnValue(() => { });
+    vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
+
+    render(<CandidatureStructure />);
+    const siret = screen.getByLabelText('SIRET / RIDET *');
+    fireEvent.change(siret, { target: { value: '1234567890123' } });
+    const denomination = screen.getByLabelText('Dénomination *');
+    fireEvent.change(denomination, { target: { value: 'Entreprise' } });
+    const adresse = screen.getByLabelText('Adresse *');
+    fireEvent.change(adresse, { target: { value: '75056 Paris' } });
+    const typeStructure = screen.getByRole('radio', { name: 'Une commune' });
+    fireEvent.click(typeStructure);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const fonction = screen.getByLabelText('Fonction *');
+    fireEvent.change(fonction, { target: { value: 'Test' } });
+    const email = screen.getByLabelText('Adresse e-mail *');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const telephone = screen.getByLabelText('Téléphone *');
+    fireEvent.change(telephone, { target: { value: '+33123456789' } });
+    const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ?*');
+    fireEvent.change(nombre, { target: { value: 1 } });
+    const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(identificationCandidat);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+    const confirmation = screen.getByRole('checkbox', { name: 'Je confirme avoir lu et pris connaissance des conditions d’engagement. *' });
+    fireEvent.click(confirmation);
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(() => {
+      fireEvent.click(envoyer);
+    });
+
+    // THEN
+    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee');
+
+    vi.useRealTimers();
   });
 });
 
