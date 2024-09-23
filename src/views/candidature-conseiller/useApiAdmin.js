@@ -4,7 +4,7 @@ export const useApiAdmin = () => {
   const { getVilleParCode } = useGeoApi();
 
   const creerCandidatureConseiller = async conseillerData => {
-    const baseUrl = import.meta.env.VITE_APP_API_URL;
+    const baseUrl = import.meta.env.VITE_APP_API_PILOTAGE_URL;
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -19,7 +19,7 @@ export const useApiAdmin = () => {
   };
 
   const creerCandidatureStructure = async structureData => {
-    const baseUrl = import.meta.env.VITE_APP_API_URL;
+    const baseUrl = import.meta.env.VITE_APP_API_PILOTAGE_URL;
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -34,7 +34,7 @@ export const useApiAdmin = () => {
   };
 
   const creerCandidatureCoordinateur = async structureData => {
-    const baseUrl = import.meta.env.VITE_APP_API_URL;
+    const baseUrl = import.meta.env.VITE_APP_API_PILOTAGE_URL;
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

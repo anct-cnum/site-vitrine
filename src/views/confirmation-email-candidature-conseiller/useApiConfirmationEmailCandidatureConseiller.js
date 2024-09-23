@@ -3,7 +3,7 @@ export const useApiConfirmationEmailCandidatureConseiller = () => {
 
 
   const actionConfirmationEmailCandidatureConseiller = async token => {
-    const baseUrl = import.meta.env.VITE_APP_API_URL;
+    const baseUrl = import.meta.env.VITE_APP_API_PILOTAGE_URL;
     const requestOptions = {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
