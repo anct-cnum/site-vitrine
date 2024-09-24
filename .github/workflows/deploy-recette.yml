@@ -39,6 +39,7 @@ jobs:
           envkey_VITE_APP_FORMS_URL: https://uat-cnum-front.osc-fr1.scalingo.io/candidature
           envkey_VITE_APP_AIDE_URL: https://aide.conseiller-numerique.gouv.fr/fr
           envkey_VITE_APP_API_URL: ${{ secrets.REACT_APP_API_RECETTE }}
+          envkey_VITE_APP_API_PILOTAGE_URL: ${{ secrets.REACT_APP_API_PILOTAGE_RECETTE }}
           file_name: .env
       - name: Copy robots.txt
         uses: canastro/copy-file-action@master

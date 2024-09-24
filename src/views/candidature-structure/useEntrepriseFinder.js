@@ -51,7 +51,7 @@ export const useEntrepriseFinder = setGeoLocation => {
     }
     setLoading(true);
     try {
-      const baseUrl = import.meta.env.VITE_APP_API_URL;
+      const baseUrl = import.meta.env.VITE_APP_API_PILOTAGE_URL;
       const response = await fetch(`${baseUrl}/structure/verify-siret-or-ridet/${siretOrRidet}`);
       if (!response.ok) {
         throw new Error(`Error fetching data: ${response.statusText}`);
