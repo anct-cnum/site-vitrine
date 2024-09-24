@@ -109,6 +109,7 @@ export const useApiAdmin = () => {
     const codePostal = structureData.adresse.match(/\d{5}/)?.[0];
     await handleInformationsVille(structureData, codePostal);
     delete structureData.adresse;
+    return structureData;
   };
 
   const buildStructureData = async (formData, geoLocation) => {
