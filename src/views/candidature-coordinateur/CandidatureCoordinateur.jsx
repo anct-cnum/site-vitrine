@@ -24,6 +24,7 @@ import '../candidature-conseiller/CandidatureConseiller.css';
 export default function CandidatureCoordinateur() {
   const [geoLocation, setGeoLocation] = useState(null);
   const [validationError, setValidationError] = useState('');
+  const [codeCommune, setCodeCommune] = useState('');
   const navigate = useNavigate();
   const { buildCoordinateurData, creerCandidatureCoordinateur } = useApiAdmin();
   useScrollToSection();
@@ -36,7 +37,7 @@ export default function CandidatureCoordinateur() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const coordinateurData = await buildCoordinateurData(formData);
+    const coordinateurData = await buildCoordinateurData(formData, codeCommune);
     const resultatCreation = await creerCandidatureCoordinateur(coordinateurData);
     if (resultatCreation.status >= 400) {
       const error = await resultatCreation.json();
@@ -64,7 +65,7 @@ export default function CandidatureCoordinateur() {
             </div>
           }
           <form aria-label="Candidature coordinateur" onSubmit={validerLaCandidature}>
-            <InformationsDeStructure setGeoLocation={setGeoLocation} geoLocation={geoLocation} />
+            <InformationsDeStructure setGeoLocation={setGeoLocation} geoLocation={geoLocation} setCodeCommune={setCodeCommune}/>
             <InformationsDeContact />
             <BesoinEnCoordinateur />
             <Motivation />

@@ -10,7 +10,7 @@ const TAILLE_SIRET = 14;
 const TAILLE_RIDET = [6, 7];
 const TAILLES_POSSIBLES = [...TAILLE_RIDET, TAILLE_SIRET];
 
-export default function InformationsDeStructure({ setGeoLocation }) {
+export default function InformationsDeStructure({ setGeoLocation, setCodeCommune }) {
   const {
     entreprise,
     search,
@@ -43,6 +43,7 @@ export default function InformationsDeStructure({ setGeoLocation }) {
 
   const handleSuggestionClick = suggestion => {
     setAdresse(suggestion.label);
+    setCodeCommune(suggestion.codeCommune);
     setGeoLocation(suggestion.geometry);
     getAddressSuggestions('');
   };
@@ -118,5 +119,6 @@ export default function InformationsDeStructure({ setGeoLocation }) {
 
 InformationsDeStructure.propTypes = {
   setGeoLocation: PropTypes.func.isRequired,
+  setCodeCommune: PropTypes.func.isRequired,
   geoLocation: PropTypes.object,
 };

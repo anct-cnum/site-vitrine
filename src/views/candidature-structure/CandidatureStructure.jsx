@@ -23,6 +23,7 @@ import '../candidature-conseiller/CandidatureConseiller.css';
 
 export default function CandidatureStructure() {
   const [geoLocation, setGeoLocation] = useState(null);
+  const [codeCommune, setCodeCommune] = useState('');
   const [validationError, setValidationError] = useState('');
   const navigate = useNavigate();
   const { buildStructureData, creerCandidatureStructure } = useApiAdmin();
@@ -37,7 +38,7 @@ export default function CandidatureStructure() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const structureData = await buildStructureData(formData, geoLocation);
+    const structureData = await buildStructureData(formData, geoLocation, codeCommune);
     const resultatCreation = await creerCandidatureStructure(structureData);
     if (resultatCreation.status >= 400) {
       const error = await resultatCreation.json();
@@ -65,7 +66,7 @@ export default function CandidatureStructure() {
             </div>
           }
           <form aria-label="Candidature structure" onSubmit={validerLaCandidature}>
-            <InformationsDeStructure setGeoLocation={setGeoLocation} geoLocation={geoLocation} />
+            <InformationsDeStructure setGeoLocation={setGeoLocation} geoLocation={geoLocation} setCodeCommune={setCodeCommune}/>
             <InformationsDeContact />
             <BesoinEnConseillerNumerique />
             <Motivation />

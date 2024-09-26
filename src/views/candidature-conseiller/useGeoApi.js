@@ -3,7 +3,7 @@ import { useState } from 'react';
 export const useGeoApi = () => {
   const baseUrl = new URL('https://geo.api.gouv.fr/communes');
   baseUrl.searchParams.set('limit', '10');
-  baseUrl.searchParams.set('fields', 'nom,code,codesPostaux,centre,codeDepartement,codeRegion,codeCom');
+  baseUrl.searchParams.set('fields', 'nom,code,codesPostaux,centre,codeDepartement,codeRegion');
 
   const [villes, setVilles] = useState([]);
 
@@ -14,8 +14,8 @@ export const useGeoApi = () => {
     setVilles(resultat);
   };
 
-  const getVilleParCode = async codePostal => {
-    const url = `${baseUrl.toString()}&codePostal=${codePostal}`;
+  const getVilleParCode = async (codePostal, codeCommune) => {
+    const url = `${baseUrl.toString()}&codePostal=${codePostal}&codeCommune=${codeCommune}`;
     const ville = await fetch(url);
     return await ville.json();
   };

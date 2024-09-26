@@ -86,7 +86,8 @@ export const useEntrepriseFinder = setGeoLocation => {
       const response = await fetch(urlAPI);
       const result = await response.json();
       const suggestions = result.features.map(feature => ({
-        label: `${feature.properties.citycode} ${feature.properties.city}`,
+        label: `${feature.properties.postcode} ${feature.properties.city}`,
+        codeCommune: feature.properties.citycode,
         geometry: feature.geometry,
       }));
       setAddressSuggestions(suggestions);

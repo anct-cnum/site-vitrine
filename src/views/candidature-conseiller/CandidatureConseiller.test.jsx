@@ -274,12 +274,38 @@ describe('candidature conseiller', () => {
     render(<CandidatureConseiller />);
     const geoApiResponse = [
       {
-        code: '75001',
+        code: '75056',
         nom: 'Paris',
+        codesPostaux: [
+          '75001',
+          '75002',
+          '75003',
+          '75004',
+          '75005',
+          '75006',
+          '75007',
+          '75008',
+          '75009',
+          '75010',
+          '75011',
+          '75012',
+          '75013',
+          '75014',
+          '75015',
+          '75016',
+          '75017',
+          '75018',
+          '75019',
+          '75020',
+          '75116'
+        ],
       },
       {
         code: '82137',
         nom: 'Parisot',
+        codesPostaux: [
+          '82160'
+        ],
       },
     ];
 
@@ -293,7 +319,7 @@ describe('candidature conseiller', () => {
 
     // THEN
     const paris = await screen.findByRole('option', { name: '75001 Paris', hidden: true });
-    const parisot = await screen.findByRole('option', { name: '82137 Parisot', hidden: true });
+    const parisot = await screen.findByRole('option', { name: '82160 Parisot', hidden: true });
     expect(paris).toBeInTheDocument();
     expect(parisot).toBeInTheDocument();
   });
