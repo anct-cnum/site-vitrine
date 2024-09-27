@@ -1,5 +1,5 @@
 import { render, screen, within, fireEvent, act } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi, beforeEach } from 'vitest';
 import CandidatureCoordinateur from './CandidatureCoordinateur';
 import { textMatcher, dateDujour } from '../../../test/test-utils';
 import * as ReactRouterDom from 'react-router-dom';
@@ -10,6 +10,11 @@ vi.mock('react-router-dom', () => ({
 }));
 
 describe('candidature coordinateur', () => {
+  beforeEach(() => {
+    // eslint-disable-next-line vitest/prefer-spy-on
+    global.scrollTo = vi.fn();
+  });
+
   it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
     // WHEN
     render(<CandidatureCoordinateur />);

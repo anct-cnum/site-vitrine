@@ -1,9 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi, beforeEach } from 'vitest';
 import CandidatureValideeStructure from './CandidatureValideeStructure';
 import { textMatcher } from '../../../test/test-utils';
 
 describe('candidature validée', () => {
+  beforeEach(() => {
+    // eslint-disable-next-line vitest/prefer-spy-on
+    global.scrollTo = vi.fn();
+  });
+
   it('quand j’affiche la page candidature validée alors le titre et les informations de la page s’affichent', () => {
     // WHEN
     render(<CandidatureValideeStructure />);
