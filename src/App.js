@@ -17,6 +17,7 @@ import '@gouvfr/dsfr/dist/component/modal/modal.module.min.js';
 import '@gouvfr/dsfr/dist/component/header/header.module.min.js';
 import './assets/sass/main.scss';
 import '@gouvfr/dsfr/dist/core/core.min.css';
+import '@gouvfr/dsfr/dist/component/alert/alert.min.css';
 
 const RedirectCarto = () => {
   const { permanence } = useParams();
