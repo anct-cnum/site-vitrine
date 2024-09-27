@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
-import './CandidatureValidee.css';
+import './CandidatureValideeConseiller.css';
 
-export default function CandidatureValidee() {
+export default function CandidatureValideeConseiller() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.title = 'Conseiller numérique - Candidature validée';
@@ -13,9 +13,8 @@ export default function CandidatureValidee() {
       <div className="fr-mb-5w fr-display--sm">👏</div>
       <h1 className="fr-mb-5w cv-titre">Merci, votre demande a été envoyée.</h1>
       <p>
-        Pour confirmer votre inscription et recevoir des propositions de candidats, veuillez{' '}
-        consulter l’email qui vient de vous être envoyé. Si vous ne recevez pas cet email dans les prochaines minutes,{' '}
-        pensez à vérifier votre dossier de spams.
+        Pour confirmer votre inscription et pouvoir recevoir des propositions de structure consultez le mail qui vient de vous être envoyé.<br/>
+        Si toutefois vous ne receviez pas dans les prochaines minutes un mail de confirmation de votre inscription, pensez à vérifier vos spams.
       </p>
       <a href="/" className="fr-btn fr-btn--secondary">
         Retour à la page d’accueil

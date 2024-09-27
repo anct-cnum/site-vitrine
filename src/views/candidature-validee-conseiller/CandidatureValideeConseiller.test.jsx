@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import CandidatureValidee from './CandidatureValidee';
+import CandidatureValideeConseiller from './CandidatureValideeConseiller';
 import { textMatcher } from '../../../test/test-utils';
 
 describe('candidature validée', () => {
   it('quand j’affiche la page candidature validée alors le titre et les informations de la page s’affichent', () => {
     // WHEN
-    render(<CandidatureValidee />);
+    render(<CandidatureValideeConseiller />);
 
     // THEN
     const emoji = screen.getByText('👏');
@@ -16,9 +16,8 @@ describe('candidature validée', () => {
     expect(titre).toBeInTheDocument();
 
     const confirmation = screen.getByText(
-      textMatcher('Pour confirmer votre inscription et recevoir des propositions de candidats, veuillez consulter ' +
-        'l’email qui vient de vous être envoyé. Si vous ne recevez pas cet email dans les prochaines minutes, pensez à ' +
-        'vérifier votre dossier de spams.'),
+      textMatcher('Pour confirmer votre inscription et pouvoir recevoir des propositions de structure consultez le mail qui vient de vous être envoyé.' +
+        'Si toutefois vous ne receviez pas dans les prochaines minutes un mail de confirmation de votre inscription, pensez à vérifier vos spams.'),
       { selector: 'p' }
     );
     expect(confirmation).toBeInTheDocument();
