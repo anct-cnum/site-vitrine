@@ -443,7 +443,7 @@ describe('candidature structure', () => {
     });
 
     // THEN
-    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee');
+    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee-structure');
 
     vi.useRealTimers();
   });

@@ -44,7 +44,7 @@ export default function CandidatureCoordinateur() {
       setValidationError(error.message);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      navigate('/candidature-validee');
+      navigate('/candidature-validee-structure');
     }
   };
 

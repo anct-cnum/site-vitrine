@@ -481,7 +481,7 @@ describe('candidature conseiller', () => {
     });
 
     // THEN
-    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee');
+    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee-conseiller');
 
     vi.useRealTimers();
   });

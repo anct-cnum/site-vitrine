@@ -41,6 +41,7 @@ function App() {
   const PageCandidatureStructure = lazy(() => import('./views/candidature-structure/PageCandidatureStructure'));
   const PageCandidatureCoordinateur = lazy(() => import('./views/candidature-coordinateur/PageCandidatureCoordinateur'));
   const PageCandidatureValideeConseiller = lazy(() => import('./views/candidature-validee-conseiller/PageCandidatureValideeConseiller'));
+  const PageCandidatureValideeStructure = lazy(() => import('./views/candidature-validee-structure/PageCandidatureValideeStructure'));
   const PageConfirmationEmailCandidatureConseiller =
   lazy(() => import('./views/confirmation-email-candidature-conseiller/PageConfirmationEmailCandidatureConseiller'));
   const PageConfirmationEmailCandidatureStructure =
@@ -56,6 +57,7 @@ function App() {
             <Route path="/nouveau-formulaire-structure" element={<PageCandidatureStructure />}/>
             <Route path="/nouveau-formulaire-coordinateur" element={<PageCandidatureCoordinateur />}/>
             <Route path="/candidature-validee-conseiller" element={<PageCandidatureValideeConseiller />}/>
+            <Route path="/candidature-validee-structure" element={<PageCandidatureValideeStructure />}/>
             <Route path="/candidature-confirmer-conseiller/:token" element={<PageConfirmationEmailCandidatureConseiller />}/>
             <Route path="/candidature-confirmer-structure/:token" element={<PageConfirmationEmailCandidatureStructure />}/>
             <Route path="/kit-communication" element={<KitCommunication />}/>

@@ -351,7 +351,7 @@ describe('candidature coordinateur', () => {
     });
 
     // THEN
-    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee');
+    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee-structure');
 
     vi.useRealTimers();
   });
