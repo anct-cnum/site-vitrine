@@ -3,6 +3,8 @@ import { describe, expect, it, vi, beforeEach } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
 import { textMatcher, dateDujour } from '../../../test/test-utils';
 import * as ReactRouterDom from 'react-router-dom';
+import * as useApiAdmin from './useApiAdmin';
+import * as useGeoApi from './useGeoApi';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
@@ -487,6 +489,139 @@ describe('candidature conseiller', () => {
     // THEN
     expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee-conseiller');
 
+    vi.useRealTimers();
+  });
+
+  it('quand je valide le formulaire alors j’envoi toute les données nescessaire', async () => {
+    // GIVEN
+    const geoApiResponse = [
+      {
+        code: '75056',
+        nom: 'Paris',
+        codesPostaux: [
+          '75001',
+          '75002',
+          '75003',
+          '75004',
+          '75005',
+          '75006',
+          '75007',
+          '75008',
+          '75009',
+          '75010',
+          '75011',
+          '75012',
+          '75013',
+          '75014',
+          '75015',
+          '75016',
+          '75017',
+          '75018',
+          '75019',
+          '75020',
+          '75116'
+        ],
+      },
+      {
+        code: '82137',
+        nom: 'Parisot',
+        codesPostaux: [
+          '82160'
+        ],
+      },
+    ];
+    vi.spyOn(useGeoApi, 'useGeoApi').mockResolvedValueOnce({
+      villes: async () => Promise.resolve(geoApiResponse)
+    });
+
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    const mockNavigate = vi.fn();
+    vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
+
+
+    const originalBuildConseillerData = useApiAdmin.useApiAdmin().buildConseillerData;
+    const mockbuildConseillerData = vi.fn(originalBuildConseillerData);
+
+    const mockcreerCandidatureConseiller = vi.fn().mockResolvedValue({ status: 200 });
+
+    vi.spyOn(useApiAdmin, 'useApiAdmin').mockReturnValue({
+      buildConseillerData: mockbuildConseillerData,
+      creerCandidatureConseiller: mockcreerCandidatureConseiller,
+    });
+    
+    render(<CandidatureConseiller />);
+
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+
+    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+
+    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
+    fireEvent.click(enEmploi);
+
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: '2023-12-12' } });
+
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      fireEvent.click(envoyer);
+    });
+
+    // THEN
+    expect(mockbuildConseillerData).toHaveBeenCalledTimes(1);
+    const result = await mockbuildConseillerData.mock.results[0].value;
+    const resultAvantAdaptation = JSON.parse(result);
+    const resultApresAdaptation = {
+      ...resultAvantAdaptation,
+      ...(resultAvantAdaptation['h-captcha-response'] && { 'h-captcha-response': 'OK' }),
+      ...(resultAvantAdaptation.location && { 'location': { 'type': 'Point',
+        'coordinates': [2.4491,
+          48.8637] } }),
+    };
+
+    expect(JSON.stringify(resultApresAdaptation)).toBe(JSON.stringify({
+      'prenom': 'Jean',
+      'nom': 'Dupont',
+      'email': 'jean.dupont@example.com',
+      'telephone': '',
+      'estEnEmploi': true,
+      'aUneExperienceMedNum': true,
+      'dateDisponibilite': '2023-12-12',
+      'distanceMax': '5',
+      'motivation': 'je suis motivé !',
+      'estDemandeurEmploi': false,
+      'estEnFormation': false,
+      'estDiplomeMedNum': false,
+      'codeCom': null,
+      // TODO A rajouter
+      // 'nomCommune': 'Montreuil',
+      // 'codePostal': '93100',
+      // 'codeCommune': '93048',
+      // 'location': { 'type': 'Point',
+      // 'coordinates': [2.4491,
+      // 48.8637] },
+      // 'codeDepartement': '93',
+      // 'codeRegion': '11',
+    }));
+ 
     vi.useRealTimers();
   });
 });
