@@ -584,46 +584,26 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it('quand je valide le formulaire alors j’envoi toute les données nescessaire', async () => {
+  it.only('quand je valide le formulaire alors j’envoi toute les données nescessaire', async () => {
     // GIVEN
     const geoApiResponse = [
       {
-        code: '75056',
-        nom: 'Paris',
+        nom: 'Montreuil',
+        code: '93048',
         codesPostaux: [
-          '75001',
-          '75002',
-          '75003',
-          '75004',
-          '75005',
-          '75006',
-          '75007',
-          '75008',
-          '75009',
-          '75010',
-          '75011',
-          '75012',
-          '75013',
-          '75014',
-          '75015',
-          '75016',
-          '75017',
-          '75018',
-          '75019',
-          '75020',
-          '75116'
+          '93100'
         ],
-      },
-      {
-        code: '82137',
-        nom: 'Parisot',
-        codesPostaux: [
-          '82160'
-        ],
-      },
+        centre: {
+          type: 'Point',
+          coordinates: [2.4491, 48.8637]
+        },
+        codeDepartement: '93',
+        codeRegion: '11'
+      }
     ];
-    vi.spyOn(useGeoApi, 'useGeoApi').mockResolvedValueOnce({
-      villes: async () => Promise.resolve(geoApiResponse)
+    vi.spyOn(useGeoApi, 'useGeoApi').mockReturnValue({
+      villes: geoApiResponse,
+      getVilleParCode: async () => Promise.resolve(geoApiResponse),
     });
 
     vi.useFakeTimers();
@@ -653,6 +633,9 @@ describe('candidature conseiller', () => {
 
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+
+    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
 
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
@@ -706,16 +689,16 @@ describe('candidature conseiller', () => {
       'estDemandeurEmploi': false,
       'estEnFormation': false,
       'estDiplomeMedNum': false,
-      'codeCom': null,
       // TODO A rajouter
-      // 'nomCommune': 'Montreuil',
-      // 'codePostal': '93100',
-      // 'codeCommune': '93048',
-      // 'location': { 'type': 'Point',
-      // 'coordinates': [2.4491,
-      // 48.8637] },
-      // 'codeDepartement': '93',
-      // 'codeRegion': '11',
+      'nomCommune': 'Montreuil',
+      'codePostal': '93100',
+      'codeCommune': '93048',
+      'location': { 'type': 'Point',
+        'coordinates': [2.4491,
+          48.8637] },
+      'codeDepartement': '93',
+      'codeRegion': '11',
+      'codeCom': null,
     }));
 
     vi.useRealTimers();

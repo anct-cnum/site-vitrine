@@ -13,9 +13,9 @@ export default function AddressChooser({ setCodeCommune }) {
         id="lieuHabitation"
         list="resultatsRecherche"
         isRequired={false}
-        onChange={debounce(event => {
+        onChange={debounce(async event => {
           searchByName(event.target.value);
-          const codeCommune = villes.find(({ codesPostaux, nom }) =>
+          const codeCommune = await villes.find(({ codesPostaux, nom }) =>
             `${codesPostaux[0]} ${nom}` === event.target.value)?.code;
           setCodeCommune(codeCommune);
         })}
