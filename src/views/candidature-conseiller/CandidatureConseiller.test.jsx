@@ -492,6 +492,98 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
+  it('quand je remplis complétement le formulaire avec un numéro téléphone valide, alors je suis redirigé vers la page de candidature validée', async () => {
+    // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 200, json: async () => Promise.resolve({}) }))
+    );
+
+    const mockNavigate = vi.fn().mockReturnValue(() => { });
+    vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
+
+    render(<CandidatureConseiller />);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const telephone = screen.getByLabelText('Téléphone Format attendu : +33122334455');
+    fireEvent.change(telephone, { target: { value: '+33159590730' } });
+    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
+    fireEvent.click(enEmploi);
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(() => {
+      fireEvent.click(envoyer);
+    });
+
+    // THEN
+    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee-conseiller');
+
+    vi.useRealTimers();
+  });
+
+  it('quand je remplis complétement le formulaire avec un numéro téléphone invalide, alors je ...', async () => {
+    // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 200, json: async () => Promise.resolve({}) }))
+    );
+
+    const mockNavigate = vi.fn().mockReturnValue(() => { });
+    vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
+
+    render(<CandidatureConseiller />);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const telephone = screen.getByLabelText('Téléphone Format attendu : +33122334455');
+    fireEvent.change(telephone, { target: { value: '0159590730' } });
+    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
+    fireEvent.click(enEmploi);
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(() => {
+      fireEvent.click(envoyer);
+    });
+
+    // THEN
+    expect(mockNavigate).toHaveBeenCalledTimes(0);
+
+    vi.useRealTimers();
+  });
+
   it('quand je valide le formulaire alors j’envoi toute les données nescessaire', async () => {
     // GIVEN
     const geoApiResponse = [
@@ -550,7 +642,7 @@ describe('candidature conseiller', () => {
       buildConseillerData: mockbuildConseillerData,
       creerCandidatureConseiller: mockcreerCandidatureConseiller,
     });
-    
+
     render(<CandidatureConseiller />);
 
     const prenom = screen.getByLabelText('Prénom *');
@@ -592,9 +684,13 @@ describe('candidature conseiller', () => {
     const resultApresAdaptation = {
       ...resultAvantAdaptation,
       ...(resultAvantAdaptation['h-captcha-response'] && { 'h-captcha-response': 'OK' }),
-      ...(resultAvantAdaptation.location && { 'location': { 'type': 'Point',
-        'coordinates': [2.4491,
-          48.8637] } }),
+      ...(resultAvantAdaptation.location && {
+        'location': {
+          'type': 'Point',
+          'coordinates': [2.4491,
+            48.8637]
+        }
+      }),
     };
 
     expect(JSON.stringify(resultApresAdaptation)).toBe(JSON.stringify({
@@ -621,7 +717,7 @@ describe('candidature conseiller', () => {
       // 'codeDepartement': '93',
       // 'codeRegion': '11',
     }));
- 
+
     vi.useRealTimers();
   });
 });
