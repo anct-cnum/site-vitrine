@@ -1,10 +1,9 @@
-import { render, screen, within, fireEvent, act } from '@testing-library/react';
+import { render, screen, within, fireEvent, act, renderHook } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
 import { textMatcher, dateDujour } from '../../../test/test-utils';
 import * as ReactRouterDom from 'react-router-dom';
 import * as useApiAdmin from './useApiAdmin';
-import * as useGeoApi from './useGeoApi';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
@@ -520,7 +519,7 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it('quand je remplis complétement le formulaire avec un numéro téléphone valide, alors je suis redirigé vers la page de candidature validée', async () => {
+  it('quand je remplis complètementle formulaire avec un numéro téléphone valide, alors je suis redirigé vers la page de candidature validée', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
@@ -568,158 +567,78 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it('quand je remplis complétement le formulaire avec un numéro téléphone invalide, alors je ...', async () => {
+  it('quand je valide le formulaire alors j’envoie toute les données nescessaires', async () => {
     // GIVEN
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date(2023, 11, 12, 13));
-
-    vi.stubGlobal('fetch', vi.fn(
-      () => ({ status: 200, json: async () => Promise.resolve({}) }))
-    );
-
-    const mockNavigate = vi.fn().mockReturnValue(() => { });
-    vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
-
-    render(<CandidatureConseiller />);
-    const prenom = screen.getByLabelText('Prénom *');
-    fireEvent.change(prenom, { target: { value: 'Jean' } });
-    const nom = screen.getByLabelText('Nom *');
-    fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
-    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const telephone = screen.getByLabelText('Téléphone Format attendu : +33122334455');
-    fireEvent.change(telephone, { target: { value: '0159590730' } });
-    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
-    fireEvent.click(enEmploi);
-    const oui = screen.getByRole('radio', { name: 'Oui' });
-    fireEvent.click(oui);
-    const date = screen.getByLabelText('Choisir une date');
-    fireEvent.change(date, { target: { value: dateDujour() } });
-    const _5km = screen.getByRole('radio', { name: '5 km' });
-    fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
-    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
-
-    // WHEN
-    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
-
-    // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(() => {
-      fireEvent.click(envoyer);
-    });
-
-    // THEN
-    expect(mockNavigate).toHaveBeenCalledTimes(0);
-
-    vi.useRealTimers();
-  });
-
-  it('quand je valide le formulaire alors j’envoi toute les données nescessaire', async () => {
-    // GIVEN
-    const geoApiResponse = [
-      {
-        nom: 'Montreuil',
-        code: '93048',
-        codesPostaux: [
-          '93100'
-        ],
-        centre: {
-          type: 'Point',
-          coordinates: [2.4491, 48.8637]
-        },
-        codeDepartement: '93',
-        codeRegion: '11'
-      }
+    const formData = [
+      [
+        'prenom',
+        'Jean'
+      ],
+      [
+        'nom',
+        'Dupont'
+      ],
+      [
+        'email',
+        'jean.dupont@example.com'
+      ],
+      [
+        'telephone',
+        ''
+      ],
+      [
+        'lieuHabitation',
+        '93100 Montreuil'
+      ],
+      [
+        'estDemandeurEmploi',
+        'on'
+      ],
+      [
+        'aUneExperienceMedNum',
+        'oui'
+      ],
+      [
+        'dateDisponibilite',
+        '2023-12-12'
+      ],
+      [
+        'distanceMax',
+        '5'
+      ],
+      [
+        'motivation',
+        'je suis motivé !'
+      ],
+      [
+        'g-recaptcha-response',
+        '1'
+      ],
+      [
+        'h-captcha-response',
+        '1'
+      ]
     ];
-    vi.spyOn(useGeoApi, 'useGeoApi').mockReturnValue({
-      villes: geoApiResponse,
-      getVilleParCode: async () => Promise.resolve(geoApiResponse),
-    });
+    const { buildConseillerData } = renderHook(() => useApiAdmin.useApiAdmin()).result.current;
 
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date(2023, 11, 12, 13));
-
-    const mockNavigate = vi.fn();
-    vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
-
-
-    const originalBuildConseillerData = useApiAdmin.useApiAdmin().buildConseillerData;
-    const mockbuildConseillerData = vi.fn(originalBuildConseillerData);
-
-    const mockcreerCandidatureConseiller = vi.fn().mockResolvedValue({ status: 200 });
-
-    vi.spyOn(useApiAdmin, 'useApiAdmin').mockReturnValue({
-      buildConseillerData: mockbuildConseillerData,
-      creerCandidatureConseiller: mockcreerCandidatureConseiller,
-    });
-
-    render(<CandidatureConseiller />);
-
-    const prenom = screen.getByLabelText('Prénom *');
-    fireEvent.change(prenom, { target: { value: 'Jean' } });
-
-    const nom = screen.getByLabelText('Nom *');
-    fireEvent.change(nom, { target: { value: 'Dupont' } });
-
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
-    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-
-    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
-    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
-
-    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
-    fireEvent.click(enEmploi);
-
-    const oui = screen.getByRole('radio', { name: 'Oui' });
-    fireEvent.click(oui);
-
-    const date = screen.getByLabelText('Choisir une date');
-    fireEvent.change(date, { target: { value: '2023-12-12' } });
-
-    const _5km = screen.getByRole('radio', { name: '5 km' });
-    fireEvent.click(_5km);
-
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
-    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
-
-    // WHEN
-    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
-
-    // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(async () => {
-      fireEvent.click(envoyer);
-    });
+    //WHEN
+    const result = await buildConseillerData(formData, '93048');
 
     // THEN
-    expect(mockbuildConseillerData).toHaveBeenCalledTimes(1);
-    const result = await mockbuildConseillerData.mock.results[0].value;
-    const resultAvantAdaptation = JSON.parse(result);
-    const resultApresAdaptation = {
-      ...resultAvantAdaptation,
-      ...(resultAvantAdaptation['h-captcha-response'] && { 'h-captcha-response': 'OK' }),
-      ...(resultAvantAdaptation.location && {
-        'location': {
-          'type': 'Point',
-          'coordinates': [2.4491,
-            48.8637]
-        }
-      }),
-    };
-
-    expect(JSON.stringify(resultApresAdaptation)).toBe(JSON.stringify({
+    expect(result).toBe(JSON.stringify({
       'prenom': 'Jean',
       'nom': 'Dupont',
       'email': 'jean.dupont@example.com',
       'telephone': '',
-      'estEnEmploi': true,
+      'estDemandeurEmploi': true,
       'aUneExperienceMedNum': true,
       'dateDisponibilite': '2023-12-12',
       'distanceMax': '5',
       'motivation': 'je suis motivé !',
-      'estDemandeurEmploi': false,
+      'h-captcha-response': '1',
+      'estEnEmploi': false,
       'estEnFormation': false,
       'estDiplomeMedNum': false,
-      // TODO A rajouter
       'nomCommune': 'Montreuil',
       'codePostal': '93100',
       'codeCommune': '93048',

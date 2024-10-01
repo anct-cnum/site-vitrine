@@ -7,7 +7,6 @@ vi.mock('react-router-dom', () => ({
 }));
 
 describe('confirmation Email', () => {
-
   it('quand j’affiche la page de confirmation de l’email validée alors le titre et les informations de la page s’affichent', () => {
     // WHEN
     render(<ConfirmationEmailCandidature />);
