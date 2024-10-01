@@ -278,42 +278,66 @@ describe('candidature conseiller', () => {
   it('quand je renseigne un début de nom de ville qui existe alors plusieurs résultats sont affichés', async () => {
     // GIVEN
     render(<CandidatureConseiller />);
-    const geoApiResponse = [
-      {
-        code: '75056',
-        nom: 'Paris',
-        codesPostaux: [
-          '75001',
-          '75002',
-          '75003',
-          '75004',
-          '75005',
-          '75006',
-          '75007',
-          '75008',
-          '75009',
-          '75010',
-          '75011',
-          '75012',
-          '75013',
-          '75014',
-          '75015',
-          '75016',
-          '75017',
-          '75018',
-          '75019',
-          '75020',
-          '75116'
-        ],
+    const geoApiResponse = {
+      'type': 'FeatureCollection',
+      'version': 'draft',
+      'features': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [2.347, 48.859]
+          },
+          'properties': {
+            'label': 'Paris',
+            'score': 0.730668760330579,
+            'id': '75056',
+            'type': 'municipality',
+            'name': 'Paris',
+            'postcode': '75001',
+            'citycode': '75056',
+            'x': 652089.7,
+            'y': 6862305.26,
+            'population': 2133111,
+            'city': 'Paris',
+            'context': '75, Paris, Île-de-France',
+            'importance': 0.67372,
+            'municipality': 'Paris'
+          }
+        },
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [1.869755, 44.253003]
+          },
+          'properties': {
+            'label': 'Parisot',
+            'score': 0.932836363636364,
+            'id': '82137',
+            'banId': '4e195f30-96f0-47c8-82e9-2968b067bccc',
+            'type': 'municipality',
+            'name': 'Parisot',
+            'postcode': '82160',
+            'citycode': '82137',
+            'x': 609752.79,
+            'y': 6351088.82,
+            'population': 554,
+            'city': 'Parisot',
+            'context': '82, Tarn-et-Garonne, Occitanie',
+            'importance': 0.2612,
+            'municipality': 'Parisot'
+          }
+        }
+      ],
+      'attribution': 'BAN',
+      'licence': 'ETALAB-2.0',
+      'query': 'paris 75002',
+      'filters': {
+        'type': 'municipality'
       },
-      {
-        code: '82137',
-        nom: 'Parisot',
-        codesPostaux: [
-          '82160'
-        ],
-      },
-    ];
+      'limit': 5
+    };
 
     vi.spyOn(global, 'fetch').mockResolvedValueOnce({
       json: async () => Promise.resolve(geoApiResponse)
@@ -584,7 +608,7 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it.only('quand je valide le formulaire alors j’envoi toute les données nescessaire', async () => {
+  it('quand je valide le formulaire alors j’envoi toute les données nescessaire', async () => {
     // GIVEN
     const geoApiResponse = [
       {
@@ -693,9 +717,11 @@ describe('candidature conseiller', () => {
       'nomCommune': 'Montreuil',
       'codePostal': '93100',
       'codeCommune': '93048',
-      'location': { 'type': 'Point',
+      'location': {
+        'type': 'Point',
         'coordinates': [2.4491,
-          48.8637] },
+          48.8637]
+      },
       'codeDepartement': '93',
       'codeRegion': '11',
       'codeCom': null,

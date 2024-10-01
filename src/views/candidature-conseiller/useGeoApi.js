@@ -3,7 +3,6 @@ import { useState } from 'react';
 export const useGeoApi = () => {
   const baseUrlSearch = new URL('https://api-adresse.data.gouv.fr/search');
   baseUrlSearch.searchParams.set('type', 'municipality');
-  baseUrlSearch.searchParams.set('autocomplete', '1');
 
   const baseUrl = new URL('https://geo.api.gouv.fr/communes');
   baseUrl.searchParams.set('limit', '10');
@@ -16,8 +15,9 @@ export const useGeoApi = () => {
   const searchByName = async rechercheUtilisateur => {
     const url = `${baseUrlSearch.toString()}&q=${rechercheUtilisateur}`;
     const villes = await fetch(url);
+    const listCommune = await villes.json();
 
-    const resultat = await villes?.features.map(result => ({
+    const resultat = listCommune?.features.map(result => ({
       'nom': result.properties.municipality,
       'code': result.properties.citycode,
       'codesPostaux': [
