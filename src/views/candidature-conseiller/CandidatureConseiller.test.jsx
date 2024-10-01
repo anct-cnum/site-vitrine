@@ -373,6 +373,8 @@ describe('candidature conseiller', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
     const oui = screen.getByRole('radio', { name: 'Oui' });
@@ -410,6 +412,8 @@ describe('candidature conseiller', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const oui = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(oui);
     const date = screen.getByLabelText('Choisir une date');
@@ -445,6 +449,8 @@ describe('candidature conseiller', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
     const oui = screen.getByRole('radio', { name: 'Oui' });
@@ -490,6 +496,8 @@ describe('candidature conseiller', () => {
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
@@ -535,6 +543,8 @@ describe('candidature conseiller', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const telephone = screen.getByLabelText('Téléphone Format attendu : +33122334455');
     fireEvent.change(telephone, { target: { value: '+33159590730' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });

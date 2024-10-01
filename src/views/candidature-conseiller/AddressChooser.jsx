@@ -12,7 +12,6 @@ export default function AddressChooser({ setCodeCommune }) {
       <Input
         id="lieuHabitation"
         list="resultatsRecherche"
-        isRequired={false}
         onChange={debounce(async event => {
           searchByName(event.target.value);
           const codeCommune = await villes.find(({ codesPostaux, nom }) =>
