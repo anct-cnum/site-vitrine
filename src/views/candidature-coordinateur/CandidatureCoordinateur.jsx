@@ -37,7 +37,7 @@ export default function CandidatureCoordinateur() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const coordinateurData = await buildCoordinateurData(formData, codeCommune);
+    const coordinateurData = await buildCoordinateurData(formData, geoLocation, codeCommune);
     const resultatCreation = await creerCandidatureCoordinateur(coordinateurData);
     if (resultatCreation.status >= 400) {
       const error = await resultatCreation.json();

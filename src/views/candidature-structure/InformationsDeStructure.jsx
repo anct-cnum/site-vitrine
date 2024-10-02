@@ -22,8 +22,8 @@ export default function InformationsDeStructure({ setGeoLocation, setCodeCommune
     denomination,
     setDenomination,
     adresse,
-    setAdresse
-  } = useEntrepriseFinder(setGeoLocation);
+    setAdresse,
+  } = useEntrepriseFinder(setGeoLocation, setCodeCommune);
 
   const handleSearch = value => {
     const numericValue = value.replace(/\D/g, '');

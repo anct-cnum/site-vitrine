@@ -52,14 +52,14 @@ export const useApiAdmin = () => {
     conseillerData[key] = conseillerData[key] === 'on' || conseillerData[key] === 'oui';
   };
 
-  const getInformationsVille = async (codePostal, codeCommune) => {
-    if (codePostal) {
-      return await getVilleParCode(codePostal, codeCommune);
+  const getInformationsVille = async codeCommune => {
+    if (codeCommune) {
+      return await getVilleParCode(codeCommune);
     }
   };
 
-  const handleInformationsVille = async (formulaireData, codePostal, codeCommune) => {
-    const informationsVille = (await getInformationsVille(codePostal, codeCommune))?.[0];
+  const handleInformationsVille = async (formulaireData, codeCommune) => {
+    const informationsVille = (await getInformationsVille(codeCommune));
     formulaireData.nomCommune = informationsVille?.nom;
     formulaireData.codePostal = informationsVille?.codesPostaux[0];
     formulaireData.codeCommune = informationsVille?.code;
@@ -77,9 +77,8 @@ export const useApiAdmin = () => {
     convertValueToBoolean(conseillerData, 'estEnFormation');
     convertValueToBoolean(conseillerData, 'estDiplomeMedNum');
     convertValueToBoolean(conseillerData, 'aUneExperienceMedNum');
-    const codePostal = conseillerData.lieuHabitation.match(/\d{5}/)?.[0];
     const codeCommune = conseillerData.lieuHabitationCodeCommune;
-    await handleInformationsVille(conseillerData, codePostal, codeCommune);
+    await handleInformationsVille(conseillerData, codeCommune);
     delete conseillerData.lieuHabitation;
     delete conseillerData['g-recaptcha-response'];
     delete conseillerData['lieuHabitationCodeCommune'];
@@ -108,8 +107,7 @@ export const useApiAdmin = () => {
   };
 
   const handleAdresse = async (structureData, codeCommune) => {
-    const codePostal = structureData.adresse.match(/\d{5}/)?.[0];
-    await handleInformationsVille(structureData, codePostal, codeCommune);
+    await handleInformationsVille(structureData, codeCommune);
     delete structureData.adresse;
     return structureData;
   };
@@ -126,7 +124,7 @@ export const useApiAdmin = () => {
     return JSON.stringify(structureData);
   };
 
-  const buildCoordinateurData = async (formData, codeCommune) => {
+  const buildCoordinateurData = async (formData, geoLocation, codeCommune) => {
     const coordinateurData = Object.fromEntries(formData);
     handleContact(coordinateurData);
     handleInformationsStructure(coordinateurData);

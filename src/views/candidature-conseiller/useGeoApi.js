@@ -8,7 +8,7 @@ export const useGeoApi = () => {
   const searchByName = async rechercheUtilisateur => {
     const baseUrlSearch = new URL('https://api-adresse.data.gouv.fr/search');
     baseUrlSearch.searchParams.set('type', 'municipality');
-    const url = `${baseUrlSearch.toString()}&q=${rechercheUtilisateur}`;
+    const url = `${baseUrlSearch.toString()}&q=${encodeURIComponent(rechercheUtilisateur)}`;
     const villes = await fetch(url);
     const communes = await villes.json();
 
@@ -23,12 +23,10 @@ export const useGeoApi = () => {
     setVilles(propositionVilles);
   };
 
-  const getVilleParCode = async (codePostal, codeCommune) => {
-    const baseUrl = new URL('https://geo.api.gouv.fr/communes');
-    baseUrl.searchParams.set('limit', '10');
+  const getVilleParCode = async codeCommune => {
+    const baseUrl = new URL(`https://geo.api.gouv.fr/communes/${codeCommune}`);
     baseUrl.searchParams.set('fields', 'nom,code,codesPostaux,centre,codeDepartement,codeRegion');
-    const url = `${baseUrl.toString()}&codePostal=${codePostal}&code=${codeCommune}`;
-    const ville = await fetch(url);
+    const ville = await fetch(baseUrl.toString());
     return await ville.json();
   };
 

@@ -1,8 +1,10 @@
-import { render, screen, within, fireEvent, act } from '@testing-library/react';
+import { render, screen, within, fireEvent, act, renderHook } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureCoordinateur from './CandidatureCoordinateur';
 import { textMatcher, dateDujour } from '../../../test/test-utils';
 import * as ReactRouterDom from 'react-router-dom';
+import { useApiAdmin } from '../candidature-conseiller/useApiAdmin';
+import { useEntrepriseFinder } from '../candidature-structure/useEntrepriseFinder';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
@@ -260,7 +262,7 @@ describe('candidature coordinateur', () => {
     const denomination = screen.getByLabelText('Dénomination *');
     fireEvent.change(denomination, { target: { value: 'Entreprise' } });
     const adresse = screen.getByLabelText('Adresse *');
-    fireEvent.change(adresse, { target: { value: '75056 Paris' } });
+    fireEvent.change(adresse, { target: { value: '75007 Paris' } });
     const typeStructure = screen.getByRole('radio', { name: 'Une commune' });
     fireEvent.click(typeStructure);
     const prenom = screen.getByLabelText('Prénom *');
@@ -318,7 +320,7 @@ describe('candidature coordinateur', () => {
     const denomination = screen.getByLabelText('Dénomination *');
     fireEvent.change(denomination, { target: { value: 'Entreprise' } });
     const adresse = screen.getByLabelText('Adresse *');
-    fireEvent.change(adresse, { target: { value: '75056 Paris' } });
+    fireEvent.change(adresse, { target: { value: '75007 Paris' } });
     const typeStructure = screen.getByRole('radio', { name: 'Une commune' });
     fireEvent.click(typeStructure);
     const prenom = screen.getByLabelText('Prénom *');
@@ -352,6 +354,111 @@ describe('candidature coordinateur', () => {
 
     // THEN
     expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee-structure');
+
+    vi.useRealTimers();
+  });
+
+  it('quand je valide le formulaire alors j’envoie toute les données nescessaires', async () => {
+    // GIVEN
+    const formData = [
+      [
+        'siret',
+        '13002603200016'
+      ],
+      [
+        'denomination',
+        'AGENCE NATIONALE DE LA COHESION DES TERRITOIRES'
+      ],
+      [
+        'adresse',
+        '20 AVENUE DE SEGUR, 75007 PARIS'
+      ],
+      [
+        'type',
+        'COMMUNE'
+      ],
+      [
+        'prenom',
+        'Jean'
+      ],
+      [
+        'nom',
+        'Dupont'
+      ],
+      [
+        'fonction',
+        'Test'
+      ],
+      [
+        'email',
+        'jean.dupont@example.com'
+      ],
+      [
+        'telephone',
+        '+33123456789'
+      ],
+      [
+        'aIdentifieCoordinateur',
+        'non'
+      ],
+      [
+        'coordinateurTypeContrat',
+        'FT'
+      ],
+      [
+        'dateDebutMission',
+        '2023-12-12'
+      ],
+      [
+        'motivation',
+        'je suis motivé !'
+      ],
+      [
+        'confirmationEngagement',
+        'on'
+      ],
+      [
+        'g-recaptcha-response',
+        '1'
+      ],
+      [
+        'h-captcha-response',
+        '1'
+      ]
+    ];
+
+    const { buildCoordinateurData } = renderHook(() => useApiAdmin()).result.current;
+    const { getGeoLocationFromAddress } = renderHook(() => useEntrepriseFinder()).result.current;
+
+    // //WHEN
+    const geoLocation = await getGeoLocationFromAddress('20 AVENUE DE SEGUR, 75007 PARIS');
+    const result = await buildCoordinateurData(formData, geoLocation, '75107');
+
+    // THEN
+    expect(result).toBe(JSON.stringify({
+      'siret': '13002603200016',
+      'type': 'COMMUNE',
+      'aIdentifieCoordinateur': false,
+      'coordinateurTypeContrat': 'FT',
+      'dateDebutMission': '2023-12-12',
+      'motivation': 'je suis motivé !',
+      'confirmationEngagement': true,
+      'h-captcha-response': '1',
+      'contact': {
+        'prenom': 'Jean', 'nom': 'Dupont',
+        'fonction': 'Test', 'email':
+          'jean.dupont@example.com',
+        'telephone': '+33123456789'
+      },
+      'nom': 'AGENCE NATIONALE DE LA COHESION DES TERRITOIRES',
+      'nomCommune': 'Paris 7e Arrondissement',
+      'codePostal': '75007',
+      'codeCommune': '75107',
+      'location': { 'type': 'Point', 'coordinates': [2.3115, 48.8548] },
+      'codeDepartement': '75',
+      'codeRegion': '11',
+      'codeCom': null,
+    }));
 
     vi.useRealTimers();
   });
