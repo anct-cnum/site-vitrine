@@ -17,7 +17,7 @@ export default function Input({ children, id, isRequired = true, type = 'text', 
           min={min}
           readOnly={readOnly}
           name={id}
-          value={value}
+          value={value?.trim()}
           aria-busy={ariaBusy}
           data-testid={testId}
         />
