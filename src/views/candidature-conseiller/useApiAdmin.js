@@ -70,7 +70,7 @@ export const useApiAdmin = () => {
     return formulaireData;
   };
 
-  const buildConseillerData = async (formData, codeCommune) => {
+  const buildConseillerData = async formData => {
     const conseillerData = Object.fromEntries(formData);
     convertValueToBoolean(conseillerData, 'estDemandeurEmploi');
     convertValueToBoolean(conseillerData, 'estEnEmploi');
@@ -78,9 +78,11 @@ export const useApiAdmin = () => {
     convertValueToBoolean(conseillerData, 'estDiplomeMedNum');
     convertValueToBoolean(conseillerData, 'aUneExperienceMedNum');
     const codePostal = conseillerData.lieuHabitation.match(/\d{5}/)?.[0];
+    const codeCommune = conseillerData.lieuHabitationCodeCommune;
     await handleInformationsVille(conseillerData, codePostal, codeCommune);
     delete conseillerData.lieuHabitation;
     delete conseillerData['g-recaptcha-response'];
+    delete conseillerData['lieuHabitationCodeCommune'];
 
     return JSON.stringify(conseillerData);
   };

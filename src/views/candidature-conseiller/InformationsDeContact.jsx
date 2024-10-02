@@ -1,9 +1,8 @@
 import React from 'react';
 import Input from '../../components/commun/Input';
 import AddressChooser from './AddressChooser';
-import PropTypes from 'prop-types';
 
-export default function InformationsDeContact({ setCodeCommune }) {
+export default function InformationsDeContact() {
   return (
     <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="informations-de-contact">
       <legend className="fr-h5">Vos informations de contact</legend>
@@ -32,11 +31,7 @@ export default function InformationsDeContact({ setCodeCommune }) {
       >
         Téléphone <span className="fr-hint-text">Format attendu : +33122334455</span>
       </Input>
-      <AddressChooser setCodeCommune={setCodeCommune} />
+      <AddressChooser />
     </fieldset>
   );
 }
-
-InformationsDeContact.propTypes = {
-  setCodeCommune: PropTypes.func
-};

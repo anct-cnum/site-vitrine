@@ -64,8 +64,11 @@ describe('candidature conseiller', () => {
     expect(telephone).toHaveAttribute('type', 'tel');
     expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[0-9]{9}');
 
-    const habitation = within(etapeInformationsDeContact).getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    const habitation = within(etapeInformationsDeContact).getByLabelText(('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.'));
     expect(habitation).toHaveAttribute('type', 'text');
+
+    const habitationCodeCommune = within(etapeInformationsDeContact).getByTestId('lieuHabitationCodeCommune-hidden');
+    expect(habitationCodeCommune).toHaveAttribute('id', 'lieuHabitationCodeCommune');
   });
 
   it('quand j’affiche le formulaire alors l’étape "Votre situation et expérience" est affiché', () => {
@@ -339,7 +342,7 @@ describe('candidature conseiller', () => {
     });
 
     // WHEN
-    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: 'par' } });
 
     // THEN
@@ -368,7 +371,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
@@ -407,7 +410,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const oui = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(oui);
@@ -444,7 +447,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
@@ -491,7 +494,7 @@ describe('candidature conseiller', () => {
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
-    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
@@ -538,7 +541,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const telephone = screen.getByLabelText('Téléphone Format attendu : +33122334455');
     fireEvent.change(telephone, { target: { value: '+33159590730' } });
@@ -591,6 +594,10 @@ describe('candidature conseiller', () => {
         '93100 Montreuil'
       ],
       [
+        'lieuHabitationCodeCommune',
+        '93048'
+      ],
+      [
         'estDemandeurEmploi',
         'on'
       ],
@@ -622,7 +629,7 @@ describe('candidature conseiller', () => {
     const { buildConseillerData } = renderHook(() => useApiAdmin.useApiAdmin()).result.current;
 
     //WHEN
-    const result = await buildConseillerData(formData, '93048');
+    const result = await buildConseillerData(formData);
 
     // THEN
     expect(result).toBe(JSON.stringify({

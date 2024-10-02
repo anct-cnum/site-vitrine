@@ -23,7 +23,6 @@ import './CandidatureConseiller.css';
 
 export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState('');
-  const [codeCommune, setCodeCommune] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
   const [validationError, setValidationError] = useState('');
   const { buildConseillerData, creerCandidatureConseiller } = useApiAdmin();
@@ -53,7 +52,7 @@ export default function CandidatureConseiller() {
       setIsSituationValid(false);
       document.getElementById('situation-et-experience').scrollIntoView();
     } else {
-      const conseillerData = await buildConseillerData(formData, codeCommune);
+      const conseillerData = await buildConseillerData(formData);
       const resultatCreation = await creerCandidatureConseiller(conseillerData);
       if (resultatCreation.status >= 400) {
         const error = await resultatCreation.json();
@@ -85,7 +84,7 @@ export default function CandidatureConseiller() {
             aria-label="Candidature conseiller"
             onSubmit={validerLaCandidature}
           >
-            <InformationsDeContact setCodeCommune={setCodeCommune}/>
+            <InformationsDeContact />
             <SituationEtExperience isSituationValid={isSituationValid} />
             <Disponibilite setDateDisponibilite={setDateDisponibilite} />
             <Motivation />
