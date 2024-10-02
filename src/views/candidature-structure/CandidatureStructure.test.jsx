@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import CandidatureStructure from './CandidatureStructure';
 import { textMatcher, dateDujour } from '../../../test/test-utils';
 import * as ReactRouterDom from 'react-router-dom';
-import { useApiAdmin } from '../candidature-conseiller/useApiAdmin';
+import * as useApiAdmin from '../candidature-conseiller/useApiAdmin';
 import { useEntrepriseFinder } from './useEntrepriseFinder';
 
 vi.mock('react-router-dom', () => ({
@@ -519,7 +519,7 @@ describe('candidature structure', () => {
       ]
     ];
 
-    const { buildStructureData } = renderHook(() => useApiAdmin()).result.current;
+    const { buildStructureData } = renderHook(() => useApiAdmin.useApiAdmin()).result.current;
     const { getGeoLocationFromAddress } = renderHook(() => useEntrepriseFinder()).result.current;
 
     // //WHEN
@@ -552,6 +552,62 @@ describe('candidature structure', () => {
       'codeRegion': '11',
       'codeCom': null,
     }));
+
+    vi.useRealTimers();
+  });
+
+  it('quand je remplis le formulaire et q’une erreur se produit alors un message d’erreur s’affiche', async () => {
+    // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.spyOn(useApiAdmin, 'useApiAdmin').mockImplementation(() => ({
+      creerCandidatureStructure: vi.fn().mockReturnValue({ message: 'Failed to fetch' }),
+      buildStructureData: vi.fn(),
+    }));
+
+    render(<CandidatureStructure />);
+    const siret = screen.getByLabelText('SIRET / RIDET *');
+    fireEvent.change(siret, { target: { value: '1234567890123' } });
+    const denomination = screen.getByLabelText('Dénomination *');
+    fireEvent.change(denomination, { target: { value: 'Entreprise' } });
+    const adresse = screen.getByLabelText('Adresse *');
+    fireEvent.change(adresse, { target: { value: '75007 Paris' } });
+    const typeStructure = screen.getByRole('radio', { name: 'Une commune' });
+    fireEvent.click(typeStructure);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const fonction = screen.getByLabelText('Fonction *');
+    fireEvent.change(fonction, { target: { value: 'Test' } });
+    const email = screen.getByLabelText('Adresse e-mail *');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const telephone = screen.getByLabelText('Téléphone *');
+    fireEvent.change(telephone, { target: { value: '+33123456789' } });
+    const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ?*');
+    fireEvent.change(nombre, { target: { value: 1 } });
+    const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(identificationCandidat);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+    const confirmation = screen.getByRole('checkbox', { name: 'Je confirme avoir lu et pris connaissance des conditions d’engagement. *' });
+    fireEvent.click(confirmation);
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(() => {
+      fireEvent.click(envoyer);
+    });
+
+
+    // THEN
+    const contenuErreurValidation = screen.getByText('Failed to fetch', { selector: 'p' });
+    expect(contenuErreurValidation).toBeInTheDocument();
 
     vi.useRealTimers();
   });
