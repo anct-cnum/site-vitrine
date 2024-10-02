@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import CandidatureValidee from './CandidatureValidee';
+import CandidatureValideeStructure from './CandidatureValideeStructure';
 import { textMatcher } from '../../../test/test-utils';
 
 describe('candidature validée', () => {
   it('quand j’affiche la page candidature validée alors le titre et les informations de la page s’affichent', () => {
     // WHEN
-    render(<CandidatureValidee />);
+    render(<CandidatureValideeStructure />);
 
     // THEN
     const emoji = screen.getByText('👏');

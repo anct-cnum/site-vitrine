@@ -52,21 +52,21 @@ export const useApiAdmin = () => {
     conseillerData[key] = conseillerData[key] === 'on' || conseillerData[key] === 'oui';
   };
 
-  const getInformationsVille = async codePostal => {
-    if (codePostal) {
-      return await getVilleParCode(codePostal);
+  const getInformationsVille = async codeCommune => {
+    if (codeCommune) {
+      return await getVilleParCode(codeCommune);
     }
   };
 
-  const handleInformationsVille = async (formulaireData, codePostal) => {
-    const informationsVille = (await getInformationsVille(codePostal))?.[0];
+  const handleInformationsVille = async (formulaireData, codeCommune) => {
+    const informationsVille = (await getInformationsVille(codeCommune));
     formulaireData.nomCommune = informationsVille?.nom;
-    formulaireData.codePostal = informationsVille?.code;
+    formulaireData.codePostal = informationsVille?.codesPostaux[0];
     formulaireData.codeCommune = informationsVille?.code;
     formulaireData.location = informationsVille?.centre;
     formulaireData.codeDepartement = informationsVille?.codeDepartement;
     formulaireData.codeRegion = informationsVille?.codeRegion;
-    formulaireData.codeCom = informationsVille?.code;
+    formulaireData.codeCom = informationsVille?.codeDepartement === '00' ? informationsVille?.code.substring(0, 3) : null;
     return formulaireData;
   };
 
@@ -77,10 +77,11 @@ export const useApiAdmin = () => {
     convertValueToBoolean(conseillerData, 'estEnFormation');
     convertValueToBoolean(conseillerData, 'estDiplomeMedNum');
     convertValueToBoolean(conseillerData, 'aUneExperienceMedNum');
-    const codePostal = conseillerData.lieuHabitation.match(/\d{5}/)?.[0];
-    await handleInformationsVille(conseillerData, codePostal);
+    const codeCommune = conseillerData.lieuHabitationCodeCommune;
+    await handleInformationsVille(conseillerData, codeCommune);
     delete conseillerData.lieuHabitation;
     delete conseillerData['g-recaptcha-response'];
+    delete conseillerData['lieuHabitationCodeCommune'];
 
     return JSON.stringify(conseillerData);
   };
@@ -105,30 +106,29 @@ export const useApiAdmin = () => {
     delete structureData.denomination;
   };
 
-  const handleAdresse = async structureData => {
-    const codePostal = structureData.adresse.match(/\d{5}/)?.[0];
-    await handleInformationsVille(structureData, codePostal);
+  const handleAdresse = async (structureData, codeCommune) => {
+    await handleInformationsVille(structureData, codeCommune);
     delete structureData.adresse;
     return structureData;
   };
 
-  const buildStructureData = async (formData, geoLocation) => {
+  const buildStructureData = async (formData, geoLocation, codeCommune) => {
     const structureData = Object.fromEntries(formData);
     structureData.location = geoLocation;
     convertValueToBoolean(structureData, 'aIdentifieCandidat');
     handleContact(structureData);
     handleInformationsStructure(structureData);
-    await handleAdresse(structureData);
+    await handleAdresse(structureData, codeCommune);
     convertValueToBoolean(structureData, 'confirmationEngagement');
     delete structureData['g-recaptcha-response'];
     return JSON.stringify(structureData);
   };
 
-  const buildCoordinateurData = async formData => {
+  const buildCoordinateurData = async (formData, geoLocation, codeCommune) => {
     const coordinateurData = Object.fromEntries(formData);
     handleContact(coordinateurData);
     handleInformationsStructure(coordinateurData);
-    await handleAdresse(coordinateurData);
+    await handleAdresse(coordinateurData, codeCommune);
     convertValueToBoolean(coordinateurData, 'aIdentifieCoordinateur');
     convertValueToBoolean(coordinateurData, 'confirmationEngagement');
     delete coordinateurData['g-recaptcha-response'];

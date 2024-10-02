@@ -1,8 +1,9 @@
-import { render, screen, within, fireEvent, act } from '@testing-library/react';
+import { render, screen, within, fireEvent, act, renderHook } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import CandidatureConseiller from './CandidatureConseiller';
 import { textMatcher, dateDujour } from '../../../test/test-utils';
 import * as ReactRouterDom from 'react-router-dom';
+import * as useApiAdmin from './useApiAdmin';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
@@ -63,8 +64,11 @@ describe('candidature conseiller', () => {
     expect(telephone).toHaveAttribute('type', 'tel');
     expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[0-9]{9}');
 
-    const habitation = within(etapeInformationsDeContact).getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    const habitation = within(etapeInformationsDeContact).getByLabelText(('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.'));
     expect(habitation).toHaveAttribute('type', 'text');
+
+    const habitationCodeCommune = within(etapeInformationsDeContact).getByTestId('lieuHabitationCodeCommune-hidden');
+    expect(habitationCodeCommune).toHaveAttribute('id', 'lieuHabitationCodeCommune');
   });
 
   it('quand j’affiche le formulaire alors l’étape "Votre situation et expérience" est affiché', () => {
@@ -272,28 +276,78 @@ describe('candidature conseiller', () => {
   it('quand je renseigne un début de nom de ville qui existe alors plusieurs résultats sont affichés', async () => {
     // GIVEN
     render(<CandidatureConseiller />);
-    const geoApiResponse = [
-      {
-        code: '75001',
-        nom: 'Paris',
+    const geoApiResponse = {
+      'type': 'FeatureCollection',
+      'version': 'draft',
+      'features': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [2.347, 48.859]
+          },
+          'properties': {
+            'label': 'Paris',
+            'score': 0.730668760330579,
+            'id': '75056',
+            'type': 'municipality',
+            'name': 'Paris',
+            'postcode': '75001',
+            'citycode': '75056',
+            'x': 652089.7,
+            'y': 6862305.26,
+            'population': 2133111,
+            'city': 'Paris',
+            'context': '75, Paris, Île-de-France',
+            'importance': 0.67372,
+            'municipality': 'Paris'
+          }
+        },
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [1.869755, 44.253003]
+          },
+          'properties': {
+            'label': 'Parisot',
+            'score': 0.932836363636364,
+            'id': '82137',
+            'banId': '4e195f30-96f0-47c8-82e9-2968b067bccc',
+            'type': 'municipality',
+            'name': 'Parisot',
+            'postcode': '82160',
+            'citycode': '82137',
+            'x': 609752.79,
+            'y': 6351088.82,
+            'population': 554,
+            'city': 'Parisot',
+            'context': '82, Tarn-et-Garonne, Occitanie',
+            'importance': 0.2612,
+            'municipality': 'Parisot'
+          }
+        }
+      ],
+      'attribution': 'BAN',
+      'licence': 'ETALAB-2.0',
+      'query': 'paris 75002',
+      'filters': {
+        'type': 'municipality'
       },
-      {
-        code: '82137',
-        nom: 'Parisot',
-      },
-    ];
+      'limit': 5
+    };
 
     vi.spyOn(global, 'fetch').mockResolvedValueOnce({
       json: async () => Promise.resolve(geoApiResponse)
     });
 
     // WHEN
-    const adresse = screen.getByLabelText('Votre lieu d’habitation Saississez le nom ou le code postal de votre commune.');
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: 'par' } });
 
     // THEN
     const paris = await screen.findByRole('option', { name: '75001 Paris', hidden: true });
-    const parisot = await screen.findByRole('option', { name: '82137 Parisot', hidden: true });
+    const parisot = await screen.findByRole('option', { name: '82160 Parisot', hidden: true });
     expect(paris).toBeInTheDocument();
     expect(parisot).toBeInTheDocument();
   });
@@ -317,6 +371,8 @@ describe('candidature conseiller', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
     const oui = screen.getByRole('radio', { name: 'Oui' });
@@ -354,6 +410,8 @@ describe('candidature conseiller', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const oui = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(oui);
     const date = screen.getByLabelText('Choisir une date');
@@ -389,6 +447,8 @@ describe('candidature conseiller', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
     const oui = screen.getByRole('radio', { name: 'Oui' });
@@ -434,6 +494,8 @@ describe('candidature conseiller', () => {
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
@@ -455,7 +517,147 @@ describe('candidature conseiller', () => {
     });
 
     // THEN
-    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee');
+    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee-conseiller');
+
+    vi.useRealTimers();
+  });
+
+  it('quand je remplis complètementle formulaire avec un numéro téléphone valide, alors je suis redirigé vers la page de candidature validée', async () => {
+    // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 200, json: async () => Promise.resolve({}) }))
+    );
+
+    const mockNavigate = vi.fn().mockReturnValue(() => { });
+    vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
+
+    render(<CandidatureConseiller />);
+    const prenom = screen.getByLabelText('Prénom *');
+    fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
+    const telephone = screen.getByLabelText('Téléphone Format attendu : +33122334455');
+    fireEvent.change(telephone, { target: { value: '+33159590730' } });
+    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
+    fireEvent.click(enEmploi);
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(() => {
+      fireEvent.click(envoyer);
+    });
+
+    // THEN
+    expect(mockNavigate).toHaveBeenCalledWith('/candidature-validee-conseiller');
+
+    vi.useRealTimers();
+  });
+
+  it('quand je valide le formulaire alors j’envoie toute les données nescessaires', async () => {
+    // GIVEN
+    const formData = [
+      [
+        'prenom',
+        'Jean'
+      ],
+      [
+        'nom',
+        'Dupont'
+      ],
+      [
+        'email',
+        'jean.dupont@example.com'
+      ],
+      [
+        'telephone',
+        ''
+      ],
+      [
+        'lieuHabitation',
+        '93100 Montreuil'
+      ],
+      [
+        'lieuHabitationCodeCommune',
+        '93048'
+      ],
+      [
+        'estDemandeurEmploi',
+        'on'
+      ],
+      [
+        'aUneExperienceMedNum',
+        'oui'
+      ],
+      [
+        'dateDisponibilite',
+        '2023-12-12'
+      ],
+      [
+        'distanceMax',
+        '5'
+      ],
+      [
+        'motivation',
+        'je suis motivé !'
+      ],
+      [
+        'g-recaptcha-response',
+        '1'
+      ],
+      [
+        'h-captcha-response',
+        '1'
+      ]
+    ];
+    const { buildConseillerData } = renderHook(() => useApiAdmin.useApiAdmin()).result.current;
+
+    //WHEN
+    const result = await buildConseillerData(formData);
+
+    // THEN
+    expect(result).toBe(JSON.stringify({
+      'prenom': 'Jean',
+      'nom': 'Dupont',
+      'email': 'jean.dupont@example.com',
+      'telephone': '',
+      'estDemandeurEmploi': true,
+      'aUneExperienceMedNum': true,
+      'dateDisponibilite': '2023-12-12',
+      'distanceMax': '5',
+      'motivation': 'je suis motivé !',
+      'h-captcha-response': '1',
+      'estEnEmploi': false,
+      'estEnFormation': false,
+      'estDiplomeMedNum': false,
+      'nomCommune': 'Montreuil',
+      'codePostal': '93100',
+      'codeCommune': '93048',
+      'location': {
+        'type': 'Point',
+        'coordinates': [2.4491,
+          48.8637]
+      },
+      'codeDepartement': '93',
+      'codeRegion': '11',
+      'codeCom': null,
+    }));
 
     vi.useRealTimers();
   });

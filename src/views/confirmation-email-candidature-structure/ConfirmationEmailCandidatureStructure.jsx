@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useApiConfirmationEmailCandidatureStructure } from './useApiConfirmationEmailCandidatureStructure';
 
+import '@gouvfr/dsfr/dist/component/alert/alert.min.css';
+
 export default function ConfirmationEmailCandidatureStructure() {
   const [reponseStatusConfirmation, setReponseStatusConfirmation] = useState(null);
   const { actionConfirmationEmailCandidatureStructure } = useApiConfirmationEmailCandidatureStructure();

@@ -4,7 +4,7 @@ const TAILLE_SIRET = 14;
 const TAILLE_RIDET = [6, 7];
 const TAILLES_POSSIBLES = [...TAILLE_RIDET, TAILLE_SIRET];
 
-export const useEntrepriseFinder = setGeoLocation => {
+export const useEntrepriseFinder = (setGeoLocation, setCodeCommune) => {
   const [entreprise, setEntreprise] = useState(null);
   const [error, setError] = useState(null);
   const [addressSuggestions, setAddressSuggestions] = useState([]);
@@ -22,6 +22,7 @@ export const useEntrepriseFinder = setGeoLocation => {
     setEntreprise(null);
     setError(null);
     setGeoLocation(null);
+    setCodeCommune('');
     setDenomination('');
     setAdresse('');
   };
@@ -32,6 +33,7 @@ export const useEntrepriseFinder = setGeoLocation => {
       const response = await fetch(urlAPI);
       const result = await response.json();
       if (result.features && result.features.length > 0) {
+        setCodeCommune(result.features[0].properties.citycode);
         return result.features[0].geometry;
       }
     } catch (error) {
@@ -86,7 +88,8 @@ export const useEntrepriseFinder = setGeoLocation => {
       const response = await fetch(urlAPI);
       const result = await response.json();
       const suggestions = result.features.map(feature => ({
-        label: `${feature.properties.citycode} ${feature.properties.city}`,
+        label: `${feature.properties.postcode} ${feature.properties.city}`,
+        codeCommune: feature.properties.citycode,
         geometry: feature.geometry,
       }));
       setAddressSuggestions(suggestions);
@@ -98,6 +101,7 @@ export const useEntrepriseFinder = setGeoLocation => {
   };
 
   return {
+    getGeoLocationFromAddress,
     search,
     entreprise,
     error,
@@ -109,6 +113,7 @@ export const useEntrepriseFinder = setGeoLocation => {
     setDenomination,
     setAdresse,
     denomination,
-    adresse
+    adresse,
+    setCodeCommune,
   };
 };

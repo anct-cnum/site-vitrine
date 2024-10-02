@@ -1,25 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from '../../components/commun/Input';
 import { useGeoApi } from './useGeoApi';
 import { debounce } from './debounce';
 
 export default function AddressChooser() {
   const { searchByName, villes } = useGeoApi();
+  const [codeCommune, setCodeCommune] = useState('');
 
   return (
     <>
       <Input
         id="lieuHabitation"
         list="resultatsRecherche"
-        isRequired={false}
-        onChange={debounce(event => searchByName(event.target.value))}
+        onChange={debounce(async event => {
+          searchByName(event.target.value);
+          const codeCommune = await villes.find(({ codesPostaux, nom }) =>
+            (`${codesPostaux[0]} ${nom}`).toUpperCase() === (event.target.value).toUpperCase())?.code;
+          setCodeCommune(codeCommune);
+        })}
       >
-        Votre lieu d’habitation <span className="fr-hint-text">Saississez le nom ou le code postal de votre commune.</span>
+        Votre lieu d’habitation <span className="cc-obligatoire">*</span>{' '}
+        <span className="fr-hint-text">Saississez le nom ou le code postal de votre commune.</span>
       </Input>
+      <Input type="hidden" id="lieuHabitationCodeCommune" value={codeCommune} testId="lieuHabitationCodeCommune-hidden"/>
       <datalist id="resultatsRecherche">
-        {villes.map(({ code, nom }) => (
-          <option value={`${code} ${nom}`} key={code}>
-            {code} {nom}
+        {villes.map(({ codesPostaux, nom }, key) => (
+          <option value={`${codesPostaux[0]} ${nom}`} key={key}>
+            {codesPostaux[0]} {nom}
           </option>
         ))}
       </datalist>

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
-import './CandidatureValidee.css';
+import './CandidatureValideeStructure.css';
 
-export default function CandidatureValidee() {
+export default function CandidatureValideeStructure() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.title = 'Conseiller numérique - Candidature validée';
