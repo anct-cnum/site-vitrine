@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Input({ children, id, isRequired = true, type = 'text', pattern, onChange, list, min, readOnly, isLoading, ariaBusy, value, testId = '' }) {
+export default function Input({ children, id, isRequired = true, autoComplete = 'on', testId = '', type = 'text',
+  pattern, onChange, list, min, readOnly, isLoading, ariaBusy, value }) {
   return (
     <div className="fr-fieldset__element">
       <div className="fr-input-group">
@@ -11,6 +12,7 @@ export default function Input({ children, id, isRequired = true, type = 'text', 
           type={type}
           id={id}
           required={isRequired}
+          autoComplete={autoComplete}
           pattern={pattern}
           onChange={onChange}
           list={list}
@@ -35,6 +37,7 @@ Input.propTypes = {
   children: PropTypes.node,
   id: PropTypes.string,
   isRequired: PropTypes.bool,
+  autoComplete: PropTypes.string,
   type: PropTypes.string,
   pattern: PropTypes.string,
   onChange: PropTypes.func,

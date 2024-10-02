@@ -10,6 +10,7 @@ export default function AddressChooser() {
   return (
     <>
       <Input
+        autoComplete= "off"
         id="lieuHabitation"
         list="resultatsRecherche"
         onChange={debounce(async event => {
