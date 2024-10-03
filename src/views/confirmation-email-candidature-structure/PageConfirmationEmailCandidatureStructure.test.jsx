@@ -48,7 +48,7 @@ describe('confirmation Email', () => {
     );
     expect(messageSucess).toBeInTheDocument();
 
-    const messageError403 = screen.queryByText('Impossible de valider l’email, le lien a expiré ou est invalide.', { selector: 'p' });
+    const messageError403 = screen.queryByText('Le lien de validation de votre adresse électronique est invalide.', { selector: 'p' });
     expect(messageError403).not.toBeInTheDocument();
 
     const messageErreurGenerale = screen.queryByText('Une erreur s’est produite veuillez réessayer plus tard.', { selector: 'p' });
@@ -76,7 +76,7 @@ describe('confirmation Email', () => {
     const titre = screen.getByRole('heading', { level: 1, name: 'Confirmation de l’enregistrement de votre candidature' });
     expect(titre).toBeInTheDocument();
 
-    const messageError = screen.getByText('Impossible de valider l’email, le lien a expiré ou est invalide.',
+    const messageError = screen.getByText('Le lien de validation de votre adresse électronique est invalide.',
       { selector: 'p' }
     );
     expect(messageError).toBeInTheDocument();
@@ -114,7 +114,7 @@ describe('confirmation Email', () => {
     );
     expect(messageError).toBeInTheDocument();
 
-    const messageError403 = screen.queryByText('Impossible de valider l’email, le lien a expiré ou est invalide.', { selector: 'p' });
+    const messageError403 = screen.queryByText('Le lien de validation de votre adresse électronique est invalide.', { selector: 'p' });
     expect(messageError403).not.toBeInTheDocument();
     
     const messageSuccess = screen.queryByText('Votre email a été confirmé et votre inscription est maintenant active.' +

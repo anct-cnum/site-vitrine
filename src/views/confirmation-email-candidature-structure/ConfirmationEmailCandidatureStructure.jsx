@@ -24,7 +24,7 @@ export default function ConfirmationEmailCandidatureStructure() {
           Vous recevrez un mail d’activation de votre espace structure lorsque votre candidature aura été validée.</p>
       </div>}
       {reponseStatusConfirmation === 403 && <div className="fr-alert fr-alert--error fr-alert--sm">
-        <p>Impossible de valider l’email, le lien a expiré ou est invalide.</p>
+        <p>Le lien de validation de votre adresse électronique est invalide.</p>
       </div>}
       {reponseStatusConfirmation >= 400 && reponseStatusConfirmation !== 403 && <div className="rf-alert fr-alert--error fr-alert--sm">
         <p>Une erreur s’est produite veuillez réessayer plus tard.</p>
