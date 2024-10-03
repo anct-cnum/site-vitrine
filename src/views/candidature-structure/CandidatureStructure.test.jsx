@@ -556,7 +556,7 @@ describe('candidature structure', () => {
     vi.useRealTimers();
   });
 
-  it('quand je remplis le formulaire et q’une erreur se produit alors un message d’erreur s’affiche', async () => {
+  it('quand je remplis le formulaire et qu’une erreur se produit alors un message d’erreur s’affiche', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));

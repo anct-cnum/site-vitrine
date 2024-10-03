@@ -54,7 +54,7 @@ export default function CandidatureConseiller() {
     } else {
       const conseillerData = await buildConseillerData(formData);
       const resultatCreation = await creerCandidatureConseiller(conseillerData);
-      if (resultatCreation.status && resultatCreation.status >= 400) {
+      if (resultatCreation?.status >= 400) {
         const error = await resultatCreation.json();
         setValidationError(error.message);
         window.scrollTo({ top: 0, behavior: 'smooth' });

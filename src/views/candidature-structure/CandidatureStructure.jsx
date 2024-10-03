@@ -40,7 +40,7 @@ export default function CandidatureStructure() {
     const formData = new FormData(event.currentTarget);
     const structureData = await buildStructureData(formData, geoLocation, codeCommune);
     const resultatCreation = await creerCandidatureStructure(structureData);
-    if (resultatCreation.status && resultatCreation.status >= 400) {
+    if (resultatCreation?.status >= 400) {
       const error = await resultatCreation.json();
       setValidationError(error.message);
       window.scrollTo({ top: 0, behavior: 'smooth' });
