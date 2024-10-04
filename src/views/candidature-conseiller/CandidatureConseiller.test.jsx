@@ -343,7 +343,7 @@ describe('candidature conseiller', () => {
 
     // WHEN
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
-    fireEvent.change(adresse, { target: { value: 'par' } });
+    fireEvent.change(adresse, { target: { value: 'paris' } });
 
     // THEN
     const paris = await screen.findByRole('option', { name: '75001 Paris', hidden: true });

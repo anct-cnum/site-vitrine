@@ -527,9 +527,12 @@ describe('candidature structure', () => {
 
     const { buildStructureData } = renderHook(() => useApiAdmin.useApiAdmin()).result.current;
     const { getGeoLocationFromAddress } = renderHook(() => useEntrepriseFinder()).result.current;
+    let geoLocation;
 
-    // //WHEN
-    const geoLocation = await getGeoLocationFromAddress('20 AVENUE DE SEGUR, 75007 PARIS');
+    // WHEN
+    await act(async () => {
+      geoLocation = await getGeoLocationFromAddress('20 AVENUE DE SEGUR, 75007 PARIS');
+    });
     const result = await buildStructureData(formData, geoLocation, '75107');
 
     // THEN

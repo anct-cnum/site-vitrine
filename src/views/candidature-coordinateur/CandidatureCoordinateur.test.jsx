@@ -432,12 +432,15 @@ describe('candidature coordinateur', () => {
         '1'
       ]
     ];
-
     const { buildCoordinateurData } = renderHook(() => useApiAdmin.useApiAdmin()).result.current;
     const { getGeoLocationFromAddress } = renderHook(() => useEntrepriseFinder()).result.current;
+    let geoLocation;
 
-    // //WHEN
-    const geoLocation = await getGeoLocationFromAddress('20 AVENUE DE SEGUR, 75007 PARIS');
+    // WHEN
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      geoLocation = await getGeoLocationFromAddress('20 AVENUE DE SEGUR, 75007 PARIS');
+    });
     const result = await buildCoordinateurData(formData, geoLocation, '75107');
 
     // THEN
