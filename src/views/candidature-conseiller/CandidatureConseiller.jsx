@@ -57,9 +57,11 @@ export default function CandidatureConseiller() {
       if (resultatCreation?.status >= 400) {
         const error = await resultatCreation.json();
         setValidationError(error.message);
+        window.hcaptcha.reset();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (!resultatCreation.status) {
         setValidationError(resultatCreation.message);
+        window.hcaptcha.reset();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         navigate('/candidature-validee-conseiller');
