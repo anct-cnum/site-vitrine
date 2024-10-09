@@ -13,7 +13,7 @@ function Formation() {
       <Header/>
       <div className="formation">
         <div className="fr-container fr-mb-10w">
-          <div className="fr-grid-row fr-grid-row--gutters">
+          <div className="fr-grid-row fr-grid-row--center">
             <Introduction />
             <ParcoursFormation />
             <FormationInitiale />

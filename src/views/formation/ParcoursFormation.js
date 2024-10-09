@@ -1,30 +1,28 @@
 import React from 'react';
-import ImageParcours from '../../assets/images/schema-parcours-formation-conseiller-numerique.svg';
+import ImageParcours from '../../assets/images/schema-parcours-formation-conseiller-numerique-2024.svg';
 
 function ParcoursFormation() {
-
   return (
     <>
-      <div className="fr-col-offset-2 fr-col-10">
-        <h2 className="fr-h2 fr-mt-3w fr-mb-1w fr-ml-n1w">Parcours de formation Conseiller num&eacute;rique</h2>
+      <div className="fr-col-10">
+        <h2 className="fr-my-3w">
+          L’offre de formation à destination des conseillers numériques
+        </h2>
       </div>
       <div className="fr-col-12">
-        <img src={ImageParcours} className="fresque" loading="lazy"
-          alt="Parcours de formation depuis la prise de poste, avec une phase de formation initiale, puis une phase de formation continue"/>
+        <img
+          src={ImageParcours}
+          className="fresque"
+          loading="lazy"
+          alt="Parcours de formation depuis la prise de poste, avec une phase de formation initiale, puis une phase de formation continue"
+        />
       </div>
-      <div className="fr-col-offset-2 fr-col-8">
+      <div className="fr-col-8">
         <p className="fr-ml-n1w description">
-          Cette frise pr&eacute;sente le parcours de formation classique du conseiller num&eacute;rique.
-          L&rsquo;ordre des &eacute;l&eacute;ments, notamment le passage du CCP1, peut &ecirc;tre modifi&eacute;
-          selon les sp&eacute;cificit&eacute;s individuelles et territoriales. En outre-mer, le parcours de
-          formation et le passage du CCP1 sont d&eacute;ploy&eacute;s par POP School.
-        </p>
-      </div>
-      <div className="fr-col-offset-2 fr-col-8">
-        <p className="fr-ml-n1w description">
-          <b>La Fabrik</b> repr&eacute;sente le consortium La Fabrik de la m&eacute;diation num&eacute;rique port&eacute; par CEFIAC et M2i.<br/>
-          <b>La Mednum</b> repr&eacute;sente le consortium port&eacute; par la Mednum, les hubs territoriaux pour un num&eacute;rique inclusif et
-          organismes de formation impliqu&eacute;s dans la d&eacute;livrance de ces formations.
+          A la suite de l’arrêt des activités de Pop School fin septembre 2024, la coordination de la formation initiale
+          préparant au CCP1 du titre REMN en Outre-mer est reprise par l’organisme de formation Francil’In.
+          La coordination nationale de la formation préparant à l’obtention du titre REMN complet (CCP2 et CCP3)
+          est reprise par l’organisme de formation Histya.
         </p>
       </div>
     </>

@@ -19,7 +19,7 @@
   .title-h3 {
     font-size: 1.125rem;
     color: var(--info-425-625);
-    margin-bottom: 0;
+    margin-bottom: 1rem;
     margin-top: 0;
   }
 
@@ -33,7 +33,6 @@
 
   .cadre {
     border: 1px solid $lighter-grey;
-    margin: 0 auto;
   }
 
   .encart-bleu {
@@ -44,8 +43,6 @@
   .cadre-bleu {
     background: var(--info-950-100);
     text-align: center;
-    margin: 0 auto;
-    padding: 2% 0;
   }
 
   .lien-image-fabrik {

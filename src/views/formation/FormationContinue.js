@@ -1,60 +1,82 @@
 import React from 'react';
-import SchemaParcoursPossible from '../../assets/images/schema-parcours-possible.svg';
- 
+
 function FormationContinue() {
   const mednumUrl = 'https://lamednum.coop/formation/';
-  const popschoolUrl = 'https://popschool.fr/inscription-pop-school/';
-  const popschoolAideUrl = 'https://popschool.fr/formation-conseiller-numerique/';
+  const histyaUrl = 'https://histya.fr/conseiller·e·s-numerique·s/';
   const aidantsconnectUrl = 'https://aidantsconnect.beta.gouv.fr/habilitation';
+
   return (
     <div className="fr-col-9 fr-mt-5w cadre">
       <div className="fr-ml-5w fr-col-11">
-        <h2 className="fr-my-3w">La formation continue</h2>
+        <h2 className="fr-my-3w">
+          La formation continue des conseillers numériques
+        </h2>
       </div>
       <div className="fr-ml-5w fr-col-11">
-        <h3 style={{ fontSize: '20px' }}>-&nbsp;1 module par an, au choix</h3>
         <p>
-          Une fois la formation initiale termin&eacute;e, vous suivez chaque ann&eacute;e un module de formation de 7h ou 14h,
-          parmi 15 th&eacute;matiques au choix.
+          La formation continue des conseillers numériques est constituée de deux volets : l’un obligatoire, l’autre facultatif.
+        </p>
+        <h3 className="fr-mt-6w fr-mb-3w">
+          Les modules thématiques
+        </h3>
+        <p>
+          Les conseillers numériques se voient proposer un catalogue de quinze modules thématiques courts,
+          conçus spécifiquement pour eux par des experts de l’inclusion numérique.
         </p>
         <p>
-          <b>Inscriptions&nbsp;:</b>&nbsp;
+          Les thèmes proposés sont nombreux (parentalité numérique, accompagnement des publics en situation de handicap, numérique responsable…).
+          D’une durée de 7 heures ou 14 heures, les modules thématiques ont pour objectif d’accompagner les conseillers numériques
+          dans leurs missions quotidiennes, en fonction de leurs besoins.
+        </p>
+        <p>
+          Le dispositif finance la formation continue des conseillers numériques à hauteur d’un module thématique obligatoire chaque année.
+        </p>
+        <p>
+          Cette offre de formation est organisée au niveau national par <a href="https://lamednum.coop/">La Mednum</a>,
+          en lien avec des organismes de formation régionaux partenaires.
+        </p>
+        <p>
+          <b>Inscriptions : </b>
           <a href={mednumUrl} rel="noopener noreferrer" target="_blank">
-            lamednum.coop/formation
+            https://lamednum.coop/formation/
           </a>
         </p>
         <p>
-          Si vous souhaitez suivre le module Aidants Connect, le calendrier des sessions vous sera partag&eacute; une fois
-          l&rsquo;habilitation de votre structure obtenue.
+          Si vous souhaitez suivre le module Aidants Connect, le calendrier des sessions vous sera partagé une fois l’habilitation
+          de votre structure obtenue. <strong>Vous pouvez entamer les démarches avant la réception de votre convocation pour
+            la préparation au CCP1, mais devrez attendre cette convocation pour vous inscrire à une session de formation.</strong>
         </p>
-        <p>Pour obtenir l&rsquo;habilitation Aidants Connect&nbsp;:&nbsp;
+        <p>
+          <b>Pour obtenir l’habilitation Aidants Connect : </b>
           <a href={aidantsconnectUrl} rel="noopener noreferrer" target="_blank">
-            aidantsconnect.beta.gouv.fr/habilitation
+            https://aidantsconnect.beta.gouv.fr/habilitation
           </a>
         </p>
-        <h3 style={{ fontSize: '20px' }}>-&nbsp;Passage du CCP2 et CCP3 du titre REMN</h3>
+        <h3 className="fr-mt-6w fr-mb-3w">
+          Préparation en vue de l’obtention du titre REMN complet
+        </h3>
         <p>
-          Le nouveau dispositif de formation permet aux conseillers num&eacute;riques <b>ayant valid&eacute; le titre CCP1</b>,
-          et en accord avec leur structure, de pr&eacute;parer et de passer les &eacute;preuves du CCP2 et CCP3 du titre
-          professionnel de Responsable d&rsquo;Espace de M&eacute;diation Num&eacute;rique.
+          Les conseillers numériques ayant validé le titre CCP1 peuvent, en accord avec leur structure,
+          préparer et passer les examens des deux autres certificats de compétences, les CCP2 et CCP3,
+          en vue d’obtenir le titre professionnel de Responsable d’Espace de Médiation Numérique complet.
         </p>
         <p>
-          Pour accro&icirc;tre vos chances d&rsquo;obtenir chaque certificat, vous recevrez une formation de 70h. R&eacute;partie
-          sur environ 17 semaines, son objectif est de parfaire vos comp&eacute;tences en mati&egrave;re de d&eacute;veloppement
-          et gestion d&rsquo;espaces num&eacute;riques, et de mise en &oelig;uvre de projets collaboratifs.
+          L’objectif de cette formation diplômante est de parfaire leurs compétences en matière de développement
+          et gestion d’espaces numériques, ou encore de mise en œuvre de projets collaboratifs, et de valoriser leur expertise en médiation numérique.
         </p>
         <p>
-          <b>Inscriptions&nbsp;:</b>&nbsp;
-          <a href={popschoolUrl} rel="noopener noreferrer" target="_blank">
-            popschool.fr/inscription-pop-school
-          </a>
-          <img src={SchemaParcoursPossible} style={{ width: '100%' }}
-            alt="image pr&eacute;sentant le site de La Fabrik" className="fr-my-3w" loading="lazy"/>
+          La formation préparant à l’obtention des CCP2 et CCP3 se déploie sur 17 semaines dans un format hybride,
+          selon un rythme moyen d’un jour de formation par semaine.
         </p>
         <p>
-          <b>Pour toute question relative au passage du titre REMN</b>, rendez-vous&nbsp;
-          <a href={popschoolAideUrl} rel="noopener noreferrer" target="_blank">
-            ici
+          La coordination nationale de la formation est organisée au niveau national par <a href="https://histya.fr/">Histya</a>.
+          Pour s’inscrire, les conseillers numériques doivent contacter leur organisme de formation régional,
+          dont la liste est disponible sur le site internet d’Histya.
+        </p>
+        <p>
+          <b>Site internet d’Histya : </b>
+          <a href={histyaUrl} rel="noopener noreferrer" target="_blank">
+            https://histya.fr/conseiller·e·s-numerique·s/
           </a>
         </p>
       </div>

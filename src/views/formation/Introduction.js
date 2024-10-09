@@ -1,70 +1,31 @@
 import React from 'react';
 
 function Introduction() {
-
   return (
     <>
-      <div className="fr-col-offset-2 fr-col-10">
-        <h1 className="fr-h1 fr-mt-10w fr-mb-5w fr-ml-n1w">Formation des conseillers num&eacute;riques</h1>
+      <div className="fr-col-10">
+        <h1 className="fr-h1 fr-mt-10w fr-mb-5w fr-ml-n1w">Formation des conseillers numériques</h1>
       </div>
-      <div className="fr-col-offset-2 fr-col-10">
+      <div className="fr-col-10">
         <p className="fr-ml-n1w introduction">
-          Tout au long de leur parcours, les conseillers num&eacute;riques b&eacute;n&eacute;ficient d&rsquo;une formation
-          initiale puis continue, int&eacute;gralement financ&eacute;e par l&rsquo;&Eacute;tat, pour leur donner les moyens
-          d&rsquo;accompagner la mont&eacute;e en comp&eacute;tence de leur public.
+          Tout au long de leur parcours, les conseillers numériques bénéficient d’une formation initiale puis continue
+          obligatoire, pour leur permettre d’approfondir un vaste champ de compétences en médiation numérique.
         </p>
         <p className="fr-ml-n1w introduction">
-          <b>En 2024, la formation des conseillers num&eacute;riques &eacute;volue&nbsp;!</b>
-        </p>
-        <p className="fr-ml-n1w introduction">
-          Les nouveaux besoins exprim&eacute;s par les conseillers num&eacute;riques dans le cadre de leur activit&eacute;,
-          et les retours d&rsquo;exp&eacute;rience sur les deux premi&egrave;res ann&eacute;es du dispositif, ont initi&eacute;
-          une refonte de l&rsquo;offre de formation.
+          Lancée en 2021 par l’Agence Nationale de la Cohésion des Territoires (ANCT) et opérée par la Banque des Territoires,
+          la formation des conseillers numériques est <strong>intégralement financée par l’Etat</strong>.
         </p>
       </div>
-      <div className="fr-col-offset-2 fr-col-10">
-        <h3 className="title-h3 fr-ml-n1w">
-          Le d&eacute;ploiement de la formation continue constitue la principale nouveaut&eacute;
-        </h3>
-        <p className="fr-ml-n1w introduction">
-          &Agrave; partir de 2024, les conseillers num&eacute;riques, une fois form&eacute;s, suivront deux modules
-          th&eacute;matiques la premi&egrave;re ann&eacute;e puis un module chaque ann&eacute;e pour mettre &agrave;
-          jour leurs comp&eacute;tences. Ils se verront parall&egrave;lement proposer des formations pour obtenir le titre professionnel
-          Responsable d&rsquo;espace de m&eacute;diation num&eacute;rique (<i>REMN</i>) complet.
-        </p>
-      </div>
-      <div className="fr-col-offset-2 fr-col-10">
-        <h3 className="title-h3 fr-ml-n1w">
-          La formation initiale &eacute;volue
-        </h3>
-        <p className="fr-ml-n1w introduction">
-          Elle permet d&eacute;sormais aux conseillers de personnaliser leur parcours, en choisissant deux modules compl&eacute;mentaires
-          du tronc commun. Les programmes ont eux aussi &eacute;t&eacute; actualis&eacute;s pour mieux s&rsquo;adapter aux attentes
-          r&eacute;elles et &agrave; l&rsquo;activit&eacute; des conseillers num&eacute;riques.<br/>
-          Afin de faciliter leur entr&eacute;e en poste, le calendrier de la formation initiale a &eacute;galement &eacute;t&eacute;
-          optimis&eacute;&nbsp;: elle dure moins longtemps, et s&rsquo;effectue d&eacute;sormais <b>en alternance</b>.
-        </p>
-      </div>
-
-      <div className="fr-col-offset-1 fr-col-9 cadre">
-        <div className="fr-ml-5w fr-col-11" >
-          <h3 className="title-h3">
-            Une formation certifiante
-          </h3>
-          <p className="fr-mt-3w fr-mb-1w introduction">
-            <b>Jusqu&rsquo;en 2024</b>
+      <div className="fr-col-8 cadre">
+        <div className="fr-col-11 fr-mx-5w fr-mt-2w">
+          <p className="title-h3">
+            Au cœur de la formation des conseillers numériques, le titre professionnel Responsable d’Espace de Médiation Numérique (REMN)
           </p>
           <p className="introduction">
-            La formation initiale des conseillers num&eacute;riques les pr&eacute;parait uniquement &agrave; l&rsquo;obtention du premier
-            certificat de comp&eacute;tences professionnelles (CCP1) du titre professionnel Responsable d&rsquo;espace de m&eacute;diation
-            num&eacute;rique (REMN).
-          </p>
-          <p className="fr-mt-3w fr-mb-1w introduction">
-            <b>Depuis 2024</b>
-          </p>
-          <p className="introduction">
-            Le dispositif offre aux conseillers l&rsquo;opportunit&eacute; de suivre une formation en vue de l&rsquo;acquisition du CCP2
-            puis du CCP3, acc&eacute;dant ainsi au titre REMN complet.
+            Le premier Certificat de Compétences Professionnelles (CCP1) du REMN fournit aux conseillers numériques
+            les compétences de base en médiation numérique.
+            Les CCP2 et CCP3 offrent aux conseillers numériques une opportunité d’approfondir leurs compétences en gestion
+            et animation d’espaces de médiation numériques et de mise en œuvre de projets collaboratifs.
           </p>
         </div>
       </div>
