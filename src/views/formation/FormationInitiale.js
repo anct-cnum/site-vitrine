@@ -6,7 +6,7 @@ function FormationInitiale() {
   const fabrikUrl = 'https://fabrikmediationnumerique.org/';
   const mednumUrl = 'https://lamednum.coop/formation/';
   const aidantsconnectUrl = 'https://aidantsconnect.beta.gouv.fr/habilitation';
-  
+
   return (
     <div className="fr-col-9 fr-mt-3w cadre">
       <div className="fr-ml-5w fr-col-11" >
@@ -70,12 +70,12 @@ function FormationInitiale() {
                 <b>
                   Pour suivre une formation en France m&eacute;tropolitaine, rendez-vous sur le site de La Fabrik&nbsp;:
                 </b>
-                <ol>
-                  <li>Je clique sur &laquo;&nbsp;Inscription&nbsp;&raquo; et je r&eacute;ponds au questionnaire&nbsp;;</li>
-                  <li>j&rsquo;effectue le test de positionnement&nbsp;;</li>
-                  <li>j&rsquo;entre en formation.</li>
-                </ol>
               </p>
+              <ol>
+                <li>Je clique sur &laquo;&nbsp;Inscription&nbsp;&raquo; et je r&eacute;ponds au questionnaire&nbsp;;</li>
+                <li>j&rsquo;effectue le test de positionnement&nbsp;;</li>
+                <li>j&rsquo;entre en formation.</li>
+              </ol>
             </div>
             <div className="fr-col-xs-12 fr-col-xl-5 fr-m-3w img-fabrik">
               <a href={fabrikUrl} rel="noopener noreferrer" target="_blank" className="lien-image-fabrik">
@@ -85,7 +85,6 @@ function FormationInitiale() {
           </div>
         </div>
       </div>
-     
       <div className="fr-ml-5w fr-col-11">
         <h2 className="fr-mt-6w fr-mb-3w">Les modules compl&eacute;mentaires</h2>
       </div>

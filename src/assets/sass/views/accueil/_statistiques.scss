@@ -1,20 +1,20 @@
-@import '../../colors/colors';
-
 .statistiques {
   .center {
-      text-align: center;
-    }
+    text-align: center;
+  }
+
   .baseline-maj {
     height: 20px;
     width: 209px;
-    color: $grey-light;
+    color: var(--grey-200-850);
     font-size: 12px;
     font-weight: 300;
-    line-height: 20px;  
+    line-height: 20px;
     letter-spacing: 0;
   }
+
   .texte {
-    color: $grey-light;
+    color: var(--grey-200-850);
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0;

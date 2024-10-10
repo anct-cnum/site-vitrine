@@ -1,0 +1,76 @@
+/* API Adresse */
+.adresse-container {
+  position: relative;
+}
+
+.liste-adresses {
+  background-color: var(--background-contrast-grey);
+  border: 1px solid var(--border-default-grey);
+  border-top: none;
+  position: absolute;
+  max-height: 33vh;
+  width: 100%;
+  z-index: 1000;
+}
+
+.liste-adresses .spinner-div {
+  text-align: center;
+  margin: 0.5rem;
+  height: 1.5rem;
+}
+
+.liste-adresses .adresses-trouvees {
+  max-height: 33vh;
+  overflow-y: auto;
+}
+
+.liste-adresses .adresse {
+  text-align: left;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  color: var(--text-title-grey);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.liste-adresses .adresse:hover {
+  background-color: var(--background-contrast-grey-hover);
+}
+
+.liste-adresses .adresse:focus {
+  outline: 2px solid var(--focus-default);
+  outline-offset: -2px;
+}
+
+.fr-input-wrap {
+  position: relative;
+}
+
+.fr-input-spinner {
+  position: absolute;
+  right: 0.5rem;
+  top: 70%;
+  transform: translateY(-50%);
+}
+
+.fr-input-spinner .fr-spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.25rem solid var(--border-default-grey);
+  border-top-color: var(--text-action-high-blue-france);
+  border-radius: 50%;
+  animation: fr-spin 1s linear infinite;
+}
+
+@keyframes fr-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

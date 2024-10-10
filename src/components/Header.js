@@ -5,6 +5,16 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/brands/logo-conseiller-numerique-min.svg';
 import Menu from './Menu';
 
+import '@gouvfr/dsfr/dist/component/button/button.min.css';
+import '@gouvfr/dsfr/dist/component/link/link.min.css';
+import '@gouvfr/dsfr/dist/component/modal/modal.min.css';
+import '@gouvfr/dsfr/dist/component/navigation/navigation.min.css';
+import '@gouvfr/dsfr/dist/component/logo/logo.min.css';
+import '@gouvfr/dsfr/dist/component/header/header.min.css';
+import '@gouvfr/dsfr/dist/utility/icons/icons-communication/icons-communication.min.css';
+import '@gouvfr/dsfr/dist/utility/icons/icons-document/icons-document.min.css';
+import '@gouvfr/dsfr/dist/utility/icons/icons-system/icons-system.min.css';
+
 function Header() {
   // eslint-disable-next-line max-len
   const aideUrl = `${import.meta.env.VITE_APP_AIDE_URL}/article/renouvellement-quel-est-le-montant-de-la-subvention-quelle-est-la-duree-de-la-subvention-et-du-contrat-1ci8cxv/`;

@@ -5,7 +5,7 @@
   font-size: 1rem !important;
   line-height: 1.5rem !important;
   a {
-    color: #000091;
+    color: var(--blue-france-sun-113-625);
   }
 
   .fresque {
@@ -18,13 +18,13 @@
 
   .title-h3 {
     font-size: 1.125rem;
-    color: $blue-light;
+    color: var(--info-425-625);
     margin-bottom: 0;
     margin-top: 0;
   }
 
   .description {
-    color: $light-grey;
+    color: var(--grey-425-625);
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 20px;
@@ -37,12 +37,12 @@
   }
 
   .encart-bleu {
-    background: $blue-lighter;
+    background: var(--info-950-100);
     color: $blue-secondary;
   }
 
   .cadre-bleu {
-    background: $blue-lighter;
+    background: var(--info-950-100);
     text-align: center;
     margin: 0 auto;
     padding: 2% 0;

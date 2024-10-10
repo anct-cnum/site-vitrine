@@ -4,7 +4,7 @@ import AddressChooser from './AddressChooser';
 
 export default function InformationsDeContact() {
   return (
-    <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="informationsDeContact">
+    <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="informations-de-contact">
       <legend className="fr-h5">Vos informations de contact</legend>
       <hr />
       <Input
@@ -26,10 +26,10 @@ export default function InformationsDeContact() {
       <Input
         id="telephone"
         type="tel"
-        pattern="0[1-9]{9}"
+        pattern="[+](33|590|596|594|262|269|687)[0-9]{9}"
         isRequired={false}
       >
-        Téléphone <span className="fr-hint-text">Format attendu : 0122334455</span>
+        Téléphone <span className="fr-hint-text">Format attendu : +33122334455</span>
       </Input>
       <AddressChooser />
     </fieldset>

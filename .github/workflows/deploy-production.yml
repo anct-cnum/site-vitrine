@@ -39,6 +39,7 @@ jobs:
           envkey_VITE_APP_FORMS_URL: https://app.conseiller-numerique.gouv.fr/candidature
           envkey_VITE_APP_AIDE_URL: https://aide.conseiller-numerique.gouv.fr/fr
           envkey_VITE_APP_API_URL: ${{ secrets.REACT_APP_API_PRODUCTION }}
+          envkey_VITE_APP_API_PILOTAGE_URL: ${{ secrets.REACT_APP_API_PILOTAGE_PRODUCTION }}
           file_name: .env
       - name: Build application
         run: npm run build

@@ -1,22 +1,22 @@
-@import '../colors/colors';
-
 .fr-header {
   .link-renouvellement-conventions {
-    color: $red-medium !important;
+    color: var(--error-425-625);
   }
+
   .fr-header__tools-links .fr-links-group > li {
     padding-left: 5px;
   }
+
   .fr-header__menu-links .fr-links-group > li {
     display: inline;
     line-height: 2.75rem;
     padding-bottom: 1rem;
   }
+
   .fr-header__menu-links .fr-links-group > li a {
-    font-size: 15px !important;
+    font-size: 15px;
   }
 
-  // Supprimer le picto flèche
   [target=_blank]::after {
     display: none;
   }

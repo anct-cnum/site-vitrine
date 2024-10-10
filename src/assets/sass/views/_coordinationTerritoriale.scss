@@ -10,7 +10,7 @@
   }
 
   h2#hubModal a {
-    color: $blue-france;
+    color: var(--blue-france-sun-113-625);
   }
 
   .list-group-flush > .list-group-item  {
@@ -55,11 +55,11 @@
   }
 
   .bleu-primary {
-    color: $blue-france;
+    color: var(--blue-france-sun-113-625);
   }
 
   .gris-light {
-    color: $light-grey;
+    color: var(--grey-425-625);
   }
 
   .primary-list {
@@ -68,7 +68,7 @@
   }
 
   .gris-background {
-    background-color: $grey-background;
+    background-color: var(--grey-950-125);
     transition: all 0.2s ease-in;
   };
 
@@ -89,9 +89,11 @@
   .secondary-list {
     list-style: disc;
   }
+
   .secondary-list li::marker {
-    color: $blue-france;
+    color: var(--blue-france-sun-113-625);
   }
+
   .title-mission {
     text-align: center;
     margin: 0;
@@ -126,16 +128,16 @@
 
   .section-informations {
     margin-top: 6.5rem;
-    background-color: $blue-france;
+    background-color: var(--blue-france-sun-113-625);
   }
 
   .block-text-informations-1 {
-    color: white;
+    color: var(--grey-1000-50);
     width: 60%;
   }
 
   .block-text-informations-2 {
-    color: white;
+    color: var(--grey-1000-50);
     width: 62%;
   }
 
@@ -258,14 +260,11 @@
     .image-cartographie-coordinateur {
       width: 50%;
     }
-
   }
 
   @media (max-width: 800px) {
-
     .marge-image {
       margin-bottom: 5rem;
     }
   }
-
 }

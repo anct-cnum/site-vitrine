@@ -1,18 +1,18 @@
 export const situations = [
   {
-    id: 'demandeurEmploi',
+    id: 'estDemandeurEmploi',
     libelle: 'Demandeur d’emploi',
   },
   {
-    id: 'enEmploi',
+    id: 'estEnEmploi',
     libelle: 'En emploi',
   },
   {
-    id: 'enFormation',
+    id: 'estEnFormation',
     libelle: 'En formation',
   },
   {
-    id: 'diplome',
+    id: 'estDiplomeMedNum',
     libelle: 'Diplômé dans le secteur de la médiation numérique (formation certifiante ou non)',
   }
 ];
