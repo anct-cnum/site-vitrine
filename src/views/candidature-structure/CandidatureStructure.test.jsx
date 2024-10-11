@@ -340,7 +340,7 @@ describe('candidature structure', () => {
   });
 
   // eslint-disable-next-line max-len
-  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur de doublon, alors elle s’affiche sur la page et le captcha est rénitialiser', async () => {
+  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur de doublon, alors elle s’affiche sur la page et le captcha est rénitialisé', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
@@ -565,7 +565,7 @@ describe('candidature structure', () => {
     vi.useRealTimers();
   });
 
-  it('quand je candidate et q’une erreur server survient, alors le message d’erreur s’affiche et le captcha est rénitialiser', async () => {
+  it('quand je candidate et qu’une erreur serveur survient, alors le message d’erreur s’affiche et le captcha est rénitialisé', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));

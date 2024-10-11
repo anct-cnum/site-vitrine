@@ -432,7 +432,7 @@ describe('candidature conseiller', () => {
   });
 
   // eslint-disable-next-line max-len
-  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page et le captcha est rénitialiser', async () => {
+  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page et le captcha est rénitialisé', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
@@ -668,7 +668,7 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it('quand je remplis le formulaire et qu’une erreur se produit alors un message d’erreur s’affiche et le captcha est rénitialiser', async () => {
+  it('quand je remplis le formulaire et qu’une erreur se produit alors un message d’erreur s’affiche et le captcha est rénitialisé', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
