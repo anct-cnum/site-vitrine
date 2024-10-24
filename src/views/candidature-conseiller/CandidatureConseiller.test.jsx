@@ -56,7 +56,7 @@ describe('candidature conseiller', () => {
     expect(nom).toHaveAttribute('type', 'text');
     expect(nom).toBeRequired();
 
-    const email = within(etapeInformationsDeContact).getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = within(etapeInformationsDeContact).getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
@@ -369,7 +369,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
@@ -408,7 +408,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
@@ -450,7 +450,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
@@ -499,7 +499,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
@@ -545,7 +545,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
@@ -687,7 +687,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });

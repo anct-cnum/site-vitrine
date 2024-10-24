@@ -10,7 +10,7 @@ export default function BesoinEnCoordinateur() {
       <legend className="fr-h5">Votre besoin en coordinateur</legend>
       <hr />
       <p className="fr-mb-3w cc-bold">
-        Avez-vous déjà identifié un candidat pour le poste de coordinateur de conseiller numérique ?<span className="cc-obligatoire">*</span>
+        Avez-vous déjà identifié un candidat pour le poste de coordinateur de conseiller numérique ? <span className="cc-obligatoire">*</span>
       </p>
       <p className="fr-text--sm fr-hint-text">Si oui, merci d’inviter ce candidat à s’inscrire sur la plateforme Conseiller numérique</p>
       <BoutonRadio id="oui" nomGroupe="aIdentifieCoordinateur">
@@ -27,7 +27,7 @@ export default function BesoinEnCoordinateur() {
         Accompagnera également des publics
       </BoutonRadio>
       <hr />
-      <p className="fr-mb-3w cc-bold">À partir de quand êtes vous prêt à accueillir votre coordinateur ?<span className="cc-obligatoire">*</span></p>
+      <p className="fr-mb-3w cc-bold">À partir de quand êtes vous prêt à accueillir votre coordinateur ? <span className="cc-obligatoire">*</span></p>
       <Datepicker id="dateDebutMission" min={dateDuJour}>
         Choisir une date
       </Datepicker>
