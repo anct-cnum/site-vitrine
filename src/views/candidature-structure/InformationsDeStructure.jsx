@@ -70,7 +70,7 @@ export default function InformationsDeStructure({ setGeoLocation, setCodeCommune
           id="adresse"
           value={adresse}
           onChange={handleAdresseChange}
-          readOnly={!entreprise?.isRidet}
+          disabled ={!entreprise?.isRidet}
           list="adresseSuggestions"
           isLoading={(entreprise && loading && !entreprise?.isRidet) || addressLoading}
           ariaBusy={(entreprise && loading && !entreprise?.isRidet) || addressLoading}

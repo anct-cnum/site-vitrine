@@ -29,7 +29,7 @@ export default function InformationsDeContact() {
         name="email"
         type="email"
       >
-        Adresse e-mail <span className="cc-obligatoire">*</span>
+        Adresse électronique <span className="cc-obligatoire">*</span>
       </Input>
       <Input
         id="telephone"

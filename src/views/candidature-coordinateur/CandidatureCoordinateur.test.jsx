@@ -111,7 +111,7 @@ describe('candidature coordinateur', () => {
     expect(fonction).toHaveAttribute('type', 'text');
     expect(fonction).toBeRequired();
 
-    const email = within(etapeInformationsDeContact).getByLabelText('Adresse e-mail *');
+    const email = within(etapeInformationsDeContact).getByLabelText('Adresse électronique *');
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
@@ -131,7 +131,7 @@ describe('candidature coordinateur', () => {
     expect(etapeBesoinCoordinateur).toHaveAttribute('id', 'votre-besoin-en-coordinateur');
 
     const identificationCandidat = within(etapeBesoinCoordinateur).getByText(
-      textMatcher('Avez-vous déjà identifié un candidat pour le poste de coordinateur de conseiller numérique ?*'),
+      textMatcher('Avez-vous déjà identifié un candidat pour le poste de coordinateur de conseiller numérique ? *'),
       { selector: 'p' }
     );
     expect(identificationCandidat).toBeInTheDocument();
@@ -163,7 +163,7 @@ describe('candidature coordinateur', () => {
     expect(publics).toHaveAttribute('name', 'coordinateurTypeContrat');
 
     const dateAccueilCoordinateur = within(etapeBesoinCoordinateur).getByText(
-      textMatcher('À partir de quand êtes vous prêt à accueillir votre coordinateur ?*'),
+      textMatcher('À partir de quand êtes vous prêt à accueillir votre coordinateur ? *'),
       { selector: 'p' }
     );
     expect(dateAccueilCoordinateur).toBeInTheDocument();
@@ -226,11 +226,11 @@ describe('candidature coordinateur', () => {
     const engagements = screen.getByTestId('votre-engagement');
 
     const listDetail = within(engagements).getAllByRole('listitem');
-    within(listDetail[0]).getByText('Renforcer le maillage et les synergies territoriales');
-    within(listDetail[1]).getByText('Être le relais principal des employeurs, des Conseillers numériques et de l’équipe d’animation nationale');
-    within(listDetail[2]).getByText('Imaginer et mettre en place des collaborations sur la base des besoins de la communauté des Conseillers numériques');
-    within(listDetail[3]).getByText('Signer dans les 15 jours suivants un contrat avec ce candidat');
-    within(listDetail[4]).getByText('Laisser partir le conseiller numérique en formation initiale ou continue');
+    within(listDetail[0]).getByText('Renforcer le maillage et les synergies territoriales,');
+    within(listDetail[1]).getByText('Être le relais principal des employeurs, des Conseillers numériques et de l’équipe d’animation nationale,');
+    within(listDetail[2]).getByText('Imaginer et mettre en place des collaborations sur la base des besoins de la communauté des Conseillers numériques,');
+    within(listDetail[3]).getByText('Signer dans les 15 jours suivants un contrat avec ce candidat,');
+    within(listDetail[4]).getByText('Laisser partir le conseiller numérique en formation initiale ou continue,');
     within(listDetail[5]).getByText('Mettre à sa disposition les moyens et équipements pour réaliser sa mission (ordinateur, ' +
       'téléphone portable, voiture si nécessaire)');
 
@@ -276,7 +276,7 @@ describe('candidature coordinateur', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse e-mail *');
+    const email = screen.getByLabelText('Adresse électronique *');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const telephone = screen.getByLabelText('Téléphone *');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
@@ -335,7 +335,7 @@ describe('candidature coordinateur', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse e-mail *');
+    const email = screen.getByLabelText('Adresse électronique *');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const telephone = screen.getByLabelText('Téléphone *');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
@@ -501,7 +501,7 @@ describe('candidature coordinateur', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse e-mail *');
+    const email = screen.getByLabelText('Adresse électronique *');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const telephone = screen.getByLabelText('Téléphone *');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
