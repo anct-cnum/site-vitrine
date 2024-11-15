@@ -132,7 +132,7 @@ function Menu() {
               <div className={`fr-collapse fr-menu ${activeMenu === 'pfs' ? 'fr-collapse--expanded' : ''}`} id="menu-pfs">
                 <ul className="fr-menu__list">
                   <li>
-                    <a className="fr-nav__link" href={urlCoop} target="_blank" rel="noopener noreferrer">Espace coop</a>
+                    <a className="fr-nav__link" href={urlCoop} target="_blank" rel="noopener noreferrer">La Coop de la médiation numérique</a>
                   </li>
                   <li>
                     <a className="fr-nav__link" href={urlCandidat} target="_blank" rel="noopener noreferrer">Espace candidat</a>
@@ -144,10 +144,6 @@ function Menu() {
                   <li>
                     <a className="fr-nav__link" href={urlDashboard}
                       target="_blank" rel="noopener noreferrer">Tableau de pilotage - pr&eacute;fecture</a>
-                  </li>
-                  <li>
-                    <a className="fr-nav__link" href={urlDashboard}
-                      target="_blank" rel="noopener noreferrer">Tableau de pilotage - coordinateur</a>
                   </li>
                 </ul>
               </div>

@@ -58,6 +58,7 @@ describe('candidature structure', () => {
 
     const adresse = within(etapeInformationsDeStructure).getByLabelText('Adresse *');
     expect(adresse).toHaveAttribute('type', 'text');
+    expect(adresse).toHaveAttribute('disabled');
     expect(adresse).toBeRequired();
 
     const questionTypeDeStructure = within(etapeInformationsDeStructure).getByText(textMatcher('Votre structure est *'), { selector: 'p' });
@@ -114,7 +115,7 @@ describe('candidature structure', () => {
     expect(fonction).toHaveAttribute('type', 'text');
     expect(fonction).toBeRequired();
 
-    const email = within(etapeInformationsDeContact).getByLabelText('Adresse e-mail *');
+    const email = within(etapeInformationsDeContact).getByLabelText('Adresse électronique *');
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
@@ -133,13 +134,13 @@ describe('candidature structure', () => {
     const etapeBesoinConseillerNumerique = within(formulaire).getByRole('group', { name: 'Votre besoin en conseiller(s) numérique(s)' });
     expect(etapeBesoinConseillerNumerique).toHaveAttribute('id', 'votre-besoin-en-conseiller-numerique');
 
-    const combienConseillerNumerique = within(etapeBesoinConseillerNumerique).getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ?*');
+    const combienConseillerNumerique = within(etapeBesoinConseillerNumerique).getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ? *');
     expect(combienConseillerNumerique).toHaveAttribute('type', 'number');
     expect(combienConseillerNumerique).toHaveAttribute('min', '1');
     expect(combienConseillerNumerique).toBeRequired();
 
     const identificationCandidat = within(etapeBesoinConseillerNumerique).getByText(
-      textMatcher('Avez-vous déjà identifié un candidat pour le poste de conseiller numérique ?*'),
+      textMatcher('Avez-vous déjà identifié un candidat pour le poste de conseiller numérique ? *'),
       { selector: 'p' }
     );
     expect(identificationCandidat).toBeInTheDocument();
@@ -160,7 +161,7 @@ describe('candidature structure', () => {
     expect(non).toHaveAttribute('name', 'aIdentifieCandidat');
 
     const dateDebutMission = within(etapeBesoinConseillerNumerique).getByText(
-      textMatcher('À partir de quand êtes vous prêt à accueillir votre conseiller numerique ?*'),
+      textMatcher('À partir de quand êtes vous prêt à accueillir votre conseiller numerique ? *'),
       { selector: 'p' }
     );
     expect(dateDebutMission).toBeInTheDocument();
@@ -204,15 +205,15 @@ describe('candidature structure', () => {
 
     const listDetail = within(engagements).getAllByRole('listitem');
     within(listDetail[0]).getByText('Assurer que le conseiller réalise des activités de ' +
-      'montée en compétences du public (ateliers numériques, initiations au numérique), gratuites.');
+      'montée en compétences du public (ateliers numériques, initiations au numérique), gratuites,');
     within(listDetail[1]).getByText('Qu’il consacre une partie de son temps aux rencontres locales et ' +
-      'nationales organisées pour la communauté et la formation continue, etc.');
-    within(listDetail[2]).getByText('Qu’il revête une tenue vestimentaire dédiée fournie par l’Etat.');
-    within(listDetail[3]).getByText('Tout mettre en oeuvre pour sélectionner le candidat dans un délai maximum d’un mois sur la plateforme.');
-    within(listDetail[4]).getByText('Signer dans les 15 jours suivants un contrat avec ce candidat.');
-    within(listDetail[5]).getByText('Laisser partir le conseiller numérique France Services en formation initiale ou continue.');
+      'nationales organisées pour la communauté et la formation continue, etc,');
+    within(listDetail[2]).getByText('Qu’il revête une tenue vestimentaire dédiée fournie par l’Etat,');
+    within(listDetail[3]).getByText('Tout mettre en oeuvre pour sélectionner le candidat dans un délai maximum d’un mois sur la plateforme,');
+    within(listDetail[4]).getByText('Signer dans les 15 jours suivants un contrat avec ce candidat,');
+    within(listDetail[5]).getByText('Laisser partir le conseiller numérique France Services en formation initiale ou continue,');
     within(listDetail[6]).getByText('Mettre à sa disposition les moyens et ' +
-      'équipements pour réaliser sa mission (ordinateur, téléphone portable, voiture si nécessaire).');
+      'équipements pour réaliser sa mission (ordinateur, téléphone portable, voiture si nécessaire),');
 
     const confirmationEngagement = screen.getByLabelText('Je confirme avoir lu et pris connaissance des conditions d’engagement.*');
     expect(confirmationEngagement).toBeInTheDocument();
@@ -339,7 +340,8 @@ describe('candidature structure', () => {
     });
   });
 
-  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page', async () => {
+  // eslint-disable-next-line max-len
+  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur de doublon, alors elle s’affiche sur la page et le captcha est rénitialisé', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
@@ -347,6 +349,10 @@ describe('candidature structure', () => {
     vi.stubGlobal('fetch', vi.fn(
       () => ({ status: 400, json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }) }))
     );
+    vi.stubGlobal('hcaptcha', {
+      reset: vi.fn(),
+      render: vi.fn()
+    });
 
     render(<CandidatureStructure />);
     const siret = screen.getByLabelText('SIRET / RIDET *');
@@ -363,11 +369,11 @@ describe('candidature structure', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse e-mail *');
+    const email = screen.getByLabelText('Adresse électronique *');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const telephone = screen.getByLabelText('Téléphone *');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
-    const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ?*');
+    const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ? *');
     fireEvent.change(nombre, { target: { value: 1 } });
     const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(identificationCandidat);
@@ -387,6 +393,7 @@ describe('candidature structure', () => {
     });
 
     // THEN
+    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
     const titreErreurValidation = screen.getByRole('heading', { level: 3, name: 'Erreur de validation' });
     expect(titreErreurValidation).toBeInTheDocument();
     const contenuErreurValidation = screen.getByText('Cette adresse mail est déjà utilisée', { selector: 'p' });
@@ -421,11 +428,11 @@ describe('candidature structure', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse e-mail *');
+    const email = screen.getByLabelText('Adresse électronique *');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const telephone = screen.getByLabelText('Téléphone *');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
-    const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ?*');
+    const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ? *');
     fireEvent.change(nombre, { target: { value: 1 } });
     const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(identificationCandidat);
@@ -521,9 +528,12 @@ describe('candidature structure', () => {
 
     const { buildStructureData } = renderHook(() => useApiAdmin.useApiAdmin()).result.current;
     const { getGeoLocationFromAddress } = renderHook(() => useEntrepriseFinder()).result.current;
+    let geoLocation;
 
-    // //WHEN
-    const geoLocation = await getGeoLocationFromAddress('20 AVENUE DE SEGUR, 75007 PARIS');
+    // WHEN
+    await act(async () => {
+      geoLocation = await getGeoLocationFromAddress('20 AVENUE DE SEGUR, 75007 PARIS');
+    });
     const result = await buildStructureData(formData, geoLocation, '75107');
 
     // THEN
@@ -556,7 +566,7 @@ describe('candidature structure', () => {
     vi.useRealTimers();
   });
 
-  it('quand je remplis le formulaire et qu’une erreur se produit alors un message d’erreur s’affiche', async () => {
+  it('quand je candidate et qu’une erreur serveur survient, alors le message d’erreur s’affiche et le captcha est rénitialisé', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
@@ -565,6 +575,10 @@ describe('candidature structure', () => {
       creerCandidatureStructure: vi.fn().mockReturnValue({ message: 'Failed to fetch' }),
       buildStructureData: vi.fn(),
     }));
+    vi.stubGlobal('hcaptcha', {
+      reset: vi.fn(),
+      render: vi.fn()
+    });
 
     render(<CandidatureStructure />);
     const siret = screen.getByLabelText('SIRET / RIDET *');
@@ -581,11 +595,11 @@ describe('candidature structure', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse e-mail *');
+    const email = screen.getByLabelText('Adresse électronique *');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const telephone = screen.getByLabelText('Téléphone *');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
-    const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ?*');
+    const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ? *');
     fireEvent.change(nombre, { target: { value: 1 } });
     const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(identificationCandidat);
@@ -606,6 +620,7 @@ describe('candidature structure', () => {
 
 
     // THEN
+    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
     const contenuErreurValidation = screen.getByText('Failed to fetch', { selector: 'p' });
     expect(contenuErreurValidation).toBeInTheDocument();
 

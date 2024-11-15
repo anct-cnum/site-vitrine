@@ -56,7 +56,7 @@ describe('candidature conseiller', () => {
     expect(nom).toHaveAttribute('type', 'text');
     expect(nom).toBeRequired();
 
-    const email = within(etapeInformationsDeContact).getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = within(etapeInformationsDeContact).getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
@@ -343,7 +343,7 @@ describe('candidature conseiller', () => {
 
     // WHEN
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
-    fireEvent.change(adresse, { target: { value: 'par' } });
+    fireEvent.change(adresse, { target: { value: 'paris' } });
 
     // THEN
     const paris = await screen.findByRole('option', { name: '75001 Paris', hidden: true });
@@ -369,7 +369,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
@@ -408,7 +408,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
@@ -431,7 +431,8 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page', async () => {
+  // eslint-disable-next-line max-len
+  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page et le captcha est rénitialisé', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
@@ -439,13 +440,17 @@ describe('candidature conseiller', () => {
     vi.stubGlobal('fetch', vi.fn(
       () => ({ status: 400, json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }) }))
     );
+    vi.stubGlobal('hcaptcha', {
+      reset: vi.fn(),
+      render: vi.fn()
+    });
 
     render(<CandidatureConseiller />);
     const prenom = screen.getByLabelText('Prénom *');
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
@@ -469,6 +474,7 @@ describe('candidature conseiller', () => {
     });
 
     // THEN
+    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
     const titreErreurValidation = screen.getByRole('heading', { level: 3, name: 'Erreur de validation' });
     expect(titreErreurValidation).toBeInTheDocument();
     const contenuErreurValidation = screen.getByText('Cette adresse mail est déjà utilisée', { selector: 'p' });
@@ -493,7 +499,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
@@ -539,7 +545,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
@@ -662,7 +668,7 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it('quand je remplis le formulaire et qu’une erreur se produit alors un message d’erreur s’affiche', async () => {
+  it('quand je remplis le formulaire et qu’une erreur se produit alors un message d’erreur s’affiche et le captcha est rénitialisé', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
@@ -671,13 +677,17 @@ describe('candidature conseiller', () => {
       creerCandidatureConseiller: vi.fn().mockReturnValue({ message: 'Failed to fetch' }),
       buildConseillerData: vi.fn(),
     }));
+    vi.stubGlobal('hcaptcha', {
+      reset: vi.fn(),
+      render: vi.fn()
+    });
 
     render(<CandidatureConseiller />);
     const prenom = screen.getByLabelText('Prénom *');
     fireEvent.change(prenom, { target: { value: 'Jean' } });
     const nom = screen.getByLabelText('Nom *');
     fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse e-mail * Format attendu : nom@domaine.fr');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
@@ -703,6 +713,7 @@ describe('candidature conseiller', () => {
     });
 
     // THEN
+    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
     const contenuErreurValidation = screen.getByText('Failed to fetch', { selector: 'p' });
     expect(contenuErreurValidation).toBeInTheDocument();
 

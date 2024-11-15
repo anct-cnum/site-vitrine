@@ -111,7 +111,7 @@ describe('candidature coordinateur', () => {
     expect(fonction).toHaveAttribute('type', 'text');
     expect(fonction).toBeRequired();
 
-    const email = within(etapeInformationsDeContact).getByLabelText('Adresse e-mail *');
+    const email = within(etapeInformationsDeContact).getByLabelText('Adresse électronique *');
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
@@ -131,7 +131,7 @@ describe('candidature coordinateur', () => {
     expect(etapeBesoinCoordinateur).toHaveAttribute('id', 'votre-besoin-en-coordinateur');
 
     const identificationCandidat = within(etapeBesoinCoordinateur).getByText(
-      textMatcher('Avez-vous déjà identifié un candidat pour le poste de coordinateur de conseiller numérique ?*'),
+      textMatcher('Avez-vous déjà identifié un candidat pour le poste de coordinateur de conseiller numérique ? *'),
       { selector: 'p' }
     );
     expect(identificationCandidat).toBeInTheDocument();
@@ -163,7 +163,7 @@ describe('candidature coordinateur', () => {
     expect(publics).toHaveAttribute('name', 'coordinateurTypeContrat');
 
     const dateAccueilCoordinateur = within(etapeBesoinCoordinateur).getByText(
-      textMatcher('À partir de quand êtes vous prêt à accueillir votre coordinateur ?*'),
+      textMatcher('À partir de quand êtes vous prêt à accueillir votre coordinateur ? *'),
       { selector: 'p' }
     );
     expect(dateAccueilCoordinateur).toBeInTheDocument();
@@ -226,11 +226,11 @@ describe('candidature coordinateur', () => {
     const engagements = screen.getByTestId('votre-engagement');
 
     const listDetail = within(engagements).getAllByRole('listitem');
-    within(listDetail[0]).getByText('Renforcer le maillage et les synergies territoriales');
-    within(listDetail[1]).getByText('Être le relais principal des employeurs, des Conseillers numériques et de l’équipe d’animation nationale');
-    within(listDetail[2]).getByText('Imaginer et mettre en place des collaborations sur la base des besoins de la communauté des Conseillers numériques');
-    within(listDetail[3]).getByText('Signer dans les 15 jours suivants un contrat avec ce candidat');
-    within(listDetail[4]).getByText('Laisser partir le conseiller numérique en formation initiale ou continue');
+    within(listDetail[0]).getByText('Renforcer le maillage et les synergies territoriales,');
+    within(listDetail[1]).getByText('Être le relais principal des employeurs, des Conseillers numériques et de l’équipe d’animation nationale,');
+    within(listDetail[2]).getByText('Imaginer et mettre en place des collaborations sur la base des besoins de la communauté des Conseillers numériques,');
+    within(listDetail[3]).getByText('Signer dans les 15 jours suivants un contrat avec ce candidat,');
+    within(listDetail[4]).getByText('Laisser partir le conseiller numérique en formation initiale ou continue,');
     within(listDetail[5]).getByText('Mettre à sa disposition les moyens et équipements pour réaliser sa mission (ordinateur, ' +
       'téléphone portable, voiture si nécessaire)');
 
@@ -247,7 +247,8 @@ describe('candidature coordinateur', () => {
     within(formulaire).getByRole('button', { name: 'Envoyer votre candidature' });
   });
 
-  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page', async () => {
+  // eslint-disable-next-line max-len
+  it('quand je remplis le formulaire, que je l’envoie et que le serveur me renvoie une erreur, alors elle s’affiche sur la page et le captcha est rénitialisé', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
@@ -255,6 +256,10 @@ describe('candidature coordinateur', () => {
     vi.stubGlobal('fetch', vi.fn(
       () => ({ status: 400, json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }) }))
     );
+    vi.stubGlobal('hcaptcha', {
+      reset: vi.fn(),
+      render: vi.fn()
+    });
 
     render(<CandidatureCoordinateur />);
     const siret = screen.getByLabelText('SIRET / RIDET *');
@@ -271,7 +276,7 @@ describe('candidature coordinateur', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse e-mail *');
+    const email = screen.getByLabelText('Adresse électronique *');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const telephone = screen.getByLabelText('Téléphone *');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
@@ -295,6 +300,7 @@ describe('candidature coordinateur', () => {
     });
 
     // THEN
+    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
     const titreErreurValidation = screen.getByRole('heading', { level: 3, name: 'Erreur de validation' });
     expect(titreErreurValidation).toBeInTheDocument();
     const contenuErreurValidation = screen.getByText('Cette adresse mail est déjà utilisée', { selector: 'p' });
@@ -329,7 +335,7 @@ describe('candidature coordinateur', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse e-mail *');
+    const email = screen.getByLabelText('Adresse électronique *');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const telephone = screen.getByLabelText('Téléphone *');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
@@ -426,12 +432,15 @@ describe('candidature coordinateur', () => {
         '1'
       ]
     ];
-
     const { buildCoordinateurData } = renderHook(() => useApiAdmin.useApiAdmin()).result.current;
     const { getGeoLocationFromAddress } = renderHook(() => useEntrepriseFinder()).result.current;
+    let geoLocation;
 
-    // //WHEN
-    const geoLocation = await getGeoLocationFromAddress('20 AVENUE DE SEGUR, 75007 PARIS');
+    // WHEN
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      geoLocation = await getGeoLocationFromAddress('20 AVENUE DE SEGUR, 75007 PARIS');
+    });
     const result = await buildCoordinateurData(formData, geoLocation, '75107');
 
     // THEN
@@ -463,7 +472,7 @@ describe('candidature coordinateur', () => {
     vi.useRealTimers();
   });
 
-  it('quand je remplis le formulaire et qu’une erreur se produit alors un message d’erreur s’affiche', async () => {
+  it('quand je remplis le formulaire et qu’une erreur se produit alors un message d’erreur s’affiche et le captcha est rénitialisé', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
@@ -472,6 +481,10 @@ describe('candidature coordinateur', () => {
       creerCandidatureCoordinateur: vi.fn().mockReturnValue({ message: 'Failed to fetch' }),
       buildCoordinateurData: vi.fn(),
     }));
+    vi.stubGlobal('hcaptcha', {
+      reset: vi.fn(),
+      render: vi.fn()
+    });
 
     render(<CandidatureCoordinateur />);
     const siret = screen.getByLabelText('SIRET / RIDET *');
@@ -488,7 +501,7 @@ describe('candidature coordinateur', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse e-mail *');
+    const email = screen.getByLabelText('Adresse électronique *');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const telephone = screen.getByLabelText('Téléphone *');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
@@ -513,6 +526,7 @@ describe('candidature coordinateur', () => {
 
 
     // THEN
+    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
     const contenuErreurValidation = screen.getByText('Failed to fetch', { selector: 'p' });
     expect(contenuErreurValidation).toBeInTheDocument();
 

@@ -34,7 +34,7 @@ jobs:
         with:
           envkey_VITE_APP_BLOG_URL: https://media.conseiller-numerique.gouv.fr
           envkey_VITE_APP_DASHBOARD_URL: https://pilotage.conseiller-numerique.gouv.fr
-          envkey_VITE_APP_COOP_URL: https://coop.conseiller-numerique.gouv.fr/login
+          envkey_VITE_APP_COOP_URL: https://coop-numerique.anct.gouv.fr
           envkey_VITE_APP_CANDIDAT_URL: https://candidat.conseiller-numerique.gouv.fr/login
           envkey_VITE_APP_FORMS_URL: https://app.conseiller-numerique.gouv.fr/candidature
           envkey_VITE_APP_AIDE_URL: https://aide.conseiller-numerique.gouv.fr/fr

@@ -34,7 +34,7 @@ jobs:
         with:
           envkey_VITE_APP_BLOG_URL: https://beta.media.conseiller-numerique.gouv.fr
           envkey_VITE_APP_DASHBOARD_URL: https://beta.pilotage.conseiller-numerique.gouv.fr
-          envkey_VITE_APP_COOP_URL: https://beta.coop.conseiller-numerique.gouv.fr/login
+          envkey_VITE_APP_COOP_URL: https://coop-numerique.anct.gouv.fr
           envkey_VITE_APP_CANDIDAT_URL: https://beta.candidat.conseiller-numerique.gouv.fr/login
           envkey_VITE_APP_FORMS_URL: https://uat-cnum-front.osc-fr1.scalingo.io/candidature
           envkey_VITE_APP_AIDE_URL: https://aide.conseiller-numerique.gouv.fr/fr
