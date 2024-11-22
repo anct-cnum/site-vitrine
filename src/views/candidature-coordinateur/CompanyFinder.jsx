@@ -10,9 +10,10 @@ export default function CompanyFinder() {
     <>
       <Input
         id="siret"
-        isRequired={false}
         onChange={debounce(event => search(event.target.value))}
         placeholder="N° SIRET / RIDET"
+        pattern="^[0-9]{9}|[0-9]{14}$" 
+        maxlength="14" 
       />
       {entreprise}
     </>
