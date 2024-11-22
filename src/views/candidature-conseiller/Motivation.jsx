@@ -10,7 +10,7 @@ export default function Motivation() {
         aider les personnes à devenir autonomes dans l’utilisation des outils numériques.
       </p>
       <ZoneDeTexte id="motivation">
-        Votre message <span className="cc-obligatoire">*</span>
+        Votre message <span className="cc-obligatoire">*</span> <span className="fr-hint-text">Limité à 2500 caractères</span>
       </ZoneDeTexte>
     </fieldset>
   );

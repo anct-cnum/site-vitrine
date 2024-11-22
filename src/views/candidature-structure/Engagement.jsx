@@ -12,7 +12,7 @@ export default function Engagement() {
         <li>Qu’il revête une tenue vestimentaire dédiée fournie par l’Etat,</li>
         <li>Tout mettre en oeuvre pour sélectionner le candidat dans un délai maximum d’un mois sur la plateforme,</li>
         <li>Signer dans les 15 jours suivants un contrat avec ce candidat,</li>
-        <li>Laisser partir le conseiller numérique France Services en formation initiale ou continue,</li>
+        <li>Laisser partir le conseiller numérique en formation initiale ou continue,</li>
         <li>Mettre à sa disposition les moyens et équipements pour réaliser sa mission (ordinateur, téléphone portable, voiture si nécessaire),</li>
       </ul>
       <Checkbox id="confirmationEngagement">
