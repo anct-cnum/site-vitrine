@@ -33,7 +33,7 @@ describe('candidature structure', () => {
     const informationsDeContact = within(menuItems[1]).getByRole('link', { name: 'Vos informations de contact' });
     expect(informationsDeContact).toHaveAttribute('href', '#informations-de-contact');
 
-    const votreBesoinEnConseillerNumerique = within(menuItems[2]).getByRole('link', { name: 'Votre besoin en conseiller numérique' });
+    const votreBesoinEnConseillerNumerique = within(menuItems[2]).getByRole('link', { name: 'Votre besoin en conseiller(s) numérique(s)' });
     expect(votreBesoinEnConseillerNumerique).toHaveAttribute('href', '#votre-besoin-en-conseiller-numerique');
     const votreMotivation = within(menuItems[3]).getByRole('link', { name: 'Votre motivation' });
     expect(votreMotivation).toHaveAttribute('href', '#votre-motivation');
@@ -48,7 +48,7 @@ describe('candidature structure', () => {
     const etapeInformationsDeStructure = within(formulaire).getByRole('group', { name: 'Vos informations de structure' });
     expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
 
-    const siretOuRidet = within(etapeInformationsDeStructure).getByLabelText('SIRET / RIDET *');
+    const siretOuRidet = within(etapeInformationsDeStructure).getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
     expect(siretOuRidet).toHaveAttribute('id', 'siret');
     expect(siretOuRidet).toBeRequired();
 
@@ -115,13 +115,13 @@ describe('candidature structure', () => {
     expect(fonction).toHaveAttribute('type', 'text');
     expect(fonction).toBeRequired();
 
-    const email = within(etapeInformationsDeContact).getByLabelText('Adresse électronique *');
+    const email = within(etapeInformationsDeContact).getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
-    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone *');
+    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone * Format attendu : 0122334455 ou +33122334455');
     expect(telephone).toHaveAttribute('type', 'tel');
-    expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[0-9]{9}');
+    expect(telephone).toHaveAttribute('pattern', '([+][0-9]{11,12})|([0-9]{10})');
     expect(telephone).toBeRequired();
   });
 
@@ -188,7 +188,7 @@ describe('candidature structure', () => {
       );
     expect(sousTitreVotreMotvation).toBeInTheDocument();
 
-    const votreMessage = within(etapeMotivation).getByLabelText('Votre message *');
+    const votreMessage = within(etapeMotivation).getByLabelText('Votre message * Limité à 2500 caractères');
     expect(votreMessage).toHaveAttribute('id', 'motivation');
     expect(votreMessage).toBeRequired();
   });
@@ -211,7 +211,7 @@ describe('candidature structure', () => {
     within(listDetail[2]).getByText('Qu’il revête une tenue vestimentaire dédiée fournie par l’Etat,');
     within(listDetail[3]).getByText('Tout mettre en oeuvre pour sélectionner le candidat dans un délai maximum d’un mois sur la plateforme,');
     within(listDetail[4]).getByText('Signer dans les 15 jours suivants un contrat avec ce candidat,');
-    within(listDetail[5]).getByText('Laisser partir le conseiller numérique France Services en formation initiale ou continue,');
+    within(listDetail[5]).getByText('Laisser partir le conseiller numérique en formation initiale ou continue,');
     within(listDetail[6]).getByText('Mettre à sa disposition les moyens et ' +
       'équipements pour réaliser sa mission (ordinateur, téléphone portable, voiture si nécessaire),');
 
@@ -245,7 +245,7 @@ describe('candidature structure', () => {
     render(<CandidatureStructure />);
 
     // WHEN
-    const siretInput = screen.getByLabelText('SIRET / RIDET *');
+    const siretInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
     fireEvent.change(siretInput, { target: { value: '13002603200016' } });
 
     // THEN
@@ -274,7 +274,7 @@ describe('candidature structure', () => {
     render(<CandidatureStructure />);
 
     // WHEN
-    const ridetInput = screen.getByLabelText('SIRET / RIDET *');
+    const ridetInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
     fireEvent.change(ridetInput, { target: { value: '1071539' } });
 
     // THEN
@@ -289,7 +289,7 @@ describe('candidature structure', () => {
     render(<CandidatureStructure />);
 
     // WHEN
-    const siretInput = screen.getByLabelText('SIRET / RIDET *');
+    const siretInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
     fireEvent.change(siretInput, { target: { value: '1300260320001' } });
 
     // THEN
@@ -314,7 +314,7 @@ describe('candidature structure', () => {
     render(<CandidatureStructure />);
 
     // WHEN
-    const siretInput = screen.getByLabelText('SIRET / RIDET *');
+    const siretInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
     fireEvent.change(siretInput, { target: { value: '13002603200016' } });
 
     // THEN
@@ -355,8 +355,8 @@ describe('candidature structure', () => {
     });
 
     render(<CandidatureStructure />);
-    const siret = screen.getByLabelText('SIRET / RIDET *');
-    fireEvent.change(siret, { target: { value: '1234567890123' } });
+    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    fireEvent.change(siret, { target: { value: '12345678901234' } });
     const denomination = screen.getByLabelText('Dénomination *');
     fireEvent.change(denomination, { target: { value: 'Entreprise' } });
     const adresse = screen.getByLabelText('Adresse *');
@@ -369,9 +369,9 @@ describe('candidature structure', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse électronique *');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const telephone = screen.getByLabelText('Téléphone *');
+    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455 ou +33122334455');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
     const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ? *');
     fireEvent.change(nombre, { target: { value: 1 } });
@@ -379,7 +379,7 @@ describe('candidature structure', () => {
     fireEvent.click(identificationCandidat);
     const date = screen.getByLabelText('Choisir une date');
     fireEvent.change(date, { target: { value: dateDujour() } });
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
     const confirmation = screen.getByRole('checkbox', { name: 'Je confirme avoir lu et pris connaissance des conditions d’engagement. *' });
     fireEvent.click(confirmation);
@@ -414,8 +414,8 @@ describe('candidature structure', () => {
     vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
 
     render(<CandidatureStructure />);
-    const siret = screen.getByLabelText('SIRET / RIDET *');
-    fireEvent.change(siret, { target: { value: '1234567890123' } });
+    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    fireEvent.change(siret, { target: { value: '12345678901234' } });
     const denomination = screen.getByLabelText('Dénomination *');
     fireEvent.change(denomination, { target: { value: 'Entreprise' } });
     const adresse = screen.getByLabelText('Adresse *');
@@ -428,9 +428,9 @@ describe('candidature structure', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse électronique *');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const telephone = screen.getByLabelText('Téléphone *');
+    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455 ou +33122334455');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
     const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ? *');
     fireEvent.change(nombre, { target: { value: 1 } });
@@ -438,7 +438,7 @@ describe('candidature structure', () => {
     fireEvent.click(identificationCandidat);
     const date = screen.getByLabelText('Choisir une date');
     fireEvent.change(date, { target: { value: dateDujour() } });
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
     const confirmation = screen.getByRole('checkbox', { name: 'Je confirme avoir lu et pris connaissance des conditions d’engagement. *' });
     fireEvent.click(confirmation);
@@ -581,8 +581,8 @@ describe('candidature structure', () => {
     });
 
     render(<CandidatureStructure />);
-    const siret = screen.getByLabelText('SIRET / RIDET *');
-    fireEvent.change(siret, { target: { value: '1234567890123' } });
+    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    fireEvent.change(siret, { target: { value: '12345678901234' } });
     const denomination = screen.getByLabelText('Dénomination *');
     fireEvent.change(denomination, { target: { value: 'Entreprise' } });
     const adresse = screen.getByLabelText('Adresse *');
@@ -595,9 +595,9 @@ describe('candidature structure', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse électronique *');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const telephone = screen.getByLabelText('Téléphone *');
+    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455 ou +33122334455');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
     const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ? *');
     fireEvent.change(nombre, { target: { value: 1 } });
@@ -605,7 +605,7 @@ describe('candidature structure', () => {
     fireEvent.click(identificationCandidat);
     const date = screen.getByLabelText('Choisir une date');
     fireEvent.change(date, { target: { value: dateDujour() } });
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
     const confirmation = screen.getByRole('checkbox', { name: 'Je confirme avoir lu et pris connaissance des conditions d’engagement. *' });
     fireEvent.click(confirmation);

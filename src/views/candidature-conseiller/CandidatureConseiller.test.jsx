@@ -60,9 +60,9 @@ describe('candidature conseiller', () => {
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
-    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone Format attendu : +33122334455');
+    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone Format attendu : 0122334455 ou +33122334455');
     expect(telephone).toHaveAttribute('type', 'tel');
-    expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[0-9]{9}');
+    expect(telephone).toHaveAttribute('pattern', '([+][0-9]{11,12})|([0-9]{10})');
 
     const habitation = within(etapeInformationsDeContact).getByLabelText(('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.'));
     expect(habitation).toHaveAttribute('type', 'text');
@@ -225,8 +225,9 @@ describe('candidature conseiller', () => {
     );
     expect(aideMotivation).toBeInTheDocument();
 
-    const descriptionMotivation = within(votreMotivation).getByLabelText('Votre message *');
+    const descriptionMotivation = within(votreMotivation).getByLabelText('Votre message * Limité à 2500 caractères');
     expect(descriptionMotivation).toHaveAttribute('name', 'motivation');
+    expect(descriptionMotivation).toHaveAttribute('maxlength', '2500');
     expect(descriptionMotivation).toBeRequired();
   });
 
@@ -381,7 +382,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
@@ -418,7 +419,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
@@ -462,7 +463,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
@@ -511,7 +512,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
@@ -549,7 +550,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
-    const telephone = screen.getByLabelText('Téléphone Format attendu : +33122334455');
+    const telephone = screen.getByLabelText('Téléphone Format attendu : 0122334455 ou +33122334455');
     fireEvent.change(telephone, { target: { value: '+33159590730' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
@@ -559,7 +560,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
@@ -691,7 +692,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
-    const telephone = screen.getByLabelText('Téléphone Format attendu : +33122334455');
+    const telephone = screen.getByLabelText('Téléphone Format attendu : 0122334455 ou +33122334455');
     fireEvent.change(telephone, { target: { value: '+33159590730' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
@@ -701,7 +702,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
