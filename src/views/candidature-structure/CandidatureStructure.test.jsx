@@ -119,9 +119,9 @@ describe('candidature structure', () => {
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
-    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone * Format attendu : 0122334455');
+    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone * Format attendu : 0122334455 ou +33122334455');
     expect(telephone).toHaveAttribute('type', 'tel');
-    expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[0-9]{9}');
+    expect(telephone).toHaveAttribute('pattern', '([+][0-9]{11,12})|([0-9]{10})');
     expect(telephone).toBeRequired();
   });
 
@@ -371,7 +371,7 @@ describe('candidature structure', () => {
     fireEvent.change(fonction, { target: { value: 'Test' } });
     const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455');
+    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455 ou +33122334455');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
     const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ? *');
     fireEvent.change(nombre, { target: { value: 1 } });
@@ -430,7 +430,7 @@ describe('candidature structure', () => {
     fireEvent.change(fonction, { target: { value: 'Test' } });
     const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455');
+    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455 ou +33122334455');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
     const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ? *');
     fireEvent.change(nombre, { target: { value: 1 } });
@@ -597,7 +597,7 @@ describe('candidature structure', () => {
     fireEvent.change(fonction, { target: { value: 'Test' } });
     const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455');
+    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455 ou +33122334455');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
     const nombre = screen.getByLabelText('Combien de conseillers numériques souhaitez-vous accueillir ? *');
     fireEvent.change(nombre, { target: { value: 1 } });
