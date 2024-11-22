@@ -14,7 +14,7 @@ export default function Input({ children, id, isRequired = true, autoComplete = 
           required={isRequired}
           autoComplete={autoComplete}
           pattern={pattern}
-          maxlength={maxlength}
+          maxLength={maxlength}
           onChange={onChange}
           list={list}
           min={min}

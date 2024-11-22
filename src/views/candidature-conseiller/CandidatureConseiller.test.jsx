@@ -227,7 +227,7 @@ describe('candidature conseiller', () => {
 
     const descriptionMotivation = within(votreMotivation).getByLabelText('Votre message * Limité à 2500 caractères');
     expect(descriptionMotivation).toHaveAttribute('name', 'motivation');
-    expect(descriptionMotivation).toHaveAttribute('maxlength', '2500');
+    expect(descriptionMotivation).toHaveAttribute('maxLength', '2500');
     expect(descriptionMotivation).toBeRequired();
   });
 
@@ -441,8 +441,9 @@ describe('candidature conseiller', () => {
     vi.stubGlobal('fetch', vi.fn(
       () => ({ status: 400, json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }) }))
     );
-    vi.stubGlobal('hcaptcha', {
+    vi.stubGlobal('turnstile', {
       reset: vi.fn(),
+      remove: vi.fn(),
       render: vi.fn()
     });
 
@@ -475,7 +476,7 @@ describe('candidature conseiller', () => {
     });
 
     // THEN
-    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
+    expect(window.turnstile.reset).toHaveBeenCalledTimes(1);
     const titreErreurValidation = screen.getByRole('heading', { level: 3, name: 'Erreur de validation' });
     expect(titreErreurValidation).toBeInTheDocument();
     const contenuErreurValidation = screen.getByText('Cette adresse mail est déjà utilisée', { selector: 'p' });
@@ -629,7 +630,7 @@ describe('candidature conseiller', () => {
         '1'
       ],
       [
-        'h-captcha-response',
+        'cf-turnstile-response',
         '1'
       ]
     ];
@@ -649,7 +650,7 @@ describe('candidature conseiller', () => {
       'dateDisponibilite': '2023-12-12',
       'distanceMax': '5',
       'motivation': 'je suis motivé !',
-      'h-captcha-response': '1',
+      'cf-turnstile-response': '1',
       'estEnEmploi': false,
       'estEnFormation': false,
       'estDiplomeMedNum': false,
@@ -678,8 +679,9 @@ describe('candidature conseiller', () => {
       creerCandidatureConseiller: vi.fn().mockReturnValue({ message: 'Failed to fetch' }),
       buildConseillerData: vi.fn(),
     }));
-    vi.stubGlobal('hcaptcha', {
+    vi.stubGlobal('turnstile', {
       reset: vi.fn(),
+      remove: vi.fn(),
       render: vi.fn()
     });
 
@@ -714,7 +716,7 @@ describe('candidature conseiller', () => {
     });
 
     // THEN
-    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
+    expect(window.turnstile.reset).toHaveBeenCalledTimes(1);
     const contenuErreurValidation = screen.getByText('Failed to fetch', { selector: 'p' });
     expect(contenuErreurValidation).toBeInTheDocument();
 
