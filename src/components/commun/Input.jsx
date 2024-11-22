@@ -49,6 +49,5 @@ Input.propTypes = {
   ariaBusy: PropTypes.bool,
   value: PropTypes.string,
   testId: PropTypes.string,
-  maxlength: PropTypes.string,
-  error: PropTypes.string,
+  maxlength: PropTypes.string
 };

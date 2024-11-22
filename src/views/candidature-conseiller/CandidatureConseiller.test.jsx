@@ -395,43 +395,6 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it('quand je ne saisi pas de nom et que je valide le formulaire alors il y a une erreur de validation', () => {
-    // GIVEN
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date(2023, 11, 12, 13));
-
-    vi.stubGlobal('fetch', vi.fn(
-      () => ({ status: 200, json: async () => Promise.resolve({}) }))
-    );
-
-    render(<CandidatureConseiller />);
-    const prenom = screen.getByLabelText('Prénom *');
-    fireEvent.change(prenom, { target: { value: 'Jean' } });
-    const nom = screen.getByLabelText('Nom *');
-    fireEvent.change(nom, { target: { value: 'Dupont' } });
-    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
-    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
-    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
-    const oui = screen.getByRole('radio', { name: 'Oui' });
-    fireEvent.click(oui);
-    const date = screen.getByLabelText('Choisir une date');
-    fireEvent.change(date, { target: { value: dateDujour() } });
-    const _5km = screen.getByRole('radio', { name: '5 km' });
-    fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
-    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
-
-    // WHEN
-    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
-    fireEvent.click(envoyer);
-
-    // THEN
-    const erreurCheckboxes = screen.getByText('Vous devez cocher au moins une case', { selector: 'p' });
-    expect(erreurCheckboxes).toBeInTheDocument();
-    vi.useRealTimers();
-  });
-
   it('quand je ne coche pas de case de situation et que je valide le formulaire alors il y a une erreur de validation', () => {
     // GIVEN
     vi.useFakeTimers();
