@@ -13,7 +13,7 @@ export default function SommaireStructure() {
     },
     {
       ancre: '#votre-besoin-en-conseiller-numerique',
-      libelle: 'Votre besoin en conseiller numérique'
+      libelle: 'Votre besoin en conseiller(s) numérique(s)'
     },
     {
       ancre: '#votre-motivation',

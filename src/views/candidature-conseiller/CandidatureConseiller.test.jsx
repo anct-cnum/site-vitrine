@@ -60,7 +60,7 @@ describe('candidature conseiller', () => {
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
-    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone Format attendu : +33122334455');
+    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone Format attendu : 0122334455');
     expect(telephone).toHaveAttribute('type', 'tel');
     expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[0-9]{9}');
 
@@ -225,8 +225,9 @@ describe('candidature conseiller', () => {
     );
     expect(aideMotivation).toBeInTheDocument();
 
-    const descriptionMotivation = within(votreMotivation).getByLabelText('Votre message *');
+    const descriptionMotivation = within(votreMotivation).getByLabelText('Votre message * Limité à 2500 caractères');
     expect(descriptionMotivation).toHaveAttribute('name', 'motivation');
+    expect(descriptionMotivation).toHaveAttribute('maxlength', '2500');
     expect(descriptionMotivation).toBeRequired();
   });
 
@@ -381,7 +382,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
@@ -393,6 +394,44 @@ describe('candidature conseiller', () => {
     expect(erreurCheckboxes).not.toBeInTheDocument();
     vi.useRealTimers();
   });
+
+  it('quand je ne saisi pas de nom et que je valide le formulaire alors il y a une erreur de validation', () => {
+    // GIVEN
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2023, 11, 12, 13));
+
+    vi.stubGlobal('fetch', vi.fn(
+      () => ({ status: 200, json: async () => Promise.resolve({}) }))
+    );
+
+    render(<CandidatureConseiller />);
+    const prenom = screen.getByLabelText('Prénom *');
+    // fireEvent.change(prenom, { target: { value: 'Jean' } });
+    const nom = screen.getByLabelText('Nom *');
+    // fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+    fireEvent.click(envoyer);
+
+    // THEN
+    // const nom = screen.getByLabelText('Nom *');
+    expect(prenom.checkValidity()).toBe(false);
+    expect(nom.checkValidity()).toBe(false);
+    vi.useRealTimers();
+  })
 
   it('quand je ne coche pas de case de situation et que je valide le formulaire alors il y a une erreur de validation', () => {
     // GIVEN
@@ -418,7 +457,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
@@ -462,7 +501,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
@@ -511,7 +550,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
@@ -549,7 +588,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
-    const telephone = screen.getByLabelText('Téléphone Format attendu : +33122334455');
+    const telephone = screen.getByLabelText('Téléphone Format attendu : 0122334455');
     fireEvent.change(telephone, { target: { value: '+33159590730' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
@@ -559,7 +598,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN
@@ -691,7 +730,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
     const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
-    const telephone = screen.getByLabelText('Téléphone Format attendu : +33122334455');
+    const telephone = screen.getByLabelText('Téléphone Format attendu : 0122334455');
     fireEvent.change(telephone, { target: { value: '+33159590730' } });
     const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
     fireEvent.click(enEmploi);
@@ -701,7 +740,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
 
     // WHEN

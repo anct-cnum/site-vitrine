@@ -10,7 +10,7 @@ export default function Motivation() {
         Indiquez les actions prévues, la justification du poste, ainsi que le public ciblé.
       </p>
       <ZoneDeTexte id="motivation">
-        Votre message <span className="cc-obligatoire">*</span>
+        Votre message <span className="cc-obligatoire">*</span> <span className="fr-hint-text">Limité à 2500 caractères</span>
       </ZoneDeTexte>
     </fieldset>
   );

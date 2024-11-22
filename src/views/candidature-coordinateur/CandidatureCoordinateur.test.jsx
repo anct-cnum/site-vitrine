@@ -49,6 +49,10 @@ describe('candidature coordinateur', () => {
     const etapeInformationsDeStructure = within(formulaire).getByRole('group', { name: 'Vos informations de structure' });
     expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
 
+    const siretOuRidet = within(etapeInformationsDeStructure).getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    expect(siretOuRidet).toHaveAttribute('id', 'siret');
+    expect(siretOuRidet).toBeRequired();
+
     const denomination = within(etapeInformationsDeStructure).getByLabelText('Dénomination *');
     expect(denomination).toHaveAttribute('type', 'text');
     expect(denomination).toBeRequired();
@@ -111,11 +115,11 @@ describe('candidature coordinateur', () => {
     expect(fonction).toHaveAttribute('type', 'text');
     expect(fonction).toBeRequired();
 
-    const email = within(etapeInformationsDeContact).getByLabelText('Adresse électronique *');
+    const email = within(etapeInformationsDeContact).getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     expect(email).toHaveAttribute('type', 'email');
     expect(email).toBeRequired();
 
-    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone *');
+    const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone * Format attendu : 0122334455');
     expect(telephone).toHaveAttribute('type', 'tel');
     expect(telephone).toHaveAttribute('pattern', '[+](33|590|596|594|262|269|687)[0-9]{9}');
     expect(telephone).toBeRequired();
@@ -190,7 +194,7 @@ describe('candidature coordinateur', () => {
       );
     expect(sousTitreVotreMotvation).toBeInTheDocument();
 
-    const votreMessage = within(etapeMotivation).getByLabelText('Votre message *');
+    const votreMessage = within(etapeMotivation).getByLabelText('Votre message * Limité à 2500 caractères');
     expect(votreMessage).toHaveAttribute('id', 'motivation');
     expect(votreMessage).toBeRequired();
 
@@ -262,8 +266,8 @@ describe('candidature coordinateur', () => {
     });
 
     render(<CandidatureCoordinateur />);
-    const siret = screen.getByLabelText('SIRET / RIDET *');
-    fireEvent.change(siret, { target: { value: '1234567890123' } });
+    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    fireEvent.change(siret, { target: { value: '12345678901234' } });
     const denomination = screen.getByLabelText('Dénomination *');
     fireEvent.change(denomination, { target: { value: 'Entreprise' } });
     const adresse = screen.getByLabelText('Adresse *');
@@ -276,9 +280,9 @@ describe('candidature coordinateur', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse électronique *');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const telephone = screen.getByLabelText('Téléphone *');
+    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
     const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(identificationCandidat);
@@ -286,7 +290,7 @@ describe('candidature coordinateur', () => {
     fireEvent.click(typeMission);
     const date = screen.getByLabelText('Choisir une date');
     fireEvent.change(date, { target: { value: dateDujour() } });
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
     const confirmation = screen.getByRole('checkbox', { name: 'Je confirme avoir lu et pris connaissance des conditions d’engagement. *' });
     fireEvent.click(confirmation);
@@ -321,8 +325,8 @@ describe('candidature coordinateur', () => {
     vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
 
     render(<CandidatureCoordinateur />);
-    const siret = screen.getByLabelText('SIRET / RIDET *');
-    fireEvent.change(siret, { target: { value: '1234567890123' } });
+    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    fireEvent.change(siret, { target: { value: '12345678901234' } });
     const denomination = screen.getByLabelText('Dénomination *');
     fireEvent.change(denomination, { target: { value: 'Entreprise' } });
     const adresse = screen.getByLabelText('Adresse *');
@@ -335,9 +339,9 @@ describe('candidature coordinateur', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse électronique *');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const telephone = screen.getByLabelText('Téléphone *');
+    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
     const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(identificationCandidat);
@@ -345,7 +349,7 @@ describe('candidature coordinateur', () => {
     fireEvent.click(typeMission);
     const date = screen.getByLabelText('Choisir une date');
     fireEvent.change(date, { target: { value: dateDujour() } });
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
     const confirmation = screen.getByRole('checkbox', { name: 'Je confirme avoir lu et pris connaissance des conditions d’engagement. *' });
     fireEvent.click(confirmation);
@@ -487,8 +491,8 @@ describe('candidature coordinateur', () => {
     });
 
     render(<CandidatureCoordinateur />);
-    const siret = screen.getByLabelText('SIRET / RIDET *');
-    fireEvent.change(siret, { target: { value: '1234567890123' } });
+    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    fireEvent.change(siret, { target: { value: '12345678901234' } });
     const denomination = screen.getByLabelText('Dénomination *');
     fireEvent.change(denomination, { target: { value: 'Entreprise' } });
     const adresse = screen.getByLabelText('Adresse *');
@@ -501,9 +505,9 @@ describe('candidature coordinateur', () => {
     fireEvent.change(nom, { target: { value: 'Dupont' } });
     const fonction = screen.getByLabelText('Fonction *');
     fireEvent.change(fonction, { target: { value: 'Test' } });
-    const email = screen.getByLabelText('Adresse électronique *');
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
-    const telephone = screen.getByLabelText('Téléphone *');
+    const telephone = screen.getByLabelText('Téléphone * Format attendu : 0122334455');
     fireEvent.change(telephone, { target: { value: '+33123456789' } });
     const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(identificationCandidat);
@@ -511,7 +515,7 @@ describe('candidature coordinateur', () => {
     fireEvent.click(typeMission);
     const date = screen.getByLabelText('Choisir une date');
     fireEvent.change(date, { target: { value: dateDujour() } });
-    const descriptionMotivation = screen.getByLabelText('Votre message *');
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
     const confirmation = screen.getByRole('checkbox', { name: 'Je confirme avoir lu et pris connaissance des conditions d’engagement. *' });
     fireEvent.click(confirmation);
