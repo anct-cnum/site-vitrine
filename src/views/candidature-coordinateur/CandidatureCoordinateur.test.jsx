@@ -260,8 +260,9 @@ describe('candidature coordinateur', () => {
     vi.stubGlobal('fetch', vi.fn(
       () => ({ status: 400, json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }) }))
     );
-    vi.stubGlobal('hcaptcha', {
+    vi.stubGlobal('turnstile', {
       reset: vi.fn(),
+      remove: vi.fn(),
       render: vi.fn()
     });
 
@@ -304,7 +305,7 @@ describe('candidature coordinateur', () => {
     });
 
     // THEN
-    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
+    expect(window.turnstile.reset).toHaveBeenCalledTimes(1);
     const titreErreurValidation = screen.getByRole('heading', { level: 3, name: 'Erreur de validation' });
     expect(titreErreurValidation).toBeInTheDocument();
     const contenuErreurValidation = screen.getByText('Cette adresse mail est déjà utilisée', { selector: 'p' });
@@ -432,7 +433,7 @@ describe('candidature coordinateur', () => {
         '1'
       ],
       [
-        'h-captcha-response',
+        'cf-turnstile-response',
         '1'
       ]
     ];
@@ -456,7 +457,7 @@ describe('candidature coordinateur', () => {
       'dateDebutMission': '2023-12-12',
       'motivation': 'je suis motivé !',
       'confirmationEngagement': true,
-      'h-captcha-response': '1',
+      'cf-turnstile-response': '1',
       'contact': {
         'prenom': 'Jean', 'nom': 'Dupont',
         'fonction': 'Test', 'email':
@@ -485,8 +486,9 @@ describe('candidature coordinateur', () => {
       creerCandidatureCoordinateur: vi.fn().mockReturnValue({ message: 'Failed to fetch' }),
       buildCoordinateurData: vi.fn(),
     }));
-    vi.stubGlobal('hcaptcha', {
+    vi.stubGlobal('turnstile', {
       reset: vi.fn(),
+      remove: vi.fn(),
       render: vi.fn()
     });
 
@@ -530,7 +532,7 @@ describe('candidature coordinateur', () => {
 
 
     // THEN
-    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
+    expect(window.turnstile.reset).toHaveBeenCalledTimes(1);
     const contenuErreurValidation = screen.getByText('Failed to fetch', { selector: 'p' });
     expect(contenuErreurValidation).toBeInTheDocument();
 

@@ -25,6 +25,7 @@ export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
   const [validationError, setValidationError] = useState('');
+  const [widgetId, setWidgetId] = useState(null);
   const { buildConseillerData, creerCandidatureConseiller } = useApiAdmin();
 
   const navigate = useNavigate();
@@ -57,11 +58,11 @@ export default function CandidatureConseiller() {
       if (resultatCreation?.status >= 400) {
         const error = await resultatCreation.json();
         setValidationError(error.message);
-        window.hcaptcha.reset();
+        window.turnstile.reset(widgetId);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (!resultatCreation.status) {
         setValidationError(resultatCreation.message);
-        window.hcaptcha.reset();
+        window.turnstile.reset(widgetId);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         navigate('/candidature-validee-conseiller');
@@ -95,7 +96,7 @@ export default function CandidatureConseiller() {
             <Motivation />
             <EnResume dateDisponibilite={dateDisponibilite} />
             <div className="fr-mt-2w fr-mb-2w">
-              <Captcha />
+              <Captcha setWidgetId={setWidgetId} widgetId={widgetId}/>
             </div>
             <button className="fr-btn cc-envoyer" type="submit">
               Envoyer votre candidature

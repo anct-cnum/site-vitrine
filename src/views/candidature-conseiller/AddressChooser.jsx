@@ -25,7 +25,7 @@ export default function AddressChooser() {
       </Input>
       <Input type="hidden" id="lieuHabitationCodeCommune" value={codeCommune} testId="lieuHabitationCodeCommune-hidden"/>
       <datalist id="resultatsRecherche">
-        {villes.map(({ codesPostaux, nom }, key) => (
+        {villes?.map(({ codesPostaux, nom }, key) => (
           <option value={`${codesPostaux[0]} ${nom}`} key={key}>
             {codesPostaux[0]} {nom}
           </option>

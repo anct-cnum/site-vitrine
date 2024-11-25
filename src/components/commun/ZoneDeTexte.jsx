@@ -7,7 +7,7 @@ export default function ZoneDeTexte({ children, id, isRequired = true, maxlength
       <label className="fr-label" htmlFor={id}>
         {children}
       </label>
-      <textarea className="fr-input" id={id} name={id} required={isRequired} maxlength={maxlength}></textarea>
+      <textarea className="fr-input" id={id} name={id} required={isRequired} maxLength={maxlength}></textarea>
     </div>
   );
 }
