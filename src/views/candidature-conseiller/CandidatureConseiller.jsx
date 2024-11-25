@@ -10,6 +10,7 @@ import Captcha from '../../components/commun/Captcha';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
 import { useNavigate } from 'react-router-dom';
 import { useApiAdmin } from './useApiAdmin';
+import { checkValidity } from '../../shared/checkValidity';
 
 import '@gouvfr/dsfr/dist/component/form/form.min.css';
 import '@gouvfr/dsfr/dist/component/input/input.min.css';
@@ -44,14 +45,6 @@ export default function CandidatureConseiller() {
     const diplome = formData.get('estDiplomeMedNum') === 'on';
 
     return demandeurEmploi || enEmploi || enFormation || diplome;
-  };
-
-  const checkValidity = () => {
-    const formData = new FormData(ref.current);
-    const keys = Array.from(formData.keys());
-    const formElements = keys.map(key => document.getElementById(key)).filter(key => key !== null);
-    const errors = formElements.map(formElement => ({ [formElement.id]: formElement.validationMessage }));
-    setErrors(Object.assign({}, ...errors));
   };
 
   const validerLaCandidature = async event => {
@@ -99,7 +92,7 @@ export default function CandidatureConseiller() {
           <form
             aria-label="Candidature conseiller"
             onSubmit={validerLaCandidature}
-            onInput={checkValidity}
+            onInput={() => checkValidity(ref, setErrors)}
             ref={ref}
           >
             <InformationsDeContact errors={errors} />
@@ -110,7 +103,7 @@ export default function CandidatureConseiller() {
             <div className="fr-mt-2w fr-mb-2w">
               <Captcha setWidgetId={setWidgetId} widgetId={widgetId} />
             </div>
-            <button className="fr-btn cc-envoyer" type="submit" onClick={checkValidity}>
+            <button className="fr-btn cc-envoyer" type="submit" onClick={() => checkValidity(ref, setErrors)}>
               Envoyer votre candidature
             </button>
           </form>
