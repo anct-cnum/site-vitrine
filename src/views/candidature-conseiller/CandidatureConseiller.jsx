@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SommaireConseiller from './SommaireConseiller';
 import InformationsDeContact from './InformationsDeContact';
 import SituationEtExperience from './SituationEtExperience';
@@ -25,8 +25,10 @@ export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
   const [validationError, setValidationError] = useState('');
+  const [errors, setErrors] = useState({});
   const [widgetId, setWidgetId] = useState(null);
   const { buildConseillerData, creerCandidatureConseiller } = useApiAdmin();
+  const ref = useRef(null);
 
   const navigate = useNavigate();
   useScrollToSection();
@@ -42,6 +44,14 @@ export default function CandidatureConseiller() {
     const diplome = formData.get('estDiplomeMedNum') === 'on';
 
     return demandeurEmploi || enEmploi || enFormation || diplome;
+  };
+
+  const checkValidity = () => {
+    const formData = new FormData(ref.current);
+    const keys = Array.from(formData.keys());
+    const formElements = keys.map(key => document.getElementById(key)).filter(key => key !== null);
+    const errors = formElements.map(formElement => ({ [formElement.id]: formElement.validationMessage }));
+    setErrors(Object.assign({}, ...errors));
   };
 
   const validerLaCandidature = async event => {
@@ -89,16 +99,18 @@ export default function CandidatureConseiller() {
           <form
             aria-label="Candidature conseiller"
             onSubmit={validerLaCandidature}
+            onInput={checkValidity}
+            ref={ref}
           >
-            <InformationsDeContact />
+            <InformationsDeContact errors={errors} />
             <SituationEtExperience isSituationValid={isSituationValid} />
             <Disponibilite setDateDisponibilite={setDateDisponibilite} />
-            <Motivation />
+            <Motivation errors={errors} />
             <EnResume dateDisponibilite={dateDisponibilite} />
             <div className="fr-mt-2w fr-mb-2w">
-              <Captcha setWidgetId={setWidgetId} widgetId={widgetId}/>
+              <Captcha setWidgetId={setWidgetId} widgetId={widgetId} />
             </div>
-            <button className="fr-btn cc-envoyer" type="submit">
+            <button className="fr-btn cc-envoyer" type="submit" onClick={checkValidity}>
               Envoyer votre candidature
             </button>
           </form>
