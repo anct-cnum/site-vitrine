@@ -117,6 +117,7 @@ describe('candidature coordinateur', () => {
 
     const email = within(etapeInformationsDeContact).getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     expect(email).toHaveAttribute('type', 'email');
+    expect(email).toHaveAttribute('pattern', '.+@.+\\..{2,}');
     expect(email).toBeRequired();
 
     const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone * Format attendu : 0122334455 ou +33122334455');
