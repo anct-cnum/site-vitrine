@@ -4,6 +4,7 @@ import CandidatureConseiller from './CandidatureConseiller';
 import { textMatcher, dateDujour } from '../../../test/test-utils';
 import * as ReactRouterDom from 'react-router-dom';
 import * as useApiAdmin from './useApiAdmin';
+import * as useGeoApi from './useGeoApi';
 
 vi.mock('react-router-dom', () => ({
   useLocation: () => ({ hash: '' }),
@@ -720,6 +721,35 @@ describe('candidature conseiller', () => {
     expect(window.turnstile.reset).toHaveBeenCalledTimes(1);
     const contenuErreurValidation = screen.getByText('Failed to fetch', { selector: 'p' });
     expect(contenuErreurValidation).toBeInTheDocument();
+
+    vi.useRealTimers();
+  });
+
+  it('quand je remplis le formulaire et que je saisi mon lieu d’habitation alors la recherche est lancer à partir de 3 caractères', async () => {
+    // GIVEN
+    vi.useFakeTimers();
+    const searchByNameMock = vi.fn();
+    vi.spyOn(useGeoApi, "useGeoApi").mockImplementation(() => ({ 
+      searchByName: searchByNameMock,
+    }));
+
+    // WHEN
+    render(<CandidatureConseiller />);
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
+
+    // THEN
+    fireEvent.change(adresse, { target: { value: '9' } });
+    vi.advanceTimersByTime(300);
+    expect(searchByNameMock).toBeCalledTimes(0);
+    fireEvent.change(adresse, { target: { value: '93' } });
+    vi.advanceTimersByTime(300);
+    expect(searchByNameMock).toBeCalledTimes(0);
+    fireEvent.change(adresse, { target: { value: '931' } });
+    vi.advanceTimersByTime(300);
+    expect(searchByNameMock).toBeCalledTimes(1);
+    fireEvent.change(adresse, { target: { value: '93100' } });
+    vi.advanceTimersByTime(300);
+    expect(searchByNameMock).toBeCalledTimes(2);
 
     vi.useRealTimers();
   });

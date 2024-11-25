@@ -14,8 +14,10 @@ export default function AddressChooser() {
         id="lieuHabitation"
         list="resultatsRecherche"
         onChange={debounce(async event => {
-          searchByName(event.target.value);
-          const codeCommune = await villes.find(({ codesPostaux, nom }) =>
+          if (event.target.value.length >= 3) {
+            searchByName(event.target.value);
+          }
+          const codeCommune = await villes?.find(({ codesPostaux, nom }) =>
             (`${codesPostaux[0]} ${nom}`).toUpperCase() === (event.target.value).toUpperCase())?.code;
           setCodeCommune(codeCommune);
         })}
