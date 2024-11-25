@@ -725,7 +725,7 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it('quand je remplis le formulaire et que je saisi mon lieu d’habitation alors la recherche est lancer à partir de 3 caractères', async () => {
+  it('quand je remplis le formulaire et que je saisis mon lieu d’habitation alors la recherche est lancée à partir de 3 caractères', async () => {
     // GIVEN
     vi.useFakeTimers();
     const searchByNameSpy = vi.fn();
@@ -752,13 +752,8 @@ describe('candidature conseiller', () => {
     expect(searchByNameSpy).toHaveBeenCalledTimes(2);
 
     vi.useRealTimers();
-  it.only.each([
-    { description: 'prenom', message: 'Veuillez renseigner le prénom' },
-    // { description: '', message: 'Veuillez renseigner le ' },
-    // { description: '', message: 'Veuillez renseigner le ' },
-    // { description: '', message: 'Veuillez renseigner le ' },
-    // { description: '', message: 'Veuillez renseigner le ' },
-  ])('quand je valide le formulaire avec le $description vide alors j’ai un message d’errreur ', async ({ message }) => {
+  });
+
   it.each([
     {
       description: 'un prénom',
@@ -779,6 +774,11 @@ describe('candidature conseiller', () => {
       description: 'une adresse',
       selector: 'Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.',
       message: 'Veuillez renseigner l’adresse'
+    },
+    {
+      description: 'une date',
+      selector: 'Choisir une date',
+      message: 'Veuillez renseigner la date'
     },
     {
       description: 'une motivation',
@@ -809,14 +809,3 @@ describe('candidature conseiller', () => {
     expect(contenuErreurValidation).toBeInTheDocument();
   });
 });
-
-// {
-//   "prenom": "Veuillez renseigner ce champ.",
-//   "nom": "Veuillez renseigner ce champ.",
-//   "email": "Veuillez renseigner ce champ.",
-//   "telephone": "",
-//   "lieuHabitation": "Veuillez renseigner ce champ.",
-//   "lieuHabitationCodeCommune": "",
-//   "dateDisponibilite": "Veuillez renseigner ce champ.",
-//   "motivation": "Veuillez renseigner ce champ."
-// }

@@ -40,5 +40,5 @@ export default function AddressChooser({ error }) {
 }
 
 AddressChooser.propTypes = {
-  error: PropTypes.bool
+  error: PropTypes.string
 };

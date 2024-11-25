@@ -97,7 +97,7 @@ export default function CandidatureConseiller() {
           >
             <InformationsDeContact errors={errors} />
             <SituationEtExperience isSituationValid={isSituationValid} />
-            <Disponibilite setDateDisponibilite={setDateDisponibilite} />
+            <Disponibilite setDateDisponibilite={setDateDisponibilite} errors={errors} />
             <Motivation errors={errors} />
             <EnResume dateDisponibilite={dateDisponibilite} />
             <div className="fr-mt-2w fr-mb-2w">
