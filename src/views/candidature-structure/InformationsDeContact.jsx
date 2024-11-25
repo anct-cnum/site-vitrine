@@ -28,6 +28,7 @@ export default function InformationsDeContact() {
         id="email"
         name="email"
         type="email"
+        pattern=".+@.+\..{2,}"
       >
         Adresse électronique <span className="cc-obligatoire">*</span> <span className="fr-hint-text">Format attendu : nom@domaine.fr</span>
       </Input>
