@@ -24,6 +24,7 @@ import '../candidature-conseiller/CandidatureConseiller.css';
 export default function CandidatureCoordinateur() {
   const [geoLocation, setGeoLocation] = useState(null);
   const [validationError, setValidationError] = useState('');
+  const [widgetId, setWidgetId] = useState(null);
   const [codeCommune, setCodeCommune] = useState('');
   const navigate = useNavigate();
   const { buildCoordinateurData, creerCandidatureCoordinateur } = useApiAdmin();
@@ -42,11 +43,11 @@ export default function CandidatureCoordinateur() {
     if (resultatCreation?.status >= 400) {
       const error = await resultatCreation.json();
       setValidationError(error.message);
-      window.hcaptcha.reset();
+      window.turnstile.reset(widgetId);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (!resultatCreation.status) {
       setValidationError(resultatCreation.message);
-      window.hcaptcha.reset();
+      window.turnstile.reset(widgetId);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       navigate('/candidature-validee-structure');
@@ -76,7 +77,7 @@ export default function CandidatureCoordinateur() {
             <Motivation />
             <Engagement />
             <div className="fr-mt-2w fr-mb-2w">
-              <Captcha />
+              <Captcha setWidgetId={setWidgetId} widgetId={widgetId} />
             </div>
             <button className="fr-btn cc-envoyer" type="submit">
               Envoyer votre candidature

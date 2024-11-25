@@ -349,8 +349,9 @@ describe('candidature structure', () => {
     vi.stubGlobal('fetch', vi.fn(
       () => ({ status: 400, json: async () => Promise.resolve({ message: 'Cette adresse mail est déjà utilisée' }) }))
     );
-    vi.stubGlobal('hcaptcha', {
+    vi.stubGlobal('turnstile', {
       reset: vi.fn(),
+      remove: vi.fn(),
       render: vi.fn()
     });
 
@@ -393,7 +394,7 @@ describe('candidature structure', () => {
     });
 
     // THEN
-    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
+    expect(window.turnstile.reset).toHaveBeenCalledTimes(1);
     const titreErreurValidation = screen.getByRole('heading', { level: 3, name: 'Erreur de validation' });
     expect(titreErreurValidation).toBeInTheDocument();
     const contenuErreurValidation = screen.getByText('Cette adresse mail est déjà utilisée', { selector: 'p' });
@@ -521,7 +522,7 @@ describe('candidature structure', () => {
         '1'
       ],
       [
-        'h-captcha-response',
+        'cf-turnstile-response',
         '1'
       ]
     ];
@@ -545,7 +546,7 @@ describe('candidature structure', () => {
       'dateDebutMission': '2024-12-12',
       'motivation': 'je suis motivé !',
       'confirmationEngagement': true,
-      'h-captcha-response': '1',
+      'cf-turnstile-response': '1',
       'location': { 'type': 'Point', 'coordinates': [2.3115, 48.8548] },
       'contact': {
         'prenom': 'Jean',
@@ -575,8 +576,9 @@ describe('candidature structure', () => {
       creerCandidatureStructure: vi.fn().mockReturnValue({ message: 'Failed to fetch' }),
       buildStructureData: vi.fn(),
     }));
-    vi.stubGlobal('hcaptcha', {
+    vi.stubGlobal('turnstile', {
       reset: vi.fn(),
+      remove: vi.fn(),
       render: vi.fn()
     });
 
@@ -620,7 +622,7 @@ describe('candidature structure', () => {
 
 
     // THEN
-    expect(window.hcaptcha.reset).toHaveBeenCalledTimes(1);
+    expect(window.turnstile.reset).toHaveBeenCalledTimes(1);
     const contenuErreurValidation = screen.getByText('Failed to fetch', { selector: 'p' });
     expect(contenuErreurValidation).toBeInTheDocument();
 
