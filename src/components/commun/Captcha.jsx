@@ -1,15 +1,18 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
-const SITE_KEY = '84e24b30-44ca-488c-9260-ec80c290c166';
+const SITE_KEY = '0x4AAAAAAA0pjEgohPDZsyqu';
 
-export default function Captcha() {
+export default function Captcha({ setWidgetId }) {
   const captchaRef = useRef(null);
 
   useEffect(() => {
-    if (window.hcaptcha) {
-      window.hcaptcha.render(captchaRef.current, {
+    if (window.turnstile) {
+      window.turnstile.remove();
+      const widgetId = window.turnstile.render(captchaRef.current, {
         sitekey: SITE_KEY,
       });
+      setWidgetId(widgetId);
     }
   }, []);
 
@@ -17,3 +20,7 @@ export default function Captcha() {
     <div ref={captchaRef}></div>
   );
 }
+
+Captcha.propTypes = {
+  setWidgetId: PropTypes.func,
+};
