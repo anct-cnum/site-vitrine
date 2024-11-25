@@ -752,5 +752,66 @@ describe('candidature conseiller', () => {
     expect(searchByNameSpy).toHaveBeenCalledTimes(2);
 
     vi.useRealTimers();
+  it.only.each([
+    { description: 'prenom', message: 'Veuillez renseigner le prénom' },
+    // { description: '', message: 'Veuillez renseigner le ' },
+    // { description: '', message: 'Veuillez renseigner le ' },
+    // { description: '', message: 'Veuillez renseigner le ' },
+    // { description: '', message: 'Veuillez renseigner le ' },
+  ])('quand je valide le formulaire avec le $description vide alors j’ai un message d’errreur ', async ({ message }) => {
+    // GIVEN
+
+    vi.stubGlobal('turnstile', {
+      reset: vi.fn(),
+      remove: vi.fn(),
+      render: vi.fn()
+    });
+
+    render(<CandidatureConseiller />);
+    const prenom = screen.getByLabelText('Prénom *');
+    // fireEvent.change(prenom, { target: { value: 'Jean' } });
+    Object.defineProperty(prenom, 'validationMessage', {
+      value: message,
+      configurable: true,
+    });
+    const nom = screen.getByLabelText('Nom *');
+    fireEvent.change(nom, { target: { value: 'Dupont' } });
+    const email = screen.getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
+    fireEvent.change(email, { target: { value: 'jean.dupont@example.com' } });
+    const adresse = screen.getByLabelText('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.');
+    fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
+    const telephone = screen.getByLabelText('Téléphone Format attendu : 0122334455 ou +33122334455');
+    fireEvent.change(telephone, { target: { value: '+33159590730' } });
+    const enEmploi = screen.getByRole('checkbox', { name: 'En emploi' });
+    fireEvent.click(enEmploi);
+    const oui = screen.getByRole('radio', { name: 'Oui' });
+    fireEvent.click(oui);
+    const date = screen.getByLabelText('Choisir une date');
+    fireEvent.change(date, { target: { value: dateDujour() } });
+    const _5km = screen.getByRole('radio', { name: '5 km' });
+    fireEvent.click(_5km);
+    const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
+    fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+      fireEvent.click(envoyer);
+
+    // THEN
+    const contenuErreurValidation = await screen.findByText(message, { selector: 'p' });
+    expect(contenuErreurValidation).toBeInTheDocument();
   });
 });
+
+// {
+//   "prenom": "Veuillez renseigner ce champ.",
+//   "nom": "Veuillez renseigner ce champ.",
+//   "email": "Veuillez renseigner ce champ.",
+//   "telephone": "",
+//   "lieuHabitation": "Veuillez renseigner ce champ.",
+//   "lieuHabitationCodeCommune": "",
+//   "dateDisponibilite": "Veuillez renseigner ce champ.",
+//   "motivation": "Veuillez renseigner ce champ."
+// }
