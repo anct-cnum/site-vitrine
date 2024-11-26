@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import SommaireStructure from './SommaireStructure';
 import InformationsDeContact from './InformationsDeContact';
 import InformationsDeStructure from './InformationsDeStructure';
@@ -20,14 +20,17 @@ import '@gouvfr/dsfr/dist/component/notice/notice.min.css';
 import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
 import '@gouvfr/dsfr/dist/component/alert/alert.min.css';
 import '../candidature-conseiller/CandidatureConseiller.css';
+import { checkValidity } from '../../shared/checkValidity';
 
 export default function CandidatureStructure() {
   const [geoLocation, setGeoLocation] = useState(null);
   const [codeCommune, setCodeCommune] = useState('');
   const [widgetId, setWidgetId] = useState(null);
   const [validationError, setValidationError] = useState('');
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const { buildStructureData, creerCandidatureStructure } = useApiAdmin();
+  const ref = useRef(null);
 
   useEffect(() => {
     document.title = 'Conseiller numérique - Engager un conseiller numérique';
@@ -71,16 +74,25 @@ export default function CandidatureStructure() {
               </Alert>
             </div>
           }
-          <form aria-label="Candidature structure" onSubmit={validerLaCandidature}>
-            <InformationsDeStructure setGeoLocation={setGeoLocation} geoLocation={geoLocation} setCodeCommune={setCodeCommune}/>
-            <InformationsDeContact />
-            <BesoinEnConseillerNumerique />
-            <Motivation />
+          <form
+            aria-label="Candidature structure"
+            onSubmit={validerLaCandidature}
+            onInput={() => checkValidity(ref, setErrors)}
+            ref={ref}
+          >
+            <InformationsDeStructure
+              setGeoLocation={setGeoLocation}
+              geoLocation={geoLocation}
+              setCodeCommune={setCodeCommune}
+              errors={errors} />
+            <InformationsDeContact errors={errors} />
+            <BesoinEnConseillerNumerique errors={errors} />
+            <Motivation errors={errors} />
             <Engagement />
             <div className="fr-mt-2w fr-mb-2w">
-              <Captcha setWidgetId={setWidgetId} widgetId={widgetId}/>
+              <Captcha setWidgetId={setWidgetId} widgetId={widgetId} />
             </div>
-            <button className="fr-btn cc-envoyer" type="submit">
+            <button className="fr-btn cc-envoyer" type="submit" onClick={() => checkValidity(ref, setErrors)}>
               Envoyer votre candidature
             </button>
           </form>
