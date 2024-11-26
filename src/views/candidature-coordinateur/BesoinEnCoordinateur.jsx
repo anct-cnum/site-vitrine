@@ -1,8 +1,9 @@
 import React from 'react';
 import BoutonRadio from '../../components/commun/BoutonRadio';
 import Datepicker from '../../components/commun/Datepicker';
+import PropTypes from 'prop-types';
 
-export default function BesoinEnCoordinateur() {
+export default function BesoinEnCoordinateur({ errors }) {
   const dateDuJour = new Date().toISOString().slice(0, 10);
 
   return (
@@ -28,9 +29,13 @@ export default function BesoinEnCoordinateur() {
       </BoutonRadio>
       <hr />
       <p className="fr-mb-3w cc-bold">À partir de quand êtes vous prêt à accueillir votre coordinateur ? <span className="cc-obligatoire">*</span></p>
-      <Datepicker id="dateDebutMission" min={dateDuJour}>
+      <Datepicker id="dateDebutMission" min={dateDuJour} error={errors.dateDebutMission}>
         Choisir une date
       </Datepicker>
     </fieldset >
   );
 }
+
+BesoinEnCoordinateur.propTypes = {
+  errors: PropTypes.object
+};
