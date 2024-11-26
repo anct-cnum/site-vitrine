@@ -51,6 +51,7 @@ describe('candidature coordinateur', () => {
 
     const siretOuRidet = within(etapeInformationsDeStructure).getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
     expect(siretOuRidet).toHaveAttribute('id', 'siret');
+    expect(siretOuRidet).toHaveAttribute('pattern', '^(?:[0-9]{6,10}|[0-9]{14})$');
     expect(siretOuRidet).toBeRequired();
 
     const denomination = within(etapeInformationsDeStructure).getByLabelText('Dénomination *');

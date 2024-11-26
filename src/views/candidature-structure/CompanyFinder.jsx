@@ -12,7 +12,7 @@ export default function CompanyFinder({ onSearch, errors }) {
     <Input
       id="siret"
       onChange={event => handleSearch(event.target.value)}
-      pattern="^(?:[0-9]{9}|[0-9]{14})$"
+      pattern="^(?:[0-9]{6,10}|[0-9]{14})$"
       maxlength="14"
       error={errors.siret}
     >

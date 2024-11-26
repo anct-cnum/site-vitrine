@@ -49,6 +49,7 @@ describe('candidature structure', () => {
     expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
 
     const siretOuRidet = within(etapeInformationsDeStructure).getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    expect(siretOuRidet).toHaveAttribute('pattern', '^(?:[0-9]{6,10}|[0-9]{14})$');
     expect(siretOuRidet).toHaveAttribute('id', 'siret');
     expect(siretOuRidet).toBeRequired();
 
@@ -209,11 +210,10 @@ describe('candidature structure', () => {
       'montée en compétences du public (ateliers numériques, initiations au numérique), gratuites,');
     within(listDetail[1]).getByText('Qu’il consacre une partie de son temps aux rencontres locales et ' +
       'nationales organisées pour la communauté et la formation continue, etc,');
-    within(listDetail[2]).getByText('Qu’il revête une tenue vestimentaire dédiée fournie par l’Etat,');
-    within(listDetail[3]).getByText('Tout mettre en oeuvre pour sélectionner le candidat dans un délai maximum d’un mois sur la plateforme,');
-    within(listDetail[4]).getByText('Signer dans les 15 jours suivants un contrat avec ce candidat,');
-    within(listDetail[5]).getByText('Laisser partir le conseiller numérique en formation initiale ou continue,');
-    within(listDetail[6]).getByText('Mettre à sa disposition les moyens et ' +
+    within(listDetail[2]).getByText('Tout mettre en oeuvre pour sélectionner le candidat dans un délai maximum d’un mois sur la plateforme,');
+    within(listDetail[3]).getByText('Signer dans les 15 jours suivants un contrat avec ce candidat,');
+    within(listDetail[4]).getByText('Laisser partir le conseiller numérique en formation initiale ou continue,');
+    within(listDetail[5]).getByText('Mettre à sa disposition les moyens et ' +
       'équipements pour réaliser sa mission (ordinateur, téléphone portable, voiture si nécessaire),');
 
     const confirmationEngagement = screen.getByLabelText('Je confirme avoir lu et pris connaissance des conditions d’engagement.*');
