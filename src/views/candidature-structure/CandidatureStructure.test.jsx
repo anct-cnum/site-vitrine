@@ -459,7 +459,7 @@ describe('candidature structure', () => {
     vi.useRealTimers();
   });
 
-  it('quand je valide le formulaire alors j’envoie toute les données nescessaires', async () => {
+  it('quand je valide le formulaire alors j’envoie toute les données nescessaires en renseignant un siret', async () => {
     // GIVEN
     const formData = [
       [
@@ -557,6 +557,7 @@ describe('candidature structure', () => {
         'telephone': '+33123456789'
       },
       'nom': 'AGENCE NATIONALE DE LA COHESION DES TERRITOIRES',
+      'ridet': null,
       'nomCommune': 'Paris 7e Arrondissement',
       'codePostal': '75007',
       'codeCommune': '75107',
@@ -567,7 +568,115 @@ describe('candidature structure', () => {
 
     vi.useRealTimers();
   });
+  it('quand je valide le formulaire alors j’envoie toute les données nescessaires en renseignant un ridet', async () => {
+    // GIVEN
+    const formData = [
+      [
+        'siret',
+        '1234567'
+      ],
+      [
+        'denomination',
+        'AGENCE NATIONALE DE LA COHESION DES TERRITOIRES'
+      ],
+      [
+        'adresse',
+        '20 AVENUE DE SEGUR, 75007 PARIS'
+      ],
+      [
+        'type',
+        'COMMUNE'
+      ],
+      [
+        'prenom',
+        'Jean'
+      ],
+      [
+        'nom',
+        'Dupont'
+      ],
+      [
+        'fonction',
+        'Test'
+      ],
+      [
+        'email',
+        'jean.dupont@example.com'
+      ],
+      [
+        'telephone',
+        '+33123456789'
+      ],
+      [
+        'nombreConseillersSouhaites',
+        '1'
+      ],
+      [
+        'aIdentifieCandidat',
+        'oui'
+      ],
+      [
+        'dateDebutMission',
+        '2024-12-12'
+      ],
+      [
+        'motivation',
+        'je suis motivé !'
+      ],
+      [
+        'confirmationEngagement',
+        'on'
+      ],
+      [
+        'g-recaptcha-response',
+        '1'
+      ],
+      [
+        'cf-turnstile-response',
+        '1'
+      ]
+    ];
 
+    const { buildStructureData } = renderHook(() => useApiAdmin.useApiAdmin()).result.current;
+    const { getGeoLocationFromAddress } = renderHook(() => useEntrepriseFinder()).result.current;
+    let geoLocation;
+
+    // WHEN
+    await act(async () => {
+      geoLocation = await getGeoLocationFromAddress('20 AVENUE DE SEGUR, 75007 PARIS');
+    });
+    const result = await buildStructureData(formData, geoLocation, '75107');
+
+    // THEN
+    expect(result).toBe(JSON.stringify({
+      'siret': null,
+      'type': 'COMMUNE',
+      'nombreConseillersSouhaites': '1',
+      'aIdentifieCandidat': true,
+      'dateDebutMission': '2024-12-12',
+      'motivation': 'je suis motivé !',
+      'confirmationEngagement': true,
+      'cf-turnstile-response': '1',
+      'location': { 'type': 'Point', 'coordinates': [2.3115, 48.8548] },
+      'contact': {
+        'prenom': 'Jean',
+        'nom': 'Dupont',
+        'fonction': 'Test',
+        'email': 'jean.dupont@example.com',
+        'telephone': '+33123456789'
+      },
+      'nom': 'AGENCE NATIONALE DE LA COHESION DES TERRITOIRES',
+      'ridet': '1234567',
+      'nomCommune': 'Paris 7e Arrondissement',
+      'codePostal': '75007',
+      'codeCommune': '75107',
+      'codeDepartement': '75',
+      'codeRegion': '11',
+      'codeCom': null,
+    }));
+
+    vi.useRealTimers();
+  });
   it('quand je candidate et qu’une erreur serveur survient, alors le message d’erreur s’affiche et le captcha est rénitialisé', async () => {
     // GIVEN
     vi.useFakeTimers();
