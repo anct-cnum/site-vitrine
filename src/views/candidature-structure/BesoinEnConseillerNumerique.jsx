@@ -1,9 +1,20 @@
 import React from 'react';
 
-import BoutonRadio from '../../components/commun/BoutonRadio';
 import Datepicker from '../../components/commun/Datepicker';
 import Input from '../../components/commun/Input';
 import PropTypes from 'prop-types';
+import RadioGroup from '../../components/commun/RadioGroup';
+
+const ouiOuNOn = [
+  {
+    id: 'oui',
+    label: 'Oui'
+  },
+  {
+    id: 'non',
+    label: 'Non'
+  },
+];
 
 export default function BesoinEnConseillerNumerique({ errors }) {
   const dateDuJour = new Date().toISOString().slice(0, 10);
@@ -18,12 +29,7 @@ export default function BesoinEnConseillerNumerique({ errors }) {
       <hr />
       <p className="fr-mb-3w cc-bold">Avez-vous déjà identifié un candidat pour le poste de conseiller numérique ? <span className="cc-obligatoire">*</span></p>
       <p className="fr-text--sm fr-hint-text">Si oui, merci d’inviter ce candidat à s’inscrire sur la plateforme Conseiller numérique.</p>
-      <BoutonRadio id="oui" nomGroupe="aIdentifieCandidat">
-        Oui
-      </BoutonRadio>
-      <BoutonRadio id="non" nomGroupe="aIdentifieCandidat">
-        Non
-      </BoutonRadio>
+      <RadioGroup nomGroupe="aIdentifieCandidat" options={ouiOuNOn} />
       <hr />
       <p className="fr-mb-3w cc-bold">À partir de quand êtes vous prêt à accueillir votre conseiller numerique ? <span className="cc-obligatoire">*</span></p>
       <Datepicker id="dateDebutMission" min={dateDuJour} error={errors.dateDebutMission}>

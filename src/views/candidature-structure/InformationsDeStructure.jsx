@@ -1,14 +1,45 @@
 import React from 'react';
 import Input from '../../components/commun/Input';
 import CompanyFinder from './CompanyFinder';
-import BoutonRadio from '../../components/commun/BoutonRadio';
 import { useEntrepriseFinder } from './useEntrepriseFinder';
 import PropTypes from 'prop-types';
 import './CandidatureStructure.css';
+import RadioGroup from '../../components/commun/RadioGroup';
 
 const TAILLE_SIRET = 14;
 const TAILLE_RIDET = [6, 7];
 const TAILLES_POSSIBLES = [...TAILLE_RIDET, TAILLE_SIRET];
+
+const options = [
+  {
+    id: 'COMMUNE',
+    label: 'Une commune'
+  },
+  {
+    id: 'DEPARTEMENT',
+    label: 'Un département'
+  },
+  {
+    id: 'REGION',
+    label: 'Une région'
+  },
+  {
+    id: 'EPCI',
+    label: 'Un établissement public de coopération intercommunale'
+  },
+  {
+    id: 'COLLECTIVITE',
+    label: 'Une collectivité à statut particulier'
+  },
+  {
+    id: 'GIP',
+    label: 'Un GIP'
+  },
+  {
+    id: 'PRIVATE',
+    label: 'Une structure privée (association, entreprise de l’ESS, fondations)'
+  },
+];
 
 export default function InformationsDeStructure({ setGeoLocation, setCodeCommune, errors }) {
   const {
@@ -93,27 +124,7 @@ export default function InformationsDeStructure({ setGeoLocation, setCodeCommune
         Votre structure est <span className="cc-obligatoire">*</span>
       </p>
       <div className="fr-grid-row">
-        <BoutonRadio id="COMMUNE" nomGroupe="type">
-          Une commune
-        </BoutonRadio>
-        <BoutonRadio id="DEPARTEMENT" nomGroupe="type">
-          Un département
-        </BoutonRadio>
-        <BoutonRadio id="REGION" nomGroupe="type">
-          Une région
-        </BoutonRadio>
-        <BoutonRadio id="EPCI" nomGroupe="type">
-          Un établissement public de coopération intercommunale
-        </BoutonRadio>
-        <BoutonRadio id="COLLECTIVITE" nomGroupe="type">
-          Une collectivité à statut particulier
-        </BoutonRadio>
-        <BoutonRadio id="GIP" nomGroupe="type">
-          Un GIP
-        </BoutonRadio>
-        <BoutonRadio id="PRIVATE" nomGroupe="type">
-          Une structure privée (association, entreprise de l’ESS, fondations)
-        </BoutonRadio>
+        <RadioGroup nomGroupe="type" options={options} />
       </div>
     </fieldset>
   );
