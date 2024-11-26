@@ -728,9 +728,9 @@ describe('candidature conseiller', () => {
   it('quand je remplis le formulaire et que je saisi mon lieu d’habitation alors la recherche est lancer à partir de 3 caractères', async () => {
     // GIVEN
     vi.useFakeTimers();
-    const searchByNameMock = vi.fn();
-    vi.spyOn(useGeoApi, "useGeoApi").mockImplementation(() => ({ 
-      searchByName: searchByNameMock,
+    const searchByNameSpy = vi.fn();
+    vi.spyOn(useGeoApi, 'useGeoApi').mockImplementation(() => ({
+      searchByName: searchByNameSpy,
     }));
 
     // WHEN
@@ -740,16 +740,16 @@ describe('candidature conseiller', () => {
     // THEN
     fireEvent.change(adresse, { target: { value: '9' } });
     vi.advanceTimersByTime(300);
-    expect(searchByNameMock).toBeCalledTimes(0);
+    expect(searchByNameSpy).toHaveBeenCalledTimes(0);
     fireEvent.change(adresse, { target: { value: '93' } });
     vi.advanceTimersByTime(300);
-    expect(searchByNameMock).toBeCalledTimes(0);
+    expect(searchByNameSpy).toHaveBeenCalledTimes(0);
     fireEvent.change(adresse, { target: { value: '931' } });
     vi.advanceTimersByTime(300);
-    expect(searchByNameMock).toBeCalledTimes(1);
+    expect(searchByNameSpy).toHaveBeenCalledTimes(1);
     fireEvent.change(adresse, { target: { value: '93100' } });
     vi.advanceTimersByTime(300);
-    expect(searchByNameMock).toBeCalledTimes(2);
+    expect(searchByNameSpy).toHaveBeenCalledTimes(2);
 
     vi.useRealTimers();
   });
