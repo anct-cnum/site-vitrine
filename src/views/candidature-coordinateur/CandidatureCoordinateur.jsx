@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import SommaireCoordinateur from './SommaireCoordinateur';
 import InformationsDeContact from '../candidature-structure/InformationsDeContact';
 import InformationsDeStructure from '../candidature-structure/InformationsDeStructure';
@@ -20,14 +20,17 @@ import '@gouvfr/dsfr/dist/component/notice/notice.min.css';
 import '@gouvfr/dsfr/dist/component/sidemenu/sidemenu.min.css';
 import '@gouvfr/dsfr/dist/component/alert/alert.min.css';
 import '../candidature-conseiller/CandidatureConseiller.css';
+import { checkValidity } from '../../shared/checkValidity';
 
 export default function CandidatureCoordinateur() {
   const [geoLocation, setGeoLocation] = useState(null);
   const [validationError, setValidationError] = useState('');
   const [widgetId, setWidgetId] = useState(null);
   const [codeCommune, setCodeCommune] = useState('');
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const { buildCoordinateurData, creerCandidatureCoordinateur } = useApiAdmin();
+  const ref = useRef(null);
   useScrollToSection();
 
   useEffect(() => {
@@ -70,16 +73,24 @@ export default function CandidatureCoordinateur() {
               </Alert>
             </div>
           }
-          <form aria-label="Candidature coordinateur" onSubmit={validerLaCandidature}>
-            <InformationsDeStructure setGeoLocation={setGeoLocation} geoLocation={geoLocation} setCodeCommune={setCodeCommune}/>
-            <InformationsDeContact />
-            <BesoinEnCoordinateur />
-            <Motivation />
+          <form
+            aria-label="Candidature coordinateur"
+            onSubmit={validerLaCandidature}
+            onInput={() => checkValidity(ref, setErrors)}
+            ref={ref}>
+            <InformationsDeStructure
+              setGeoLocation={setGeoLocation}
+              geoLocation={geoLocation}
+              setCodeCommune={setCodeCommune}
+              errors={errors} />
+            <InformationsDeContact errors={errors} />
+            <BesoinEnCoordinateur errors={errors} />
+            <Motivation errors={errors} />
             <Engagement />
             <div className="fr-mt-2w fr-mb-2w">
               <Captcha setWidgetId={setWidgetId} widgetId={widgetId} />
             </div>
-            <button className="fr-btn cc-envoyer" type="submit">
+            <button className="fr-btn cc-envoyer" type="submit" onClick={() => checkValidity(ref, setErrors)}>
               Envoyer votre candidature
             </button>
           </form>

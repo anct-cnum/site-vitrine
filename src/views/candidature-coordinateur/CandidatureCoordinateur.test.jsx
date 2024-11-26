@@ -539,5 +539,74 @@ describe('candidature coordinateur', () => {
 
     vi.useRealTimers();
   });
+
+  it.each([
+    {
+      description: 'un SIRET/RIDET',
+      selector: 'SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)',
+      message: 'Veuillez renseigner le SIRET/RIDET'
+    },
+    {
+      description: 'une dénomination',
+      selector: 'Dénomination *',
+      message: 'Veuillez renseigner la dénomination'
+    },
+    {
+      description: 'un prénom',
+      selector: 'Prénom *',
+      message: 'Veuillez renseigner ce prénom'
+    },
+    {
+      description: 'un nom',
+      selector: 'Nom *',
+      message: 'Veuillez renseigner le nom'
+    },
+    {
+      description: 'une fonction',
+      selector: 'Fonction *',
+      message: 'Veuillez renseigner la fonction'
+    },
+    {
+      description: 'un email',
+      selector: 'Adresse électronique * Format attendu : nom@domaine.fr',
+      message: 'Veuillez renseigner le mail'
+    },
+    {
+      description: 'un téléphone',
+      selector: 'Téléphone * Format attendu : 0122334455 ou +33122334455',
+      message: 'Veuillez renseigner le téléphone'
+    },
+    {
+      description: 'une date',
+      selector: 'Choisir une date',
+      message: 'Veuillez renseigner la date'
+    },
+    {
+      description: 'une motivation',
+      selector: 'Votre message * Limité à 2500 caractères',
+      message: 'Veuillez renseigner la motivation'
+    },
+  ])('quand je valide le formulaire avec $description vide alors j’ai un message d’erreur ', async ({ selector, message }) => {
+    // GIVEN
+    vi.stubGlobal('turnstile', {
+      reset: vi.fn(),
+      remove: vi.fn(),
+      render: vi.fn()
+    });
+    render(<CandidatureCoordinateur />);
+    const champDeFormulaire = screen.getByLabelText(selector);
+    Object.defineProperty(champDeFormulaire, 'validationMessage', {
+      value: message,
+      configurable: true,
+    });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+    fireEvent.click(envoyer);
+
+    // THEN
+    const contenuErreurValidation = await screen.findByText(message, { selector: 'p' });
+    expect(contenuErreurValidation).toBeInTheDocument();
+  });
 });
 

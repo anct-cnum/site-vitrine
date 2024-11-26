@@ -10,7 +10,7 @@ const TAILLE_SIRET = 14;
 const TAILLE_RIDET = [6, 7];
 const TAILLES_POSSIBLES = [...TAILLE_RIDET, TAILLE_SIRET];
 
-export default function InformationsDeStructure({ setGeoLocation, setCodeCommune }) {
+export default function InformationsDeStructure({ setGeoLocation, setCodeCommune, errors }) {
   const {
     entreprise,
     search,
@@ -55,13 +55,14 @@ export default function InformationsDeStructure({ setGeoLocation, setCodeCommune
     >
       <legend className="fr-h5">Vos informations de structure</legend>
       <hr />
-      <CompanyFinder onSearch={handleSearch} />
+      <CompanyFinder onSearch={handleSearch} errors={errors} />
       <Input
         id="denomination"
         value={denomination}
         isLoading={loading}
         ariaBusy={loading}
         onChange={event => setDenomination(event.target.value)}
+        error={errors.denomination}
       >
         Dénomination <span className="cc-obligatoire">*</span>
       </Input>
@@ -70,10 +71,11 @@ export default function InformationsDeStructure({ setGeoLocation, setCodeCommune
           id="adresse"
           value={adresse}
           onChange={handleAdresseChange}
-          disabled ={!entreprise?.isRidet}
+          disabled={!entreprise?.isRidet}
           list="adresseSuggestions"
           isLoading={(entreprise && loading && !entreprise?.isRidet) || addressLoading}
           ariaBusy={(entreprise && loading && !entreprise?.isRidet) || addressLoading}
+          error={errors.adresse}
         >
           Adresse <span className="cc-obligatoire">*</span>
         </Input>
@@ -121,4 +123,5 @@ InformationsDeStructure.propTypes = {
   setGeoLocation: PropTypes.func.isRequired,
   setCodeCommune: PropTypes.func.isRequired,
   geoLocation: PropTypes.object,
+  errors: PropTypes.object,
 };

@@ -3,7 +3,7 @@ import Input from '../../components/commun/Input';
 import { debounce } from '../candidature-conseiller/debounce';
 import PropTypes from 'prop-types';
 
-export default function CompanyFinder({ onSearch }) {
+export default function CompanyFinder({ onSearch, errors }) {
   const handleSearch = debounce(value => {
     onSearch(value);
   });
@@ -12,8 +12,9 @@ export default function CompanyFinder({ onSearch }) {
     <Input
       id="siret"
       onChange={event => handleSearch(event.target.value)}
-      pattern="^(?:[0-9]{9}|[0-9]{14})$" 
-      maxlength="14" 
+      pattern="^(?:[0-9]{9}|[0-9]{14})$"
+      maxlength="14"
+      error={errors.siret}
     >
       SIRET / RIDET <span className="cc-obligatoire">*</span> <span className="fr-hint-text">Format attendu : SIRET (12345678901234) ou RIDET (123456789)</span>
     </Input>
@@ -21,5 +22,6 @@ export default function CompanyFinder({ onSearch }) {
 }
 
 CompanyFinder.propTypes = {
-  onSearch: PropTypes.func
+  onSearch: PropTypes.func,
+  errors: PropTypes.object,
 };

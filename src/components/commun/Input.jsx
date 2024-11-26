@@ -1,11 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Input({ children, id, isRequired = true, autoComplete = 'on', testId = '', type = 'text',
-  pattern, onChange, list, min, disabled, isLoading, ariaBusy, value, maxlength }) {
+export default function Input({
+  children,
+  id,
+  isRequired = true,
+  autoComplete = 'on',
+  testId = '',
+  type = 'text',
+  pattern,
+  onChange,
+  list,
+  min,
+  disabled,
+  isLoading,
+  ariaBusy,
+  value,
+  maxlength,
+  error,
+}) {
   return (
     <div className="fr-fieldset__element">
-      <div className="fr-input-group">
+      <div className={`fr-input-group${error ? ' fr-input-group--error' : ''}`}>
         <label className="fr-label" htmlFor={id}>{children}</label>
         <input
           className="fr-input"
@@ -29,6 +45,11 @@ export default function Input({ children, id, isRequired = true, autoComplete = 
             <div className="fr-spinner fr-spinner--sm" aria-label="Chargement..."></div>
           </div>
         )}
+        {error && (
+          <p id="text-input-error-desc-error" className="fr-error-text">
+            {error}
+          </p>
+        )}
       </div>
     </div>
   );
@@ -49,5 +70,6 @@ Input.propTypes = {
   ariaBusy: PropTypes.bool,
   value: PropTypes.string,
   testId: PropTypes.string,
-  maxlength: PropTypes.string
+  maxlength: PropTypes.string,
+  error: PropTypes.string
 };

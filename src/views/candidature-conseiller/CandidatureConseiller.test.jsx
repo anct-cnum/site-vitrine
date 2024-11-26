@@ -725,7 +725,7 @@ describe('candidature conseiller', () => {
     vi.useRealTimers();
   });
 
-  it('quand je remplis le formulaire et que je saisi mon lieu d’habitation alors la recherche est lancer à partir de 3 caractères', async () => {
+  it('quand je remplis le formulaire et que je saisis mon lieu d’habitation alors la recherche est lancée à partir de 3 caractères', async () => {
     // GIVEN
     vi.useFakeTimers();
     const searchByNameSpy = vi.fn();
@@ -752,5 +752,60 @@ describe('candidature conseiller', () => {
     expect(searchByNameSpy).toHaveBeenCalledTimes(2);
 
     vi.useRealTimers();
+  });
+
+  it.each([
+    {
+      description: 'un prénom',
+      selector: 'Prénom *',
+      message: 'Veuillez renseigner le prénom'
+    },
+    {
+      description: 'un nom',
+      selector: 'Nom *',
+      message: 'Veuillez renseigner le nom'
+    },
+    {
+      description: 'un email',
+      selector: 'Adresse électronique * Format attendu : nom@domaine.fr',
+      message: 'Veuillez renseigner le mail'
+    },
+    {
+      description: 'une adresse',
+      selector: 'Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.',
+      message: 'Veuillez renseigner l’adresse'
+    },
+    {
+      description: 'une date',
+      selector: 'Choisir une date',
+      message: 'Veuillez renseigner la date'
+    },
+    {
+      description: 'une motivation',
+      selector: 'Votre message * Limité à 2500 caractères',
+      message: 'Veuillez renseigner la motivation'
+    },
+  ])('quand je valide le formulaire avec $description vide alors j’ai un message d’erreur ', async ({ selector, message }) => {
+    // GIVEN
+    vi.stubGlobal('turnstile', {
+      reset: vi.fn(),
+      remove: vi.fn(),
+      render: vi.fn()
+    });
+    render(<CandidatureConseiller />);
+    const champDeFormulaire = screen.getByLabelText(selector);
+    Object.defineProperty(champDeFormulaire, 'validationMessage', {
+      value: message,
+      configurable: true,
+    });
+
+    // WHEN
+    const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+
+    fireEvent.click(envoyer);
+
+    // THEN
+    const contenuErreurValidation = await screen.findByText(message, { selector: 'p' });
+    expect(contenuErreurValidation).toBeInTheDocument();
   });
 });

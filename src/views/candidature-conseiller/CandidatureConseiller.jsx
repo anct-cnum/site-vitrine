@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SommaireConseiller from './SommaireConseiller';
 import InformationsDeContact from './InformationsDeContact';
 import SituationEtExperience from './SituationEtExperience';
@@ -10,6 +10,7 @@ import Captcha from '../../components/commun/Captcha';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
 import { useNavigate } from 'react-router-dom';
 import { useApiAdmin } from './useApiAdmin';
+import { checkValidity } from '../../shared/checkValidity';
 
 import '@gouvfr/dsfr/dist/component/form/form.min.css';
 import '@gouvfr/dsfr/dist/component/input/input.min.css';
@@ -25,8 +26,10 @@ export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
   const [validationError, setValidationError] = useState('');
+  const [errors, setErrors] = useState({});
   const [widgetId, setWidgetId] = useState(null);
   const { buildConseillerData, creerCandidatureConseiller } = useApiAdmin();
+  const ref = useRef(null);
 
   const navigate = useNavigate();
   useScrollToSection();
@@ -89,16 +92,18 @@ export default function CandidatureConseiller() {
           <form
             aria-label="Candidature conseiller"
             onSubmit={validerLaCandidature}
+            onInput={() => checkValidity(ref, setErrors)}
+            ref={ref}
           >
-            <InformationsDeContact />
+            <InformationsDeContact errors={errors} />
             <SituationEtExperience isSituationValid={isSituationValid} />
-            <Disponibilite setDateDisponibilite={setDateDisponibilite} />
-            <Motivation />
+            <Disponibilite setDateDisponibilite={setDateDisponibilite} errors={errors} />
+            <Motivation errors={errors} />
             <EnResume dateDisponibilite={dateDisponibilite} />
             <div className="fr-mt-2w fr-mb-2w">
-              <Captcha setWidgetId={setWidgetId} widgetId={widgetId}/>
+              <Captcha setWidgetId={setWidgetId} widgetId={widgetId} />
             </div>
-            <button className="fr-btn cc-envoyer" type="submit">
+            <button className="fr-btn cc-envoyer" type="submit" onClick={() => checkValidity(ref, setErrors)}>
               Envoyer votre candidature
             </button>
           </form>
