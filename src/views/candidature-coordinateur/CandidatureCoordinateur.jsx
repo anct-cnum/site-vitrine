@@ -82,7 +82,10 @@ export default function CandidatureCoordinateur() {
               setGeoLocation={setGeoLocation}
               geoLocation={geoLocation}
               setCodeCommune={setCodeCommune}
-              errors={errors} />
+              errors={errors} 
+              setErrors={setErrors}
+              formRef={ref}
+            />
             <InformationsDeContact errors={errors} />
             <BesoinEnCoordinateur errors={errors} />
             <Motivation errors={errors} />
