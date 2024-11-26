@@ -84,7 +84,10 @@ export default function CandidatureStructure() {
               setGeoLocation={setGeoLocation}
               geoLocation={geoLocation}
               setCodeCommune={setCodeCommune}
-              errors={errors} />
+              errors={errors}
+              setErrors={setErrors}
+              formRef={ref}
+            />
             <InformationsDeContact errors={errors} />
             <BesoinEnConseillerNumerique errors={errors} />
             <Motivation errors={errors} />

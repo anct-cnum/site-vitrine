@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Input from '../../components/commun/Input';
 import CompanyFinder from './CompanyFinder';
 import { useEntrepriseFinder } from './useEntrepriseFinder';
 import PropTypes from 'prop-types';
 import './CandidatureStructure.css';
 import RadioGroup from '../../components/commun/RadioGroup';
+import { checkValidity } from '../../shared/checkValidity';
 
 const TAILLE_SIRET = 14;
 const TAILLE_RIDET = [6, 7];
@@ -41,7 +42,7 @@ const options = [
   },
 ];
 
-export default function InformationsDeStructure({ setGeoLocation, setCodeCommune, errors }) {
+export default function InformationsDeStructure({ setGeoLocation, setCodeCommune, errors, setErrors, formRef }) {
   const {
     entreprise,
     search,
@@ -55,6 +56,12 @@ export default function InformationsDeStructure({ setGeoLocation, setCodeCommune
     adresse,
     setAdresse,
   } = useEntrepriseFinder(setGeoLocation, setCodeCommune);
+
+  useEffect(() => {
+    if (denomination) {
+      checkValidity(formRef, setErrors);
+    }
+  }, [denomination]);
 
   const handleSearch = value => {
     const numericValue = value.replace(/\D/g, '');
@@ -92,7 +99,9 @@ export default function InformationsDeStructure({ setGeoLocation, setCodeCommune
         value={denomination}
         isLoading={loading}
         ariaBusy={loading}
-        onChange={event => setDenomination(event.target.value)}
+        onChange={event => {
+          setDenomination(event.target.value);
+        }}
         error={errors.denomination}
       >
         Dénomination <span className="cc-obligatoire">*</span>
@@ -135,4 +144,6 @@ InformationsDeStructure.propTypes = {
   setCodeCommune: PropTypes.func.isRequired,
   geoLocation: PropTypes.object,
   errors: PropTypes.object,
+  setErrors: PropTypes.func,
+  formRef: PropTypes.object
 };
