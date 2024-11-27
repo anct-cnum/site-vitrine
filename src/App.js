@@ -52,9 +52,9 @@ function App() {
         <Router>
           <Routes>
             <Route path="/accueil" element={<GestionHash />}/>
-            <Route path="/nouveau-formulaire-conseiller" element={<PageCandidatureConseiller />}/>
-            <Route path="/nouveau-formulaire-structure" element={<PageCandidatureStructure />}/>
-            <Route path="/nouveau-formulaire-coordinateur" element={<PageCandidatureCoordinateur />}/>
+            <Route path="/candidature-conseiller" element={<PageCandidatureConseiller />}/>
+            <Route path="/candidature-poste-conseiller" element={<PageCandidatureStructure />}/>
+            <Route path="/candidature-poste-coordinateur" element={<PageCandidatureCoordinateur />}/>
             <Route path="/candidature-validee-conseiller" element={<PageCandidatureValideeConseiller />}/>
             <Route path="/candidature-validee-structure" element={<PageCandidatureValideeStructure />}/>
             <Route path="/candidature-confirmer-conseiller/:token" element={<PageConfirmationEmailCandidatureConseiller />}/>
