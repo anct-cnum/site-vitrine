@@ -98,8 +98,8 @@ function Menu() {
                 aria-controls="menu-cnfs"
                 onClick={onClickMenu}
                 {
-                  ...(location.pathname.startsWith('/nouveau-formulaire-conseiller') ||
-                  location.pathname.startsWith('/nouveau-formulaire-structure') ||
+                  ...(location.pathname.startsWith('/aide-candidat') ||
+                  location.pathname.startsWith('/aide-structure') ||
                   location.pathname.startsWith('/nouveau-formulaire-coordinateur') ? { 'aria-current': true } : {})
                 }>
                 Candidature
@@ -108,17 +108,17 @@ function Menu() {
                 <ul className="fr-menu__list">
                   <li>
                     <Link
-                      to="/nouveau-formulaire-conseiller"
+                      to="/aide-candidat"
                       className="fr-nav__link"
-                      {...(location.pathname.startsWith('/nouveau-formulaire-conseiller') ? { 'aria-current': 'page' } : {})}>
+                      {...(location.pathname.startsWith('/aide-candidat') ? { 'aria-current': 'page' } : {})}>
                       Devenir conseiller num&eacute;rique
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to="/nouveau-formulaire-structure"
+                      to="/aide-structure"
                       className="fr-nav__link"
-                      {...(location.pathname.startsWith('/nouveau-formulaire-structure') ? { 'aria-current': 'page' } : {})}>
+                      {...(location.pathname.startsWith('/aide-structure') ? { 'aria-current': 'page' } : {})}>
                       Obtenir un poste de conseiller num&eacute;rique
                     </Link>
                   </li>
