@@ -1,7 +1,29 @@
 import React from 'react';
-import BoutonRadio from '../../components/commun/BoutonRadio';
 import Datepicker from '../../components/commun/Datepicker';
 import PropTypes from 'prop-types';
+import RadioGroup from '../../components/commun/RadioGroup';
+
+const ouiOuNOn = [
+  {
+    id: 'oui',
+    label: 'Oui'
+  },
+  {
+    id: 'non',
+    label: 'Non'
+  },
+];
+
+const typeContrat = [
+  {
+    id: 'FT',
+    label: 'Effectuera uniquement des missions de coordination'
+  },
+  {
+    id: 'PT',
+    label: 'Accompagnera également des publics'
+  },
+];
 
 export default function BesoinEnCoordinateur({ errors }) {
   const dateDuJour = new Date().toISOString().slice(0, 10);
@@ -14,19 +36,9 @@ export default function BesoinEnCoordinateur({ errors }) {
         Avez-vous déjà identifié un candidat pour le poste de coordinateur de conseiller numérique ? <span className="cc-obligatoire">*</span>
       </p>
       <p className="fr-text--sm fr-hint-text">Si oui, merci d’inviter ce candidat à s’inscrire sur la plateforme Conseiller numérique</p>
-      <BoutonRadio id="oui" nomGroupe="aIdentifieCoordinateur">
-        Oui
-      </BoutonRadio>
-      <BoutonRadio id="non" nomGroupe="aIdentifieCoordinateur">
-        Non
-      </BoutonRadio>
+      <RadioGroup nomGroupe="aIdentifieCoordinateur" options={ouiOuNOn} />
       <p className="fr-mt-4w fr-mb-3w cc-bold">Le coordinateur<span className="cc-obligatoire">*</span></p>
-      <BoutonRadio id="FT" nomGroupe="coordinateurTypeContrat">
-        Effectuera uniquement des missions de coordination
-      </BoutonRadio>
-      <BoutonRadio id="PT" nomGroupe="coordinateurTypeContrat">
-        Accompagnera également des publics
-      </BoutonRadio>
+      <RadioGroup nomGroupe="coordinateurTypeContrat" options={typeContrat} />
       <hr />
       <p className="fr-mb-3w cc-bold">À partir de quand êtes vous prêt à accueillir votre coordinateur ? <span className="cc-obligatoire">*</span></p>
       <Datepicker id="dateDebutMission" min={dateDuJour} error={errors.dateDebutMission}>

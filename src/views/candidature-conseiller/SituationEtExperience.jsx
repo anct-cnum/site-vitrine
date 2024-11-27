@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 import Checkbox from '../../components/commun/Checkbox';
-import BoutonRadio from '../../components/commun/BoutonRadio';
 import Input from '../../components/commun/Input';
 import { situations } from './situations';
 import PropTypes from 'prop-types';
+import RadioGroup from '../../components/commun/RadioGroup';
+
+const options = [
+  {
+    id: 'oui',
+    label: 'Oui'
+  },
+  {
+    id: 'non',
+    label: 'Non'
+  },
+];
 
 export default function SituationEtExperience({ isSituationValid }) {
   const [isDiplomeSelected, setIsDiplomeSelected] = useState(false);
@@ -41,12 +52,7 @@ export default function SituationEtExperience({ isSituationValid }) {
         Avez-vous une expérience professionnelle de médiation numérique ? <span className="cc-obligatoire">*</span>
       </p>
       <p className="fr-text--sm fr-hint-text">Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.</p>
-      <BoutonRadio id="oui" nomGroupe="aUneExperienceMedNum">
-        Oui
-      </BoutonRadio>
-      <BoutonRadio id="non" nomGroupe="aUneExperienceMedNum">
-        Non
-      </BoutonRadio>
+      <RadioGroup nomGroupe="aUneExperienceMedNum" options={options} />
     </fieldset >
   );
 }

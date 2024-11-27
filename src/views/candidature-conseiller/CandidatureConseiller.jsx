@@ -26,6 +26,7 @@ export default function CandidatureConseiller() {
   const [dateDisponibilite, setDateDisponibilite] = useState('');
   const [isSituationValid, setIsSituationValid] = useState(true);
   const [validationError, setValidationError] = useState('');
+  const [isSending, setIsSending] = useState(false);
   const [errors, setErrors] = useState({});
   const [widgetId, setWidgetId] = useState(null);
   const { buildConseillerData, creerCandidatureConseiller } = useApiAdmin();
@@ -48,6 +49,7 @@ export default function CandidatureConseiller() {
   };
 
   const validerLaCandidature = async event => {
+    setIsSending(true);
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -71,6 +73,7 @@ export default function CandidatureConseiller() {
         navigate('/candidature-validee-conseiller');
       }
     }
+    setIsSending(false);
   };
 
   return (
@@ -103,8 +106,12 @@ export default function CandidatureConseiller() {
             <div className="fr-mt-2w fr-mb-2w">
               <Captcha setWidgetId={setWidgetId} widgetId={widgetId} />
             </div>
-            <button className="fr-btn cc-envoyer" type="submit" onClick={() => checkValidity(ref, setErrors)}>
-              Envoyer votre candidature
+            <button
+              className="fr-btn cc-envoyer"
+              type="submit"
+              onClick={() => checkValidity(ref, setErrors)}
+              disabled={isSending}>
+              {isSending ? 'Envoi en cours...' : 'Envoyer votre candidature'}
             </button>
           </form>
         </div>

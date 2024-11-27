@@ -392,6 +392,8 @@ describe('candidature conseiller', () => {
     fireEvent.click(envoyer);
 
     // THEN
+    const envoiEnCours = screen.getByRole('button', { name: 'Envoi en cours...' });
+    expect(envoiEnCours).toBeInTheDocument();
     const erreurCheckboxes = screen.queryByText('Vous devez cocher au moins une case', { selector: 'p' });
     expect(erreurCheckboxes).not.toBeInTheDocument();
     vi.useRealTimers();

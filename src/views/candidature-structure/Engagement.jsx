@@ -9,7 +9,6 @@ export default function Engagement() {
       <ul data-testid="votre-engagement">
         <li>Assurer que le conseiller réalise des activités de montée en compétences du public (ateliers numériques, initiations au numérique), gratuites,</li>
         <li>Qu’il consacre une partie de son temps aux rencontres locales et nationales organisées pour la communauté et la formation continue, etc,</li>
-        <li>Qu’il revête une tenue vestimentaire dédiée fournie par l’Etat,</li>
         <li>Tout mettre en oeuvre pour sélectionner le candidat dans un délai maximum d’un mois sur la plateforme,</li>
         <li>Signer dans les 15 jours suivants un contrat avec ce candidat,</li>
         <li>Laisser partir le conseiller numérique en formation initiale ou continue,</li>
