@@ -2,7 +2,7 @@ import React from 'react';
 
 function Questions() {
 
-  const urlFormStructure = import.meta.env.VITE_APP_FORMS_URL + '/structure/new';
+  const urlFormStructure = '/nouveau-formulaire-structure';
 
   return (
     <div className="fr-container fr-mb-5w">
