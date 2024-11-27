@@ -100,7 +100,7 @@ function Menu() {
                 {
                   ...(location.pathname.startsWith('/aide-candidat') ||
                   location.pathname.startsWith('/aide-structure') ||
-                  location.pathname.startsWith('/nouveau-formulaire-coordinateur') ? { 'aria-current': true } : {})
+                  location.pathname.startsWith('/candidature-poste-coordinateur') ? { 'aria-current': true } : {})
                 }>
                 Candidature
               </button>
@@ -124,9 +124,9 @@ function Menu() {
                   </li>
                   <li>
                     <Link
-                      to="/nouveau-formulaire-coordinateur"
+                      to="/candidature-poste-coordinateur"
                       className="fr-nav__link"
-                      {...(location.pathname.startsWith('/nouveau-formulaire-coordinateur') ? { 'aria-current': 'page' } : {})}>
+                      {...(location.pathname.startsWith('/candidature-poste-coordinateur') ? { 'aria-current': 'page' } : {})}>
                       Obtenir un poste de coordinateur de conseiller num&eacute;rique
                     </Link>
                   </li>
