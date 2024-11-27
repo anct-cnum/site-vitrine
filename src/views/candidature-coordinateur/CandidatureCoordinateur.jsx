@@ -26,6 +26,7 @@ export default function CandidatureCoordinateur() {
   const [geoLocation, setGeoLocation] = useState(null);
   const [validationError, setValidationError] = useState('');
   const [widgetId, setWidgetId] = useState(null);
+  const [isSending, setIsSending] = useState(false);
   const [codeCommune, setCodeCommune] = useState('');
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ export default function CandidatureCoordinateur() {
   }, []);
 
   const validerLaCandidature = async event => {
+    setIsSending(true);
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -55,6 +57,7 @@ export default function CandidatureCoordinateur() {
     } else {
       navigate('/candidature-validee-structure');
     }
+    setIsSending(false);
   };
 
   return (
@@ -82,7 +85,7 @@ export default function CandidatureCoordinateur() {
               setGeoLocation={setGeoLocation}
               geoLocation={geoLocation}
               setCodeCommune={setCodeCommune}
-              errors={errors} 
+              errors={errors}
               setErrors={setErrors}
               formRef={ref}
             />
@@ -93,8 +96,12 @@ export default function CandidatureCoordinateur() {
             <div className="fr-mt-2w fr-mb-2w">
               <Captcha setWidgetId={setWidgetId} widgetId={widgetId} />
             </div>
-            <button className="fr-btn cc-envoyer" type="submit" onClick={() => checkValidity(ref, setErrors)}>
-              Envoyer votre candidature
+            <button
+              className="fr-btn cc-envoyer"
+              type="submit"
+              onClick={() => checkValidity(ref, setErrors)}
+              disabled={isSending}>
+              {isSending ? 'Envoi en cours...' : 'Envoyer votre candidature'}
             </button>
           </form>
         </div>

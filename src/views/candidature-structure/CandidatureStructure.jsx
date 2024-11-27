@@ -26,6 +26,7 @@ export default function CandidatureStructure() {
   const [geoLocation, setGeoLocation] = useState(null);
   const [codeCommune, setCodeCommune] = useState('');
   const [widgetId, setWidgetId] = useState(null);
+  const [isSending, setIsSending] = useState(false);
   const [validationError, setValidationError] = useState('');
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ export default function CandidatureStructure() {
   useScrollToSection();
 
   const validerLaCandidature = async event => {
+    setIsSending(true);
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -56,6 +58,7 @@ export default function CandidatureStructure() {
     } else {
       navigate('/candidature-validee-structure');
     }
+    setIsSending(false);
   };
 
   return (
@@ -95,8 +98,12 @@ export default function CandidatureStructure() {
             <div className="fr-mt-2w fr-mb-2w">
               <Captcha setWidgetId={setWidgetId} widgetId={widgetId} />
             </div>
-            <button className="fr-btn cc-envoyer" type="submit" onClick={() => checkValidity(ref, setErrors)}>
-              Envoyer votre candidature
+            <button
+              className="fr-btn cc-envoyer"
+              type="submit"
+              onClick={() => checkValidity(ref, setErrors)}
+              disabled={isSending}>
+              {isSending ? 'Envoi en cours...' : 'Envoyer votre candidature'}
             </button>
           </form>
         </div>
