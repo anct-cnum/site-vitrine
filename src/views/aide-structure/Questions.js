@@ -2,7 +2,7 @@ import React from 'react';
 
 function Questions() {
 
-  const urlFormStructure = '/nouveau-formulaire-structure';
+  const urlFormStructure = '/candidature-poste-conseiller';
 
   return (
     <div className="fr-container fr-mb-5w">
@@ -49,7 +49,7 @@ function Questions() {
         </em>
       </p>
       <div className="fr-container fr-col-lg-5 fr-col-xs-12 fr-mb-10w" style={{ textAlign: 'center' }}>
-        <a href={urlFormStructure} target="_blank" rel="noopener noreferrer"
+        <a href={urlFormStructure} target="_self" rel="noopener noreferrer"
           className="buttonCustom redButtonCustom fr-text--xx-bold"
           title="Recruter des conseillers num&eacute;riques">
             Recruter des conseillers num&eacute;riques
