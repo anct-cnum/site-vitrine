@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const TAILLE_SIRET = 14;
-const TAILLE_RIDET = [6, 7];
+const TAILLE_RIDET = [7];
 const TAILLES_POSSIBLES = [...TAILLE_RIDET, TAILLE_SIRET];
 
 export const useEntrepriseFinder = (setGeoLocation, setCodeCommune) => {
@@ -48,7 +48,7 @@ export const useEntrepriseFinder = (setGeoLocation, setCodeCommune) => {
     setError(null);
     setAddressSuggestions([]);
     if (!isValidSiretOrRidet(siretOrRidet)) {
-      setError('Veuillez entrer un RIDET (6 ou 7 chiffres) ou un SIRET (14 chiffres) valide.');
+      setError('Veuillez entrer un RIDET (7 chiffres) ou un SIRET (14 chiffres) valide.');
       return;
     }
     setLoading(true);
