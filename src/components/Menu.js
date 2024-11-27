@@ -97,25 +97,37 @@ function Menu() {
                 aria-expanded={activeMenu === 'cnfs'}
                 aria-controls="menu-cnfs"
                 onClick={onClickMenu}
-                {...(location.pathname.startsWith('/aide-candidat') || location.pathname.startsWith('/aide-structure') ? { 'aria-current': true } : {})}>
-                Recrutement
+                {
+                  ...(location.pathname.startsWith('/nouveau-formulaire-conseiller') ||
+                  location.pathname.startsWith('/nouveau-formulaire-structure') ||
+                  location.pathname.startsWith('/nouveau-formulaire-coordinateur') ? { 'aria-current': true } : {})
+                }>
+                Candidature
               </button>
               <div className={`fr-collapse fr-menu ${activeMenu === 'cnfs' ? 'fr-collapse--expanded' : ''}`} id="menu-cnfs">
                 <ul className="fr-menu__list">
                   <li>
                     <Link
-                      to="/aide-candidat"
+                      to="/nouveau-formulaire-conseiller"
                       className="fr-nav__link"
-                      {...(location.pathname.startsWith('/aide-candidat') ? { 'aria-current': 'page' } : {})}>
+                      {...(location.pathname.startsWith('/nouveau-formulaire-conseiller') ? { 'aria-current': 'page' } : {})}>
                       Devenir conseiller num&eacute;rique
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to="/aide-structure"
+                      to="/nouveau-formulaire-structure"
                       className="fr-nav__link"
-                      {...(location.pathname.startsWith('/aide-structure') ? { 'aria-current': 'page' } : {})}>
-                      Recruter un conseiller num&eacute;rique
+                      {...(location.pathname.startsWith('/nouveau-formulaire-structure') ? { 'aria-current': 'page' } : {})}>
+                      Obtenir un poste de conseiller num&eacute;rique
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/nouveau-formulaire-coordinateur"
+                      className="fr-nav__link"
+                      {...(location.pathname.startsWith('/nouveau-formulaire-coordinateur') ? { 'aria-current': 'page' } : {})}>
+                      Obtenir un poste de coordinateur de conseiller num&eacute;rique
                     </Link>
                   </li>
                 </ul>

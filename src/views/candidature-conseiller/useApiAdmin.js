@@ -112,12 +112,21 @@ export const useApiAdmin = () => {
     return structureData;
   };
 
+  const handleRidetSiret = structureData => {
+    structureData.ridet = null;
+    if (structureData.siret.length < 14) {
+      structureData.ridet = structureData.siret;
+      structureData.siret = null;
+    }
+  };
+
   const buildStructureData = async (formData, geoLocation, codeCommune) => {
     const structureData = Object.fromEntries(formData);
     structureData.location = geoLocation;
     convertValueToBoolean(structureData, 'aIdentifieCandidat');
     handleContact(structureData);
     handleInformationsStructure(structureData);
+    handleRidetSiret(structureData);
     await handleAdresse(structureData, codeCommune);
     convertValueToBoolean(structureData, 'confirmationEngagement');
     delete structureData['g-recaptcha-response'];
@@ -128,6 +137,7 @@ export const useApiAdmin = () => {
     const coordinateurData = Object.fromEntries(formData);
     handleContact(coordinateurData);
     handleInformationsStructure(coordinateurData);
+    handleRidetSiret(coordinateurData);
     await handleAdresse(coordinateurData, codeCommune);
     convertValueToBoolean(coordinateurData, 'aIdentifieCoordinateur');
     convertValueToBoolean(coordinateurData, 'confirmationEngagement');
