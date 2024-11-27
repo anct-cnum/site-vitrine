@@ -8,7 +8,7 @@ import RadioGroup from '../../components/commun/RadioGroup';
 import { checkValidity } from '../../shared/checkValidity';
 
 const TAILLE_SIRET = 14;
-const TAILLE_RIDET = [6, 7];
+const TAILLE_RIDET = [7];
 const TAILLES_POSSIBLES = [...TAILLE_RIDET, TAILLE_SIRET];
 
 const options = [

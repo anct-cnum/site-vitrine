@@ -48,8 +48,8 @@ describe('candidature structure', () => {
     const etapeInformationsDeStructure = within(formulaire).getByRole('group', { name: 'Vos informations de structure' });
     expect(etapeInformationsDeStructure).toHaveAttribute('id', 'informations-de-structure');
 
-    const siretOuRidet = within(etapeInformationsDeStructure).getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
-    expect(siretOuRidet).toHaveAttribute('pattern', '^(?:[0-9]{6,10}|[0-9]{14})$');
+    const siretOuRidet = within(etapeInformationsDeStructure).getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (1234567)');
+    expect(siretOuRidet).toHaveAttribute('pattern', '^(?:[0-9]{7}|[0-9]{14})$');
     expect(siretOuRidet).toHaveAttribute('id', 'siret');
     expect(siretOuRidet).toBeRequired();
 
@@ -246,7 +246,7 @@ describe('candidature structure', () => {
     render(<CandidatureStructure />);
 
     // WHEN
-    const siretInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    const siretInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (1234567)');
     fireEvent.change(siretInput, { target: { value: '13002603200016' } });
 
     // THEN
@@ -275,7 +275,7 @@ describe('candidature structure', () => {
     render(<CandidatureStructure />);
 
     // WHEN
-    const ridetInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    const ridetInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (1234567)');
     fireEvent.change(ridetInput, { target: { value: '1071539' } });
 
     // THEN
@@ -285,12 +285,12 @@ describe('candidature structure', () => {
     });
   });
 
-  it('quand je renseigne ni un siret (14 chiffres) ni un ridet (6 ou 7 chiffres) alors les champs sont vidés', async () => {
+  it('quand je renseigne ni un siret (14 chiffres) ni un ridet (7 chiffres) alors les champs sont vidés', async () => {
     // GIVEN
     render(<CandidatureStructure />);
 
     // WHEN
-    const siretInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    const siretInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (1234567)');
     fireEvent.change(siretInput, { target: { value: '1300260320001' } });
 
     // THEN
@@ -315,7 +315,7 @@ describe('candidature structure', () => {
     render(<CandidatureStructure />);
 
     // WHEN
-    const siretInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    const siretInput = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (1234567)');
     fireEvent.change(siretInput, { target: { value: '13002603200016' } });
 
     // THEN
@@ -357,7 +357,7 @@ describe('candidature structure', () => {
     });
 
     render(<CandidatureStructure />);
-    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (1234567)');
     fireEvent.change(siret, { target: { value: '12345678901234' } });
     const denomination = screen.getByLabelText('Dénomination *');
     fireEvent.change(denomination, { target: { value: 'Entreprise' } });
@@ -416,7 +416,7 @@ describe('candidature structure', () => {
     vi.spyOn(ReactRouterDom, 'useNavigate').mockReturnValue(mockNavigate);
 
     render(<CandidatureStructure />);
-    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (1234567)');
     fireEvent.change(siret, { target: { value: '12345678901234' } });
     const denomination = screen.getByLabelText('Dénomination *');
     fireEvent.change(denomination, { target: { value: 'Entreprise' } });
@@ -693,7 +693,7 @@ describe('candidature structure', () => {
     });
 
     render(<CandidatureStructure />);
-    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)');
+    const siret = screen.getByLabelText('SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (1234567)');
     fireEvent.change(siret, { target: { value: '12345678901234' } });
     const denomination = screen.getByLabelText('Dénomination *');
     fireEvent.change(denomination, { target: { value: 'Entreprise' } });
@@ -742,7 +742,7 @@ describe('candidature structure', () => {
   it.each([
     {
       description: 'un SIRET/RIDET',
-      selector: 'SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (123456789)',
+      selector: 'SIRET / RIDET * Format attendu : SIRET (12345678901234) ou RIDET (1234567)',
       message: 'Veuillez renseigner le SIRET/RIDET'
     },
     {
