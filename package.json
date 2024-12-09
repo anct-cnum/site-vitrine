@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@gouvfr-anct/cartographie-nationale": "^5.22.0",
-    "@gouvfr/dsfr": "1.12.1",
-    "@reduxjs/toolkit": "^2.3.0",
+    "@gouvfr/dsfr": "1.13.0",
+    "@reduxjs/toolkit": "^2.4.0",
     "dayjs": "^1.11.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -27,9 +27,9 @@
     "web-vitals": "^4.2.4"
   },
   "devDependencies": {
-    "@testing-library/react": "^16.0.1",
-    "@vitejs/plugin-react": "^4.3.3",
-    "@vitest/coverage-istanbul": "^2.1.4",
+    "@testing-library/react": "^16.1.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-istanbul": "^2.1.8",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-testing-library": "^6.2.2",
