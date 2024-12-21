@@ -64,7 +64,7 @@ describe('candidature conseiller', () => {
 
     const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone Format attendu : 0122334455 ou +33122334455');
     expect(telephone).toHaveAttribute('type', 'tel');
-    expect(telephone).toHaveAttribute('pattern', '([+][0-9]{11,12})|([0-9]{10})');
+    expect(telephone).toHaveAttribute('pattern', '^(\\+\\d{11,12}|\\d{10})$');
 
     const habitation = within(etapeInformationsDeContact).getByLabelText(('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.'));
     expect(habitation).toHaveAttribute('type', 'text');

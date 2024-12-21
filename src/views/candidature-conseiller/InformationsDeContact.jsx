@@ -31,7 +31,7 @@ export default function InformationsDeContact({ errors }) {
       <Input
         id="telephone"
         type="tel"
-        pattern="([+][0-9]{11,12})|([0-9]{10})"
+        pattern="^(\+\d{11,12}|\d{10})$"
         isRequired={false}
         error={errors.telephone}
       >

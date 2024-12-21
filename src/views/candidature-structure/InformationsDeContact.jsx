@@ -41,7 +41,7 @@ export default function InformationsDeContact({ errors }) {
         id="telephone"
         name="telephone"
         type="tel"
-        pattern="([+][0-9]{11,12})|([0-9]{10})"
+        pattern="^(\+\d{11,12}|\d{10})$"
         error={errors.telephone}
       >
         Téléphone <span className="cc-obligatoire">*</span>{' '}
