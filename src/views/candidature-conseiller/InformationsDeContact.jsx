@@ -23,7 +23,7 @@ export default function InformationsDeContact({ errors }) {
       <Input
         id="email"
         type="email"
-        pattern=".+@.+\..{2,}"
+        pattern="^\S+@\S+\.\S+$"
         error={errors.email}
       >
         Adresse électronique <span className="cc-obligatoire">*</span> <span className="fr-hint-text">Format attendu : nom@domaine.fr</span>
