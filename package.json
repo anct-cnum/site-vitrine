@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^16.0.1",
-    "@vitejs/plugin-react": "^4.3.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-istanbul": "^2.1.9",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.3",
@@ -36,7 +36,8 @@
     "eslint-plugin-vitest": "^0.4.1",
     "jsdom": "^25.0.1",
     "vitest": "^2.1.9",
-    "vitest-dom": "^0.1.1"
+    "vitest-dom": "^0.1.1",
+    "esbuild": "^0.25.0"
   },
   "engines": {
     "node": "20.12.2"
