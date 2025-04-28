@@ -13,7 +13,7 @@
     "test:coverage": "npm test -- --coverage"
   },
   "dependencies": {
-    "@gouvfr-anct/cartographie-nationale": "^5.22.0",
+    "@gouvfr-anct/cartographie-nationale": "^5.25.0",
     "@gouvfr/dsfr": "1.12.1",
     "@reduxjs/toolkit": "^2.3.0",
     "dayjs": "^1.11.13",
@@ -30,14 +30,14 @@
     "@testing-library/react": "^16.0.1",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-istanbul": "^2.1.9",
+    "esbuild": "^0.25.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-testing-library": "^6.2.2",
     "eslint-plugin-vitest": "^0.4.1",
     "jsdom": "^25.0.1",
     "vitest": "^2.1.9",
-    "vitest-dom": "^0.1.1",
-    "esbuild": "^0.25.0"
+    "vitest-dom": "^0.1.1"
   },
   "engines": {
     "node": "20.12.2"
