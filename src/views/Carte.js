@@ -6,7 +6,7 @@ import '../../public/styles-5.22.0.css';
 
 class Carte extends Component {
   render() {
-    const urlPermanences = import.meta.env.VITE_APP_API_URL + '/permanences';
+    const urlPermanences = import.meta.env.VITE_APP_API_URL + '/lieux-mediation-numerique';
 
     window.scrollTo({ top: 0 });
 
