@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@gouvfr-anct/cartographie-nationale": "^5.25.0",
-    "@gouvfr/dsfr": "1.13.1",
-    "@reduxjs/toolkit": "^2.8.1",
+    "@gouvfr/dsfr": "1.13.2",
+    "@reduxjs/toolkit": "^2.8.2",
     "dayjs": "^1.11.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
