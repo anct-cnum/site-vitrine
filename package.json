@@ -35,7 +35,7 @@
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-testing-library": "^6.2.2",
     "eslint-plugin-vitest": "^0.4.1",
-    "jsdom": "^25.0.1",
+    "jsdom": "^26.1.0",
     "vitest": "^2.1.9",
     "vitest-dom": "^0.1.1"
   },
