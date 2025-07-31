@@ -13,7 +13,7 @@
     "test:coverage": "npm test -- --coverage"
   },
   "dependencies": {
-    "@gouvfr-anct/cartographie-nationale": "^5.26.0",
+    "@gouvfr-anct/cartographie-nationale": "^5.27.0",
     "@gouvfr/dsfr": "1.13.2",
     "@reduxjs/toolkit": "^2.8.2",
     "dayjs": "^1.11.13",
