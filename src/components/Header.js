@@ -17,7 +17,7 @@ import '@gouvfr/dsfr/dist/utility/icons/icons-system/icons-system.min.css';
 
 function Header() {
   // eslint-disable-next-line max-len
-  const aideUrl = `${import.meta.env.VITE_APP_AIDE_URL}/article/renouvellement-quel-est-le-montant-de-la-subvention-quelle-est-la-duree-de-la-subvention-et-du-contrat-1ci8cxv/`;
+  const aideUrl = `${import.meta.env.VITE_APP_AIDE_URL}/article/renouvellement-quel-est-le-montant-de-la-subvention-quelle-est-la-duree-de-la-subvention-et-du-contrat/`;
   const dispatch = useDispatch();
 
   const toggleBurgerMenu = () => {
