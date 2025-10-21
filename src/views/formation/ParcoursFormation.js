@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageParcours from '../../assets/images/schema-parcours-formation-conseiller-numerique-2024.svg';
+import ImageParcours from '../../assets/images/schema-parcours-formation-conseiller-numerique-2025.png';
 
 function ParcoursFormation() {
   return (
@@ -9,6 +9,13 @@ function ParcoursFormation() {
           L’offre de formation à destination des conseillers numériques
         </h2>
       </div>
+      <div className="fr-col-10">
+        <p className="introduction">
+          L’offre de formation du dispositif Conseiller numérique se compose
+          de deux volets complémentaires : la formation initiale et la formation continue.
+          Les inscriptions s’effectuent directement sur les sites internet des organismes de formation.
+        </p>
+      </div>
       <div className="fr-col-12">
         <img
           src={ImageParcours}
@@ -17,12 +24,23 @@ function ParcoursFormation() {
           alt="Parcours de formation depuis la prise de poste, avec une phase de formation initiale, puis une phase de formation continue"
         />
       </div>
-      <div className="fr-col-8">
-        <p className="fr-ml-n1w description">
-          A la suite de l’arrêt des activités de Pop School fin septembre 2024, la coordination de la formation initiale
-          préparant au CCP1 du titre REMN en Outre-mer est reprise par l’organisme de formation Francil’In.
-          La coordination nationale de la formation préparant à l’obtention du titre REMN complet (CCP2 et CCP3)
-          est reprise par l’organisme de formation Histya.
+      <div className="fr-col-10">
+        <p className="introduction">
+          Depuis le 13 juillet 2025, le titre professionnel « Médiateur numérique »
+          remplace officiellement le titre « Responsable d’Espace de Médiation Numérique » (REMN).
+        </p>
+        <p className="introduction">
+          Créé en 2019, le titre REMN constituait la base de la formation des conseillers numériques dès le lancement du dispositif.
+          La formation initiale préparait à l’obtention du CCP1 du titre REMN, et les conseillers pouvaient
+          également suivre une formation menant à l’obtention du titre complet.
+        </p>
+        <p className="introduction">
+          Le dispositif ne propose plus de formations préparant au titre complet.
+          <a
+            href="https://aide.conseiller-numerique.gouv.fr/fr/article/le-titre-mediateur-numerique-remplace-le-remn-ce-quil-faut-savoir-vloijd/"
+          >
+            En savoir plus
+          </a>
         </p>
       </div>
     </>

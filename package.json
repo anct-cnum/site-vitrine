@@ -36,6 +36,7 @@
     "eslint-plugin-testing-library": "^6.2.2",
     "eslint-plugin-vitest": "^0.4.1",
     "jsdom": "^25.0.1",
+    "sass-embedded": "^1.93.2",
     "vitest": "^2.1.9",
     "vitest-dom": "^0.1.1"
   },

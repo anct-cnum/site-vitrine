@@ -6,8 +6,9 @@ function FormationInitiale() {
   const fabrikUrl = 'https://fabrikmediationnumerique.org/';
   const mednumUrl = 'https://lamednum.coop/formation/';
   const aidantsconnectUrl = 'https://aidantsconnect.beta.gouv.fr/habilitation';
-  const dispenseUrl = `${import.meta.env.VITE_APP_AIDE_URL}/article/un-conseiller-numerique-peut-il-etre-dispense-de-la-formation-initiale-obligatoire-ywgzld/`;
-  const articleFaq = `${import.meta.env.VITE_APP_AIDE_URL}/article/quel-est-le-parcours-de-la-formation-initiale-de-linscription-aux-examens-ipolnd/`;
+  const dispenseUrl = `${import.meta.env.VITE_APP_AIDE_URL}/fr/article/qui-peut-etre-dispense-de-la-formation-initiale-obligatoire-1vv3bqf/`;
+  const articleFaq = `${import.meta.env.VITE_APP_AIDE_URL}/article/formation-initiale-le-parcours-de-formation-14ryxwt/`;
+  const competencesUrl = 'https://www.francecompetences.fr/recherche/rncp/40695/';
 
   return (
     <div className="fr-col-9 cadre">
@@ -18,25 +19,32 @@ function FormationInitiale() {
       </div>
       <div className="fr-ml-5w fr-col-11">
         <p>
-          Cette formation obligatoire est proposée à tout nouveau conseiller numérique entrant dans le
-          dispositif, <a href={dispenseUrl} rel="noopener noreferrer" target="_blank">s’il n’en est pas dispensé</a>.
-          Adaptée à votre profil et votre expérience, elle vous permet d’acquérir les compétences nécessaires à l’exercice de vos fonctions.
+          La formation initiale est obligatoire pour tout nouveau conseiller numérique entrant
+          dans le dispositif, <a href={dispenseUrl} rel="noopener noreferrer" target="_blank">s’il n’en est pas dispensé</a>,
+          et entièrement financée par le dispositif.
+          Elle permet aux conseillers numériques d’acquérir les fondamentaux de la médiation numérique,
+          et prépare à l’obtention du 1er bloc de compétence (CCP1) du titre professionnel{' '}
+          <a href={competencesUrl} rel="noopener noreferrer" target="_blank">Médiateur numérique</a> et au passage de la certification PIX.
         </p>
       </div>
       <div className="fr-ml-5w fr-col-11">
-        <h3 className="fr-mt-6w fr-mb-3w">
-          Formation initiale préparant à l’obtention du CCP1, du REMN et de la certification PIX
-        </h3>
+        <h4 className="fr-mt-6w fr-mb-3w">
+          Les compétences développées au cours de la formation sont les suivantes :
+        </h4>
+        <ul>
+          <li>Accueillir les personnes et présenter les missions de la médiation numérique</li>
+          <li>Recueillir les besoins, poser un diagnostic partagé et proposer des accompagnements adaptés</li>
+          <li>Concevoir et programmer des accompagnements aux usages numériques</li>
+          <li>Préparer et animer des accompagnements aux usages numériques dans différents lieux et environnements</li>
+          <li>Évaluer ses actions et sa pratique professionnelle</li>
+        </ul>
       </div>
       <div className="fr-ml-5w fr-col-11">
         <p>
-          Chaque conseiller numérique recruté par une structure doit, dans le cadre du dispositif Conseiller numérique,
-          suivre une formation initiale qui le conduira à passer le <strong>CCP1 du titre professionnel de Responsable
-          d’Espace de Médiation Numérique (REMN) et la certification PIX</strong>.
-        </p>
-        <p>
-          Pour s’y préparer, trois parcours de formation sont proposés : 70 heures (court), 175 heures (intermédiaire) ou 315 heures (long).
-          Un test de positionnement sera organisé par l’organisme de formation pour identifier le parcours le plus adéquat à leurs besoins.
+          En Outre-mer comme en Hexagone, la préparation aux examens du CCP1 du titre
+          « Médiateur numérique » et PIX comprend 175h de cours, et un stage d’une durée
+          de 210h, effectué en alternance avec les sessions de formation.
+          Le stage peut être réalisé au sein même de la structure d’accueil.
         </p>
         <p>
           La formation et le passage des examens sont organisés par <strong>La Fabrik</strong> en France métropolitaine,
@@ -55,9 +63,13 @@ function FormationInitiale() {
           </a>
         </p>
         <p>
-          Pour en savoir plus sur la formation initiale,
-          consultez <a href={articleFaq} rel="noopener noreferrer" target="_blank">cet article</a> de notre FAQ.
+          Pour en savoir plus sur la formation initiale, consultez <a href={articleFaq} rel="noopener noreferrer" target="_blank">cet article</a> de notre FAQ.
         </p>
+      </div>
+      <div className="fr-ml-5w fr-col-11">
+        Les conseillers numériques engagés dans la formation initiale doivent suivre
+        deux modules thématiques complémentaires dans l’année suivant leur entrée en
+        formation. Pour plus d’informations, consultez la présentation de la formation continue ci-dessous.
       </div>
       <div className="fr-ml-5w fr-col-11">
         <div className="fr-container encart-bleu fr-mt-5w">
@@ -76,7 +88,7 @@ function FormationInitiale() {
             </div>
             <div className="fr-col-xs-12 fr-col-xl-5 fr-m-3w img-fabrik">
               <a href={fabrikUrl} rel="noopener noreferrer" target="_blank" className="lien-image-fabrik">
-                <img src={ImageLaFabrik} alt="image présentant le site de La Fabrik" loading="lazy"/>
+                <img src={ImageLaFabrik} alt="image présentant le site de La Fabrik" loading="lazy" />
               </a>
             </div>
           </div>
@@ -101,7 +113,8 @@ function FormationInitiale() {
         <p>
           Les conseillers numériques nouvellement recrutés disposent d’un an, à partir de leur entrée en formation initiale préparant au CCP1 REMN,
           pour suivre les deux modules thématiques complémentaires.
-          Cette offre de formation est organisée au niveau national par <a href="https://lamednum.coop/">La Mednum</a>,
+          Cette offre de formation est organisée au niveau national par{' '}
+          <a href="https://lamednum.coop/" rel="noopener noreferrer" target="_blank">La Mednum</a>,
           en lien avec des organismes de formation régionaux partenaires.
         </p>
         <p>
@@ -113,8 +126,8 @@ function FormationInitiale() {
         <p>
           Si vous souhaitez suivre le module Aidants Connect, le calendrier des sessions vous sera partagé une fois
           l’habilitation de votre structure obtenue. <b>Vous pouvez entamer les démarches avant la réception de
-          votre convocation pour la préparation au CCP1, mais devrez attendre cette convocation pour vous inscrire &agrave;
-          une session de formation.</b>
+            votre convocation pour la préparation au CCP1, mais devrez attendre cette convocation pour vous inscrire &agrave;
+            une session de formation.</b>
         </p>
         <p>
           <b>Pour obtenir l’habilitation Aidants Connect : </b>

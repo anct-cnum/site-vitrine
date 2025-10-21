@@ -4,7 +4,8 @@ function FormationContinue() {
   const mednumUrl = 'https://lamednum.coop/formation/';
   const histyaUrl = 'https://histya.fr/conseiller·e·s-numerique·s/';
   const aidantsconnectUrl = 'https://aidantsconnect.beta.gouv.fr/habilitation';
-
+  // eslint-disable-next-line max-len
+  const regleDeSuiviFormationContinueUrl = `${import.meta.env.VITE_APP_AIDE_URL}/fr/article/formation-continue-obligatoire-combien-de-modules-thematiques-doit-suivre-un-conseiller-numerique-1e3zehu`;
   return (
     <div className="fr-col-9 fr-mt-5w cadre">
       <div className="fr-ml-5w fr-col-11">
@@ -14,26 +15,29 @@ function FormationContinue() {
       </div>
       <div className="fr-ml-5w fr-col-11">
         <p>
-          La formation continue des conseillers numériques est constituée de deux volets : l’un obligatoire, l’autre facultatif.
-        </p>
-        <h3 className="fr-mt-6w fr-mb-3w">
-          Les modules thématiques
-        </h3>
-        <p>
-          Les conseillers numériques se voient proposer un catalogue de quinze modules thématiques courts,
-          conçus spécifiquement pour eux par des experts de l’inclusion numérique.
+          Depuis 2024, les conseillers numériques ont accès à un catalogue de <strong>17 modules
+          de formation thématiques</strong> courts, leur permettant de renforcer leurs compétences{' '}
+          selon leurs missions et besoins. Ces modules abordent des sujets variés tels que
+          la parentalité numérique, la cybersécurité, l’intelligence artificielle,
+          l’accompagnement des publics en situation de handicap ou encore le numérique responsable.
         </p>
         <p>
-          Les thèmes proposés sont nombreux (parentalité numérique, accompagnement des publics en situation de handicap, numérique responsable…).
-          D’une durée de 7 heures ou 14 heures, les modules thématiques ont pour objectif d’accompagner les conseillers numériques
-          dans leurs missions quotidiennes, en fonction de leurs besoins.
+          L’État prend en charge <strong>un module obligatoire par conseiller et par année civile.</strong>{' '}
+          Les conseillers admis en formation initiale après 2024 doivent suivre
+          <strong>deux modules thématiques</strong> au cours de l’année suivant leur entrée dans le dispositif.
         </p>
         <p>
-          Le dispositif finance la formation continue des conseillers numériques à hauteur d’un module thématique obligatoire chaque année.
+          NB: Cette offre est également accessible aux professionnels de la médiation numérique hors dispositif, mais{' '}
+          <strong>sans prise en charge financière</strong>.
         </p>
         <p>
-          Cette offre de formation est organisée au niveau national par <a href="https://lamednum.coop/">La Mednum</a>,
-          en lien avec des organismes de formation régionaux partenaires.
+          Pour en savoir plus sur les règles de suivi de la formation continue, consulter{' '}
+          <a href={regleDeSuiviFormationContinueUrl} rel="noopener noreferrer" target="_blank">cet article</a> de notre FAQ
+        </p>
+        <p>
+          L’organisation de cette offre est assurée au niveau national par{' '}
+          <a href="https://lamednum.coop/" rel="noopener noreferrer" target="_blank">
+          La Mednum</a>, en collaboration avec des organismes de formation régionaux partenaires.
         </p>
         <p>
           <b>Inscriptions : </b>
