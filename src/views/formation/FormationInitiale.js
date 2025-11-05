@@ -67,11 +67,6 @@ function FormationInitiale() {
         </p>
       </div>
       <div className="fr-ml-5w fr-col-11">
-        Les conseillers numériques engagés dans la formation initiale doivent suivre
-        deux modules thématiques complémentaires dans l’année suivant leur entrée en
-        formation. Pour plus d’informations, consultez la présentation de la formation continue ci-dessous.
-      </div>
-      <div className="fr-ml-5w fr-col-11">
         <div className="fr-container encart-bleu fr-mt-5w">
           <div className="fr-grid-row fr-grid-row--gutters">
             <div className="fr-col-xs-12 fr-col-xl-6">
@@ -94,12 +89,7 @@ function FormationInitiale() {
           </div>
         </div>
       </div>
-      <div className="fr-ml-5w fr-col-11">
-        <h3 className="fr-mt-6w fr-mb-3w">
-          Les modules thématiques complémentaires
-        </h3>
-      </div>
-      <div className="fr-ml-5w fr-col-11">
+      <div className="fr-ml-5w fr-mt-5w fr-col-11">
         <p>
           Les conseillers numériques peuvent personnaliser leur parcours de formation initiale,
           en choisissant <strong>deux modules de formation</strong> dans un catalogue de 15 thématiques,

@@ -56,9 +56,6 @@ function FormationContinue() {
             https://aidantsconnect.beta.gouv.fr/habilitation
           </a>
         </p>
-        <h3 className="fr-mt-6w fr-mb-3w">
-          Préparation en vue de l’obtention du titre REMN complet
-        </h3>
         <p>
           Les conseillers numériques ayant validé le titre CCP1 peuvent, en accord avec leur structure,
           préparer et passer les examens des deux autres certificats de compétences, les CCP2 et CCP3,
