@@ -56,30 +56,6 @@ function FormationContinue() {
             https://aidantsconnect.beta.gouv.fr/habilitation
           </a>
         </p>
-        <p>
-          Les conseillers numériques ayant validé le titre CCP1 peuvent, en accord avec leur structure,
-          préparer et passer les examens des deux autres certificats de compétences, les CCP2 et CCP3,
-          en vue d’obtenir le titre professionnel de Responsable d’Espace de Médiation Numérique complet.
-        </p>
-        <p>
-          L’objectif de cette formation diplômante est de parfaire leurs compétences en matière de développement
-          et gestion d’espaces numériques, ou encore de mise en œuvre de projets collaboratifs, et de valoriser leur expertise en médiation numérique.
-        </p>
-        <p>
-          La formation préparant à l’obtention des CCP2 et CCP3 se déploie sur 17 semaines dans un format hybride,
-          selon un rythme moyen d’un jour de formation par semaine.
-        </p>
-        <p>
-          La coordination nationale de la formation est organisée au niveau national par <a href="https://histya.fr/">Histya</a>.
-          Pour s’inscrire, les conseillers numériques doivent contacter leur organisme de formation régional,
-          dont la liste est disponible sur le site internet d’Histya.
-        </p>
-        <p>
-          <b>Site internet d’Histya : </b>
-          <a href={histyaUrl} rel="noopener noreferrer" target="_blank">
-            https://histya.fr/conseiller·e·s-numerique·s/
-          </a>
-        </p>
       </div>
     </div>
   );

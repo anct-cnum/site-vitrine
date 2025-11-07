@@ -91,39 +91,11 @@ function FormationInitiale() {
       </div>
       <div className="fr-ml-5w fr-mt-5w fr-col-11">
         <p>
-          Les conseillers numériques peuvent personnaliser leur parcours de formation initiale,
-          en choisissant <strong>deux modules de formation</strong> dans un catalogue de 15 thématiques,
-          en complément de la formation préparant au CCP1 du titre REMN.
+          Les conseillers numériques engagés dans la formation initiale doivent suivre deux modules thématiques complémentaires dans{' '}
+          l’année suivant leur entrée en formation.
         </p>
         <p>
-          Les thèmes proposés sont nombreux (parentalité numérique, accompagnement des publics en situation de handicap, numérique responsable…).
-          D’une durée de 7h ou 14h, les modules thématiques ont pour objectif d’accompagner les conseillers numériques
-          dans leurs missions quotidiennes, en fonction de leurs besoins.
-        </p>
-        <p>
-          Les conseillers numériques nouvellement recrutés disposent d’un an, à partir de leur entrée en formation initiale préparant au CCP1 REMN,
-          pour suivre les deux modules thématiques complémentaires.
-          Cette offre de formation est organisée au niveau national par{' '}
-          <a href="https://lamednum.coop/" rel="noopener noreferrer" target="_blank">La Mednum</a>,
-          en lien avec des organismes de formation régionaux partenaires.
-        </p>
-        <p>
-          <b>Présentation des modules et inscription : </b>
-          <a href={mednumUrl} rel="noopener noreferrer" target="_blank">
-            https://lamednum.coop/formation/
-          </a>
-        </p>
-        <p>
-          Si vous souhaitez suivre le module Aidants Connect, le calendrier des sessions vous sera partagé une fois
-          l’habilitation de votre structure obtenue. <b>Vous pouvez entamer les démarches avant la réception de
-            votre convocation pour la préparation au CCP1, mais devrez attendre cette convocation pour vous inscrire &agrave;
-            une session de formation.</b>
-        </p>
-        <p>
-          <b>Pour obtenir l’habilitation Aidants Connect : </b>
-          <a href={aidantsconnectUrl} rel="noopener noreferrer" target="_blank">
-            https://aidantsconnect.beta.gouv.fr/habilitation
-          </a>
+          <b>Pour plus d’informations, consultez la présentation de la formation continue ci-dessous.</b>
         </p>
       </div>
     </div>

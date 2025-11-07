@@ -10,7 +10,7 @@ function Introduction() {
         <p className="fr-ml-n1w introduction">
           Au cœur du dispositif, la <strong>formation des conseillers numériques</strong> participe à la{' '}
           <strong>professionnalisation de la filière</strong> de l’inclusion numérique en s’appuyant
-          sur des titres professionnels.
+          sur un titre professionnel.
         </p>
         <p className="fr-ml-n1w introduction">
           Elle est <strong>obligatoire</strong> et intégralement{' '}
