@@ -34,8 +34,6 @@ const GestionHash = () => {
 
 function App() {
   const Carte = lazy(() => import('./views/Carte'));
-  const CoordinationTerritoriale = lazy(() => import('./views/coordination-territoriale'));
-  const CarteCoordinateur = lazy(() => import('./views/coordination-territoriale/CarteCoordinateur'));
   const PageCandidatureConseiller = lazy(() => import('./views/candidature-conseiller/PageCandidatureConseiller'));
   const PageCandidatureStructure = lazy(() => import('./views/candidature-structure/PageCandidatureStructure'));
   const PageCandidatureCoordinateur = lazy(() => import('./views/candidature-coordinateur/PageCandidatureCoordinateur'));
@@ -66,9 +64,6 @@ function App() {
             <Route path="/aide-candidat" element={<AideCandidat />}/>
             <Route path="/aide-structure" element={<AideStructure />}/>
             <Route path="/documentheque" element={<Documentheque />}/>
-            <Route path="/coordination-territoriale" element={<CoordinationTerritoriale />}/>
-            <Route path="/coordination-territoriale/:coordinateur" element={<CarteCoordinateur />}/>
-            <Route path="/coordination-territoriale/:coordinateur/details" element={<CarteCoordinateur />}/>
             <Route path="/carte" element={<Carte />}/>
             <Route path="/regions" element={<Carte />}/>
             <Route path="/regions/:region" element={<Carte />}/>

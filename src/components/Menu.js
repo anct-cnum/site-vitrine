@@ -85,7 +85,7 @@ function Menu() {
             </li>
             <li className="fr-nav__item">
               <a className="fr-nav__link"
-                href="https://metabase.conseiller-numerique.gouv.fr/public/dashboard/446208c4-cae2-4c0c-be19-44cb14ce7d06"
+                href="https://inclusion-numerique.anct.gouv.fr/vitrine/donnees-territoriales/mediateurs-numeriques/national"
                 target="_blank" rel="noopener noreferrer">
                 Statistiques
               </a>
@@ -166,8 +166,7 @@ function Menu() {
                 className="fr-nav__btn"
                 aria-expanded={activeMenu === 'coordinateur'}
                 aria-controls="menu-coordinateur"
-                onClick={onClickMenu}
-                {...(location.pathname.startsWith('/coordination-territoriale') ? { 'aria-current': true } : {})}>
+                onClick={onClickMenu}>
                 Coordination territoriale
               </button>
               <div className={`fr-collapse fr-menu ${activeMenu === 'coordinateur' ? 'fr-collapse--expanded' : ''}`} id="menu-coordinateur">
@@ -176,14 +175,6 @@ function Menu() {
                     <a href={`${urlFormCandidature}/structure/new`} className="fr-nav__link">
                       Recrutement d&rsquo;un coordinateur
                     </a>
-                  </li>
-                  <li>
-                    <Link
-                      to="/coordination-territoriale"
-                      className="fr-nav__link"
-                      {...(location.pathname.startsWith('/coordination-territoriale') ? { 'aria-current': 'page' } : {})}>
-                      Les missions et la cartographie des coordinateurs
-                    </Link>
                   </li>
                   <li>
                     <a className="fr-nav__link"
