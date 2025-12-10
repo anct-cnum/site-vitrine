@@ -2,7 +2,6 @@ import React from 'react';
 
 function FormationContinue() {
   const mednumUrl = 'https://lamednum.coop/formation/';
-  const histyaUrl = 'https://histya.fr/conseiller·e·s-numerique·s/';
   const aidantsconnectUrl = 'https://aidantsconnect.beta.gouv.fr/habilitation';
   // eslint-disable-next-line max-len
   const regleDeSuiviFormationContinueUrl = `${import.meta.env.VITE_APP_AIDE_URL}/fr/article/formation-continue-obligatoire-combien-de-modules-thematiques-doit-suivre-un-conseiller-numerique-1e3zehu`;
