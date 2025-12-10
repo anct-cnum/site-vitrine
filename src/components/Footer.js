@@ -40,7 +40,7 @@ function Footer() {
                 <a
                   className="fr-footer__content-link"
                   title="Statistiques"
-                  href="https://metabase.conseiller-numerique.gouv.fr/public/dashboard/446208c4-cae2-4c0c-be19-44cb14ce7d06"
+                  href="https://inclusion-numerique.anct.gouv.fr/vitrine/donnees-territoriales/mediateurs-numeriques/national"
                   target="_blank" rel="noopener noreferrer">
                   Statistiques
                 </a>
