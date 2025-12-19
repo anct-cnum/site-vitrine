@@ -16,8 +16,6 @@ import '@gouvfr/dsfr/dist/utility/icons/icons-document/icons-document.min.css';
 import '@gouvfr/dsfr/dist/utility/icons/icons-system/icons-system.min.css';
 
 function Header() {
-  // eslint-disable-next-line max-len
-  const aideUrl = `${import.meta.env.VITE_APP_AIDE_URL}/article/convention-de-subvention-et-renouvellement-comment-ca-marche-15gvzzn/`;
   const dispatch = useDispatch();
 
   const toggleBurgerMenu = () => {
@@ -60,16 +58,6 @@ function Header() {
             <div className="fr-header__tools">
               <div className="fr-header__tools-links">
                 <ul className="fr-links-group">
-                  <li>
-                    <a
-                      title="Renouvellement conventions"
-                      className="fr-link fr-icon-star-fill link-renouvellement-conventions"
-                      href={aideUrl}
-                      target="_blank"
-                      rel="noopener noreferrer">
-                        Renouvellement conventions
-                    </a>
-                  </li>
                   <li>
                     <Link
                       to="/documentheque"

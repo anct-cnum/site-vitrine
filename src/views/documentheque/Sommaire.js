@@ -36,7 +36,12 @@ function Sommaire() {
             </li>
             <li>
               <a className="summary-link-custom" href="#titre-ancre-1.5">
-                1.5&nbsp;&nbsp;Mod&egrave;le de convention de subvention 36 mois
+                1.5&nbsp;&nbsp;Avenant à la convention de subvention de poste de conseiller num&eacute;rique coordinateur
+              </a>
+            </li>
+            <li>
+              <a className="summary-link-custom" href="#titre-ancre-1.6">
+                1.6&nbsp;&nbsp;Mod&egrave;le de convention de subvention 36 mois
               </a>
             </li>
             <li>
