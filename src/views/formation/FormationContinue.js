@@ -4,7 +4,7 @@ function FormationContinue() {
   const mednumUrl = 'https://lamednum.coop/formation/';
   const aidantsconnectUrl = 'https://aidantsconnect.beta.gouv.fr/habilitation';
   // eslint-disable-next-line max-len
-  const regleDeSuiviFormationContinueUrl = `${import.meta.env.VITE_APP_AIDE_URL}/fr/article/formation-continue-obligatoire-combien-de-modules-thematiques-doit-suivre-un-conseiller-numerique-1e3zehu`;
+  const regleDeSuiviFormationContinueUrl = `${import.meta.env.VITE_APP_AIDE_URL}/fr/article/formation-continue-obligatoire-combien-de-modules-thematiques-doit-suivre-un-conseiller-numerique-1e3zehu/`;
   return (
     <div className="fr-col-9 fr-mt-5w cadre">
       <div className="fr-ml-5w fr-col-11">
