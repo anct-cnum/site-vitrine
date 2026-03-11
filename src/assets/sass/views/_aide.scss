@@ -1,4 +1,4 @@
-@import '../colors/colors';
+@use '../colors/colors' as *;
 
 .aideCandidat, .aideStructure {
   a[target=_blank]::after {

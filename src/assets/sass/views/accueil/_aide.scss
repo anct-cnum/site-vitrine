@@ -1,4 +1,4 @@
-@import '../../colors/colors';
+@use '../../colors/colors' as *;
 
 .aide {
   background: linear-gradient(to bottom, $green-transparent, $green-pale 100% );
