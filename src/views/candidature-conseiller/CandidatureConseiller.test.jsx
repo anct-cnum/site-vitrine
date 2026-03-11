@@ -355,7 +355,7 @@ describe('candidature conseiller', () => {
     expect(parisot).toBeInTheDocument();
   });
 
-  it('quand je coche au moins une case de situation et que je valide le formulaire alors il n’y a pas d’erreur de validation', () => {
+  it('quand je coche au moins une case de situation et que je valide le formulaire alors il n’y a pas d’erreur de validation', async () => {
     // GIVEN
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2023, 11, 12, 13));
@@ -389,6 +389,7 @@ describe('candidature conseiller', () => {
 
     // WHEN
     const envoyer = screen.getByRole('button', { name: 'Envoyer votre candidature' });
+    vi.useRealTimers();
     fireEvent.click(envoyer);
 
     // THEN
@@ -396,7 +397,9 @@ describe('candidature conseiller', () => {
     expect(envoiEnCours).toBeInTheDocument();
     const erreurCheckboxes = screen.queryByText('Vous devez cocher au moins une case', { selector: 'p' });
     expect(erreurCheckboxes).not.toBeInTheDocument();
-    vi.useRealTimers();
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {});
   });
 
   it('quand je ne coche pas de case de situation et que je valide le formulaire alors il y a une erreur de validation', () => {
