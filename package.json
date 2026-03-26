@@ -37,7 +37,7 @@
     "eslint-plugin-vitest": "^0.4.1",
     "jsdom": "^25.0.1",
     "sass-embedded": "^1.98.0",
-    "vitest": "^3.0.0",
+    "vitest": "^4.1.1",
     "vitest-dom": "^0.1.1"
   },
   "engines": {
