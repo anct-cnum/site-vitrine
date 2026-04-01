@@ -3,8 +3,6 @@ import Header from '../../components/Header';
 import Coordination from './Coordination';
 import Missions from './Missions';
 import Informations from './Informations';
-import CarteCoordinateur from './CarteCoordinateur';
-
 function CoordinationTerritorial() {
 
   return (
@@ -13,7 +11,6 @@ function CoordinationTerritorial() {
       <Coordination />
       <Missions />
       <Informations />
-      <CarteCoordinateur />
     </div>
   );
 }

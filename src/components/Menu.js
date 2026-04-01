@@ -13,6 +13,7 @@ function Menu() {
   const [changedMenu, setIsChangedMenu] = useState(false);
 
   const urlBlog = import.meta.env.VITE_APP_BLOG_URL;
+  const urlCartographie = import.meta.env.VITE_APP_CARTOGRAPHIE_URL;
   const urlDashboard = import.meta.env.VITE_APP_DASHBOARD_URL;
   const urlCoop = import.meta.env.VITE_APP_COOP_URL;
   const urlCandidat = import.meta.env.VITE_APP_CANDIDAT_URL;
@@ -76,12 +77,12 @@ function Menu() {
               <a className="fr-nav__link" href={urlBlog} target="_self">M&eacute;dia</a>
             </li>
             <li className="fr-nav__item">
-              <Link
-                to="/carte"
+              <a
                 className="fr-nav__link"
-                {...(location.pathname.startsWith('/carte') ? { 'aria-current': 'page' } : {})}>
+                href={urlCartographie}
+                target="_self">
                 Carte
-              </Link>
+              </a>
             </li>
             <li className="fr-nav__item">
               <a className="fr-nav__link"

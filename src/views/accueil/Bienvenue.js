@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import logoFR from '../../assets/brands/logo-france-relance-nb-min.svg';
 import imageCarteUsagere from '../../assets/images/accueil-carte-et-usagere-min.svg';
 import imageConseillers from '../../assets/images/accueil-usagers-et-conseillers-numeriques-min.svg';
 
 function Bienvenue() {
+  const urlCartographie = import.meta.env.VITE_APP_CARTOGRAPHIE_URL;
 
   return (
     <>
@@ -20,11 +20,12 @@ function Bienvenue() {
             <div className="twoParts">
               <div className="leftPart">
                 <h4 className="fr-h4 title fr-mb-4w">Trouver un conseiller num&eacute;rique pr&egrave;s de chez moi</h4>
-                <Link
-                  to="/carte"
+                <a
+                  href={urlCartographie}
+                  target="_self"
                   className="fr-btn btnCustom">
                   Rechercher
-                </Link>
+                </a>
                 <img src={imageCarteUsagere} alt="Carte et usag&egrave;re" />
               </div>
               <div className="rightPart">

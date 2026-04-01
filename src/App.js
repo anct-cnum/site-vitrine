@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useParams, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Footer from './components/Footer';
 import Accueil from './views/accueil';
 import KitCommunication from './views/kit-communication';
@@ -18,11 +18,6 @@ import '@gouvfr/dsfr/dist/component/header/header.module.min.js';
 import './assets/sass/main.scss';
 import '@gouvfr/dsfr/dist/core/core.min.css';
 
-const RedirectCarto = () => {
-  const { permanence } = useParams();
-  return <Navigate to={`/${permanence}/details`} replace />;
-};
-
 const GestionHash = () => {
   const location = useLocation();
   const allowedAncres = ['#ancre-themes', '#ancre-statistiques'];
@@ -33,7 +28,6 @@ const GestionHash = () => {
 };
 
 function App() {
-  const Carte = lazy(() => import('./views/Carte'));
   const PageCandidatureConseiller = lazy(() => import('./views/candidature-conseiller/PageCandidatureConseiller'));
   const PageCandidatureStructure = lazy(() => import('./views/candidature-structure/PageCandidatureStructure'));
   const PageCandidatureCoordinateur = lazy(() => import('./views/candidature-coordinateur/PageCandidatureCoordinateur'));
@@ -64,13 +58,6 @@ function App() {
             <Route path="/aide-candidat" element={<AideCandidat />}/>
             <Route path="/aide-structure" element={<AideStructure />}/>
             <Route path="/documentheque" element={<Documentheque />}/>
-            <Route path="/carte" element={<Carte />}/>
-            <Route path="/regions" element={<Carte />}/>
-            <Route path="/regions/:region" element={<Carte />}/>
-            <Route path="/regions/:region/:departement" element={<Carte />}/>
-            <Route path="/:permanence/details" element={<Carte />}/>
-            <Route path="/carte/:permanence/details" element={<RedirectCarto />}/>
-            <Route exact path="/:permanence" element={<Carte />}/>
             <Route path="/formation" element={<Formation/>}/>
             <Route index element={<Accueil />}/>
             <Route path="*" element={<Navigate to="/" />}/>

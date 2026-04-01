@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import imageConseiller from '../../assets/images/conseiller-pied-de-page-min.svg';
 import imageConseillere from '../../assets/images/conseillere-pied-de-page-min.svg';
 import imageCartographie from '../../assets/images/cartographie-cnfs-min.svg';
 
 function PriseRDV() {
+  const urlCartographie = import.meta.env.VITE_APP_CARTOGRAPHIE_URL;
 
   return (
     <div className="priseRDV">
@@ -16,17 +16,19 @@ function PriseRDV() {
           <h4 className="fr-h4 titleRDV fr-mb-4w">
             Je veux prendre rendez-vous avec un conseiller num&eacute;rique d&egrave;s maintenant
           </h4>
-          <Link
-            to="/carte"
+          <a
+            href={urlCartographie}
+            target="_self"
             className="fr-btn btnCustom fr-mb-3w">
             Trouver un conseiller num&eacute;rique pr&egrave;s de chez moi
-          </Link>
-          <Link
+          </a>
+          <a
             id="cartographie"
-            to="/carte"
+            href={urlCartographie}
+            target="_self"
             className="fr-mb-6w">
             <img src={imageCartographie} alt="Carte" />
-          </Link>
+          </a>
         </div>
         <div className="contentImage">
           <img src={imageConseiller} alt="Conseiller" className="image" />
