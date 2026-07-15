@@ -4,7 +4,7 @@ import ImageLaFabrik from '../../assets/images/fabrik-mediation-numerique.svg';
 function FormationInitiale() {
   const contactOutreMerUrl = 'https://francilin.fillout.com/t/4fxb7jUa9gus';
   const fabrikUrl = 'https://fabrikmediationnumerique.org/';
-  const dispenseUrl = `${import.meta.env.VITE_APP_AIDE_URL}/fr/article/qui-peut-etre-dispense-de-la-formation-initiale-obligatoire-1vv3bqf/`;
+  const dispenseUrl = `${import.meta.env.VITE_APP_AIDE_URL}/article/qui-peut-etre-dispense-de-la-formation-initiale-obligatoire-1vv3bqf/`;
   const articleFaq = `${import.meta.env.VITE_APP_AIDE_URL}/article/formation-initiale-le-parcours-de-formation-14ryxwt/`;
   const competencesUrl = 'https://www.francecompetences.fr/recherche/rncp/40695/';
 

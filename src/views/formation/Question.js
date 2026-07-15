@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Question() {
-  const aideUrl = `${import.meta.env.VITE_APP_AIDE_URL}/fr/article/comment-acceder-a-la-formation-de-conseiller-numerique-tqszfy/`;
+  const aideUrl = `${import.meta.env.VITE_APP_AIDE_URL}/article/comment-acceder-a-la-formation-de-conseiller-numerique-tqszfy/`;
 
   return (
     <div className="fr-col-9 fr-mt-5w fr-py-2w cadre-bleu">
