@@ -1,16 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { statistiquesActions } from '../../actions';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 function Statistiques() {
-  const dispatch = useDispatch();
   const date = useSelector(state => state.statistiques?.date);
   const structuresMobilisees = useSelector(state => state.statistiques?.structuresMobilisees);
   const nbAccompagnements = useSelector(state => state.statistiques?.nbAccompagnements);
-
-  useEffect(() => {
-    dispatch(statistiquesActions.getHomeStats());
-  });
 
   return (
     <div className="statistiques fr-py-12w">
