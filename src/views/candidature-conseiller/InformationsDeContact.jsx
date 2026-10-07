@@ -10,18 +10,21 @@ export default function InformationsDeContact({ errors }) {
       <hr />
       <Input
         id="prenom"
+        autoComplete="given-name"
         error={errors.prenom}
       >
         Prénom <span className="cc-obligatoire">*</span>
       </Input>
       <Input
         id="nom"
+        autoComplete="family-name"
         error={errors.nom}
       >
         Nom <span className="cc-obligatoire">*</span>
       </Input>
       <Input
         id="email"
+        autoComplete="email"
         type="email"
         pattern="^\S+@\S+\.\S+$"
         error={errors.email}
@@ -30,6 +33,7 @@ export default function InformationsDeContact({ errors }) {
       </Input>
       <Input
         id="telephone"
+        autoComplete="tel"
         type="tel"
         pattern="^(\+\d{11,12}|\d{10})$"
         isRequired={false}
