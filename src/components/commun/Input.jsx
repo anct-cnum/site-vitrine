@@ -39,6 +39,8 @@ export default function Input({
           value={value}
           aria-busy={ariaBusy}
           data-testid={testId}
+          aria-describedby={error ? `${id}-error` : undefined}
+          aria-invalid={error ? true : undefined}
         />
         {isLoading && (
           <div className="fr-input-spinner" aria-hidden="true">
@@ -46,7 +48,7 @@ export default function Input({
           </div>
         )}
         {error && (
-          <p id="text-input-error-desc-error" className="fr-error-text">
+          <p id={`${id}-error`} className="fr-error-text">
             {error}
           </p>
         )}
