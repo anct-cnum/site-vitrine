@@ -28,6 +28,17 @@
   background-color: var(--blue-france-975-75);
 }
 
+/* Le corps de la notice DSFR est une rangée flex : sans ceci, le badge et les paragraphes de
+   l'encart « En résumé » sont mis côte à côte et compressés, jusqu'à déborder quand
+   l'utilisateur augmente l'espacement du texte (RGAA 10.12). */
+.cc-notice .fr-notice__body {
+  flex-direction: column;
+}
+
+.cc-notice .fr-notice__desc {
+  display: block;
+}
+
 .cc-datepicker {
   width: auto;
 }
