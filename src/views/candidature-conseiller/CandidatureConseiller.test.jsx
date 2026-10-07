@@ -11,6 +11,8 @@ vi.mock('react-router-dom', () => ({
   useNavigate: vi.fn()
 }));
 
+const libelleDateDisponibilite = 'Choisir une date';
+
 describe('candidature conseiller', () => {
   it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
     // WHEN
@@ -114,6 +116,15 @@ describe('candidature conseiller', () => {
     );
     expect(sousTitreExperienceProfessionnelle).toBeInTheDocument();
 
+    const situations = within(situationEtExperience).getByRole('group', { name: 'Êtes-vous actuellement dans l’une des situations suivantes ? *' });
+    expect(within(situations).getAllByRole('checkbox')).toHaveLength(4);
+
+    const experience = within(situationEtExperience).getByRole('radiogroup', {
+      name: 'Avez-vous une expérience professionnelle de médiation numérique ? *',
+      description: 'Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.',
+    });
+    expect(within(experience).getAllByRole('radio')).toHaveLength(2);
+
     const oui = screen.getByRole('radio', { name: 'Oui' });
     expect(oui).toBeRequired();
     expect(oui).toHaveAttribute('name', 'aUneExperienceMedNum');
@@ -150,25 +161,13 @@ describe('candidature conseiller', () => {
     const votreDisponibilite = within(formulaire).getByRole('group', { name: 'Votre disponibilité' });
     expect(votreDisponibilite).toHaveAttribute('id', 'votre-disponibilite');
 
-    const questionDisponibilite = within(votreDisponibilite).getByText(
-      textMatcher('À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? *'),
-      { selector: 'p' }
-    );
-    expect(questionDisponibilite).toBeInTheDocument();
-
-    const accompagnement = within(votreDisponibilite).getByText(
-      textMatcher('Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.'),
-      { selector: 'p' }
-    );
-    expect(accompagnement).toBeInTheDocument();
-
-    const date = within(votreDisponibilite).getByLabelText('Choisir une date');
+    const date = within(votreDisponibilite).getByLabelText(libelleDateDisponibilite);
     expect(date).toHaveAttribute('type', 'date');
     expect(date).toHaveAttribute('id', 'dateDisponibilite');
     expect(date).toBeRequired();
 
     const questionDeplacement = within(votreDisponibilite).getByText(
-      textMatcher('À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? *'),
+      textMatcher('Pour un emploi et une formation de conseiller numérique, vous êtes prêt(e) à vous déplacer à : *'),
       { selector: 'p' }
     );
     expect(questionDeplacement).toBeInTheDocument();
@@ -178,6 +177,12 @@ describe('candidature conseiller', () => {
       { selector: 'p' }
     );
     expect(distance).toBeInTheDocument();
+
+    const distances = within(votreDisponibilite).getByRole('radiogroup', {
+      name: 'Pour un emploi et une formation de conseiller numérique, vous êtes prêt(e) à vous déplacer à : *',
+      description: 'Distance à partir de votre lieu d’habitation',
+    });
+    expect(within(distances).getAllByRole('radio')).toHaveLength(7);
 
     const _5km = screen.getByRole('radio', { name: '5 km' });
     expect(_5km).toBeRequired();
@@ -268,7 +273,7 @@ describe('candidature conseiller', () => {
     const date = dateDujour();
 
     // WHEN
-    const dateDisponibilite = screen.getByLabelText('Choisir une date');
+    const dateDisponibilite = screen.getByLabelText(libelleDateDisponibilite);
     fireEvent.change(dateDisponibilite, { target: { value: date } });
 
     // THEN
@@ -384,7 +389,7 @@ describe('candidature conseiller', () => {
     fireEvent.click(enEmploi);
     const oui = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(oui);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText(libelleDateDisponibilite);
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
@@ -426,7 +431,7 @@ describe('candidature conseiller', () => {
     fireEvent.change(adresse, { target: { value: '93100 Montreuil' } });
     const oui = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(oui);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText(libelleDateDisponibilite);
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
@@ -471,7 +476,7 @@ describe('candidature conseiller', () => {
     fireEvent.click(enEmploi);
     const oui = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(oui);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText(libelleDateDisponibilite);
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
@@ -520,7 +525,7 @@ describe('candidature conseiller', () => {
     fireEvent.click(enEmploi);
     const oui = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(oui);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText(libelleDateDisponibilite);
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
@@ -568,7 +573,7 @@ describe('candidature conseiller', () => {
     fireEvent.click(enEmploi);
     const oui = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(oui);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText(libelleDateDisponibilite);
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
@@ -711,7 +716,7 @@ describe('candidature conseiller', () => {
     fireEvent.click(enEmploi);
     const oui = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(oui);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText(libelleDateDisponibilite);
     fireEvent.change(date, { target: { value: dateDujour() } });
     const _5km = screen.getByRole('radio', { name: '5 km' });
     fireEvent.click(_5km);
@@ -786,7 +791,7 @@ describe('candidature conseiller', () => {
     },
     {
       description: 'une date',
-      selector: 'Choisir une date',
+      selector: libelleDateDisponibilite,
       message: 'Veuillez renseigner la date'
     },
     {

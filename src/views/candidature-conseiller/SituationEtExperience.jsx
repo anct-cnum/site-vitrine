@@ -27,33 +27,48 @@ export default function SituationEtExperience({ isSituationValid }) {
     <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="situation-et-experience">
       <legend className="fr-h5">Votre situation et expérience</legend>
       <hr />
-      <p className="fr-mb-3w cc-bold">
-        Êtes-vous actuellement dans l’une des situations suivantes ? <span className="cc-obligatoire">*</span>
-      </p>
-      {situations.map(({ id, libelle }) =>
-        <Checkbox id={id} key={id} onCheck={handleCheck} required={false}>
-          {libelle}
-        </Checkbox>
-      )}
-      {!isSituationValid && <div className="fr-messages-group fr-pl-1w" id="erreurs-checkboxes" aria-live="assertive">
-        <p className="fr-message fr-message--error" id="checkboxes-error-message-error">Vous devez cocher au moins une case</p>
-      </div>}
-      {
-        isDiplomeSelected &&
-        <Input
-          id="nomDiplomeMedNum"
-          isRequired={isDiplomeSelected}
-        >
-          Précisez le nom de votre diplôme, formation certifiante, modules de formation de médiation, numérique /accompagnement au numérique des publics.
-        </Input>
-      }
+      <div
+        role="group"
+        aria-labelledby="question-situations"
+        aria-describedby={isSituationValid ? undefined : 'checkboxes-error-message-error'}
+      >
+        <p className="fr-mb-3w cc-bold" id="question-situations">
+          Êtes-vous actuellement dans l’une des situations suivantes ? <span className="cc-obligatoire">*</span>
+        </p>
+        {situations.map(({ id, libelle }) =>
+          <Checkbox id={id} key={id} onCheck={handleCheck} required={false}>
+            {libelle}
+          </Checkbox>
+        )}
+        <div className="fr-messages-group fr-pl-1w" id="erreurs-checkboxes" aria-live="assertive">
+          {!isSituationValid &&
+            <p className="fr-message fr-message--error" id="checkboxes-error-message-error">Vous devez cocher au moins une case</p>
+          }
+        </div>
+        {
+          isDiplomeSelected &&
+          <Input
+            id="nomDiplomeMedNum"
+            isRequired={isDiplomeSelected}
+          >
+            Précisez le nom de votre diplôme, formation certifiante, modules de formation de médiation, numérique /accompagnement au numérique des publics.
+          </Input>
+        }
+      </div>
       <hr />
-      <p className="fr-mb-3w cc-bold">
+      <p className="fr-mb-3w cc-bold" id="question-experience">
         Avez-vous une expérience professionnelle de médiation numérique ? <span className="cc-obligatoire">*</span>
       </p>
-      <p className="fr-text--sm fr-hint-text">Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.</p>
-      <RadioGroup nomGroupe="aUneExperienceMedNum" options={options} />
-    </fieldset >
+      <p className="fr-text--sm fr-hint-text" id="description-experience">
+        Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.
+      </p>
+      <RadioGroup
+        nomGroupe="aUneExperienceMedNum"
+        options={options}
+        labelledBy="question-experience"
+        describedBy="description-experience"
+      />
+    </fieldset>
   );
 }
 
