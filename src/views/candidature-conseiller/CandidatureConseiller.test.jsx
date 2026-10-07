@@ -51,19 +51,23 @@ describe('candidature conseiller', () => {
 
     const prenom = within(etapeInformationsDeContact).getByLabelText('Prénom *');
     expect(prenom).toHaveAttribute('type', 'text');
+    expect(prenom).toHaveAttribute('autocomplete', 'given-name');
     expect(prenom).toBeRequired();
 
     const nom = within(etapeInformationsDeContact).getByLabelText('Nom *');
     expect(nom).toHaveAttribute('type', 'text');
+    expect(nom).toHaveAttribute('autocomplete', 'family-name');
     expect(nom).toBeRequired();
 
     const email = within(etapeInformationsDeContact).getByLabelText('Adresse électronique * Format attendu : nom@domaine.fr');
     expect(email).toHaveAttribute('type', 'email');
+    expect(email).toHaveAttribute('autocomplete', 'email');
     expect(email).toHaveAttribute('pattern', '^\\S+@\\S+\\.\\S+$');
     expect(email).toBeRequired();
 
     const telephone = within(etapeInformationsDeContact).getByLabelText('Téléphone Format attendu : 0122334455 ou +33122334455');
     expect(telephone).toHaveAttribute('type', 'tel');
+    expect(telephone).toHaveAttribute('autocomplete', 'tel');
     expect(telephone).toHaveAttribute('pattern', '^(\\+\\d{11,12}|\\d{10})$');
 
     const habitation = within(etapeInformationsDeContact).getByLabelText(('Votre lieu d’habitation * Saississez le nom ou le code postal de votre commune.'));
