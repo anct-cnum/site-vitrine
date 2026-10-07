@@ -51,11 +51,17 @@ export default function Disponibilite({ setDateDisponibilite, errors }) {
         Choisir une date
       </Datepicker>
       <hr />
-      <p className="fr-mb-3w cc-bold">
+      <p className="fr-mb-3w cc-bold" id="question-distance">
         Pour un emploi et une formation de conseiller numérique, vous êtes prêt(e) à vous déplacer à : <span className="cc-obligatoire">*</span>
       </p>
-      <p className="fr-text--sm fr-hint-text">Distance à partir de votre lieu d’habitation</p>
-      <RadioGroup nomGroupe="distanceMax" options={distances} tailleColonne={4} />
+      <p className="fr-text--sm fr-hint-text" id="description-distance">Distance à partir de votre lieu d’habitation</p>
+      <RadioGroup
+        nomGroupe="distanceMax"
+        options={distances}
+        tailleColonne={4}
+        labelledBy="question-distance"
+        describedBy="description-distance"
+      />
     </fieldset>
   );
 }
