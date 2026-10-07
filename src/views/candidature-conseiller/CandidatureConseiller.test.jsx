@@ -11,7 +11,8 @@ vi.mock('react-router-dom', () => ({
   useNavigate: vi.fn()
 }));
 
-const libelleDateDisponibilite = 'Choisir une date';
+const libelleDateDisponibilite = 'À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? * ' +
+  'Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.';
 
 describe('candidature conseiller', () => {
   it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {

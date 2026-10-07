@@ -41,14 +41,13 @@ export default function Disponibilite({ setDateDisponibilite, errors }) {
     <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="votre-disponibilite">
       <legend className="fr-h5">Votre disponibilité</legend>
       <hr />
-      <p className="fr-mb-3w cc-bold">
-        À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? <span className="cc-obligatoire">*</span>
-      </p>
-      <p className="fr-text--sm fr-hint-text">
-        Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.
-      </p>
       <Datepicker id="dateDisponibilite" onChange={event => setDateDisponibilite(event.target.value)} min={dateDuJour} error={errors.dateDisponibilite}>
-        Choisir une date
+        <span className="cc-bold">
+          À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? <span className="cc-obligatoire">*</span>
+        </span>{' '}
+        <span className="fr-hint-text fr-mt-3w">
+          Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.
+        </span>
       </Datepicker>
       <hr />
       <p className="fr-mb-3w cc-bold" id="question-distance">
