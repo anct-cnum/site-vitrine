@@ -813,4 +813,36 @@ describe('candidature conseiller', () => {
     const contenuErreurValidation = await screen.findByText(message, { selector: 'p' });
     expect(contenuErreurValidation).toBeInTheDocument();
   });
+
+  it('quand plusieurs champs sont en erreur alors chaque message d’erreur a un id unique et est lié à son champ', async () => {
+    // GIVEN
+    vi.stubGlobal('turnstile', {
+      reset: vi.fn(),
+      remove: vi.fn(),
+      render: vi.fn()
+    });
+    render(<CandidatureConseiller />);
+    const champsEnErreur = [
+      { libelle: 'Prénom *', message: 'Veuillez renseigner le prénom' },
+      { libelle: 'Nom *', message: 'Veuillez renseigner le nom' },
+      { libelle: 'Votre message * Limité à 2500 caractères', message: 'Veuillez renseigner la motivation' },
+    ].map(({ libelle, message }) => {
+      const champ = screen.getByLabelText(libelle);
+      Object.defineProperty(champ, 'validationMessage', { value: message, configurable: true });
+      return { champ, message };
+    });
+
+    // WHEN
+    fireEvent.click(screen.getByRole('button', { name: 'Envoyer votre candidature' }));
+
+    // THEN
+    const messages = await screen.findAllByText(/^Veuillez renseigner/, { selector: 'p' });
+    const ids = messages.map(message => message.id);
+    expect(new Set(ids).size).toBe(champsEnErreur.length);
+    champsEnErreur.forEach(({ champ, message }) => {
+      expect(champ).toHaveAttribute('aria-invalid', 'true');
+      expect(champ).toHaveAccessibleDescription(message);
+      expect(ids).toContain(champ.getAttribute('aria-describedby'));
+    });
+  });
 });
