@@ -28,6 +28,7 @@ export default function InformationsDeContact({ errors }) {
         type="email"
         pattern="^\S+@\S+\.\S+$"
         error={errors.email}
+        formatAttendu="nom@domaine.fr"
       >
         Adresse électronique <span className="cc-obligatoire">*</span> <span className="fr-hint-text">Format attendu : nom@domaine.fr</span>
       </Input>
@@ -38,6 +39,7 @@ export default function InformationsDeContact({ errors }) {
         pattern="^(\+\d{11,12}|\d{10})$"
         isRequired={false}
         error={errors.telephone}
+        formatAttendu="0122334455 ou +33122334455"
       >
         Téléphone <span className="fr-hint-text">Format attendu : 0122334455 ou +33122334455</span>
       </Input>

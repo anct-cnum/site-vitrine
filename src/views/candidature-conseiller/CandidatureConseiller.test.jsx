@@ -849,4 +849,43 @@ describe('candidature conseiller', () => {
       expect(ids).toContain(champ.getAttribute('aria-describedby'));
     });
   });
+
+  it.each([
+    {
+      description: 'un email',
+      selector: 'Adresse électronique * Format attendu : nom@domaine.fr',
+      valeur: 'jean.dupont',
+      messageNavigateur: 'Veuillez saisir une adresse électronique valide.',
+      message: 'Veuillez saisir une adresse électronique valide. Format attendu : nom@domaine.fr'
+    },
+    {
+      description: 'un téléphone',
+      selector: 'Téléphone Format attendu : 0122334455 ou +33122334455',
+      valeur: '01 22',
+      messageNavigateur: 'Veuillez respecter le format requis.',
+      message: 'Veuillez respecter le format requis. Format attendu : 0122334455 ou +33122334455'
+    },
+  ])('quand je saisis $description mal formaté alors l’erreur rappelle le format attendu', async ({ selector, valeur, messageNavigateur, message }) => {
+    // GIVEN
+    vi.stubGlobal('turnstile', {
+      reset: vi.fn(),
+      remove: vi.fn(),
+      render: vi.fn()
+    });
+    render(<CandidatureConseiller />);
+    const champDeFormulaire = screen.getByLabelText(selector);
+    Object.defineProperty(champDeFormulaire, 'validationMessage', {
+      value: messageNavigateur,
+      configurable: true,
+    });
+
+    // WHEN
+    fireEvent.change(champDeFormulaire, { target: { value: valeur } });
+    fireEvent.input(champDeFormulaire);
+
+    // THEN
+    const contenuErreurValidation = await screen.findByText(message, { selector: 'p' });
+    expect(contenuErreurValidation).toBeInTheDocument();
+    expect(champDeFormulaire).toHaveAccessibleDescription(message);
+  });
 });
