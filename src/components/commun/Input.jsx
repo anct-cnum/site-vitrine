@@ -18,6 +18,7 @@ export default function Input({
   value,
   maxlength,
   error,
+  formatAttendu,
 }) {
   return (
     <div className="fr-fieldset__element">
@@ -41,6 +42,7 @@ export default function Input({
           data-testid={testId}
           aria-describedby={error ? `${id}-error` : undefined}
           aria-invalid={error ? true : undefined}
+          data-format-attendu={formatAttendu}
         />
         {isLoading && (
           <div className="fr-input-spinner" aria-hidden="true">
@@ -73,5 +75,6 @@ Input.propTypes = {
   value: PropTypes.string,
   testId: PropTypes.string,
   maxlength: PropTypes.string,
-  error: PropTypes.string
+  error: PropTypes.string,
+  formatAttendu: PropTypes.string
 };
