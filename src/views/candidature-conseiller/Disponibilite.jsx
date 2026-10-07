@@ -46,7 +46,7 @@ export default function Disponibilite({ setDateDisponibilite, errors }) {
           À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? <span className="cc-obligatoire">*</span>
         </span>{' '}
         <span className="fr-hint-text fr-mt-3w">
-          Accompagnement de personnes vers l’autonomie dans leurs usages de technologies, services et médias numériques.
+          Indiquez une date approximative si vous n’êtes pas encore certain(e).
         </span>
       </Datepicker>
       <hr />
