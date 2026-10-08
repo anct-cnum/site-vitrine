@@ -162,13 +162,7 @@ describe('candidature structure', () => {
     expect(non).toBeRequired();
     expect(non).toHaveAttribute('name', 'aIdentifieCandidat');
 
-    const dateDebutMission = within(etapeBesoinConseillerNumerique).getByText(
-      textMatcher('À partir de quand êtes vous prêt à accueillir votre conseiller numerique ? *'),
-      { selector: 'p' }
-    );
-    expect(dateDebutMission).toBeInTheDocument();
-
-    const date = within(etapeBesoinConseillerNumerique).getByLabelText('Choisir une date');
+    const date = within(etapeBesoinConseillerNumerique).getByLabelText('À partir de quand êtes vous prêt à accueillir votre conseiller numerique ? *');
     expect(date).toHaveAttribute('type', 'date');
     expect(date).toBeRequired();
   });
@@ -379,7 +373,7 @@ describe('candidature structure', () => {
     fireEvent.change(nombre, { target: { value: 1 } });
     const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(identificationCandidat);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText('À partir de quand êtes vous prêt à accueillir votre conseiller numerique ? *');
     fireEvent.change(date, { target: { value: dateDujour() } });
     const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
@@ -438,7 +432,7 @@ describe('candidature structure', () => {
     fireEvent.change(nombre, { target: { value: 1 } });
     const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(identificationCandidat);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText('À partir de quand êtes vous prêt à accueillir votre conseiller numerique ? *');
     fireEvent.change(date, { target: { value: dateDujour() } });
     const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
@@ -715,7 +709,7 @@ describe('candidature structure', () => {
     fireEvent.change(nombre, { target: { value: 1 } });
     const identificationCandidat = screen.getByRole('radio', { name: 'Oui' });
     fireEvent.click(identificationCandidat);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText('À partir de quand êtes vous prêt à accueillir votre conseiller numerique ? *');
     fireEvent.change(date, { target: { value: dateDujour() } });
     const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
@@ -782,7 +776,7 @@ describe('candidature structure', () => {
     },
     {
       description: 'une date',
-      selector: 'Choisir une date',
+      selector: 'À partir de quand êtes vous prêt à accueillir votre conseiller numerique ? *',
       message: 'Veuillez renseigner la date'
     },
     {

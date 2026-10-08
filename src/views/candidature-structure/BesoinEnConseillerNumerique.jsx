@@ -27,13 +27,19 @@ export default function BesoinEnConseillerNumerique({ errors }) {
         Combien de conseillers numériques souhaitez-vous accueillir ? <span className="cc-obligatoire">*</span>
       </Input>
       <hr />
-      <p className="fr-mb-3w cc-bold">Avez-vous déjà identifié un candidat pour le poste de conseiller numérique ? <span className="cc-obligatoire">*</span></p>
-      <p className="fr-text--sm fr-hint-text">Si oui, merci d’inviter ce candidat à s’inscrire sur la plateforme Conseiller numérique.</p>
-      <RadioGroup nomGroupe="aIdentifieCandidat" options={ouiOuNOn} />
+      <p className="fr-mb-3w cc-bold" id="question-candidat-identifie">Avez-vous déjà identifié un candidat pour le poste de conseiller numérique ? <span className="cc-obligatoire">*</span></p>
+      <p className="fr-text--sm fr-hint-text" id="description-candidat-identifie">Si oui, merci d’inviter ce candidat à s’inscrire sur la plateforme Conseiller numérique.</p>
+      <RadioGroup
+        nomGroupe="aIdentifieCandidat"
+        options={ouiOuNOn}
+        labelledBy="question-candidat-identifie"
+        describedBy="description-candidat-identifie"
+      />
       <hr />
-      <p className="fr-mb-3w cc-bold">À partir de quand êtes vous prêt à accueillir votre conseiller numerique ? <span className="cc-obligatoire">*</span></p>
       <Datepicker id="dateDebutMission" min={dateDuJour} error={errors.dateDebutMission}>
-        Choisir une date
+        <span className="cc-bold">
+          À partir de quand êtes vous prêt à accueillir votre conseiller numerique ? <span className="cc-obligatoire">*</span>
+        </span>
       </Datepicker>
     </fieldset >
   );
