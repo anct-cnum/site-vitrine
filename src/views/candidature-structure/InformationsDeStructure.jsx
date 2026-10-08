@@ -129,11 +129,11 @@ export default function InformationsDeStructure({ setGeoLocation, setCodeCommune
           </div>
         </div>
       </div>
-      <p className="fr-mb-3w cc-bold">
+      <p className="fr-mb-3w cc-bold" id="question-type-structure">
         Votre structure est <span className="cc-obligatoire">*</span>
       </p>
       <div className="fr-grid-row">
-        <RadioGroup nomGroupe="type" options={options} />
+        <RadioGroup nomGroupe="type" options={options} labelledBy="question-type-structure" />
       </div>
     </fieldset>
   );

@@ -168,13 +168,7 @@ describe('candidature coordinateur', () => {
     expect(publics).toBeRequired();
     expect(publics).toHaveAttribute('name', 'coordinateurTypeContrat');
 
-    const dateAccueilCoordinateur = within(etapeBesoinCoordinateur).getByText(
-      textMatcher('À partir de quand êtes vous prêt à accueillir votre coordinateur ? *'),
-      { selector: 'p' }
-    );
-    expect(dateAccueilCoordinateur).toBeInTheDocument();
-
-    const date = within(etapeBesoinCoordinateur).getByLabelText('Choisir une date');
+    const date = within(etapeBesoinCoordinateur).getByLabelText('À partir de quand êtes vous prêt à accueillir votre coordinateur ? *');
     expect(date).toHaveAttribute('type', 'date');
     expect(date).toBeRequired();
   });
@@ -291,7 +285,7 @@ describe('candidature coordinateur', () => {
     fireEvent.click(identificationCandidat);
     const typeMission = screen.getByRole('radio', { name: 'Accompagnera également des publics' });
     fireEvent.click(typeMission);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText('À partir de quand êtes vous prêt à accueillir votre coordinateur ? *');
     fireEvent.change(date, { target: { value: dateDujour() } });
     const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
@@ -350,7 +344,7 @@ describe('candidature coordinateur', () => {
     fireEvent.click(identificationCandidat);
     const typeMission = screen.getByRole('radio', { name: 'Accompagnera également des publics' });
     fireEvent.click(typeMission);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText('À partir de quand êtes vous prêt à accueillir votre coordinateur ? *');
     fireEvent.change(date, { target: { value: dateDujour() } });
     const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
@@ -626,7 +620,7 @@ describe('candidature coordinateur', () => {
     fireEvent.click(identificationCandidat);
     const typeMission = screen.getByRole('radio', { name: 'Accompagnera également des publics' });
     fireEvent.click(typeMission);
-    const date = screen.getByLabelText('Choisir une date');
+    const date = screen.getByLabelText('À partir de quand êtes vous prêt à accueillir votre coordinateur ? *');
     fireEvent.change(date, { target: { value: dateDujour() } });
     const descriptionMotivation = screen.getByLabelText('Votre message * Limité à 2500 caractères');
     fireEvent.change(descriptionMotivation, { target: { value: 'je suis motivé !' } });
@@ -688,7 +682,7 @@ describe('candidature coordinateur', () => {
     },
     {
       description: 'une date',
-      selector: 'Choisir une date',
+      selector: 'À partir de quand êtes vous prêt à accueillir votre coordinateur ? *',
       message: 'Veuillez renseigner la date'
     },
     {
