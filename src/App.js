@@ -1,10 +1,13 @@
 import React, { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 import '@gouvfr/dsfr/dist/core/core.module.min.js';
 import '@gouvfr/dsfr/dist/component/navigation/navigation.module.min.js';
 import '@gouvfr/dsfr/dist/component/modal/modal.module.min.js';
 import '@gouvfr/dsfr/dist/component/header/header.module.min.js';
+import '@gouvfr/dsfr/dist/component/display/display.module.min.js';
 import './assets/sass/main.scss';
 import '@gouvfr/dsfr/dist/core/core.min.css';
 import '@gouvfr/dsfr/dist/component/button/button.min.css';
@@ -33,6 +36,7 @@ function App() {
     <div className="App">
       <Suspense>
         <Router>
+          <Header />
           <Routes>
             <Route path="/candidature-conseiller" element={<PageCandidatureConseiller />}/>
             <Route path="/candidature-poste-conseiller" element={<PageCandidatureStructure />}/>
@@ -43,6 +47,7 @@ function App() {
             <Route path="/candidature-confirmer-structure/:token" element={<PageConfirmationEmailCandidatureStructure />}/>
             <Route path="*" element={<RedirectionAccueil />}/>
           </Routes>
+          <Footer />
         </Router>
       </Suspense>
     </div>
