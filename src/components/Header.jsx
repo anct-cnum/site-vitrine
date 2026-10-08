@@ -59,10 +59,10 @@ export default function Header() {
             </div>
             <div className="fr-header__tools">
               <div className="fr-header__tools-links">
-                <ul className="fr-links-group">
+                <ul className="fr-btns-group">
                   <li>
                     <a
-                      className="fr-link fr-icon-question-answer-line"
+                      className="fr-btn fr-btn--tertiary fr-icon-question-answer-line fr-btn--icon-left"
                       href="https://aide.conseiller-numerique.gouv.fr/fr/"
                       target="_blank"
                       rel="noopener noreferrer"
