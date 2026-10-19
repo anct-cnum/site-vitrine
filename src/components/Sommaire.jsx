@@ -8,11 +8,11 @@ export default function Sommaire({ parties }) {
   const [dernierElementClique, setDernierElementClique] = useState(hash || parties[0].ancre);
 
   const getAriaCurrent = ancre => {
-    return ancre === dernierElementClique ? 'page' : false;
+    return ancre === dernierElementClique ? 'location' : false;
   };
 
   return (
-    <nav aria-label="Sommaire" className="fr-sidemenu fr-mt-15w fr-sidemenu--sticky-full-height">
+    <nav role="navigation" aria-label="Sommaire" className="fr-sidemenu fr-mt-15w fr-sidemenu--sticky-full-height">
       <ol className="fr-sidemenu__list">
         {parties.map(({ ancre, libelle }, index) => (
           <li className="fr-sidemenu__item" key={index} onClick={() => setDernierElementClique(ancre)}>

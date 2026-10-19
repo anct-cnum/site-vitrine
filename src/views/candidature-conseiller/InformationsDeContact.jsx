@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 export default function InformationsDeContact({ errors }) {
   return (
-    <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="informations-de-contact">
-      <legend className="fr-h5">Vos informations de contact</legend>
+    <section className="fr-border cc-section fr-p-3w fr-mb-3w" id="informations-de-contact" aria-labelledby="informations-de-contact-titre">
+      <h2 className="fr-h5" id="informations-de-contact-titre">Vos informations de contact</h2>
       <hr />
       <Input
         id="prenom"
@@ -44,7 +44,7 @@ export default function InformationsDeContact({ errors }) {
         Téléphone <span className="fr-hint-text">Format attendu : 0122334455 ou +33122334455</span>
       </Input>
       <AddressChooser error={errors.lieuHabitation} />
-    </fieldset>
+    </section>
   );
 }
 

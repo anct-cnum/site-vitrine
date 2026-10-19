@@ -49,7 +49,7 @@ describe('candidature conseiller', () => {
 
     // THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
-    const etapeInformationsDeContact = within(formulaire).getByRole('group', { name: 'Vos informations de contact' });
+    const etapeInformationsDeContact = within(formulaire).getByRole('region', { name: 'Vos informations de contact' });
     expect(etapeInformationsDeContact).toHaveAttribute('id', 'informations-de-contact');
 
     const prenom = within(etapeInformationsDeContact).getByLabelText('Prénom *');
@@ -86,7 +86,7 @@ describe('candidature conseiller', () => {
 
     // THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
-    const situationEtExperience = within(formulaire).getByRole('group', { name: 'Votre situation et expérience' });
+    const situationEtExperience = within(formulaire).getByRole('region', { name: 'Votre situation et expérience' });
     expect(situationEtExperience).toHaveAttribute('id', 'situation-et-experience');
 
     const situation = within(situationEtExperience).getByText(textMatcher('Êtes-vous actuellement dans l’une des situations suivantes ? *'), { selector: 'p' });
@@ -159,7 +159,7 @@ describe('candidature conseiller', () => {
 
     // THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
-    const votreDisponibilite = within(formulaire).getByRole('group', { name: 'Votre disponibilité' });
+    const votreDisponibilite = within(formulaire).getByRole('region', { name: 'Votre disponibilité' });
     expect(votreDisponibilite).toHaveAttribute('id', 'votre-disponibilite');
 
     const date = within(votreDisponibilite).getByLabelText(libelleDateDisponibilite);
@@ -227,7 +227,7 @@ describe('candidature conseiller', () => {
 
     // THEN
     const formulaire = screen.getByRole('form', { name: 'Candidature conseiller' });
-    const votreMotivation = within(formulaire).getByRole('group', { name: 'Votre motivation' });
+    const votreMotivation = within(formulaire).getByRole('region', { name: 'Votre motivation' });
     expect(votreMotivation).toHaveAttribute('id', 'votre-motivation');
 
     const aideMotivation = within(votreMotivation).getByText(

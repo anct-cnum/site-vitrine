@@ -38,8 +38,8 @@ export default function Disponibilite({ setDateDisponibilite, errors }) {
   const dateDuJour = new Date().toISOString().slice(0, 10);
 
   return (
-    <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="votre-disponibilite">
-      <legend className="fr-h5">Votre disponibilité</legend>
+    <section className="fr-border cc-section fr-p-3w fr-mb-3w" id="votre-disponibilite" aria-labelledby="votre-disponibilite-titre">
+      <h2 className="fr-h5" id="votre-disponibilite-titre">Votre disponibilité</h2>
       <hr />
       <Datepicker id="dateDisponibilite" onChange={event => setDateDisponibilite(event.target.value)} min={dateDuJour} error={errors.dateDisponibilite}>
         <span className="cc-bold">
@@ -61,7 +61,7 @@ export default function Disponibilite({ setDateDisponibilite, errors }) {
         labelledBy="question-distance"
         describedBy="description-distance"
       />
-    </fieldset>
+    </section>
   );
 }
 
