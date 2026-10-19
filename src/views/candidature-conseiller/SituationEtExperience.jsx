@@ -24,8 +24,8 @@ export default function SituationEtExperience({ isSituationValid }) {
   };
 
   return (
-    <fieldset className="fr-border cc-section fr-p-3w fr-mb-3w" id="situation-et-experience">
-      <legend className="fr-h5">Votre situation et expérience</legend>
+    <section className="fr-border cc-section fr-p-3w fr-mb-3w" id="situation-et-experience" aria-labelledby="situation-et-experience-titre">
+      <h2 className="fr-h5" id="situation-et-experience-titre">Votre situation et expérience</h2>
       <hr />
       <div
         role="group"
@@ -68,7 +68,7 @@ export default function SituationEtExperience({ isSituationValid }) {
         labelledBy="question-experience"
         describedBy="description-experience"
       />
-    </fieldset>
+    </section>
   );
 }
 

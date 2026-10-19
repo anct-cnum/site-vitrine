@@ -37,16 +37,18 @@ function App() {
       <Suspense>
         <Router>
           <Header />
-          <Routes>
-            <Route path="/candidature-conseiller" element={<PageCandidatureConseiller />}/>
-            <Route path="/candidature-poste-conseiller" element={<PageCandidatureStructure />}/>
-            <Route path="/candidature-poste-coordinateur" element={<PageCandidatureCoordinateur />}/>
-            <Route path="/candidature-validee-conseiller" element={<PageCandidatureValideeConseiller />}/>
-            <Route path="/candidature-validee-structure" element={<PageCandidatureValideeStructure />}/>
-            <Route path="/candidature-confirmer-conseiller/:token" element={<PageConfirmationEmailCandidatureConseiller />}/>
-            <Route path="/candidature-confirmer-structure/:token" element={<PageConfirmationEmailCandidatureStructure />}/>
-            <Route path="*" element={<RedirectionAccueil />}/>
-          </Routes>
+          <main>
+            <Routes>
+              <Route path="/candidature-conseiller" element={<PageCandidatureConseiller />}/>
+              <Route path="/candidature-poste-conseiller" element={<PageCandidatureStructure />}/>
+              <Route path="/candidature-poste-coordinateur" element={<PageCandidatureCoordinateur />}/>
+              <Route path="/candidature-validee-conseiller" element={<PageCandidatureValideeConseiller />}/>
+              <Route path="/candidature-validee-structure" element={<PageCandidatureValideeStructure />}/>
+              <Route path="/candidature-confirmer-conseiller/:token" element={<PageConfirmationEmailCandidatureConseiller />}/>
+              <Route path="/candidature-confirmer-structure/:token" element={<PageConfirmationEmailCandidatureStructure />}/>
+              <Route path="*" element={<RedirectionAccueil />}/>
+            </Routes>
+          </main>
           <Footer />
         </Router>
       </Suspense>
