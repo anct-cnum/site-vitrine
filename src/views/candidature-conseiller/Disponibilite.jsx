@@ -46,7 +46,7 @@ export default function Disponibilite({ setDateDisponibilite, errors }) {
           À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? <span className="cc-obligatoire">*</span>
         </span>{' '}
         <span className="fr-hint-text fr-mt-3w">
-          Indiquez une date approximative si vous n’êtes pas encore certain(e).
+          Indiquez une date approximative si vous n’êtes pas encore certain(e). Format : 10/10/2010.
         </span>
       </Datepicker>
       <hr />

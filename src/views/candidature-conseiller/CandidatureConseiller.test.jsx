@@ -12,7 +12,7 @@ vi.mock('react-router-dom', () => ({
 }));
 
 const libelleDateDisponibilite = 'À quel moment êtes-vous prêt(e) à démarrer votre mission et la formation de conseiller numérique ? * ' +
-  'Indiquez une date approximative si vous n’êtes pas encore certain(e).';
+  'Indiquez une date approximative si vous n’êtes pas encore certain(e). Format : 10/10/2010.';
 
 describe('candidature conseiller', () => {
   it('quand j’affiche le formulaire alors le titre et le menu s’affichent', () => {
