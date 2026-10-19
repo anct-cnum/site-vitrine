@@ -16,7 +16,7 @@ export default function AddressChooser({ error }) {
   return (
     <>
       <Input
-        autoComplete="off"
+        autoComplete="postal-code"
         id="lieuHabitation"
         list="resultatsRecherche"
         error={error}
