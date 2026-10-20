@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
+import './Sommaire.css';
 
 export default function Sommaire({ parties }) {
   const { hash } = useLocation();

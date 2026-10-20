@@ -37,7 +37,7 @@ function App() {
       <Suspense>
         <Router>
           <Header />
-          <main>
+          <main role="main">
             <Routes>
               <Route path="/candidature-conseiller" element={<PageCandidatureConseiller />}/>
               <Route path="/candidature-poste-conseiller" element={<PageCandidatureStructure />}/>
