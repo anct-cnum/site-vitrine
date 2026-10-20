@@ -1,0 +1,8 @@
+/* Renforce la visibilité du repère de lien actif (RGAA 3.1) sur mobile, où le
+   trait de 2px du DSFR est jugé trop fin pour être perçu facilement. */
+@media (max-width: 47.99em) {
+  .fr-sidemenu__link[aria-current]:not([aria-current=false])::before,
+  .fr-sidemenu__btn[aria-current]:not([aria-current=false])::before {
+    width: 4px !important;
+  }
+}

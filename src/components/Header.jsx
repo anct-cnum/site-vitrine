@@ -48,7 +48,11 @@ export default function Header() {
                 </div>
               </div>
               <div className="fr-header__service">
-                <a href={SITE_VITRINE_URL} title="Accueil - Conseiller numérique">
+                <a
+                  href={SITE_VITRINE_URL}
+                  title="Accueil - Conseiller numérique"
+                  aria-label="Retour à l'accueil Conseiller numérique"
+                >
                   <p className="fr-header__service-title">
                     Conseiller
                     <br />
