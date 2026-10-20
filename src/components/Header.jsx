@@ -54,9 +54,9 @@ export default function Header() {
                   aria-label="Retour à l'accueil Conseiller numérique"
                 >
                   <p className="fr-header__service-title">
-                    Conseiller
+                    CONSEILLER
                     <br />
-                    Numérique
+                    NUMÉRIQUE
                   </p>
                 </a>
               </div>
