@@ -53,7 +53,7 @@ export default function Header() {
                   title="Accueil - Conseiller numérique"
                   aria-label="Retour à l'accueil Conseiller numérique"
                 >
-                  <p className="fr-header__service-title">
+                  <p className="fr-header__service-title" aria-hidden="true">
                     CONSEILLER
                     <br />
                     NUMÉRIQUE
