@@ -26,14 +26,25 @@ export default function Footer() {
     <>
       <footer className="fr-footer" role="contentinfo" id="footer">
         <div className="fr-container">
-          <div className="fr-footer__body fr-footer__body--operator">
+          <div className="fr-footer__body">
             <div className="fr-footer__brand fr-enlarge-link">
-              <a className="fr-footer__brand-link" href={SITE_VITRINE_URL} title="Accueil - Conseiller numérique">
-                <p className="fr-logo">
-                  République
-                  <br />
-                  Française
-                </p>
+              <p className="fr-logo">
+                République
+                <br />
+                Française
+              </p>
+              <a
+                className="fr-footer__brand-link"
+                href={SITE_VITRINE_URL}
+                title="Accueil - Conseiller numérique"
+                aria-label="Retour à l'accueil Conseiller numérique"
+              >
+                <img
+                  className="fr-footer__logo"
+                  style={{ maxWidth: '9.0625rem' }}
+                  src={logoAnct}
+                  alt="Agence Nationale de la Cohésion des Territoires - Société numérique"
+                />
               </a>
             </div>
             <div className="fr-footer__content">
@@ -46,16 +57,6 @@ export default function Footer() {
                   <span className="fr-sr-only"> (ouvre une nouvelle fenêtre)</span>
                 </a>
               </p>
-            </div>
-            <div className="fr-footer__partners-logos">
-              <div className="fr-footer__partners-main">
-                <img
-                  className="fr-footer__logo"
-                  style={{ maxWidth: '9.0625rem' }}
-                  src={logoAnct}
-                  alt="Agence Nationale de la Cohésion des Territoires - Société numérique"
-                />
-              </div>
             </div>
           </div>
           <div className="fr-footer__bottom">
