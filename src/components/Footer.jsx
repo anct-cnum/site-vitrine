@@ -43,7 +43,7 @@ export default function Footer() {
                   className="fr-footer__logo"
                   style={{ maxWidth: '9.0625rem' }}
                   src={logoAnct}
-                  alt="Agence Nationale de la Cohésion des Territoires - Société numérique"
+                  alt=""
                 />
               </a>
             </div>
